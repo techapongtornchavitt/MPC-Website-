@@ -45,9 +45,9 @@
       'footer-terms':       'Terms of Service',
 
       /* ---------- Index page ---------- */
-      'hero-eyebrow':   'Industrial Chain Solutions',
-      'hero-h1':        'Precision Chains.<br><span>World-Class</span> Performance.',
-      'hero-sub':       'Motion Plus Corporation is your authorised distributor and after-sales service provider for premium industrial chain solutions across Southeast Asia.',
+      'hero-eyebrow':   'Global Industrial Chain Specialists',
+      'hero-h1':        'Precision Industrial<br><span>Chain Systems</span>',
+      'hero-sub':       'Engineered for Steel, Cement, Palm Oil &amp; Heavy Industry Across Southeast Asia.',
       'hero-btn-view':  'View Our Work',
       'hero-btn-quote': 'Get a Quote',
       'stat-years-lbl': 'Years Experience',
@@ -68,7 +68,7 @@
       'esc-btn':        'Get Product Details',
       'brands-eyebrow': 'Brand Partners',
       'brands-h2':      'Our Authorised Brands',
-      'brands-body':    'We are the authorised distributor for ten world-class industrial chain manufacturers, bringing global engineering standards to your operations.',
+      'brands-body':    'We are the authorised distributor for four world-class industrial brands, bringing global engineering standards and reliable industrial solutions to your operations.',
       'commit-eyebrow': 'Our Promise',
       'commit-h2':      'Our Commitment',
       'commit-quote':   'We provide after-sales support by maintaining close communication with our customers and suppliers. We coordinate with manufacturers to resolve issues efficiently — without requiring international site visits.',
@@ -489,8 +489,8 @@
       'prd-kmhpipe-desc':  'KMH enclosed pipe conveyor systems, tracks, and components for dust-free bulk material handling.',
       /* ---------- Distributor Brands section ---------- */
       'distrib-eyebrow': 'Distribution Portfolio',
-      'distrib-h2':      'Distributor Brands',
-      'distrib-body':    'Beyond our authorised brands, we distribute additional world-class industrial products to serve the full spectrum of your manufacturing needs.',
+      'distrib-h2':      'Brands We Distribute',
+      'distrib-body':    'Beyond our four authorised brands, MPC distributes an extensive portfolio of world-class industrial products — chains, belts, bearings, couplings, and conveyor components — sourced from trusted global manufacturers to cover the full spectrum of your operations.',
 
       /* ---------- Our House Brand section ---------- */
       'hb-eyebrow':      'Proprietary Products',

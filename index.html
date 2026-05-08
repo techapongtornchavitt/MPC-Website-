@@ -255,15 +255,6 @@
     }
     .commitment-quote.in-view::before { height: 100%; }
 
-    /* ---- Announcement bar arrow nudge — fires 3× then stops ---- */
-    @media (prefers-reduced-motion: no-preference) {
-      @keyframes nudge {
-        0%, 100% { transform: translateX(0); }
-        50%       { transform: translateX(4px); }
-      }
-      .announcement a { display: inline-block; animation: nudge 1.8s ease-in-out 3; }
-    }
-
     /* ---- Header glassmorphism on scroll ---- */
     .site-header {
       transition: background 300ms ease, box-shadow 300ms ease;
@@ -625,6 +616,160 @@
     }
 
     /* ======================================
+       DISTRIBUTOR PORTFOLIO SPLIT LAYOUT
+    ====================================== */
+    .distrib-portfolio-split {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .distrib-portfolio-left .section-eyebrow { color: var(--color-light-blue); }
+    .distrib-portfolio-left .section-eyebrow::before,
+    .distrib-portfolio-left .section-eyebrow::after { background: var(--color-light-blue); }
+    .distrib-portfolio-left h2 { color: var(--color-white); margin-bottom: 1.25rem; }
+    .distrib-portfolio-left p  {
+      color: rgba(255,255,255,.62);
+      line-height: 1.78;
+      font-size: .98rem;
+      margin-bottom: 0;
+    }
+    .distrib-portfolio-stats {
+      display: flex;
+      margin-top: 2.25rem;
+      border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius-sm);
+      overflow: hidden;
+    }
+    .distrib-portfolio-stat {
+      flex: 1;
+      padding: 1.1rem 1.4rem;
+      border-right: 1px solid rgba(255,255,255,.1);
+      text-align: center;
+    }
+    .distrib-portfolio-stat:last-child { border-right: none; }
+    .distrib-stat-num {
+      display: block;
+      font-size: 1.7rem;
+      font-weight: 800;
+      color: var(--color-light-blue);
+      line-height: 1;
+      letter-spacing: -.01em;
+    }
+    .distrib-stat-lbl {
+      display: block;
+      font-size: .68rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.4);
+      margin-top: .3rem;
+    }
+    .distrib-portfolio-certs {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-top: 1.75rem;
+    }
+    .distrib-portfolio-img-frame {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1);
+      box-shadow: 0 32px 80px rgba(0,0,0,.55), 0 0 0 1px rgba(74,144,226,.08);
+      background: rgba(255,255,255,.03);
+    }
+    .distrib-portfolio-img-frame::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(74,144,226,.07) 0%, transparent 55%);
+      z-index: 1;
+      pointer-events: none;
+      border-radius: 16px;
+    }
+    .distrib-portfolio-img-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      padding: 2rem;
+      position: relative;
+      z-index: 0;
+    }
+    @media (max-width: 960px) {
+      .distrib-portfolio-split { grid-template-columns: 1fr; gap: 2.5rem; }
+    }
+
+    /* ======================================
+       SECTION RHYTHM OVERRIDES
+    ====================================== */
+    /* Industries: dark */
+    .industries-dark {
+      background: var(--color-dark-navy);
+    }
+    .industries-dark .section-header h2 { color: var(--color-white); }
+    .industries-dark .section-header p  { color: rgba(255,255,255,.62); }
+    .industries-dark .section-eyebrow   { color: #7ec8e3; }
+    .industries-dark .section-eyebrow::before,
+    .industries-dark .section-eyebrow::after { background: #7ec8e3; }
+
+    /* House Brand: light */
+    .house-brand-section {
+      background: var(--color-grey-lt) !important;
+    }
+    .house-brand-section .section-eyebrow {
+      color: var(--color-primary) !important;
+    }
+    .house-brand-section .section-eyebrow::before,
+    .house-brand-section .section-eyebrow::after {
+      background: var(--color-primary) !important;
+    }
+    .house-brand-section .section-header h2 { color: var(--color-black) !important; }
+    .house-brand-section .section-header p  { color: var(--color-grey) !important; }
+    .house-brand-section .house-brand-card {
+      background: #fff !important;
+      border-color: rgba(0,0,0,.08) !important;
+      box-shadow: 0 4px 24px rgba(0,0,0,.07);
+    }
+    .house-brand-section .hb-img-wrap { background: #e8edf4 !important; }
+    .house-brand-section .hb-content h3 { color: var(--color-black) !important; }
+    .house-brand-section .hb-content p  { color: var(--color-grey) !important; }
+    .house-brand-section .hb-badge {
+      background: rgba(0,86,164,.08) !important;
+      border-color: rgba(0,86,164,.2) !important;
+      color: var(--color-primary) !important;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .house-brand-section .house-brand-card:hover {
+        box-shadow: 0 20px 60px rgba(0,86,164,.15) !important;
+      }
+    }
+
+    /* Commitment: dark */
+    .commitment-dark {
+      background: var(--color-dark-navy) !important;
+    }
+    .commitment-dark .section-eyebrow { color: #7ec8e3 !important; }
+    .commitment-dark .section-eyebrow::before,
+    .commitment-dark .section-eyebrow::after { background: #7ec8e3 !important; }
+    .commitment-dark h2 { color: var(--color-white) !important; }
+    .commitment-dark p  { color: rgba(255,255,255,.68) !important; }
+
+    /* Hero overlay: deeper */
+    .hero-overlay {
+      background: linear-gradient(
+        155deg,
+        rgba(4, 10, 26, 0.87) 0%,
+        rgba(7, 16, 38, 0.78) 55%,
+        rgba(0, 60, 120, 0.22) 100%
+      ) !important;
+    }
+
+    /* More breathing room */
+    .section { padding: calc(var(--space-2xl) * 1.2) 0; }
+
+    /* ======================================
        RESPONSIVE
     ====================================== */
     /* ---- Responsive ---- */
@@ -649,12 +794,6 @@
 
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress"></div>
-
-<!-- Announcement Bar -->
-<div class="announcement">
-  <span data-i18n="ann-text">Authorised Distributor &amp; After-Sales Service Provider for Industrial Chain Solutions</span> &nbsp;
-  <a href="contact.html" data-i18n="ann-link">Enquire Now →</a>
-</div>
 
 <!-- Header -->
 <header class="site-header">
@@ -708,9 +847,9 @@
   <div class="container">
     <div class="hero-inner">
       <div class="hero-content">
-        <span class="hero-eyebrow" data-i18n="hero-eyebrow">Industrial Chain Solutions</span>
-        <h1 data-i18n="hero-h1">Precision Chains.<br><span>World-Class</span> Performance.</h1>
-        <p class="hero-sub" data-i18n="hero-sub">Motion Plus Corporation is your authorised distributor and after-sales service provider for premium industrial chain solutions across Southeast Asia.</p>
+        <span class="hero-eyebrow" data-i18n="hero-eyebrow">Global Industrial Chain Specialists</span>
+        <h1 data-i18n="hero-h1">Precision Industrial<br><span>Chain Systems</span></h1>
+        <p class="hero-sub" data-i18n="hero-sub">Engineered for Steel, Cement, Palm Oil &amp; Heavy Industry Across Southeast Asia.</p>
         <div class="hero-btns">
           <a href="portfolio.html" class="btn-primary" data-i18n="hero-btn-view">View Our Work</a>
           <a href="contact.html"   class="btn-outline-white" data-i18n="hero-btn-quote">Get a Quote</a>
@@ -738,25 +877,19 @@
   </div>
 </section>
 
-<!-- ============ CERT BADGES ============ -->
-<div class="stats-bar reveal">
-  <div class="container">
-    <div class="cert-row" style="margin-top:0;">
-      <span class="cert-badge" data-i18n="cert-iso">ISO Certified</span>
-      <span class="cert-badge" data-i18n="cert-dist">Authorised Distributor</span>
-      <span class="cert-badge" data-i18n="cert-as">After-Sales Service</span>
-      <span class="cert-badge" data-i18n="cert-sea">SEA Coverage</span>
-    </div>
-  </div>
-</div>
-
 <!-- ============ OUR BRANDS ============ -->
 <section class="section reveal" style="background:var(--color-grey-lt)">
   <div class="container">
     <div class="section-header">
       <span class="section-eyebrow" data-i18n="brands-eyebrow">Brand Partners</span>
       <h2 data-i18n="brands-h2">Our Authorised Brands</h2>
-      <p data-i18n="brands-body">We are the authorised distributor for ten world-class industrial chain manufacturers, bringing global engineering standards to your operations.</p>
+      <p data-i18n="brands-body">We are the authorised distributor for four world-class industrial brands, bringing global engineering standards and reliable industrial solutions to your operations.</p>
+      <div class="cert-row">
+        <span class="cert-badge" style="background:rgba(0,86,164,.09);border-color:rgba(0,86,164,.2);color:var(--color-primary)">ISO Certified</span>
+        <span class="cert-badge" style="background:rgba(0,86,164,.09);border-color:rgba(0,86,164,.2);color:var(--color-primary)">Authorised Distributor</span>
+        <span class="cert-badge" style="background:rgba(0,86,164,.09);border-color:rgba(0,86,164,.2);color:var(--color-primary)">After-Sales Service</span>
+        <span class="cert-badge" style="background:rgba(0,86,164,.09);border-color:rgba(0,86,164,.2);color:var(--color-primary)">SEA Coverage</span>
+      </div>
     </div>
     <div class="brands-showcase-grid">
 
@@ -811,14 +944,45 @@
 <!-- ============ DISTRIBUTOR BRANDS ============ -->
 <section class="section reveal distrib-section" id="distributor-brands">
   <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow" style="color:var(--color-light-blue)" data-i18n="distrib-eyebrow">Distribution Portfolio</span>
-      <h2 style="color:var(--color-white)" data-i18n="distrib-h2">Distributor Brands</h2>
-      <p style="color:rgba(255,255,255,.6)" data-i18n="distrib-body">Beyond our authorised brands, we distribute additional world-class industrial products to serve the full spectrum of your manufacturing needs.</p>
-    </div>
+    <div class="distrib-portfolio-split">
 
-    <div class="distrib-img-wrap">
-      <img src="mpc-distributor-brands.png" alt="MPC Distributor Brands Portfolio — Industrial Chain Solutions Thailand" loading="lazy" decoding="async">
+      <!-- LEFT: Text + stats + CTA -->
+      <div class="distrib-portfolio-left">
+        <span class="section-eyebrow" data-i18n="distrib-eyebrow">Distribution Portfolio</span>
+        <h2 data-i18n="distrib-h2">Brands We Distribute</h2>
+        <p data-i18n="distrib-body">Beyond our four authorised brands, MPC distributes an extensive portfolio of world-class industrial products — chains, belts, bearings, couplings, and conveyor components — sourced from trusted global manufacturers to cover the full spectrum of your operations.</p>
+
+        <div class="distrib-portfolio-stats">
+          <div class="distrib-portfolio-stat">
+            <span class="distrib-stat-num">10+</span>
+            <span class="distrib-stat-lbl">Brands Distributed</span>
+          </div>
+          <div class="distrib-portfolio-stat">
+            <span class="distrib-stat-num">20+</span>
+            <span class="distrib-stat-lbl">Years Experience</span>
+          </div>
+          <div class="distrib-portfolio-stat">
+            <span class="distrib-stat-num">SEA</span>
+            <span class="distrib-stat-lbl">Regional Reach</span>
+          </div>
+        </div>
+
+        <div class="distrib-portfolio-certs">
+          <span class="cert-badge">ISO Certified</span>
+          <span class="cert-badge">Authorised Distributor</span>
+          <span class="cert-badge">After-Sales Service</span>
+        </div>
+
+        <a href="products.html" class="btn-primary" style="margin-top:2rem; display:inline-flex;">View All Products →</a>
+      </div>
+
+      <!-- RIGHT: Brand portfolio image frame -->
+      <div class="distrib-portfolio-right">
+        <div class="distrib-portfolio-img-frame">
+          <img src="mpc-distributor-brands.png" alt="MPC Distributor Brands Portfolio — Industrial Chain Solutions Thailand" loading="lazy" decoding="async">
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -827,9 +991,9 @@
 <section class="section reveal house-brand-section" id="house-brand">
   <div class="container">
     <div class="section-header">
-      <span class="section-eyebrow" style="color:var(--color-light-blue)" data-i18n="hb-eyebrow">Proprietary Products</span>
-      <h2 style="color:var(--color-white)" data-i18n="hb-h2">Our House Brand</h2>
-      <p style="color:rgba(255,255,255,.6)" data-i18n="hb-body">Precision-engineered chains bearing the MPC stamp of quality — our proprietary brands engineered for the most demanding heavy-duty applications.</p>
+      <span class="section-eyebrow" data-i18n="hb-eyebrow">Proprietary Products</span>
+      <h2 data-i18n="hb-h2">Our House Brand</h2>
+      <p data-i18n="hb-body">Precision-engineered chains bearing the MPC stamp of quality — our proprietary brands engineered for the most demanding heavy-duty applications.</p>
     </div>
     <div class="house-brand-grid">
 
@@ -876,7 +1040,7 @@
 </section>
 
 <!-- ============ INDUSTRIES ============ -->
-<section class="section reveal">
+<section class="section reveal industries-dark">
   <div class="container">
     <div class="section-header">
       <span class="section-eyebrow" data-i18n="ind-eyebrow">Sectors We Serve</span>
@@ -1062,7 +1226,7 @@
 </section>
 
 <!-- ============ COMMITMENT / PROMISE ============ -->
-<section class="section commitment-section reveal">
+<section class="section commitment-section commitment-dark reveal">
   <div class="container">
     <div class="two-col">
       <div>
