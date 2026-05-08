@@ -704,9 +704,38 @@
     /* ======================================
        SECTION RHYTHM OVERRIDES
     ====================================== */
-    /* Industries: dark */
+    /* Distributor brands: white background so image merges naturally */
+    .distrib-section {
+      background: #fff !important;
+    }
+    .distrib-section .section-eyebrow { color: var(--color-primary) !important; }
+    .distrib-section .section-eyebrow::before,
+    .distrib-section .section-eyebrow::after { background: var(--color-primary) !important; }
+    .distrib-section .distrib-portfolio-left h2 { color: var(--color-black) !important; }
+    .distrib-section .distrib-portfolio-left p  { color: var(--color-grey) !important; }
+    .distrib-section .distrib-stat-num { color: var(--color-primary) !important; }
+    .distrib-section .distrib-stat-lbl { color: rgba(0,0,0,.45) !important; }
+    .distrib-section .distrib-portfolio-stats { border-color: rgba(0,0,0,.1) !important; }
+    .distrib-section .distrib-portfolio-stat { border-right-color: rgba(0,0,0,.1) !important; }
+    .distrib-section .cert-badge {
+      background: rgba(0,86,164,.07) !important;
+      border-color: rgba(0,86,164,.18) !important;
+      color: var(--color-primary) !important;
+      box-shadow: none !important;
+      animation: none !important;
+    }
+    .distrib-section .distrib-portfolio-img-frame {
+      border: none !important;
+      box-shadow: none !important;
+      background: transparent !important;
+    }
+    .distrib-section .distrib-portfolio-img-frame::before { display: none !important; }
+    .distrib-section .distrib-portfolio-img-frame img { padding: 0 !important; }
+
+    /* Industries: dark — separator from hero */
     .industries-dark {
       background: var(--color-dark-navy);
+      border-top: 1px solid rgba(255,255,255,.08);
     }
     .industries-dark .section-header h2 { color: var(--color-white); }
     .industries-dark .section-header p  { color: rgba(255,255,255,.62); }
@@ -877,6 +906,58 @@
   </div>
 </section>
 
+<!-- ============ INDUSTRIES ============ -->
+<section class="section reveal industries-dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="ind-eyebrow">Sectors We Serve</span>
+      <h2 data-i18n="ind-h2">Our Specialized Industries</h2>
+      <p data-i18n="ind-body">From heavy steel processing to food-grade palm oil production, our chain solutions are proven across the most demanding industrial environments.</p>
+    </div>
+    <div class="industry-filters">
+      <button class="ind-filter-btn active" data-filter="all">All Industries</button>
+      <button class="ind-filter-btn" data-filter="steel">Steel</button>
+      <button class="ind-filter-btn" data-filter="cement">Cement</button>
+      <button class="ind-filter-btn" data-filter="palmoil">Palm Oil</button>
+      <button class="ind-filter-btn" data-filter="sugar">Sugar</button>
+    </div>
+    <div class="industries-grid">
+      <a class="industry-card" data-industry="steel" href="steel-industry.html">
+        <img src="steel-industry-chains.webp" alt="Steel Industry" loading="lazy">
+        <div class="industry-card-overlay">
+          <h3 data-i18n="steel-h3">Steel Industry</h3>
+          <p data-i18n="steel-p">High-load conveyor and drive chains for steel mills and processing facilities.</p>
+          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
+        </div>
+      </a>
+      <a class="industry-card" data-industry="cement" href="cement-industry.html">
+        <img src="cement-industry-chains.webp" alt="Cement Industry" loading="lazy">
+        <div class="industry-card-overlay">
+          <h3 data-i18n="cement-h3">Cement Industry</h3>
+          <p data-i18n="cement-p">Abrasion-resistant chains for kiln drives and bulk cement handling systems.</p>
+          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
+        </div>
+      </a>
+      <a class="industry-card" data-industry="palmoil" href="palm-oil-industry.html">
+        <img src="palm-oil-chains.webp" alt="Palm Oil Industry" loading="lazy">
+        <div class="industry-card-overlay">
+          <h3 data-i18n="palm-h3">Palm Oil Industry</h3>
+          <p data-i18n="palm-p">Food-grade and corrosion-resistant chains for palm oil milling and processing.</p>
+          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
+        </div>
+      </a>
+      <a class="industry-card" data-industry="sugar" href="sugar-industry.html">
+        <img src="sugar-mill-chains.webp" alt="Sugar Industry" loading="lazy">
+        <div class="industry-card-overlay">
+          <h3 data-i18n="sugar-h3">Sugar Industry</h3>
+          <p data-i18n="sugar-p">Heavy-duty cane carrier and conveyor chains engineered for sugar mill environments.</p>
+          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- ============ OUR BRANDS ============ -->
 <section class="section reveal" style="background:var(--color-grey-lt)">
   <div class="container">
@@ -1000,7 +1081,7 @@
       <!-- UNO Chain -->
       <div class="house-brand-card">
         <div class="hb-img-wrap">
-          <img src="uno-roller-chain-product-1.png" alt="UNO Roller Chain — MPC House Brand" loading="lazy" decoding="async">
+          <img src="uno-roller-chain-product-2.png" alt="UNO Roller Chain — MPC House Brand" loading="lazy" decoding="async">
         </div>
         <div class="hb-content">
           <span class="hb-badge">House Brand</span>
@@ -1035,58 +1116,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ============ INDUSTRIES ============ -->
-<section class="section reveal industries-dark">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow" data-i18n="ind-eyebrow">Sectors We Serve</span>
-      <h2 data-i18n="ind-h2">Our Specialized Industries</h2>
-      <p data-i18n="ind-body">From heavy steel processing to food-grade palm oil production, our chain solutions are proven across the most demanding industrial environments.</p>
-    </div>
-    <div class="industry-filters">
-      <button class="ind-filter-btn active" data-filter="all">All Industries</button>
-      <button class="ind-filter-btn" data-filter="steel">Steel</button>
-      <button class="ind-filter-btn" data-filter="cement">Cement</button>
-      <button class="ind-filter-btn" data-filter="palmoil">Palm Oil</button>
-      <button class="ind-filter-btn" data-filter="sugar">Sugar</button>
-    </div>
-    <div class="industries-grid">
-      <a class="industry-card" data-industry="steel" href="steel-industry.html">
-        <img src="steel-industry-chains.webp" alt="Steel Industry" loading="lazy">
-        <div class="industry-card-overlay">
-          <h3 data-i18n="steel-h3">Steel Industry</h3>
-          <p data-i18n="steel-p">High-load conveyor and drive chains for steel mills and processing facilities.</p>
-          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
-        </div>
-      </a>
-      <a class="industry-card" data-industry="cement" href="cement-industry.html">
-        <img src="cement-industry-chains.webp" alt="Cement Industry" loading="lazy">
-        <div class="industry-card-overlay">
-          <h3 data-i18n="cement-h3">Cement Industry</h3>
-          <p data-i18n="cement-p">Abrasion-resistant chains for kiln drives and bulk cement handling systems.</p>
-          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
-        </div>
-      </a>
-      <a class="industry-card" data-industry="palmoil" href="palm-oil-industry.html">
-        <img src="palm-oil-chains.webp" alt="Palm Oil Industry" loading="lazy">
-        <div class="industry-card-overlay">
-          <h3 data-i18n="palm-h3">Palm Oil Industry</h3>
-          <p data-i18n="palm-p">Food-grade and corrosion-resistant chains for palm oil milling and processing.</p>
-          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
-        </div>
-      </a>
-      <a class="industry-card" data-industry="sugar" href="sugar-industry.html">
-        <img src="sugar-mill-chains.webp" alt="Sugar Industry" loading="lazy">
-        <div class="industry-card-overlay">
-          <h3 data-i18n="sugar-h3">Sugar Industry</h3>
-          <p data-i18n="sugar-p">Heavy-duty cane carrier and conveyor chains engineered for sugar mill environments.</p>
-          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
-        </div>
-      </a>
     </div>
   </div>
 </section>

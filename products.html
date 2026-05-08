@@ -25,140 +25,202 @@
   </script> -->
   <!-- Google Search Console: add <meta name="google-site-verification" content="YOUR_CODE"> here --><link rel="stylesheet" href="styles.css">
   <style>
-    /* ── Accordion ── */
-    .prod-category { border-bottom: 1px solid rgba(255,255,255,0.08); }
-    .prod-category:first-child { border-top: 1px solid rgba(255,255,255,0.08); }
+    /* ── HERO SUBHEAD ── */
+    .prod-page-intro {
+      max-width: 680px;
+      margin: 0 auto 3.5rem;
+      text-align: center;
+    }
 
-    .prod-cat-header {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 1.25rem 1.5rem; cursor: pointer;
-      background: rgba(255,255,255,0.03);
-      transition: background 0.2s; user-select: none; gap: 1rem;
+    /* ── PRODUCT CATEGORY TABS ── */
+    .prod-tabs {
+      display: flex;
+      gap: .5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
     }
-    .prod-cat-header:hover { background: rgba(255,255,255,0.07); }
-    .prod-cat-header.open  { background: rgba(0,86,164,0.18); border-left: 3px solid var(--color-light-blue); }
-
-    .prod-cat-title {
-      display: flex; align-items: center; gap: 0.9rem;
-      font-size: 1.05rem; font-weight: 700;
-      color: var(--color-white); letter-spacing: 0.02em;
-    }
-    .prod-cat-icon {
-      width: 38px; height: 38px; border-radius: 8px;
-      background: rgba(0,86,164,0.35); border: 1px solid rgba(74,144,226,0.3);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; color: #7ec8e3;
-    }
-    .prod-cat-count {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
-      text-transform: uppercase; color: rgba(255,255,255,0.35); margin-left: auto;
-    }
-    .prod-cat-chevron {
-      width: 20px; height: 20px; color: rgba(255,255,255,0.4);
-      transition: transform 0.25s ease; flex-shrink: 0;
-    }
-    .prod-cat-header.open .prod-cat-chevron { transform: rotate(180deg); }
-
-    .prod-cat-body { display: none; padding: 1.25rem 1.5rem 1.5rem; background: rgba(0,0,0,0.1); }
-    .prod-cat-body.open { display: block; }
-
-    /* Sub-brand cards */
-    .sub-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-      gap: 0.85rem;
-    }
-    .sub-card {
-      display: flex; flex-direction: column;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius-md);
-      padding: 1.1rem 1.1rem 1rem;
-      text-decoration: none;
-      overflow: hidden; /* enables thumbnail bleed */
-      transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    .prod-tab {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .55rem 1.25rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.15);
+      background: rgba(255,255,255,.05);
+      color: rgba(255,255,255,.6);
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
       cursor: pointer;
+      transition: all .22s ease;
+      user-select: none;
     }
-    .sub-card:hover {
-      background: rgba(0,86,164,0.2);
-      border-color: rgba(74,144,226,0.45);
-      transform: translateY(-2px);
+    .prod-tab:hover {
+      border-color: rgba(74,144,226,.4);
+      color: rgba(255,255,255,.9);
+      background: rgba(0,86,164,.2);
+    }
+    .prod-tab.active {
+      background: var(--color-primary, #0056a4);
+      border-color: var(--color-primary, #0056a4);
+      color: #fff;
+      box-shadow: 0 4px 14px rgba(0,86,164,.35);
+    }
+    .prod-tab-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: currentColor;
+      opacity: .6;
+      flex-shrink: 0;
     }
 
-    /* ── Product thumbnail — bleeds to card edges ── */
-    .sub-card-thumb {
-      width: calc(100% + 2.2rem);
-      margin: -1.1rem -1.1rem 0.9rem;
-      height: 155px;
-      overflow: hidden;
-      border-radius: 7px 7px 0 0;
+    /* ── CATEGORY SECTION ── */
+    .prod-cat-section {
+      margin-bottom: 4.5rem;
+    }
+    .prod-cat-section[data-hidden="true"] { display: none; }
+    .prod-cat-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .prod-cat-label-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      background: rgba(0,86,164,.3);
+      border: 1px solid rgba(74,144,226,.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #7ec8e3;
       flex-shrink: 0;
-      background: #06101e;
+    }
+    .prod-cat-label-text h3 {
+      color: var(--color-white);
+      font-size: 1.1rem;
+      font-weight: 800;
+      margin: 0 0 .2rem;
+      letter-spacing: .02em;
+    }
+    .prod-cat-label-text span {
+      font-size: .72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: rgba(255,255,255,.35);
+    }
+
+    /* ── PRODUCT CARDS GRID ── */
+    .prod-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    /* ── PRODUCT CARD ── */
+    .prod-card {
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.07);
+      border-radius: 14px;
+      overflow: hidden;
+      text-decoration: none;
+      transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
       position: relative;
     }
-    /* subtle darkening gradient at bottom of thumb */
-    .sub-card-thumb::after {
+    .prod-card:hover {
+      border-color: rgba(74,144,226,.4);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 60px rgba(0,0,0,.35), 0 0 0 1px rgba(74,144,226,.15);
+    }
+    .prod-card-thumb {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      background: #060f1e;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .prod-card-thumb::after {
       content: '';
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, rgba(0,10,30,0.45) 100%);
+      background: linear-gradient(to bottom, transparent 50%, rgba(0,8,25,.6) 100%);
       pointer-events: none;
     }
-    .sub-card-thumb img {
+    .prod-card-thumb img {
       width: 100%; height: 100%;
       object-fit: cover; object-position: center;
       display: block;
-      transition: transform 0.55s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      transition: transform .55s cubic-bezier(.25,.46,.45,.94);
       backface-visibility: hidden;
-      -webkit-backface-visibility: hidden;
     }
-    .sub-card:hover .sub-card-thumb img { transform: scale(1.07); }
+    .prod-card:hover .prod-card-thumb img { transform: scale(1.06); }
 
-    .sub-card-name {
-      font-size: 0.92rem; font-weight: 700;
-      color: var(--color-white); margin-bottom: 0.3rem;
+    .prod-card-body {
+      padding: 1.4rem 1.5rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
     }
-    .sub-card-desc {
-      font-size: 0.78rem; color: rgba(255,255,255,0.45);
-      line-height: 1.5; flex: 1;
+    .prod-card-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: var(--color-white);
+      margin: 0 0 .5rem;
+      letter-spacing: .01em;
+      line-height: 1.3;
     }
-    .sub-card-link {
-      display: inline-flex; align-items: center; gap: 0.3rem;
-      font-size: 0.75rem; font-weight: 700;
-      color: var(--color-light-blue); margin-top: 0.75rem;
-      letter-spacing: 0.05em; text-transform: uppercase;
+    .prod-card-desc {
+      font-size: .82rem;
+      color: rgba(255,255,255,.45);
+      line-height: 1.6;
+      flex: 1;
+      margin: 0 0 1.1rem;
     }
-    .sub-card-link svg { transition: transform 0.2s; }
-    .sub-card:hover .sub-card-link svg { transform: translateX(3px); }
+    .prod-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .75rem;
+      font-weight: 700;
+      color: var(--color-light-blue, #4a90e2);
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      margin-top: auto;
+      transition: gap .2s ease;
+    }
+    .prod-card:hover .prod-card-cta { gap: .55rem; }
+    .prod-card-cta svg { transition: transform .2s ease; }
+    .prod-card:hover .prod-card-cta svg { transform: translateX(3px); }
 
-    /* CTA strip */
+    /* ── CTA STRIP ── */
     .prod-cta {
-      margin-top: 3rem; padding: 2rem;
-      border-radius: var(--radius-md);
-      background: linear-gradient(135deg, rgba(0,56,120,0.6) 0%, rgba(0,86,164,0.4) 100%);
-      border: 1px solid rgba(74,144,226,0.2);
+      margin-top: 3rem; padding: 2.25rem 2.5rem;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(0,56,120,.65) 0%, rgba(0,86,164,.45) 100%);
+      border: 1px solid rgba(74,144,226,.2);
       display: flex; align-items: center;
       justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
     }
 
+    /* ── RESPONSIVE ── */
     @media (max-width: 768px) {
-      .prod-cat-header { padding: 1rem; }
-      .prod-cat-body   { padding: 1rem; }
-      .sub-cards { grid-template-columns: 1fr 1fr; }
+      .prod-cards { grid-template-columns: 1fr 1fr; gap: 1.1rem; }
       .prod-cta  { flex-direction: column; text-align: center; }
     }
     @media (max-width: 480px) {
-      .sub-cards { grid-template-columns: 1fr; }
+      .prod-cards { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-
-<!-- Announcement Bar -->
-<div class="announcement">
-  <span data-i18n="ann-text">Authorised Distributor &amp; After-Sales Service Provider for Industrial Chain Solutions</span> &nbsp;
-  <a href="contact.html" data-i18n="ann-link">Enquire Now →</a>
-</div>
 
 <!-- Header -->
 <header class="site-header">
@@ -206,287 +268,264 @@
 </section>
 
 <!-- ============ PRODUCTS CATALOGUE ============ -->
-<section class="section--dark">
+<section class="section--dark" style="padding-top:3rem; padding-bottom:5rem;">
   <div class="container">
 
-    <div class="section-header" style="margin-bottom:2.5rem;">
+    <div class="prod-page-intro">
       <span class="section-eyebrow" data-i18n="prod-cat-eyebrow">Product Range</span>
       <h2 data-i18n="prod-cat-h2">Browse Our Catalogue</h2>
-      <p style="color:rgba(255,255,255,0.55); max-width:580px; margin:.75rem auto 0;" data-i18n="prod-cat-intro">Select a category to explore available products. Contact our team for specifications, pricing, or custom solutions.</p>
+      <p style="color:rgba(255,255,255,.55); margin:.75rem auto 0;" data-i18n="prod-cat-intro">Select a category to explore available products. Contact our team for specifications, pricing, or custom solutions.</p>
     </div>
 
-    <div style="border-radius:var(--radius-md); overflow:hidden; border:1px solid rgba(255,255,255,0.08);">
+    <!-- Category Tabs -->
+    <div class="prod-tabs" id="prodTabs">
+      <button class="prod-tab active" data-cat="all"><span class="prod-tab-dot"></span>All Products</button>
+      <button class="prod-tab" data-cat="roller"><span class="prod-tab-dot"></span>Roller Chains</button>
+      <button class="prod-tab" data-cat="conveyor"><span class="prod-tab-dot"></span>Conveyor Chains</button>
+      <button class="prod-tab" data-cat="forged"><span class="prod-tab-dot"></span>Forged Chains</button>
+      <button class="prod-tab" data-cat="industry"><span class="prod-tab-dot"></span>Industry-Specific</button>
+      <button class="prod-tab" data-cat="components"><span class="prod-tab-dot"></span>Components &amp; Other</button>
+    </div>
 
-      <!-- 1. Standard Roller Chains -->
-      <div class="prod-category">
-        <div class="prod-cat-header" onclick="toggleCat(this)" aria-expanded="false">
-          <div class="prod-cat-title">
-            <span class="prod-cat-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-            </span>
-            <span data-i18n="prod-cat1-title">Standard Roller Chains</span>
-          </div>
-          <span class="prod-cat-count" data-i18n="prod-cat1-count">3 brands</span>
-          <svg class="prod-cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <!-- 1. Standard Roller Chains -->
+    <div class="prod-cat-section" data-category="roller">
+      <div class="prod-cat-label">
+        <div class="prod-cat-label-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
         </div>
-        <div class="prod-cat-body">
-          <div class="sub-cards">
-            <a href="uno-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="uno-roller-chain-product-1.png" alt="UNO Roller Chains" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-uno-name">UNO Chains</span>
-              <span class="sub-card-desc" data-i18n="prd-uno-desc">ISO 9001 certified. A &amp; B series, single and multi-strand. Cost-efficient with premium performance.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="dongbo-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="dongbo-chain-product-1.png" alt="Dongbo Conveyor Chains" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-db-name">Dongbo Chains</span>
-              <span class="sub-card-desc" data-i18n="prd-db-desc">ANSI standard roller chains — single, double &amp; triple strand. 45+ years Korean manufacturing.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="iwis-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="iwis-roller-chain-1.webp" alt="IWIS Roller Chains" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-iwis-rl-name">Iwis Chains</span>
-              <span class="sub-card-desc" data-i18n="prd-iwis-rl-desc">German precision roller chains — simplex &amp; duplex, ISO 606, acoustically optimised for high-speed drives.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-          </div>
+        <div class="prod-cat-label-text">
+          <h3 data-i18n="prod-cat1-title">Standard Roller Chains</h3>
+          <span data-i18n="prod-cat1-count">3 brands · ISO / ANSI / DIN</span>
         </div>
       </div>
+      <div class="prod-cards">
+        <a href="uno-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="uno-roller-chain-product-2.png" alt="UNO Roller Chains" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-uno-name">UNO Chains</p>
+            <p class="prod-card-desc" data-i18n="prd-uno-desc">ISO 9001 certified. A &amp; B series, single and multi-strand. Cost-efficient with premium performance.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="dongbo-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="dongbo-chain-product-1.png" alt="Dongbo Chains" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-db-name">Dongbo Chains</p>
+            <p class="prod-card-desc" data-i18n="prd-db-desc">ANSI standard roller chains — single, double &amp; triple strand. 45+ years Korean manufacturing.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="iwis-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="iwis-roller-chain-1.webp" alt="IWIS Roller Chains" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-iwis-rl-name">Iwis Chains</p>
+            <p class="prod-card-desc" data-i18n="prd-iwis-rl-desc">German precision roller chains — simplex &amp; duplex, ISO 606, acoustically optimised for high-speed drives.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
 
-      <!-- 2. Conveyor & Transport Chains -->
-      <div class="prod-category">
-        <div class="prod-cat-header" onclick="toggleCat(this)" aria-expanded="false">
-          <div class="prod-cat-title">
-            <span class="prod-cat-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M1 12h22"/></svg>
-            </span>
-            <span data-i18n="prod-cat2-title">Conveyor &amp; Transport Chains</span>
-          </div>
-          <span class="prod-cat-count" data-i18n="prod-cat2-count">2 brands</span>
-          <svg class="prod-cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <!-- 2. Conveyor & Transport Chains -->
+    <div class="prod-cat-section" data-category="conveyor">
+      <div class="prod-cat-label">
+        <div class="prod-cat-label-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="22" height="12" rx="2"/><path d="M1 12h22"/></svg>
         </div>
-        <div class="prod-cat-body">
-          <div class="sub-cards">
-            <a href="iwis-conveyor-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="iwis-conveyor-chain-1.webp" alt="IWIS Conveyor Chains" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-iwis-cv-name">Iwis Conveyor Chains</span>
-              <span class="sub-card-desc" data-i18n="prd-iwis-cv-desc">Attachment, double-pitch, side-bow, and hollow-pin variants for complex conveyor systems.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="hs-conveyor-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="hs-chain-korea.webp" alt="HS Conveyor Chains" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-hs-cv-name">HS Conveyor Chains</span>
-              <span class="sub-card-desc" data-i18n="prd-hs-cv-desc">Light-load to heavy-load conveyor chains for streamlining material transport in various industrial fields.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-          </div>
+        <div class="prod-cat-label-text">
+          <h3 data-i18n="prod-cat2-title">Conveyor &amp; Transport Chains</h3>
+          <span data-i18n="prod-cat2-count">2 brands · IWIS &amp; HS Chain</span>
         </div>
       </div>
+      <div class="prod-cards">
+        <a href="iwis-conveyor-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="iwis-conveyor-chain-1.webp" alt="IWIS Conveyor Chains" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-iwis-cv-name">Iwis Conveyor Chains</p>
+            <p class="prod-card-desc" data-i18n="prd-iwis-cv-desc">Attachment, double-pitch, side-bow, and hollow-pin variants for complex conveyor systems.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="hs-conveyor-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="hs-chain-korea.webp" alt="HS Conveyor Chains" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-hs-cv-name">HS Conveyor Chains</p>
+            <p class="prod-card-desc" data-i18n="prd-hs-cv-desc">Light-load to heavy-load conveyor chains for streamlining material transport in various industrial fields.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
 
-      <!-- 3. Heavy-Duty Forged Chains -->
-      <div class="prod-category">
-        <div class="prod-cat-header" onclick="toggleCat(this)" aria-expanded="false">
-          <div class="prod-cat-title">
-            <span class="prod-cat-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </span>
-            <span data-i18n="prod-cat3-title">Heavy-Duty Forged Chains</span>
-          </div>
-          <span class="prod-cat-count" data-i18n="prod-cat3-count">1 type</span>
-          <svg class="prod-cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <!-- 3. Heavy-Duty Forged Chains -->
+    <div class="prod-cat-section" data-category="forged">
+      <div class="prod-cat-label">
+        <div class="prod-cat-label-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
         </div>
-        <div class="prod-cat-body">
-          <div class="sub-cards">
-            <a href="forged-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="trio-forged-chain.webp" alt="Forged Chain TRIO / Forged Chain UNO" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-forged-name">Forged Chain TRIO / Forged Chain UNO</span>
-              <span class="sub-card-desc" data-i18n="prd-forged-desc">Top quality heavy-duty forged chains — TRIO (P.102 mm) and UNO (P.142 mm) — for steel mills, cement plants &amp; animal feed mills.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-          </div>
+        <div class="prod-cat-label-text">
+          <h3 data-i18n="prod-cat3-title">Heavy-Duty Forged Chains</h3>
+          <span data-i18n="prod-cat3-count">1 type · P.102 mm &amp; P.142 mm</span>
         </div>
       </div>
+      <div class="prod-cards">
+        <a href="forged-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="trio-forged-chain.webp" alt="Forged Chain TRIO / Forged Chain UNO" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-forged-name">Forged Chain TRIO / Forged Chain UNO</p>
+            <p class="prod-card-desc" data-i18n="prd-forged-desc">Top quality heavy-duty forged chains — TRIO (P.102 mm) and UNO (P.142 mm) — for steel mills, cement plants &amp; animal feed mills.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
 
-      <!-- 4. Industry-Specific Chains -->
-      <div class="prod-category">
-        <div class="prod-cat-header" onclick="toggleCat(this)" aria-expanded="false">
-          <div class="prod-cat-title">
-            <span class="prod-cat-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            </span>
-            <span data-i18n="prod-cat4-title">Industry-Specific Chains</span>
-          </div>
-          <span class="prod-cat-count" data-i18n="prod-cat4-count">3 sectors</span>
-          <svg class="prod-cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <!-- 4. Industry-Specific Chains -->
+    <div class="prod-cat-section" data-category="industry">
+      <div class="prod-cat-label">
+        <div class="prod-cat-label-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
         </div>
-        <div class="prod-cat-body">
-          <div class="sub-cards">
-            <a href="cement-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="cement-industry-chains.webp" alt="Cement Industry Chains" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-cement-name">Cement Industry</span>
-              <span class="sub-card-desc" data-i18n="prd-cement-desc">Reclaimer, hoister, apron conveyor &amp; slide fastener machine chains — ISO9001 assured for severe cement conditions.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="sugar-mill-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="sugar-mill-chains.webp" alt="Sugar Mill Industry Chains" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-sugar-name">Sugar Mill Industry</span>
-              <span class="sub-card-desc" data-i18n="prd-sugar-desc">Transmission, hoisting and conveying chains for sugar production — bagasse feeder, O-chain, bush chain and more for the full milling process.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="palm-oil-chains.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="palm-oil-chains.webp" alt="Palm Oil Industry Chains" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-palm-name">Palm Oil Industry</span>
-              <span class="sub-card-desc" data-i18n="prd-palm-desc">Hollow pin, solid pin and connecting link chains engineered for palm oil squeezing production lines — precision-finished, heat-treated and pre-oiled.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-          </div>
+        <div class="prod-cat-label-text">
+          <h3 data-i18n="prod-cat4-title">Industry-Specific Chains</h3>
+          <span data-i18n="prod-cat4-count">3 sectors · Cement, Sugar &amp; Palm Oil</span>
         </div>
       </div>
+      <div class="prod-cards">
+        <a href="cement-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="cement-industry-chains.webp" alt="Cement Industry Chains" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-cement-name">Cement Industry</p>
+            <p class="prod-card-desc" data-i18n="prd-cement-desc">Reclaimer, hoister, apron conveyor &amp; slide fastener machine chains — ISO9001 assured for severe cement conditions.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="sugar-mill-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="sugar-mill-chains.webp" alt="Sugar Mill Industry Chains" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-sugar-name">Sugar Mill Industry</p>
+            <p class="prod-card-desc" data-i18n="prd-sugar-desc">Transmission, hoisting and conveying chains for sugar production — bagasse feeder, O-chain, bush chain and more.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="palm-oil-chains.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="palm-oil-chains.webp" alt="Palm Oil Industry Chains" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-palm-name">Palm Oil Industry</p>
+            <p class="prod-card-desc" data-i18n="prd-palm-desc">Hollow pin, solid pin and connecting link chains engineered for palm oil squeezing production lines.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
 
-      <!-- 5. Sprockets & Pulley — ONE subsection -->
-      <div class="prod-category">
-        <div class="prod-cat-header" onclick="toggleCat(this)" aria-expanded="false">
-          <div class="prod-cat-title">
-            <span class="prod-cat-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
-            </span>
-            <span data-i18n="prod-cat5-title">Sprockets &amp; Pulley</span>
-          </div>
-          <span class="prod-cat-count" data-i18n="prod-cat5-count">1 type</span>
-          <svg class="prod-cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+    <!-- 5. Components & Other -->
+    <div class="prod-cat-section" data-category="components">
+      <div class="prod-cat-label">
+        <div class="prod-cat-label-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/></svg>
         </div>
-        <div class="prod-cat-body">
-          <div class="sub-cards">
-            <a href="sprockets-pulley.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="sprockets-pulley.png" alt="Sprockets and Pulley" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-sp-name">Sprockets &amp; Pulley</span>
-              <span class="sub-card-desc" data-i18n="prd-sp-desc">Standard &amp; custom sprockets and pulleys — roller chain sprockets, timing pulleys, and heavy-duty drive components.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-          </div>
+        <div class="prod-cat-label-text">
+          <h3>Sprockets, Components &amp; Other</h3>
+          <span>7 product types</span>
         </div>
       </div>
-
-      <!-- 6. Other -->
-      <div class="prod-category">
-        <div class="prod-cat-header" onclick="toggleCat(this)" aria-expanded="false">
-          <div class="prod-cat-title">
-            <span class="prod-cat-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
-            </span>
-            <span data-i18n="prod-cat6-title">Other</span>
+      <div class="prod-cards">
+        <a href="sprockets-pulley.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="sprockets-pulley.png" alt="Sprockets and Pulley" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-sp-name">Sprockets &amp; Pulley</p>
+            <p class="prod-card-desc" data-i18n="prd-sp-desc">Standard &amp; custom sprockets and pulleys — roller chain sprockets, timing pulleys, and heavy-duty drive components.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
           </div>
-          <span class="prod-cat-count" data-i18n="prod-cat6-count">5 types</span>
-          <svg class="prod-cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="prod-cat-body">
-          <div class="sub-cards">
-            <a href="bearing.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="bearing-product-1.png" alt="Bearing — ball bearings and roller bearings" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-bearing-name">Bearing</span>
-              <span class="sub-card-desc" data-i18n="prd-bearing-desc">SKF, FAG, TIMKEN, NSK, NTN, Koyo &amp; more — deep groove ball, cylindrical roller, tapered roller and linear bearings.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="belt.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="belt-conveyor-thailand.png" alt="Belt — V-belts, timing belts and flat belts" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-belt-name">Belt</span>
-              <span class="sub-card-desc" data-i18n="prd-belt-desc">V-belts, timing belts, and flat belts for industrial power transmission.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="coupling.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="coupling-thailand.png" alt="Coupling — jaw, flexible and rigid couplings" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-coupling-name">Coupling</span>
-              <span class="sub-card-desc" data-i18n="prd-coupling-desc">Jaw, flexible, chain, and rigid couplings for shaft connection solutions.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="oil-seal.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="oil-seals-thailand.png" alt="Oil Seal — rotary shaft and industrial oil seals" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-oilseal-name">Oil Seal</span>
-              <span class="sub-card-desc" data-i18n="prd-oilseal-desc">Rotary shaft and industrial oil seals for reliable sealing under demanding conditions.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-            <a href="pe-1000.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="pe-1000-plastic.png" alt="PE-1000 — polyethylene sheets, rods and custom components" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-pe1000-name">PE-1000</span>
-              <span class="sub-card-desc" data-i18n="prd-pe1000-desc">High-density polyethylene wear strips, guide rails, and custom components.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
+        </a>
+        <a href="bearing.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="bearing-product-1.png" alt="Bearing" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-bearing-name">Bearing</p>
+            <p class="prod-card-desc" data-i18n="prd-bearing-desc">SKF, FAG, TIMKEN, NSK, NTN, Koyo &amp; more — deep groove ball, cylindrical roller, tapered roller and linear bearings.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
           </div>
-        </div>
+        </a>
+        <a href="belt.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="belt-conveyor-thailand.png" alt="Belt" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-belt-name">Belt</p>
+            <p class="prod-card-desc" data-i18n="prd-belt-desc">V-belts, timing belts, and flat belts for industrial power transmission.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="coupling.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="coupling-thailand.png" alt="Coupling" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-coupling-name">Coupling</p>
+            <p class="prod-card-desc" data-i18n="prd-coupling-desc">Jaw, flexible, chain, and rigid couplings for shaft connection solutions.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="oil-seal.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="oil-seals-thailand.png" alt="Oil Seal" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-oilseal-name">Oil Seal</p>
+            <p class="prod-card-desc" data-i18n="prd-oilseal-desc">Rotary shaft and industrial oil seals for reliable sealing under demanding conditions.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="pe-1000.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="pe-1000-plastic.png" alt="PE-1000" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name" data-i18n="prd-pe1000-name">PE-1000</p>
+            <p class="prod-card-desc" data-i18n="prd-pe1000-desc">High-density polyethylene wear strips, guide rails, and custom components.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
+        <a href="kmh-conveyor-pipe.html" class="prod-card">
+          <div class="prod-card-thumb"><img src="kmh-conveyor-pipe.png" alt="KMH Conveyor Pipe" loading="lazy" decoding="async"></div>
+          <div class="prod-card-body">
+            <p class="prod-card-name">KMH Conveyor Pipe</p>
+            <p class="prod-card-desc">German-engineered pipe conveyor systems for aspiration and bulk goods — modular standard range and custom-made solutions.</p>
+            <span class="prod-card-cta"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+          </div>
+        </a>
       </div>
+    </div>
 
-      <!-- 7. KMH -->
-      <div class="prod-category">
-        <div class="prod-cat-header" onclick="toggleCat(this)" aria-expanded="false">
-          <div class="prod-cat-title">
-            <span class="prod-cat-icon">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-            </span>
-            <span data-i18n="prod-cat7-title">KMH</span>
-          </div>
-          <span class="prod-cat-count" data-i18n="prod-cat7-count">1 type</span>
-          <svg class="prod-cat-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-        </div>
-        <div class="prod-cat-body">
-          <div class="sub-cards">
-            <a href="kmh-conveyor-pipe.html" class="sub-card">
-              <div class="sub-card-thumb">
-                <img src="kmh-conveyor-pipe.png" alt="KMH Conveyor Pipe systems" loading="lazy" decoding="async">
-              </div>
-              <span class="sub-card-name" data-i18n="prd-kmhpipe-name">Conveyor Pipe</span>
-              <span class="sub-card-desc" data-i18n="prd-kmhpipe-desc">KMH enclosed pipe conveyor systems, tracks, and components for dust-free bulk material handling.</span>
-              <span class="sub-card-link"><span data-i18n="prod-view-link">View Products</span> <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
-            </a>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /accordion -->
-
-    <!-- CTA strip -->
+    <!-- CTA Strip -->
     <div class="prod-cta">
       <div>
-        <h3 style="color:var(--color-white); margin-bottom:.3rem;" data-i18n="prod-cta-h">Need a specific product?</h3>
-        <p style="color:rgba(255,255,255,0.6); font-size:.9rem; margin:0;" data-i18n="prod-cta-p">Contact our team for full specifications, datasheets, and pricing.</p>
+        <h3 style="color:var(--color-white); margin:0 0 .4rem; font-size:1.15rem;">Can't find what you need?</h3>
+        <p style="color:rgba(255,255,255,.55); font-size:.9rem; margin:0;">Contact our technical team for custom solutions, specifications, or pricing.</p>
       </div>
       <div style="display:flex; gap:.75rem; flex-wrap:wrap;">
-        <a href="contact.html" class="btn-primary" data-i18n="prod-cta-btn">Get a Quote</a>
-        <a href="mailto:contact@motionpluscorp.com" class="btn-outline-white" data-i18n="prod-cta-email">Email Us</a>
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+        <a href="mailto:contact@motionpluscorp.com" class="btn-outline-white">Email Us →</a>
       </div>
     </div>
 
   </div>
 </section>
+
+<script>
+/* Product category tabs */
+(function() {
+  var tabs = document.querySelectorAll('.prod-tab');
+  var sections = document.querySelectorAll('.prod-cat-section');
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      tabs.forEach(function(t) { t.classList.remove('active'); });
+      tab.classList.add('active');
+      var cat = tab.getAttribute('data-cat');
+      sections.forEach(function(sec) {
+        if (cat === 'all' || sec.getAttribute('data-category') === cat) {
+          sec.removeAttribute('data-hidden');
+        } else {
+          sec.setAttribute('data-hidden', 'true');
+        }
+      });
+    });
+  });
+})();
+</script>
 
 <!-- ============ FOOTER ============ -->
 <footer class="site-footer">
@@ -564,26 +603,16 @@
 </footer>
 
 <script>
-  const hamburger = document.getElementById('hamburger');
-  const mobileNav = document.getElementById('mobile-nav');
-  hamburger.addEventListener('click', function () {
-    const open = mobileNav.classList.toggle('open');
-    hamburger.setAttribute('aria-expanded', open);
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.getElementById('mobile-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var open = nav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
   });
-  function toggleCat(header) {
-    const body = header.nextElementSibling;
-    const isOpen = body.classList.contains('open');
-    document.querySelectorAll('.prod-cat-body.open').forEach(function(b) {
-      b.classList.remove('open');
-      b.previousElementSibling.classList.remove('open');
-      b.previousElementSibling.setAttribute('aria-expanded','false');
-    });
-    if (!isOpen) {
-      body.classList.add('open');
-      header.classList.add('open');
-      header.setAttribute('aria-expanded','true');
-    }
-  }
+})();
 </script>
 <script src="animations.js"></script><script src="lang.js"></script>
 </body>
