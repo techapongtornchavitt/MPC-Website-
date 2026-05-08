@@ -92,6 +92,91 @@
       'enq-p':          'Email or call us directly — our team responds within one business day.',
       'enq-email':      'Email Us →',
       'enq-call':       'Call 02 286-5656',
+      'enq-quote':      'Get a Quote',
+
+      /* ---------- Common product-page labels ---------- */
+      'sec-prod-overview':   'Product Overview',
+      'sec-prod-range':      'Product Range',
+      'sec-engineering':     'Engineering Excellence',
+      'sec-why-choose':      'Why Choose',
+      'pg-cat-roller':       'Standard Roller Chains',
+      'pg-cat-conveyor':     'Conveyor &amp; Transport Chains',
+      'pg-cat-forged':       'Heavy-Duty Forged Chains',
+      'pg-cat-industry':     'Industry-Specific Chains',
+      'pg-back-to-prod':     'Back to Products',
+
+      /* ---------- UNO Chains page ---------- */
+      'uno-pg-eyebrow': 'Standard Roller Chains',
+      'uno-pg-h1':      'UNO <em>Chain</em>',
+      'uno-pg-sub':     'ISO 9001 · DIN · JIS &nbsp;|&nbsp; A Series &amp; B Series Double-Strand',
+      'uno-pg-overview-h2': 'UNO Chain',
+      'uno-pg-desc-sub':    'Precision-engineered standard roller chains for demanding industrial applications',
+      'uno-pg-desc-text':   '<p>UNO Chain, specially produced by high standardization OEM factory in China, has been manufactured to several world-class famous brand names in the market, including Europe, USA, Japan with world standards such as ISO 9001, DIN, JIS — provided with Q.A. (Quality Assurance) and Q.C. (Quality Control).</p><p>The process begins with selective high grade steel material, manipulated by cutting and punching by automation assemble machines, then continues with heat treatment by separating every single part — pin, bush, plate, and roller — with different proper hardness depth for each part due to different function performance, for longevity. Sand blast process on chain plate prevents wear &amp; tear and ensures high temperature endurance.</p><p>Pre-Stretch is a must to prevent twisted chain and reduce chain elongation, as well as increase tensile strength.</p><p class="pull">UNO Chain is a perfect solution for any tough application in terms of Price – Performance standpoint.</p>',
+      'uno-pg-s2-eyebrow':  'Product Range',
+      'uno-pg-s2-h2':       'UNO Chain Specifications',
+
+      /* ---------- Dongbo Chains page ---------- */
+      'dbo-pg-eyebrow': 'Standard Roller Chains',
+      'dbo-pg-h1':      'DONGBO <em>Chain</em>',
+      'dbo-pg-sub':     'ANSI · KS B 1407 · ISO 606 &nbsp;|&nbsp; Single · Double · Triple Strand',
+      'dbo-pg-overview-h2': 'Dong Bo Chain',
+      'dbo-pg-desc-sub':    'Korean precision roller chains for heavy-duty industrial applications',
+
+      /* ---------- IWIS Roller Chains page ---------- */
+      'iwis-rl-eyebrow':    'Standard Roller Chains',
+      'iwis-rl-h1':         '<em>IWIS</em> Roller Chains',
+      'iwis-rl-sub':        'ISO 606 · British Standard &nbsp;|&nbsp; Simplex &amp; Duplex · Acoustically Optimised',
+      'iwis-rl-overview-h2':'Iwis Roller Chains',
+      'iwis-rl-desc-sub':   'Roller chain – simplex and duplex',
+
+      /* ---------- IWIS Conveyor Chains page ---------- */
+      'iwis-cv-pg-eyebrow':    'Conveyor &amp; Transport Chains',
+      'iwis-cv-pg-h1':         '<em>IWIS</em> Conveyor Chains',
+      'iwis-cv-pg-sub':        'Custom Attachment Designs &nbsp;|&nbsp; Matched to Customer Applications',
+      'iwis-cv-pg-overview-h2':'IWIS Conveyor Chains',
+      'iwis-cv-pg-desc-sub':   'Specialised conveyor chains engineered to customer specifications',
+
+      /* ---------- HS Conveyor Chains page ---------- */
+      'hs-cv-eyebrow':    'Conveyor &amp; Transport Chains',
+      'hs-cv-h1':         '<em>HS</em> Conveyor Chains',
+      'hs-cv-sub':        'Light-Load to Heavy-Load &nbsp;|&nbsp; Wide Range for Every Industrial Application',
+      'hs-cv-overview-h2':'HS Conveyor Chains',
+      'hs-cv-desc-sub':   'Complete range from light-load to heavy-load',
+      'hs-cv-s2-eyebrow': 'Engineering Excellence',
+      'hs-cv-s2-h2':      'Why HS Conveyor Chains?',
+
+      /* ---------- Sugar Mill Chains page ---------- */
+      'sgm-pg-eyebrow':    'Industry-Specific Chains',
+      'sgm-pg-h1':         '<em>Sugar Mill</em> Industry Chains',
+      'sgm-pg-sub':        'Transmission · Hoisting · Conveying · Bagasse Feeder · O-Chain · Bush Chain',
+      'sgm-pg-overview-h2':'Sugar Mill Industry',
+      'sgm-pg-desc-sub':   'Chains for every stage of the sugar making process',
+      'sgm-pg-s2-eyebrow': 'Product Range',
+      'sgm-pg-s2-h2':      'Sugar Mill Chain Types',
+
+      /* ---------- Forged Chains page ---------- */
+      'fgd-eyebrow':    'Heavy-Duty Forged Chains',
+      'fgd-h1':         'Forged Chain <em>TRIO</em> / Forged Chain <em>UNO</em>',
+      'fgd-sub':        'Pitch 102 mm (TRIO) &amp; 142 mm (UNO) &nbsp;|&nbsp; Steel Mill · Cement Plant · Animal Feed Mill',
+      'fgd-overview-h2':'Forged Chain TRIO / Forged Chain UNO',
+      'fgd-desc-sub':   'Heavy-duty forged chains for the most demanding industrial applications',
+
+      /* ---------- TRIO Forged Chain page ---------- */
+      'trio-eyebrow':    'Heavy-Duty Forged Chains',
+      'trio-h1':         'Forged Chain <em>TRIO</em>',
+      'trio-sub':        'Pitch 102 mm &nbsp;|&nbsp; Steel Mill · Cement Plant · Animal Feed Mill',
+      'trio-overview-h2':'Forged Chain TRIO',
+      'trio-desc-sub':   'Heavy-duty forged chain for steel mills, cement plants and animal feed mills',
+
+      /* ---------- UNO Forged Chain page ---------- */
+      'unof-eyebrow':    'Heavy-Duty Forged Chains',
+      'unof-h1':         'Forged Chain <em>UNO</em>',
+      'unof-sub':        'Pitch 142 mm &nbsp;|&nbsp; Steel Mill · Cement Plant · Animal Feed Mill',
+      'unof-overview-h2':'Forged Chain UNO',
+      'unof-desc-sub':   'Extra-heavy-duty forged chain for steel mills, cement plants and animal feed mills',
+
+      /* ---------- Footer LINE label ---------- */
+      'footer-line-lbl': 'LINE',
 
       /* ---------- About page ---------- */
       'abt-eyebrow':        'Our Company',
@@ -229,7 +314,7 @@
       'prod-h1':           'Our Products',
       'prod-sub':          'Precision-engineered solutions for every industrial application.',
       'prod-cat-eyebrow':  'Product Range',
-      'prod-cat-h2':       'Browse Our Catalogue',
+      'prod-cat-h2':       'Browse Our Products',
       'prod-cat-intro':    'Click any category to explore available products. Contact our team for specifications, pricing, or custom solutions.',
       'prod-cta-h':        'Need a specific product?',
       'prod-cta-p':        'Contact our team for full specifications, datasheets, and pricing.',
@@ -593,6 +678,91 @@
       'enq-p':          'ส่งอีเมลหรือโทรหาเราโดยตรง — ทีมงานของเราตอบกลับภายในหนึ่งวันทำการ',
       'enq-email':      'ส่งอีเมลหาเรา →',
       'enq-call':       'โทร 02 286-5656',
+      'enq-quote':      'ขอใบเสนอราคา',
+
+      /* ---------- Common product-page labels (TH) ---------- */
+      'sec-prod-overview':   'ภาพรวมสินค้า',
+      'sec-prod-range':      'ช่วงผลิตภัณฑ์',
+      'sec-engineering':     'ความเป็นเลิศทางวิศวกรรม',
+      'sec-why-choose':      'ทำไมต้องเลือก',
+      'pg-cat-roller':       'โซ่ลูกกลิ้งมาตรฐาน',
+      'pg-cat-conveyor':     'โซ่ลำเลียงและขนส่ง',
+      'pg-cat-forged':       'โซ่เหล็กหลอมแบบหนัก',
+      'pg-cat-industry':     'โซ่เฉพาะอุตสาหกรรม',
+      'pg-back-to-prod':     'กลับไปยังสินค้า',
+
+      /* ---------- UNO Chains page (TH) ---------- */
+      'uno-pg-eyebrow': 'โซ่ลูกกลิ้งมาตรฐาน',
+      'uno-pg-h1':      'UNO <em>Chain</em>',
+      'uno-pg-sub':     'ISO 9001 · DIN · JIS &nbsp;|&nbsp; ซีรีส์ A &amp; B แบบสองเส้น',
+      'uno-pg-overview-h2': 'โซ่ UNO',
+      'uno-pg-desc-sub':    'โซ่ลูกกลิ้งมาตรฐานที่ออกแบบอย่างแม่นยำสำหรับการใช้งานอุตสาหกรรมที่ต้องการสูง',
+      'uno-pg-desc-text':   '<p>โซ่ UNO ผลิตพิเศษโดยโรงงาน OEM มาตรฐานสูงในประเทศจีน ได้รับการผลิตสำหรับแบรนด์ชื่อดังระดับโลกหลายแบรนด์ รวมถึงยุโรป สหรัฐอเมริกา และญี่ปุ่น ตามมาตรฐานสากล เช่น ISO 9001, DIN, JIS พร้อมระบบ Q.A. (ประกันคุณภาพ) และ Q.C. (ควบคุมคุณภาพ)</p><p>กระบวนการเริ่มต้นด้วยการคัดเลือกวัสดุเหล็กคุณภาพสูง ผ่านการตัดและปั๊มด้วยเครื่องจักรอัตโนมัติ จากนั้นผ่านกระบวนการอบชุบความร้อนแยกชิ้นส่วนแต่ละชิ้น ได้แก่ พิน บุช แผ่น และลูกกลิ้ง ด้วยระดับความแข็งที่เหมาะสมสำหรับแต่ละชิ้นส่วน เพื่อยืดอายุการใช้งาน กระบวนการพ่นทรายบนแผ่นโซ่ช่วยป้องกันการสึกหรอและรับอุณหภูมิสูง</p><p>การ Pre-Stretch เป็นสิ่งที่จำเป็นเพื่อป้องกันโซ่บิด ลดการยืดตัวของโซ่ และเพิ่มความต้านทานแรงดึง</p><p class="pull">โซ่ UNO เป็นโซลูชันที่สมบูรณ์แบบสำหรับการใช้งานที่ยากลำบากในแง่ของความคุ้มค่าและประสิทธิภาพ</p>',
+      'uno-pg-s2-eyebrow':  'ช่วงผลิตภัณฑ์',
+      'uno-pg-s2-h2':       'ข้อมูลจำเพาะโซ่ UNO',
+
+      /* ---------- Dongbo Chains page (TH) ---------- */
+      'dbo-pg-eyebrow': 'โซ่ลูกกลิ้งมาตรฐาน',
+      'dbo-pg-h1':      'DONGBO <em>Chain</em>',
+      'dbo-pg-sub':     'ANSI · KS B 1407 · ISO 606 &nbsp;|&nbsp; แบบเส้นเดี่ยว คู่ และสามเส้น',
+      'dbo-pg-overview-h2': 'โซ่ Dong Bo',
+      'dbo-pg-desc-sub':    'โซ่ลูกกลิ้งความแม่นยำจากเกาหลีสำหรับการใช้งานอุตสาหกรรมหนัก',
+
+      /* ---------- IWIS Roller Chains page (TH) ---------- */
+      'iwis-rl-eyebrow':    'โซ่ลูกกลิ้งมาตรฐาน',
+      'iwis-rl-h1':         '<em>IWIS</em> โซ่ลูกกลิ้ง',
+      'iwis-rl-sub':        'ISO 606 · มาตรฐานอังกฤษ &nbsp;|&nbsp; Simplex &amp; Duplex · ปรับให้เหมาะกับเสียง',
+      'iwis-rl-overview-h2':'โซ่ลูกกลิ้ง Iwis',
+      'iwis-rl-desc-sub':   'โซ่ลูกกลิ้ง – simplex และ duplex',
+
+      /* ---------- IWIS Conveyor Chains page (TH) ---------- */
+      'iwis-cv-pg-eyebrow':    'โซ่ลำเลียงและขนส่ง',
+      'iwis-cv-pg-h1':         '<em>IWIS</em> โซ่ลำเลียง',
+      'iwis-cv-pg-sub':        'การออกแบบ Attachment ที่กำหนดเอง &nbsp;|&nbsp; ตรงตามความต้องการของลูกค้า',
+      'iwis-cv-pg-overview-h2':'โซ่ลำเลียง IWIS',
+      'iwis-cv-pg-desc-sub':   'โซ่ลำเลียงเฉพาะทางที่ออกแบบตามข้อกำหนดของลูกค้า',
+
+      /* ---------- HS Conveyor Chains page (TH) ---------- */
+      'hs-cv-eyebrow':    'โซ่ลำเลียงและขนส่ง',
+      'hs-cv-h1':         '<em>HS</em> โซ่ลำเลียง',
+      'hs-cv-sub':        'ตั้งแต่รับโหลดเบาถึงหนัก &nbsp;|&nbsp; ครอบคลุมทุกการใช้งานอุตสาหกรรม',
+      'hs-cv-overview-h2':'โซ่ลำเลียง HS',
+      'hs-cv-desc-sub':   'ครอบคลุมตั้งแต่รับโหลดเบาถึงหนัก',
+      'hs-cv-s2-eyebrow': 'ความเป็นเลิศทางวิศวกรรม',
+      'hs-cv-s2-h2':      'ทำไมต้องเลือกโซ่ลำเลียง HS?',
+
+      /* ---------- Sugar Mill Chains page (TH) ---------- */
+      'sgm-pg-eyebrow':    'โซ่เฉพาะอุตสาหกรรม',
+      'sgm-pg-h1':         'โซ่อุตสาหกรรม<em>โรงสีน้ำตาล</em>',
+      'sgm-pg-sub':        'โซ่ส่งกำลัง · ยก · ลำเลียง · Bagasse Feeder · O-Chain · Bush Chain',
+      'sgm-pg-overview-h2':'อุตสาหกรรมโรงสีน้ำตาล',
+      'sgm-pg-desc-sub':   'โซ่สำหรับทุกขั้นตอนของกระบวนการทำน้ำตาล',
+      'sgm-pg-s2-eyebrow': 'ช่วงผลิตภัณฑ์',
+      'sgm-pg-s2-h2':      'ประเภทโซ่โรงสีน้ำตาล',
+
+      /* ---------- Forged Chains page (TH) ---------- */
+      'fgd-eyebrow':    'โซ่เหล็กหลอมแบบหนัก',
+      'fgd-h1':         'Forged Chain <em>TRIO</em> / Forged Chain <em>UNO</em>',
+      'fgd-sub':        'ระยะพิทช์ 102 มม. (TRIO) &amp; 142 มม. (UNO) &nbsp;|&nbsp; โรงงานเหล็ก · โรงซีเมนต์ · โรงงานอาหารสัตว์',
+      'fgd-overview-h2':'Forged Chain TRIO / Forged Chain UNO',
+      'fgd-desc-sub':   'โซ่เหล็กหลอมสำหรับการใช้งานอุตสาหกรรมที่ต้องการสูงที่สุด',
+
+      /* ---------- TRIO Forged Chain page (TH) ---------- */
+      'trio-eyebrow':    'โซ่เหล็กหลอมแบบหนัก',
+      'trio-h1':         'Forged Chain <em>TRIO</em>',
+      'trio-sub':        'ระยะพิทช์ 102 มม. &nbsp;|&nbsp; โรงงานเหล็ก · โรงซีเมนต์ · โรงงานอาหารสัตว์',
+      'trio-overview-h2':'Forged Chain TRIO',
+      'trio-desc-sub':   'โซ่เหล็กหลอมหนักสำหรับโรงงานเหล็ก โรงซีเมนต์ และโรงงานอาหารสัตว์',
+
+      /* ---------- UNO Forged Chain page (TH) ---------- */
+      'unof-eyebrow':    'โซ่เหล็กหลอมแบบหนัก',
+      'unof-h1':         'Forged Chain <em>UNO</em>',
+      'unof-sub':        'ระยะพิทช์ 142 มม. &nbsp;|&nbsp; โรงงานเหล็ก · โรงซีเมนต์ · โรงงานอาหารสัตว์',
+      'unof-overview-h2':'Forged Chain UNO',
+      'unof-desc-sub':   'โซ่เหล็กหลอมหนักพิเศษสำหรับโรงงานเหล็ก โรงซีเมนต์ และโรงงานอาหารสัตว์',
+
+      /* ---------- Footer LINE label (TH) ---------- */
+      'footer-line-lbl': 'LINE',
 
       /* ---------- About page ---------- */
       'abt-eyebrow':        'บริษัทของเรา',
@@ -730,7 +900,7 @@
       'prod-h1':           'สินค้าของเรา',
       'prod-sub':          'โซลูชันวิศวกรรมความแม่นยำสำหรับทุกการใช้งานอุตสาหกรรม',
       'prod-cat-eyebrow':  'หมวดหมู่สินค้า',
-      'prod-cat-h2':       'เลือกดูแคตตาล็อกของเรา',
+      'prod-cat-h2':       'เลือกดูผลิตภัณฑ์ของเรา',
       'prod-cat-intro':    'คลิกที่หมวดหมู่เพื่อดูสินค้าที่มีจำหน่าย ติดต่อทีมงานเราสำหรับข้อมูลจำเพาะ ราคา หรือโซลูชันพิเศษ',
       'prod-cta-h':        'ต้องการสินค้าเฉพาะ?',
       'prod-cta-p':        'ติดต่อทีมงานของเราเพื่อขอข้อมูลจำเพาะ เอกสาร และราคา',
@@ -1231,7 +1401,7 @@
       'prod-h1':           'ផលិតផលរបស់យើង',
       'prod-sub':          'ដំណោះស្រាយ Engineering ល្អិតពិតប្រាកដ សម្រាប់ការប្រើប្រាស់ឧស្សាហកម្មគ្រប់ប្រភេទ',
       'prod-cat-eyebrow':  'ជួរផលិតផល',
-      'prod-cat-h2':       'ទស្សនា Catalogue របស់យើង',
+      'prod-cat-h2':       'មើលផលិតផលរបស់យើង',
       'prod-cat-intro':    'ចុចលើប្រភេទណាមួយ ដើម្បីស្វែងរកផលិតផលដែលមាន ទំនាក់ទំនងក្រុមការងារ',
       'prod-cta-h':        'ត្រូវការផលិតផលជាក់លាក់?',
       'prod-cta-p':        'ទំនាក់ទំនងក្រុមការងាររបស់យើង',

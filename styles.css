@@ -5,6 +5,7 @@
 
 /* ---------- Google Fonts ---------- */
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Myanmar:wght@300;400;700&family=Noto+Sans+Lao:wght@300;400;700&display=swap');
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
@@ -385,39 +386,122 @@ p  { font-size: 1.0625rem; color: var(--color-grey); }
 }
 .mobile-nav .btn-primary { margin-top: 0.75rem; text-align: center; }
 
-/* ---------- Language Toggle ---------- */
-.lang-toggle {
+/* ---------- Language Selector Dropdown ---------- */
+.lang-select-wrap {
+  position: relative;
   display: flex;
   align-items: center;
-  background: var(--color-grey-lt);
-  border: 1px solid var(--color-border);
-  border-radius: 20px;
-  padding: 3px;
-  gap: 0;
   margin-left: 0.5rem;
   flex-shrink: 0;
 }
-.lang-btn {
-  font-size: 0.70rem;
-  font-weight: 800;
-  letter-spacing: 0.10em;
-  padding: 0.22rem 0.65rem;
-  border-radius: 16px;
-  color: var(--color-grey);
+.lang-select-btn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 6px;
+  padding: 5px 9px;
+  color: var(--color-white);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
   cursor: pointer;
-  transition: background 0.2s, color 0.2s;
+  transition: border-color .2s, background .2s;
+  white-space: nowrap;
+  line-height: 1;
+}
+.lang-select-btn:hover {
+  border-color: rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.08);
+}
+.lang-globe-icon { opacity: 0.65; flex-shrink: 0; }
+.lang-caret { transition: transform .2s; flex-shrink: 0; }
+.lang-select-btn[aria-expanded="true"] .lang-caret { transform: rotate(180deg); }
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  min-width: 148px;
+  background: #0d1e3d;
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 9px;
+  list-style: none;
+  margin: 0;
+  padding: 4px;
+  display: none;
+  z-index: 2000;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+  animation: langFadeIn .15s ease;
+}
+.lang-dropdown.open { display: block; }
+@keyframes langFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.lang-dropdown li { margin: 0; padding: 0; }
+.lang-dropdown .lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  width: 100%;
   background: transparent;
   border: none;
-  line-height: 1.4;
+  border-radius: 6px;
+  padding: 7px 10px;
+  color: rgba(255,255,255,0.65);
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-align: left;
+  transition: background .15s, color .15s;
+  white-space: nowrap;
 }
-.lang-btn.active {
-  background: var(--color-primary);
-  color: var(--color-white);
-  box-shadow: 0 1px 6px rgba(0,86,164,0.22);
+.lang-dropdown .lang-btn span {
+  font-weight: 400;
+  font-size: 0.68rem;
+  opacity: 0.65;
+  letter-spacing: 0;
+  font-family: 'Noto Sans Myanmar', 'Noto Sans Lao', 'Noto Sans Khmer', sans-serif;
 }
-.lang-btn:not(.active):hover {
-  color: var(--color-primary);
+.lang-dropdown .lang-btn:hover { background: rgba(255,255,255,0.08); color: #fff; }
+.lang-dropdown .lang-btn.active { color: #fff; background: rgba(255,255,255,0.11); }
+
+/* Mobile lang row */
+.mobile-lang-row {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  padding: 10px 0 2px;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 6px;
 }
+.mobile-lang-row .lang-btn {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.16);
+  border-radius: 5px;
+  padding: 4px 9px;
+  color: rgba(255,255,255,0.65);
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: background .15s, color .15s;
+  font-family: inherit;
+}
+.mobile-lang-row .lang-btn.active,
+.mobile-lang-row .lang-btn:hover {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+}
+
+/* Script-specific font stack */
+html[data-lang="my"] { font-family: 'Noto Sans Myanmar', 'Nunito', sans-serif; }
+html[data-lang="lo"] { font-family: 'Noto Sans Lao', 'Nunito', sans-serif; }
+html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 
 /* ---------- Buttons ---------- */
 .btn-primary, .btn-outline, .btn-outline-white, .btn-ghost {
@@ -1773,11 +1857,10 @@ select.form-control { cursor: pointer; }
 }
 .filter-btn:active { transform: scale(0.97); }
 
-/* ── 6. Language toggle press feedback ───────────────────── */
-.lang-btn {
-  transition: background 0.16s ease-out, color 0.16s ease-out, transform 0.1s ease-out;
-}
-.lang-btn:active { transform: scale(0.92); }
+/* ── 6. Language selector press feedback ─────────────────── */
+.lang-select-btn { transition: border-color 0.16s ease-out, background 0.16s ease-out; }
+.lang-dropdown .lang-btn { transition: background 0.16s ease-out, color 0.16s ease-out; }
+.mobile-lang-row .lang-btn { transition: background 0.16s ease-out, color 0.16s ease-out; }
 
 /* ── 7. Snappier card hover transitions ──────────────────── */
 .solution-card,
