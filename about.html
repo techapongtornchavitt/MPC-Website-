@@ -1,0 +1,623 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Motion Plus Corporation — Authorised Distributor and After-Sales Service Provider for Industrial Chain Solutions. Learn about our history, values, and commitment.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="mpc-logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About MPC | Motion Plus Corporation">
+  <meta property="og:description" content="Established in 2004, Motion Plus Corporation delivers world-class industrial chain solutions across Southeast Asia. Learn about our history, values, and brands.">
+  <meta property="og:image" content="mpc-logo.jpg">
+  <meta property="og:url" content="https://motionpluscorp.com/about.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="About MPC | Motion Plus Corporation">
+  <title>About Us | Motion Plus Corporation</title>
+  
+  <!-- GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+  <!-- Google Search Console: add <meta name="google-site-verification" content="YOUR_CODE"> here --><link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="flipbook-viewer.css">
+  <style>
+    .expertise-split { display:grid; grid-template-columns:1fr 1fr; gap:var(--space-xl); align-items:center; }
+    .expertise-img { border-radius:var(--radius-md); overflow:hidden; aspect-ratio:4/3; }
+    .expertise-img img { width:100%; height:100%; object-fit:cover; }
+    @media (max-width:768px) { .expertise-split { grid-template-columns:1fr; } }
+
+    /* ── About Us page hero — page-specific only, does NOT affect other pages ── */
+    .about-hero {
+      min-height: 65vh;
+    }
+    .about-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('about banner.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+    /* Gradient overlay — darker at edges, slightly lighter centre for text focus */
+    .about-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        180deg,
+        rgba(0, 8, 25, 0.72) 0%,
+        rgba(0, 15, 45, 0.52) 45%,
+        rgba(0, 8, 25, 0.72) 100%
+      );
+      z-index: 2;
+    }
+    /* Text enhancements — About page hero only */
+    .about-hero .inner-hero-content h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 800;
+      color: #ffffff;
+      letter-spacing: 0.03em;
+      text-shadow: 0 2px 18px rgba(0, 30, 80, 0.55), 0 1px 4px rgba(0, 0, 0, 0.40);
+    }
+    .about-hero .inner-hero-content .hero-sub-text {
+      color: rgba(255, 255, 255, 0.90);
+      font-size: 1.15rem;
+      letter-spacing: 0.02em;
+      text-shadow: 0 1px 8px rgba(0, 0, 0, 0.45);
+    }
+    .about-hero .section-eyebrow {
+      letter-spacing: 0.18em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Announcement Bar -->
+<div class="announcement">
+  <span data-i18n="ann-text">Authorised Distributor &amp; After-Sales Service Provider for Industrial Chain Solutions</span> &nbsp;
+  <a href="contact.html" data-i18n="ann-link">Enquire Now →</a>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="logo-img">
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html"     class="nav-link" data-i18n="nav-home">Home</a>
+        <a href="about.html"     class="nav-link active" data-i18n="nav-about">About</a>
+        <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
+        <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
+        <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
+        <a href="contact.html"   class="btn-primary" style="margin-left:.75rem;" data-i18n="nav-quote">Get a Quote</a>
+      </nav>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="th">TH</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html"     class="nav-link" data-i18n="nav-home">Home</a>
+    <a href="about.html"     class="nav-link active" data-i18n="nav-about">About</a>
+    <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
+    <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
+    <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
+    <a href="contact.html"   class="btn-primary" data-i18n="nav-quote">Get a Quote</a>
+  </nav>
+</header>
+
+<!-- Inner Hero -->
+<section class="inner-hero about-hero">
+  <div class="about-hero-bg"></div>
+  <div class="about-hero-overlay"></div>
+  <div class="container inner-hero-content">
+    <span class="section-eyebrow" data-i18n="abt-eyebrow">Our Company</span>
+    <h1 data-i18n="abt-h1">About MPC</h1>
+    <p class="hero-sub-text" data-i18n="abt-sub">Precision Engineering. Global Standards.</p>
+  </div>
+</section>
+
+<!-- ============ SINCE 2004 CREDIBILITY BAND ============ -->
+<section class="since2004-band">
+  <div class="container">
+    <div class="since2004-inner">
+      <div class="since2004-year">
+        <span class="since2004-label">Established</span>
+        <span class="since2004-num">2004</span>
+      </div>
+      <div class="since2004-divider"></div>
+      <div class="since2004-stats">
+        <div class="since2004-stat">
+          <span class="since2004-stat-num">20<sup>+</sup></span>
+          <span class="since2004-stat-lbl" data-i18n="since-years-lbl">Years of Industry Excellence</span>
+        </div>
+        <div class="since2004-stat">
+          <span class="since2004-stat-num">35<sup>+</sup></span>
+          <span class="since2004-stat-lbl" data-i18n="since-eng-lbl">Engineers &amp; Professionals</span>
+        </div>
+        <div class="since2004-stat">
+          <span class="since2004-stat-num">500<sup>+</sup></span>
+          <span class="since2004-stat-lbl" data-i18n="since-clients-lbl">Clients Served</span>
+        </div>
+        <div class="since2004-stat">
+          <span class="since2004-stat-num">6<sup>+</sup></span>
+          <span class="since2004-stat-lbl" data-i18n="since-brands-lbl">Global Brand Partners</span>
+        </div>
+      </div>
+      <div class="since2004-divider"></div>
+      <div class="since2004-badge">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-light-blue);opacity:0.7"><circle cx="12" cy="8" r="6"/><path d="M9 11l3 3 3-3"/><path d="M8 21l4-4 4 4"/></svg>
+        <span data-i18n="since-tagline">Southeast Asia's Trusted Industrial Chain Partner</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPANY STORY (dark navy) ============ -->
+<section class="section--dark">
+  <div class="container">
+    <div class="two-col">
+      <div>
+        <span class="section-eyebrow" data-i18n="abt-story-eyebrow">Our Story</span>
+        <h2 data-i18n="abt-story-h2">Built on Precision,<br>Driven by Excellence</h2>
+        <p style="margin-bottom:1rem;" data-i18n="abt-story-p1">Motion Plus Corporation was founded with a singular mission: to bring world-class industrial chain technology to the rapidly growing manufacturing and processing sectors of Southeast Asia.</p>
+        <p style="margin-bottom:1rem;" data-i18n="abt-story-p2">As an authorised distributor for six internationally recognised chain brands, MPC provides more than just products — we deliver precision-engineered solutions, reliable after-sales support, and long-term partnerships that keep our clients' operations running at peak performance.</p>
+        <p data-i18n="abt-story-p3">Our team works alongside clients from product delivery through to ongoing maintenance and support, ensuring every chain solution is precisely matched to its application.</p>
+      </div>
+      <div class="commitment-img">
+        <img src="built-on-precision.jpg" alt="Motion Plus Corporation — Built on Precision, Driven by Excellence" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPANY PILLARS (grey-lt) ============ -->
+<section class="section" style="background:var(--color-grey-lt); padding-top:var(--space-2xl); padding-bottom:var(--space-2xl);">
+  <div class="container">
+
+    <div class="section-header" style="margin-bottom:var(--space-xl);">
+      <span class="section-eyebrow" data-i18n="abt-found-eyebrow">Who We Are</span>
+      <h2 data-i18n="abt-found-h2">Our Foundation &amp; Philosophy</h2>
+      <p data-i18n="abt-found-body">Established in <strong>2004</strong>, Motion Plus Corporation has spent over two decades building a reputation for precision, reliability, and genuine partnership across Southeast Asia's most demanding industries.</p>
+    </div>
+
+    <div class="grid-2" style="gap:1.75rem;">
+
+      <!-- Key to Success -->
+      <div style="background:var(--color-white); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+          <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <h3 style="margin:0; font-size:1.1rem; color:var(--color-dark);" data-i18n="abt-key-h3">Key to Success</h3>
+        </div>
+        <p style="color:var(--color-grey); line-height:1.7; margin:0;" data-i18n="abt-key-p">We focus on delivering reliable, high-value solutions that combine quality, efficiency, and long-term performance to support a wide range of industrial applications.</p>
+      </div>
+
+      <!-- Company Philosophy -->
+      <div style="background:var(--color-white); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+          <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
+          </div>
+          <h3 style="margin:0; font-size:1.1rem; color:var(--color-dark);" data-i18n="abt-phil-h3">Company Philosophy</h3>
+        </div>
+        <p style="color:var(--color-grey); line-height:1.7; margin:0;" data-i18n="abt-phil-p">We guarantee the quality of our selective product range through a long-term commitment to excellence, fostering a collaborative environment dedicated to total customer satisfaction.</p>
+      </div>
+
+      <!-- Commitment -->
+      <div style="background:var(--color-white); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+          <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <h3 style="margin:0; font-size:1.1rem; color:var(--color-dark);" data-i18n="abt-commit-h3">Our Commitment</h3>
+        </div>
+        <p style="color:var(--color-grey); line-height:1.7; margin:0;" data-i18n="abt-commit-p">We maintain close communication with our customers and suppliers, coordinating with manufacturers to ensure any issues are resolved efficiently and professionally.</p>
+      </div>
+
+      <!-- Experience & Company Profile -->
+      <div style="background:var(--color-dark-navy); border:1px solid rgba(74,144,226,0.25); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card); position:relative; overflow:hidden;">
+        <div style="position:absolute; top:-20px; right:-20px; width:120px; height:120px; background:var(--color-primary); opacity:.07; border-radius:50%;"></div>
+        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
+          <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h3 style="margin:0; font-size:1.1rem; color:var(--color-white);" data-i18n="abt-exp-h3">Experience &amp; Company Profile</h3>
+        </div>
+        <div style="display:flex; align-items:baseline; gap:.5rem; margin-bottom:.75rem;">
+          <span style="font-size:3rem; font-weight:800; color:var(--color-primary); line-height:1;">2004</span>
+          <span style="font-size:.9rem; color:rgba(255,255,255,0.6); font-weight:500;">— Est.</span>
+        </div>
+        <p style="font-size:1rem; font-weight:700; color:var(--color-white); margin:0 0 .6rem;" data-i18n="abt-exp-headline">20+ Years of Industrial Excellence</p>
+        <p style="color:rgba(255,255,255,0.75); line-height:1.7; margin:0 0 1.1rem;" data-i18n="abt-exp-body">Since 2004, we have delivered world-class chain solutions across Southeast Asia, connecting clients with leading international manufacturers and providing responsive local support.</p>
+        <ul style="list-style:none; padding:0; margin:0 0 1.25rem; display:flex; flex-direction:column; gap:.5rem;">
+          <li style="font-size:.82rem; color:rgba(255,255,255,0.7); display:flex; gap:.5rem;" data-i18n="abt-exp-li1">Global Reach — Elite partnerships with international chain manufacturers</li>
+          <li style="font-size:.82rem; color:rgba(255,255,255,0.7); display:flex; gap:.5rem;" data-i18n="abt-exp-li2">Expert Team — 35+ engineers and industry professionals</li>
+          <li style="font-size:.82rem; color:rgba(255,255,255,0.7); display:flex; gap:.5rem;" data-i18n="abt-exp-li3">Proven Track Record — Steel, Sugar, Cement, and Food &amp; Beverage sectors</li>
+        </ul>
+        <!-- Company Profile — Flipbook Viewers -->
+        <div style="border-top:1px solid rgba(255,255,255,0.12); padding-top:1.1rem; display:flex; flex-wrap:wrap; gap:.65rem;">
+          <a href="Motion Plus Corporation_Company Profile (Eng) .pdf"
+             data-pdf="Motion Plus Corporation_Company Profile (Eng) .pdf"
+             data-pdf-title="MPC Company Profile (English)"
+             style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:var(--color-primary);border-radius:var(--radius-sm);color:white;font-size:.8rem;font-weight:700;text-decoration:none;transition:opacity .2s;cursor:pointer;"
+             onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Company Profile (EN)
+          </a>
+          <a href="Motion Plus Corporation_Company Profile (THA) .pdf"
+             data-pdf="Motion Plus Corporation_Company Profile (THA) .pdf"
+             data-pdf-title="MPC Company Profile (Thai)"
+             style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.22);border-radius:var(--radius-sm);color:rgba(255,255,255,0.85);font-size:.8rem;font-weight:700;text-decoration:none;transition:background .2s;cursor:pointer;"
+             onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.10)'">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            Company Profile (TH)
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ VALUES (grey-lt) ============ -->
+<section class="section" style="background:var(--color-grey-lt);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="abt-val-eyebrow">What Drives Us</span>
+      <h2 data-i18n="abt-val-h2">Our Core Values</h2>
+      <p data-i18n="abt-val-intro">Three principles guide every decision and partnership at Motion Plus Corporation.</p>
+    </div>
+    <div class="grid-3">
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/>
+          </svg>
+        </div>
+        <h3 data-i18n="abt-val-prec-h3">Precision</h3>
+        <p data-i18n="abt-val-prec-p">Every specification matters. We apply exacting standards to product selection and quality assurance to ensure reliable performance in critical systems.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3 data-i18n="abt-val-rel-h3">Reliability</h3>
+        <p data-i18n="abt-val-rel-p">Our chains come from manufacturers with proven track records. When issues arise, our after-sales team coordinates swiftly to minimise downtime.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+          </svg>
+        </div>
+        <h3 data-i18n="abt-val-part-h3">Partnership</h3>
+        <p data-i18n="abt-val-part-p">We invest in long-term relationships — understanding your processes and goals so we can be a genuine partner in your success, not just a supplier.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS BAR (blue) ============ -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-bar-grid">
+      <div class="text-center">
+        <div class="stat-item-num">20<span style="font-size:1.6rem;color:rgba(255,255,255,0.7)">+</span></div>
+        <div class="stat-item-label" data-i18n="sbar-years">Years of Experience</div>
+      </div>
+      <div class="text-center">
+        <div class="stat-item-num">6<span style="font-size:1.6rem;color:rgba(255,255,255,0.7)">+</span></div>
+        <div class="stat-item-label" data-i18n="sbar-brands">Authorised Brands</div>
+      </div>
+      <div class="text-center">
+        <div class="stat-item-num">500<span style="font-size:1.6rem;color:rgba(255,255,255,0.7)">+</span></div>
+        <div class="stat-item-label" data-i18n="sbar-clients">Clients Served</div>
+      </div>
+      <div class="text-center">
+        <div class="stat-item-num">4</div>
+        <div class="stat-item-label" data-i18n="sbar-ind">Key Industries</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ============ PARTNERS STRIP (grey-lt) ============ -->
+<section class="partners-strip">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:var(--space-lg)">
+      <span class="section-eyebrow" data-i18n="abt-brands-eyebrow">Brand Partners</span>
+      <h2 data-i18n="abt-brands-h2">Our Authorised Brands</h2>
+      <p data-i18n="abt-partners-p">Five world-class chain manufacturers — one trusted source.</p>
+    </div>
+    <div class="partners-grid">
+      <div class="partner-logo">
+        <img src="iwis-chain-germany.jpg" alt="IWIS Chain" loading="lazy">
+      </div>
+      <div class="partner-logo">
+        <img src="kmh-pipe-conveyor.jpg" alt="KMH Chain" loading="lazy">
+      </div>
+      <div class="partner-logo">
+        <img src="hs-chain-authorized-brand.jpg" alt="HS Chain" loading="lazy">
+      </div>
+      <div class="partner-logo">
+        <img src="dongbo-chain-korea.jpg" alt="Dongbo Chain" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCT REPRESENTATION ============ -->
+<section class="section prod-rep-section" style="background:var(--color-dark-navy);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow" style="color:var(--color-light-blue);" data-i18n="prod-rep-eyebrow">What We Supply</span>
+      <h2 style="color:var(--color-white);" data-i18n="prod-rep-h2">Our Product Representation</h2>
+      <p style="color:rgba(255,255,255,0.55); max-width:580px; margin:0.75rem auto 0;" data-i18n="prod-rep-intro">Precision-engineered solutions from globally recognised manufacturers — selected for quality, reliability, and proven performance across Southeast Asia's most demanding industries.</p>
+    </div>
+    <div class="prod-rep-grid">
+
+      <!-- HS Chains -->
+      <div class="prod-rep-card">
+        <div class="prod-rep-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="3"/><circle cx="19" cy="12" r="3"/><circle cx="12" cy="19" r="3"/><circle cx="5" cy="12" r="3"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+        </div>
+        <div class="prod-rep-origin" data-i18n="prod-hs-origin">China</div>
+        <h3 class="prod-rep-name" data-i18n="prod-hs-name">HS Chains</h3>
+        <p class="prod-rep-desc" data-i18n="prod-hs-desc">Premium roller and conveyor chains manufactured to exacting tolerances for high-load industrial applications.</p>
+      </div>
+
+      <!-- Dong Bo -->
+      <div class="prod-rep-card">
+        <div class="prod-rep-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="prod-rep-origin" data-i18n="prod-db-origin">South Korea</div>
+        <h3 class="prod-rep-name" data-i18n="prod-db-name">Dong Bo Chain</h3>
+        <p class="prod-rep-desc" data-i18n="prod-db-desc">World-class precision chains engineered for performance-critical machinery across steel, cement, and food processing industries.</p>
+      </div>
+
+      <!-- UNO -->
+      <div class="prod-rep-card">
+        <div class="prod-rep-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="prod-rep-origin" data-i18n="prod-uno-origin">Standard Series</div>
+        <h3 class="prod-rep-name" data-i18n="prod-uno-name">UNO Roller Chains</h3>
+        <p class="prod-rep-desc" data-i18n="prod-uno-desc">Reliable standard transmission chains delivering consistent value-to-performance across general industrial conveying applications.</p>
+      </div>
+
+      <!-- Diamond Chain -->
+      <div class="prod-rep-card">
+        <div class="prod-rep-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="prod-rep-origin" data-i18n="prod-dia-origin">USA</div>
+        <h3 class="prod-rep-name" data-i18n="prod-dia-name">Diamond Chain</h3>
+        <p class="prod-rep-desc" data-i18n="prod-dia-desc">High-integrity drive and conveyor chains for mission-critical applications, trusted by the world's most demanding operations since 1890.</p>
+      </div>
+
+      <!-- IWIS -->
+      <div class="prod-rep-card">
+        <div class="prod-rep-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="prod-rep-origin" data-i18n="prod-iwis-origin">Germany</div>
+        <h3 class="prod-rep-name" data-i18n="prod-iwis-name">IWIS</h3>
+        <p class="prod-rep-desc" data-i18n="prod-iwis-desc">Precision-engineered drive chains with ultra-fine tolerances and extended service life — the benchmark for automated, high-speed systems.</p>
+      </div>
+
+      <!-- KMH -->
+      <div class="prod-rep-card">
+        <div class="prod-rep-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M3 15h18M9 3v18"/></svg>
+        </div>
+        <div class="prod-rep-origin" data-i18n="prod-kmh-origin">Germany</div>
+        <h3 class="prod-rep-name" data-i18n="prod-kmh-name">KMH</h3>
+        <p class="prod-rep-desc" data-i18n="prod-kmh-desc">Industrial-grade standard and custom tube solutions engineered for precise fit, structural integrity, and consistent industrial performance.</p>
+      </div>
+
+      <!-- Industrial Belts -->
+      <div class="prod-rep-card">
+        <div class="prod-rep-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="7" cy="12" rx="4" ry="6"/><ellipse cx="17" cy="12" rx="4" ry="6"/><line x1="7" y1="6" x2="17" y2="6"/><line x1="7" y1="18" x2="17" y2="18"/></svg>
+        </div>
+        <div class="prod-rep-origin" data-i18n="prod-belt-origin">Industrial Series</div>
+        <h3 class="prod-rep-name" data-i18n="prod-belt-name">Industrial Belts</h3>
+        <p class="prod-rep-desc" data-i18n="prod-belt-desc">High-durability power transmission and conveyor belts selected for continuous industrial operation across demanding process environments.</p>
+      </div>
+
+      <!-- Genuine Bearings -->
+      <div class="prod-rep-card">
+        <div class="prod-rep-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="4.93" y1="4.93" x2="9.17" y2="9.17"/><line x1="14.83" y1="14.83" x2="19.07" y2="19.07"/><line x1="14.83" y1="9.17" x2="19.07" y2="4.93"/><line x1="4.93" y1="19.07" x2="9.17" y2="14.83"/></svg>
+        </div>
+        <div class="prod-rep-origin" data-i18n="prod-bear-origin">Multi-Brand</div>
+        <h3 class="prod-rep-name" data-i18n="prod-bear-name">Genuine Bearings</h3>
+        <p class="prod-rep-desc" data-i18n="prod-bear-desc">Authentic bearings from globally recognised manufacturers — fully traceable, quality-assured, and specified for long-term operational reliability.</p>
+      </div>
+
+    </div>
+    <div style="text-align:center; margin-top:var(--space-xl);">
+      <a href="contact.html" class="btn-outline-white" data-i18n="prod-rep-btn">Request a Product Catalogue</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INDUSTRIES WE SERVE (dark navy) ============ -->
+<section class="section--dark">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="ind-eyebrow">Sectors We Serve</span>
+      <h2 data-i18n="ind-h2">Our Specialized Industries</h2>
+      <p style="color:rgba(255,255,255,0.6);" data-i18n="ind-body">From heavy steel processing to food-grade palm oil production, our chain solutions are proven across the most demanding industrial environments.</p>
+    </div>
+    <div class="grid-4" style="gap:1.25rem;">
+      <div class="industry-card">
+        <img src="steel-industry-chains.webp" alt="Steel Industry" loading="lazy">
+        <div class="industry-card-overlay">
+          <h3 data-i18n="steel-h3">Steel Industry</h3>
+          <p data-i18n="steel-p">High-load conveyor and drive chains for steel mills and processing facilities.</p>
+        </div>
+      </div>
+      <div class="industry-card">
+        <img src="cement-industry-chains.webp" alt="Cement Industry" loading="lazy">
+        <div class="industry-card-overlay">
+          <h3 data-i18n="cement-h3">Cement Industry</h3>
+          <p data-i18n="cement-p">Abrasion-resistant chains for kiln drives and bulk cement handling systems.</p>
+        </div>
+      </div>
+      <div class="industry-card">
+        <img src="palm-oil-chains.webp" alt="Palm Oil Industry" loading="lazy">
+        <div class="industry-card-overlay">
+          <h3 data-i18n="palm-h3">Palm Oil Industry</h3>
+          <p data-i18n="palm-p">Food-grade and corrosion-resistant chains for palm oil milling and processing.</p>
+        </div>
+      </div>
+      <div class="industry-card">
+        <img src="sugar-mill-chains.webp" alt="Sugar Industry" loading="lazy">
+        <div class="industry-card-overlay">
+          <h3 data-i18n="sugar-h3">Sugar Industry</h3>
+          <p data-i18n="sugar-p">Heavy-duty cane carrier and conveyor chains engineered for sugar mill environments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-block">
+  <div class="container">
+    <span class="section-eyebrow" style="color:rgba(255,255,255,.5); justify-content:center; display:flex;" data-i18n="abt-cta-eyebrow">Get Started</span>
+    <h2 data-i18n="abt-cta-h2">Ready to Work with MPC?</h2>
+    <p data-i18n="abt-cta-p">Contact our team to discuss your requirements. We'll find the right chain solution for your application.</p>
+    <div class="cta-btns">
+      <a href="contact.html"   class="btn-primary" data-i18n="abt-cta-btn">Get in Touch</a>
+      <a href="portfolio.html" class="btn-outline-white" data-i18n="abt-view-work">View Our Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid-5">
+      <div>
+        <img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="footer-logo-img">
+        <p class="footer-tagline">Motion Plus Corporation</p>
+        <p class="footer-about-text" data-i18n="footer-about-text">Authorised Distributor &amp; After-Sales Service Provider for Industrial Chain Solutions across Southeast Asia. Precision engineering, world-class brands.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/motion-plus-corporation-co-ltd/" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/17FWDKmfBN/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://th.shp.ee/7FUYG6Uz" class="footer-social" aria-label="Shopee" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@motion_plus_corporation?_r=1&_t=ZS-95bOYoXH7sT" class="footer-social" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+          <a href="mailto:contact@motionpluscorp.com" class="footer-social" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-solutions-h">Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="products.html" data-i18n="footer-roller">Roller Chains</a></li>
+          <li><a href="hs-conveyor-chains.html" data-i18n="footer-conveyor">Conveyor Chains</a></li>
+          <li><a href="products.html" data-i18n="footer-drive">Drive Chains</a></li>
+          <li><a href="contact.html" data-i18n="footer-support">After-Sales Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-brands-h">Our Brands</h4>
+        <ul class="footer-links">
+          <li><a href="hs-conveyor-chains.html">HS Chain</a></li>
+          <li><a href="iwis-chains.html">IWIS</a></li>
+          <li><a href="kmh-conveyor-pipe.html">KMH</a></li>
+          <li><a href="dongbo-chains.html">Dongbo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-company-h">Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html" data-i18n="footer-about-mpc">About MPC</a></li>
+          <li><a href="portfolio.html" data-i18n="footer-portfolio">Portfolio</a></li>
+          <li><a href="contact.html" data-i18n="footer-contact-us">Contact Us</a></li>
+          <li><a href="contact.html" data-i18n="footer-get-quote">Get a Quote</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-contact-h">Contact</h4>
+        <div class="footer-contact-block">
+          <div class="footer-contact-item">
+            <span class="footer-contact-label" data-i18n="footer-addr-lbl">Address</span>
+            <span class="footer-contact-value">199/29 Soi Chuaplerng (Amorn),<br>Nanglinchee Rd., Chongnonsee,<br>Yannawa, Bangkok 10120</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label" data-i18n="footer-tel-lbl">Telephone</span>
+            <span class="footer-contact-value"><a href="tel:022865656">02 286-5656</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label" data-i18n="footer-email-lbl">Email</span>
+            <span class="footer-contact-value"><a href="mailto:contact@motionpluscorp.com">contact@motionpluscorp.com</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label" data-i18n="footer-hours-lbl">Business Hours</span>
+            <div class="footer-hours-grid">
+              <span data-i18n="footer-mon-fri">Mon – Fri</span><span>8:30 AM – 5:00 PM</span>
+              <span data-i18n="footer-sat">Saturday</span><span>9:00 AM – 3:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright" data-i18n="footer-copyright">&copy; 2026 Motion Plus Corporation. All rights reserved.</p>
+      <div class="footer-badges">
+        <span class="footer-badge">ISO</span>
+        <span class="footer-badge">Authorised</span>
+        <span class="footer-badge">SEA</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.getElementById('mobile-nav');
+  if (!btn || !nav) return;
+  btn.addEventListener('click', function() {
+    var open = nav.classList.toggle('open');
+    btn.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', String(open));
+  });
+})();
+</script>
+<script src="animations.js"></script><script src="lang.js"></script>
+<script src="flipbook-viewer.js"></script>
+</body>
+</html>

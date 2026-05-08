@@ -1,0 +1,16 @@
+# =====================================================
+# Motion Plus Corporation — robots.txt
+# https://motionpluscorp.com
+# =====================================================
+
+User-agent: *
+Allow: /
+
+# Block backup and temporary files
+Disallow: /index.backup.html
+Disallow: /index.backup2.html
+Disallow: /index.backup3.html
+Disallow: /*.backup
+
+# Sitemap location
+Sitemap: https://motionpluscorp.com/sitemap.xml

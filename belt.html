@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Belt — V-belts, timing belts, flat belts and more. BANDO, Continental Contitech, Goodyear, Gates, Optibelt, Mitsuboshi. Motion Plus Corporation.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="mpc-logo.jpg">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Belt | Motion Plus Corporation">
+  <meta property="og:description" content="V-belts, timing belts, flat belts from BANDO, Continental Contitech, Gates, Optibelt, Mitsuboshi. Motion Plus Corporation.">
+  <meta property="og:image" content="mpc-logo.jpg">
+  <meta property="og:url" content="https://motionpluscorp.com/belt.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Belt | Motion Plus Corporation">
+  <title>Belt | Motion Plus Corporation</title>
+  
+  <!-- GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> -->
+  <!-- Google Search Console: add <meta name="google-site-verification" content="YOUR_CODE"> here --><link rel="stylesheet" href="styles.css">
+  <style>
+    body { background: #0e1d30; }
+
+    /* ── breadcrumb ── */
+    .bc-bar { padding:.65rem 0; border-bottom:1px solid rgba(255,255,255,.05); background:rgba(0,4,14,.9); }
+    .bc-list { display:flex; align-items:center; gap:.4rem; list-style:none; margin:0; padding:0; font-size:.73rem; flex-wrap:wrap; color:rgba(255,255,255,.32); }
+    .bc-list a { color:rgba(255,255,255,.50); text-decoration:none; }
+    .bc-list a:hover { color:#7ec8e3; }
+    .bc-list .active { color:rgba(255,255,255,.75); font-weight:600; }
+
+    /* ── back link ── */
+    .back-link { display:inline-flex; align-items:center; gap:.42rem; font-size:.7rem; font-weight:800; letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.3); text-decoration:none; transition:color .2s; margin-bottom:2rem; }
+    .back-link:hover { color:#7ec8e3; }
+    .back-link svg { width:14px; height:14px; }
+
+    /* ── page hero ── */
+    .page-hero { position:relative; min-height:260px; display:flex; align-items:flex-end; overflow:hidden; }
+    .page-hero-bg { position:absolute; inset:0; background:url('belt-conveyor-thailand.png') center 40% / cover no-repeat; filter:brightness(.12) saturate(.3) hue-rotate(200deg); transform:scale(1.06); }
+    .page-hero::before { content:''; position:absolute; inset:0; z-index:1; background: linear-gradient(to right, rgba(2,6,18,.97) 0%, rgba(4,10,22,.7) 55%, rgba(2,8,16,.25) 100%), linear-gradient(to top, rgba(2,6,18,.99) 0%, transparent 55%); }
+    .page-hero-inner { position:relative; z-index:2; padding:2.5rem 0 2.25rem; }
+    .hero-eyebrow { display:inline-flex; align-items:center; gap:.6rem; font-size:.7rem; font-weight:800; letter-spacing:.15em; text-transform:uppercase; color:#7ec8e3; margin-bottom:.6rem; }
+    .hero-eyebrow::before { content:''; display:block; width:24px; height:1.5px; background:#7ec8e3; }
+    .hero-title { font-size:clamp(2rem,4.5vw,3.2rem); font-weight:900; color:#fff; letter-spacing:-.025em; line-height:1.05; margin:0; text-shadow:0 4px 28px rgba(0,8,28,.9); }
+    .hero-title em { color:#7ec8e3; font-style:normal; }
+
+    /* ── section ── */
+    .pg-section { padding:3.5rem 0; border-bottom:1px solid rgba(255,255,255,.05); }
+    .sec-eyebrow { display:inline-flex; align-items:center; gap:.55rem; font-size:.66rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; color:#7ec8e3; margin-bottom:.5rem; }
+    .sec-eyebrow::before { content:''; display:block; width:17px; height:1.5px; background:#7ec8e3; }
+    .sec-title { color:#fff; font-size:clamp(1.35rem,2.6vw,1.75rem); font-weight:800; letter-spacing:-.015em; margin:0 0 1.75rem; }
+
+    /* ── image gallery — no labels ── */
+    .img-gallery { display:flex; flex-direction:column; gap:20px; }
+    .img-frame { border-radius:12px; overflow:hidden; background:#fff; box-shadow:0 8px 36px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06); position:relative; }
+    .img-frame::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg, transparent 0%, #4a90e2 40%, #7ec8e3 60%, transparent 100%); z-index:2; opacity:.5; }
+    .img-frame img { width:100%; height:auto; display:block; object-fit:contain; image-rendering:-webkit-optimize-contrast; image-rendering:crisp-edges; transition:transform .65s cubic-bezier(0.25,0.46,0.45,0.94); }
+    .img-frame:hover img { transform:scale(1.012); }
+
+    /* ── CTA ── */
+    .page-cta { display:flex; align-items:center; justify-content:space-between; gap:1.5rem; flex-wrap:wrap; padding:2.25rem 2.75rem; border-radius:12px; background:linear-gradient(135deg,rgba(0,50,112,.65),rgba(0,82,158,.42)); border:1px solid rgba(74,144,226,.22); box-shadow:0 8px 30px rgba(0,25,70,.35); margin-top:3rem; }
+    .cta-text h3 { color:#fff; font-size:1.1rem; font-weight:800; margin:0 0 .3rem; }
+    .cta-text p { color:rgba(255,255,255,.5); font-size:.88rem; margin:0; }
+    .cta-btns { display:flex; gap:.7rem; flex-wrap:wrap; flex-shrink:0; }
+
+    /* ── footer ── */
+    .footer-grid-5 { display:grid; grid-template-columns:1.4fr .9fr .9fr .9fr 1.1fr; gap:var(--space-lg); margin-bottom:var(--space-xl); }
+    .footer-contact-block { display:flex; flex-direction:column; gap:.85rem; }
+    .footer-contact-item  { display:flex; flex-direction:column; gap:.18rem; }
+    .footer-contact-label { font-size:.7rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:rgba(255,255,255,.50); }
+    .footer-contact-value { font-size:.85rem; color:rgba(255,255,255,.7); line-height:1.5; }
+    .footer-contact-value a { color:var(--color-light-blue); }
+    .footer-contact-value a:hover { color:#fff; }
+
+    @media (max-width:1020px) { .footer-grid-5 { grid-template-columns:1fr 1fr; gap:var(--space-md); } }
+    @media (max-width:740px)  { .page-cta { flex-direction:column; text-align:center; padding:1.75rem 1.5rem; } .cta-btns { justify-content:center; } .footer-grid-5 { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+
+<div class="announcement">
+  <span data-i18n="ann-text">Authorised Distributor &amp; After-Sales Service Provider for Industrial Chain Solutions</span> &nbsp;
+  <a href="contact.html" data-i18n="ann-link">Enquire Now →</a>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link"><img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="logo-img"></a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html"     class="nav-link" data-i18n="nav-home">Home</a>
+        <a href="about.html"     class="nav-link" data-i18n="nav-about">About</a>
+        <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
+        <a href="products.html"  class="nav-link active" data-i18n="nav-products">Our Products</a>
+        <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
+        <a href="contact.html"   class="btn-primary" style="margin-left:.75rem;" data-i18n="nav-quote">Get a Quote</a>
+      </nav>
+      <div class="lang-toggle" role="group" aria-label="Language">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="th">TH</button>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html"     class="nav-link" data-i18n="nav-home">Home</a>
+    <a href="about.html"     class="nav-link" data-i18n="nav-about">About</a>
+    <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
+    <a href="products.html"  class="nav-link active" data-i18n="nav-products">Our Products</a>
+    <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
+    <a href="contact.html"   class="btn-primary" data-i18n="nav-quote">Get a Quote</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="container page-hero-inner">
+    <p class="hero-eyebrow">Other Products</p>
+    <h1 class="hero-title"><em>Belt</em></h1>
+  </div>
+</section>
+
+<!-- Breadcrumb -->
+<nav class="bc-bar" aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="bc-list">
+      <li><a href="index.html">Home</a></li><li>›</li>
+      <li><a href="products.html">Our Products</a></li><li>›</li>
+      <li><a href="products.html">Other</a></li><li>›</li>
+      <li class="active">Belt</li>
+    </ol>
+  </div>
+</nav>
+
+<!-- SECTION 1 — Belt products -->
+<section class="pg-section" style="background:#0b1928;">
+  <div class="container">
+
+    <a href="products.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+      Back to Products
+    </a>
+
+    <p class="sec-eyebrow">Product Range</p>
+    <h2 class="sec-title">Belt</h2>
+
+    <div class="img-gallery">
+      <div class="img-frame">
+        <img src="belt-conveyor-thailand.png" alt="Belt products — V-belts, timing belts, flat belts and synchronous belts" loading="eager" fetchpriority="high" decoding="async">
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 2 — Brands -->
+<section class="pg-section" style="background:#0e1d30;">
+  <div class="container">
+
+    <p class="sec-eyebrow">Authorised Distribution</p>
+    <h2 class="sec-title">Belt Brands We Offer</h2>
+
+    <div class="img-gallery">
+      <div class="img-frame">
+        <img src="belt-brands.png" alt="Belt brands — BANDO, Continental Contitech, Goodyear Belts, Gates, Optibelt, Mitsuboshi" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <div class="page-cta">
+      <div class="cta-text">
+        <h3>Need belts for your application?</h3>
+        <p>Contact our team for specifications, cross-referencing, and pricing on any belt type or brand.</p>
+      </div>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">Get a Quote</a>
+        <a href="mailto:contact@motionpluscorp.com" class="btn-outline-white">Email Us</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid-5">
+      <div>
+        <img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="footer-logo-img">
+        <p class="footer-tagline">Motion Plus Corporation</p>
+        <p class="footer-about-text" data-i18n="footer-about-text">Authorised Distributor &amp; After-Sales Service Provider for Industrial Chain Solutions across Southeast Asia. Precision engineering, world-class brands.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/motion-plus-corporation-co-ltd/" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></a>
+          <a href="https://www.facebook.com/share/17FWDKmfBN/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+          <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+          <a href="https://th.shp.ee/7FUYG6Uz" class="footer-social" aria-label="Shopee" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></a>
+          <a href="https://www.tiktok.com/@motion_plus_corporation?_r=1&_t=ZS-95bOYoXH7sT" class="footer-social" aria-label="TikTok" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg></a>
+          <a href="mailto:contact@motionpluscorp.com" class="footer-social" aria-label="Email"><svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Solutions</h4><ul class="footer-links"><li><a href="products.html">Standard Roller Chains</a></li><li><a href="products.html">Conveyor Chains</a></li><li><a href="products.html">Industry-Specific Chains</a></li><li><a href="sprockets-pulley.html">Sprockets &amp; Pulley</a></li><li><a href="contact.html">After-Sales Support</a></li></ul></div>
+      <div class="footer-col"><h4>Our Brands</h4><ul class="footer-links"><li><a href="iwis-chains.html">IWIS</a></li><li><a href="kmh-conveyor-pipe.html">KMH</a></li><li><a href="hs-conveyor-chains.html">HS Chain</a></li><li><a href="dongbo-chains.html">Dongbo</a></li></ul></div>
+      <div class="footer-col"><h4>Company</h4><ul class="footer-links"><li><a href="about.html">About MPC</a></li><li><a href="portfolio.html">Portfolio</a></li><li><a href="products.html">Our Products</a></li><li><a href="contact.html">Contact Us</a></li><li><a href="contact.html">Get a Quote</a></li></ul></div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-block">
+          <div class="footer-contact-item"><span class="footer-contact-label">Address</span><span class="footer-contact-value">199/29 Soi Chuaplerng (Amorn),<br>Nanglinchee Rd., Chongnonsee,<br>Yannawa, Bangkok 10120</span></div>
+          <div class="footer-contact-item"><span class="footer-contact-label">Telephone</span><span class="footer-contact-value"><a href="tel:022865656">02 286-5656</a></span></div>
+          <div class="footer-contact-item"><span class="footer-contact-label">Email</span><span class="footer-contact-value"><a href="mailto:contact@motionpluscorp.com">contact@motionpluscorp.com</a></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Motion Plus Corporation Co., Ltd. All rights reserved.</p>
+      <p><a href="contact.html">Privacy Policy</a> &nbsp;·&nbsp; <a href="contact.html">Terms of Service</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="animations.js"></script><script src="lang.js"></script>
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (hamburger && mobileNav) {
+    hamburger.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      hamburger.classList.toggle('open', open);
+    });
+  }
+</script>
+</body>
+</html>
