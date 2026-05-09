@@ -600,6 +600,10 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   opacity: 0.38;
   z-index: 1;
   pointer-events: none;
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 .hero-overlay {
   position: absolute; inset: 0;

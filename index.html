@@ -255,10 +255,39 @@
       transition: background 300ms ease, box-shadow 300ms ease;
     }
     .site-header.scrolled {
-      background: rgba(5, 15, 35, 0.88) !important;
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.06), 0 4px 20px rgba(0,0,0,0.3);
+      background: rgba(5, 15, 35, 0.92) !important;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(255,255,255,0.07), 0 4px 24px rgba(0,0,0,0.35);
+      border-bottom-color: rgba(255,255,255,0.08) !important;
+    }
+    /* Keep all nav text readable on the dark scrolled background */
+    .site-header.scrolled .nav-link {
+      color: rgba(255, 255, 255, 0.85);
+    }
+    .site-header.scrolled .nav-link:hover {
+      color: #ffffff;
+      background: rgba(255,255,255,0.06);
+    }
+    .site-header.scrolled .nav-link.active {
+      color: #7ec8e3;
+    }
+    .site-header.scrolled .nav-link::after,
+    .site-header.scrolled .nav-link.active::after,
+    .site-header.scrolled .nav-link:hover::after {
+      background: #7ec8e3;
+    }
+    .site-header.scrolled .hamburger span {
+      background: rgba(255, 255, 255, 0.9);
+    }
+    .site-header.scrolled .lang-btn {
+      color: rgba(255,255,255,0.75);
+      border-color: rgba(255,255,255,0.2);
+    }
+    .site-header.scrolled .lang-btn.active,
+    .site-header.scrolled .lang-btn:hover {
+      color: #fff;
+      border-color: rgba(255,255,255,0.5);
     }
 
     /* ---- CTA button shimmer + press state ---- */
@@ -812,14 +841,91 @@
     .commitment-dark h2 { color: var(--color-white) !important; }
     .commitment-dark p  { color: rgba(255,255,255,.68) !important; }
 
-    /* Hero overlay: balanced — lets video breathe */
+    /* Hero overlay: lighter — lets more video detail show through */
     .hero-overlay {
       background: linear-gradient(
         155deg,
-        rgba(4, 10, 26, 0.72) 0%,
-        rgba(7, 16, 38, 0.65) 55%,
-        rgba(0, 60, 120, 0.18) 100%
+        rgba(4, 10, 26, 0.52) 0%,
+        rgba(7, 16, 38, 0.44) 55%,
+        rgba(0, 60, 120, 0.10) 100%
       ) !important;
+    }
+
+    /* ======================================
+       COMPANY INTRODUCTION SECTION
+    ====================================== */
+    .company-intro-section {
+      background: #ffffff;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+    }
+    .company-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+    .company-intro-left .section-eyebrow {
+      color: var(--color-primary);
+    }
+    .company-intro-left .section-eyebrow::before,
+    .company-intro-left .section-eyebrow::after {
+      background: var(--color-primary);
+    }
+    .company-intro-left h2 {
+      color: var(--color-black);
+      margin-bottom: 1.25rem;
+    }
+    .company-intro-left p {
+      color: var(--color-grey);
+      line-height: 1.8;
+      margin-bottom: .9rem;
+      font-size: .98rem;
+    }
+    .company-intro-cta {
+      display: flex;
+      gap: .75rem;
+      margin-top: 1.75rem;
+      flex-wrap: wrap;
+    }
+    /* Facts grid — 2×2 */
+    .company-facts-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(0,0,0,0.07);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+    }
+    .company-fact {
+      background: #fff;
+      padding: 1.5rem 1.5rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+    }
+    .company-fact-num {
+      font-size: 1.9rem;
+      font-weight: 800;
+      color: var(--color-primary);
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+    .company-fact-lbl {
+      font-size: .7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .07em;
+      color: rgba(0,0,0,.42);
+    }
+    .company-intro-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      margin-top: 1.25rem;
+    }
+    @media (max-width: 900px) {
+      .company-intro-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     }
 
     /* More breathing room */
@@ -906,10 +1012,6 @@
         <span class="hero-eyebrow" data-i18n="hero-eyebrow">Global Industrial Chain Specialists</span>
         <h1 data-i18n="hero-h1">Precision Industrial<br><span>Chain Systems</span></h1>
         <p class="hero-sub" data-i18n="hero-sub">Engineered for Steel, Cement, Palm Oil &amp; Heavy Industry Across Southeast Asia.</p>
-        <div class="hero-btns">
-          <a href="contact.html"   class="btn-primary"       data-i18n="hero-btn-quote">Get a Quote</a>
-          <a href="portfolio.html" class="btn-outline-white" data-i18n="hero-btn-view">View Our Work</a>
-        </div>
       </div>
     </div>
   </div>
@@ -939,6 +1041,55 @@
   </div>
 </div>
 
+<!-- ============ COMPANY INTRODUCTION ============ -->
+<section class="section company-intro-section">
+  <div class="container">
+    <div class="company-intro-grid">
+
+      <!-- LEFT: Text + CTAs -->
+      <div class="company-intro-left reveal">
+        <span class="section-eyebrow" data-i18n="ci-eyebrow">Who We Are</span>
+        <h2 data-i18n="ci-h2">Thailand's Trusted<br>Industrial Chain Partner</h2>
+        <p data-i18n="ci-p1">Motion Plus Corporation is an authorised distributor and after-sales service provider for world-class industrial chain solutions, founded in Bangkok in 2004. We serve Thailand's most demanding industries — steel, cement, palm oil, and sugar — with precision-engineered products from globally certified manufacturers.</p>
+        <p data-i18n="ci-p2">Our certified engineers provide total solutions — from product selection and system design to continuous after-sales support — ensuring your operations run without interruption.</p>
+        <div class="company-intro-cta">
+          <a href="about.html" class="btn-primary" data-i18n="ci-btn-about">Learn About MPC</a>
+          <a href="contact.html" class="btn-outline" data-i18n="ci-btn-contact">Get in Touch</a>
+        </div>
+      </div>
+
+      <!-- RIGHT: Company facts grid + badges -->
+      <div class="reveal reveal-delay-2">
+        <div class="company-facts-card">
+          <div class="company-fact">
+            <span class="company-fact-num">2004</span>
+            <span class="company-fact-lbl" data-i18n="ci-fact-est">Year Established</span>
+          </div>
+          <div class="company-fact">
+            <span class="company-fact-num">THB 10M</span>
+            <span class="company-fact-lbl" data-i18n="ci-fact-cap">Registered Capital</span>
+          </div>
+          <div class="company-fact">
+            <span class="company-fact-num">35+</span>
+            <span class="company-fact-lbl" data-i18n="ci-fact-staff">Engineers &amp; Staff</span>
+          </div>
+          <div class="company-fact">
+            <span class="company-fact-num">4</span>
+            <span class="company-fact-lbl" data-i18n="ci-fact-ind">Key Industries</span>
+          </div>
+        </div>
+        <div class="company-intro-badges">
+          <span class="cert-badge" style="background:rgba(0,86,164,.09);border-color:rgba(0,86,164,.2);color:var(--color-primary);" data-i18n="ci-tag-trading">Trading &amp; Manufacturing</span>
+          <span class="cert-badge" style="background:rgba(0,86,164,.09);border-color:rgba(0,86,164,.2);color:var(--color-primary);" data-i18n="ci-tag-auth">Authorised Distributor</span>
+          <span class="cert-badge" style="background:rgba(0,86,164,.09);border-color:rgba(0,86,164,.2);color:var(--color-primary);" data-i18n="ci-tag-service">After-Sales Service</span>
+          <span class="cert-badge" style="background:rgba(0,86,164,.09);border-color:rgba(0,86,164,.2);color:var(--color-primary);" data-i18n="ci-tag-sea">SEA Coverage</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <!-- ============ INDUSTRIES ============ -->
 <section class="section reveal industries-dark">
   <div class="container">
@@ -948,11 +1099,11 @@
       <p data-i18n="ind-body">From heavy steel processing to food-grade palm oil production, our chain solutions are proven across the most demanding industrial environments.</p>
     </div>
     <div class="industry-filters">
-      <button class="ind-filter-btn active" data-filter="all">All Industries</button>
-      <button class="ind-filter-btn" data-filter="steel">Steel</button>
-      <button class="ind-filter-btn" data-filter="cement">Cement</button>
-      <button class="ind-filter-btn" data-filter="palmoil">Palm Oil</button>
-      <button class="ind-filter-btn" data-filter="sugar">Sugar</button>
+      <button class="ind-filter-btn active" data-filter="all"     data-i18n="ind-tab-all">All Industries</button>
+      <button class="ind-filter-btn"         data-filter="steel"   data-i18n="ind-tab-steel">Steel</button>
+      <button class="ind-filter-btn"         data-filter="cement"  data-i18n="ind-tab-cement">Cement</button>
+      <button class="ind-filter-btn"         data-filter="palmoil" data-i18n="ind-tab-palmoil">Palm Oil</button>
+      <button class="ind-filter-btn"         data-filter="sugar"   data-i18n="ind-tab-sugar">Sugar</button>
     </div>
     <div class="industries-grid">
       <a class="industry-card" data-industry="steel" href="steel-industry.html">
@@ -960,7 +1111,7 @@
         <div class="industry-card-overlay">
           <h3 data-i18n="steel-h3">Steel Industry</h3>
           <p data-i18n="steel-p">High-load conveyor and drive chains for steel mills and processing facilities.</p>
-          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
+          <span data-i18n="ind-learn-more" style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
         </div>
       </a>
       <a class="industry-card" data-industry="cement" href="cement-industry.html">
@@ -968,7 +1119,7 @@
         <div class="industry-card-overlay">
           <h3 data-i18n="cement-h3">Cement Industry</h3>
           <p data-i18n="cement-p">Abrasion-resistant chains for kiln drives and bulk cement handling systems.</p>
-          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
+          <span data-i18n="ind-learn-more" style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
         </div>
       </a>
       <a class="industry-card" data-industry="palmoil" href="palm-oil-industry.html">
@@ -976,7 +1127,7 @@
         <div class="industry-card-overlay">
           <h3 data-i18n="palm-h3">Palm Oil Industry</h3>
           <p data-i18n="palm-p">Food-grade and corrosion-resistant chains for palm oil milling and processing.</p>
-          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
+          <span data-i18n="ind-learn-more" style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
         </div>
       </a>
       <a class="industry-card" data-industry="sugar" href="sugar-industry.html">
@@ -984,7 +1135,7 @@
         <div class="industry-card-overlay">
           <h3 data-i18n="sugar-h3">Sugar Industry</h3>
           <p data-i18n="sugar-p">Heavy-duty cane carrier and conveyor chains engineered for sugar mill environments.</p>
-          <span style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
+          <span data-i18n="ind-learn-more" style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More →</span>
         </div>
       </a>
     </div>
@@ -1014,7 +1165,7 @@
         </div>
         <div class="brand-showcase-info">
           <div class="brand-showcase-name">IWIS</div>
-          <div class="brand-showcase-tag">Germany · Roller &amp; Conveyor Chains</div>
+          <div class="brand-showcase-tag" data-i18n="brand-tag-iwis">Germany · Roller &amp; Conveyor Chains</div>
         </div>
       </div>
 
@@ -1025,7 +1176,7 @@
         </div>
         <div class="brand-showcase-info">
           <div class="brand-showcase-name">KMH</div>
-          <div class="brand-showcase-tag">Germany · Pipe Conveyor Systems</div>
+          <div class="brand-showcase-tag" data-i18n="brand-tag-kmh">Germany · Pipe Conveyor Systems</div>
         </div>
       </div>
 
@@ -1036,7 +1187,7 @@
         </div>
         <div class="brand-showcase-info">
           <div class="brand-showcase-name">HS Chain</div>
-          <div class="brand-showcase-tag">China · Industrial Chains</div>
+          <div class="brand-showcase-tag" data-i18n="brand-tag-hs">China · Industrial Chains</div>
         </div>
       </div>
 
@@ -1047,7 +1198,7 @@
         </div>
         <div class="brand-showcase-info">
           <div class="brand-showcase-name">Dongbo</div>
-          <div class="brand-showcase-tag">Korea · 45+ Years · ANSI Certified</div>
+          <div class="brand-showcase-tag" data-i18n="brand-tag-dbo">Korea · 45+ Years · ANSI Certified</div>
         </div>
       </div>
 
@@ -1117,9 +1268,9 @@
           <img src="Uno House brand .png" alt="UNO Roller Chain — MPC House Brand" loading="lazy" decoding="async">
         </div>
         <div class="hb-content">
-          <span class="hb-badge">House Brand</span>
-          <h3>UNO Chain</h3>
-          <p>ISO 9001 certified standard roller chains — A &amp; B series, single and multi-strand. Cost-efficient with premium performance for general industrial conveying applications.</p>
+          <span class="hb-badge" data-i18n="hb-badge">House Brand</span>
+          <h3 data-i18n="hb-uno-h3">UNO Chain</h3>
+          <p data-i18n="hb-uno-p">ISO 9001 certified standard roller chains — A &amp; B series, single and multi-strand. Cost-efficient with premium performance for general industrial conveying applications.</p>
           <div class="hb-actions">
             <a href="uno-chains.html" class="btn-primary" data-i18n="hb-view-btn">View Products</a>
             <a href="House Brand Brochure.pdf" class="btn-outline-white" target="_blank" rel="noopener noreferrer" data-i18n="hb-brochure-btn">
@@ -1136,9 +1287,9 @@
           <img src="trio-forged-chain.webp" alt="TRIO Forged Chain — MPC House Brand" loading="lazy" decoding="async">
         </div>
         <div class="hb-content">
-          <span class="hb-badge">House Brand</span>
-          <h3>TRIO Chain</h3>
-          <p>Heavy-duty forged chains engineered for steel mills, cement plants, and animal feed mills. TRIO (P.102 mm) is built for extreme-load conveying and processing applications.</p>
+          <span class="hb-badge" data-i18n="hb-badge">House Brand</span>
+          <h3 data-i18n="hb-trio-h3">TRIO Chain</h3>
+          <p data-i18n="hb-trio-p">Heavy-duty forged chains engineered for steel mills, cement plants, and animal feed mills. TRIO (P.102 mm) is built for extreme-load conveying and processing applications.</p>
           <div class="hb-actions">
             <a href="trio-forged-chain.html" class="btn-primary" data-i18n="hb-view-btn">View Products</a>
             <a href="House Brand Brochure.pdf" class="btn-outline-white" target="_blank" rel="noopener noreferrer" data-i18n="hb-brochure-btn">
@@ -1157,22 +1308,22 @@
 <section class="faq-section reveal" id="faq">
   <div class="container">
     <div class="section-header">
-      <span class="section-eyebrow">Frequently Asked Questions</span>
-      <h2>Common Questions About Our Chain Solutions</h2>
-      <p>Everything you need to know about MPC's products, services, and support.</p>
+      <span class="section-eyebrow" data-i18n="faq-eyebrow">Frequently Asked Questions</span>
+      <h2 data-i18n="faq-h2">Common Questions About Our Chain Solutions</h2>
+      <p data-i18n="faq-intro">Everything you need to know about MPC's products, services, and support.</p>
     </div>
 
     <div class="faq-grid" id="faqGrid">
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          What industries does MPC specialise in?
+          <span data-i18n="faq-q1">What industries does MPC specialise in?</span>
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" data-i18n="faq-a1">
             MPC specialises in industrial chain solutions for four key sectors: <strong>steel manufacturing</strong>, <strong>cement production</strong>, <strong>palm oil milling</strong>, and <strong>sugar processing</strong>. We also serve escalator maintenance companies, animal feed mills, automotive manufacturing, and general industrial facilities across Thailand and Southeast Asia.
           </div>
         </div>
@@ -1180,13 +1331,13 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          What chain brands does MPC distribute?
+          <span data-i18n="faq-q2">What chain brands does MPC distribute?</span>
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" data-i18n="faq-a2">
             MPC is the authorised distributor for several world-class brands:
             <ul>
               <li><strong>IWIS</strong> (Germany) — precision engineering chains &amp; systems</li>
@@ -1201,13 +1352,13 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          Does MPC provide after-sales support and maintenance?
+          <span data-i18n="faq-q3">Does MPC provide after-sales support and maintenance?</span>
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" data-i18n="faq-a3">
             Yes — after-sales service is a core part of MPC's offering. We provide technical consultation, chain failure analysis, and direct coordination with manufacturers to resolve issues quickly. Unlike pure distributors, we handle warranty claims and technical problems on your behalf, so you don't need to deal with overseas manufacturers directly.
           </div>
         </div>
@@ -1215,13 +1366,13 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          What areas does MPC deliver to?
+          <span data-i18n="faq-q4">What areas does MPC deliver to?</span>
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" data-i18n="faq-a4">
             We deliver across <strong>all of Thailand</strong>, with express logistics from our Bangkok warehouse. We also serve customers throughout Southeast Asia including Myanmar, Laos, Cambodia, Vietnam, and the broader ASEAN region. Contact us for export pricing and lead times.
           </div>
         </div>
@@ -1229,13 +1380,13 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          How do I know which chain is right for my application?
+          <span data-i18n="faq-q5">How do I know which chain is right for my application?</span>
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" data-i18n="faq-a5">
             Our technical team selects the right chain based on your application parameters: load capacity, operating speed, temperature range, chemical exposure, and lubrication conditions. Share your existing chain number, equipment model, or operating conditions with us and we'll recommend the optimal solution — free of charge.
           </div>
         </div>
@@ -1243,13 +1394,13 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          What chain standards does MPC supply?
+          <span data-i18n="faq-q6">What chain standards does MPC supply?</span>
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" data-i18n="faq-a6">
             MPC supplies chains to international standards including ANSI B29.1, ISO 606, DIN 8187/8188, and JIS B1801. Our range covers pitches from 6.35mm (1/4") up to 102mm heavy forged chains, in single, double, and triple strand configurations. We also supply metric and non-standard chains on request.
           </div>
         </div>
@@ -1257,13 +1408,13 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          How long does it take to get a quote?
+          <span data-i18n="faq-q7">How long does it take to get a quote?</span>
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" data-i18n="faq-a7">
             For standard supply items, we typically respond within <strong>one business day</strong>. For custom or imported products, allow 2–3 business days for a detailed quotation including lead time. Contact us by email at contact@motionpluscorp.com or call <a href="tel:022865656">02 286-5656</a>.
           </div>
         </div>
@@ -1271,13 +1422,13 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          Does MPC supply chains for food-grade applications?
+          <span data-i18n="faq-q8">Does MPC supply chains for food-grade applications?</span>
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
-          <div class="faq-answer-inner">
+          <div class="faq-answer-inner" data-i18n="faq-a8">
             Yes. We supply food-grade compliant chains for palm oil processing, sugar refining, and other food industry applications. These chains use food-safe lubricants, stainless steel pins and plates, and materials that meet hygienic handling requirements. Ask our team for food-grade specification sheets.
           </div>
         </div>
@@ -1297,7 +1448,7 @@
       <a href="contact.html" class="btn-primary" data-i18n="enq-quote">Get a Quote</a>
       <a href="mailto:contact@motionpluscorp.com" class="btn-outline-white" data-i18n="enq-email">Email Us →</a>
     </div>
-    <p style="color:rgba(255,255,255,0.35); font-size:0.8rem; margin-top:1rem;">
+    <p style="color:rgba(255,255,255,0.35); font-size:0.8rem; margin-top:1rem;" data-i18n="ind-cta-hours">
       📞 <a href="tel:022865656" style="color:rgba(255,255,255,0.45);">02 286-5656</a> &nbsp;·&nbsp; Mon–Sat, 8:30am–5pm
     </p>
   </div>
