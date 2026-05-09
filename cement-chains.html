@@ -496,12 +496,39 @@
         <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
         <a href="contact.html"   class="btn-primary" style="margin-left:.75rem;" data-i18n="nav-quote">Get a Quote</a>
       </nav>
-      <div class="lang-toggle" role="group" aria-label="Language">
-        <button class="lang-btn active" data-lang="en">EN</button>
-        <button class="lang-btn" data-lang="th">TH</button>
-      <button class="lang-btn" data-lang="km">KM</button>
-      <button class="lang-btn" data-lang="lo">LO</button>
-      <button class="lang-btn" data-lang="mm">MM</button>
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-selector-btn" id="lang-selector-btn" aria-haspopup="listbox" aria-expanded="false" title="Select language">
+          <span class="lang-sel-flag" id="lang-active-flag">&#127468;&#127463;</span>
+          <span class="lang-sel-code" id="lang-active-code">EN</span>
+          <svg class="lang-sel-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-selector-menu" id="lang-selector-menu" role="listbox" aria-label="Select language">
+          <button class="lang-opt active" data-lang="en" role="option" aria-selected="true">
+            <span class="lang-opt-flag">&#127468;&#127463;</span>
+            <span class="lang-opt-name">English</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+          <button class="lang-opt" data-lang="th" role="option" aria-selected="false">
+            <span class="lang-opt-flag">&#127481;&#127469;</span>
+            <span class="lang-opt-name">&#3652;&#3607;&#3618;</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+          <button class="lang-opt" data-lang="km" role="option" aria-selected="false">
+            <span class="lang-opt-flag">&#127472;&#127469;</span>
+            <span class="lang-opt-name">&#6017;&#6098;&#6040;&#6082;&#6042;</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+          <button class="lang-opt" data-lang="lo" role="option" aria-selected="false">
+            <span class="lang-opt-flag">&#127473;&#127462;</span>
+            <span class="lang-opt-name">&#3749;&#3762;&#3751;</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+          <button class="lang-opt" data-lang="mm" role="option" aria-selected="false">
+            <span class="lang-opt-flag">&#127474;&#127474;</span>
+            <span class="lang-opt-name">&#4121;&#4156;&#4116;&#4154;&#4121;&#4140;</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+        </div>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>

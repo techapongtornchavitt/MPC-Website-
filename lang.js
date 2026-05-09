@@ -3040,7 +3040,17 @@
     }
   };
 
+  /* Language selector metadata — flag emoji + short code */
+  var LANG_META = {
+    en: { flag: '🇬🇧', code: 'EN' },
+    th: { flag: '🇹🇭', code: 'TH' },
+    km: { flag: '🇰🇭', code: 'KM' },
+    lo: { flag: '🇱🇦', code: 'LO' },
+    mm: { flag: '🇲🇲', code: 'MM' }
+  };
+
   function apply(lang) {
+    /* 1. Translate all data-i18n elements */
     var els = document.querySelectorAll('[data-i18n]');
     for (var i = 0; i < els.length; i++) {
       var el  = els[i];
@@ -3049,28 +3059,73 @@
         el.innerHTML = T[lang][key];
       }
     }
-    /* Update active button state */
-    var btns = document.querySelectorAll('.lang-btn');
-    for (var j = 0; j < btns.length; j++) {
-      btns[j].classList.toggle('active', btns[j].getAttribute('data-lang') === lang);
+    /* 2. Update lang-selector button display (flag + code) */
+    var meta = LANG_META[lang];
+    if (meta) {
+      var flagEl = document.getElementById('lang-active-flag');
+      var codeEl = document.getElementById('lang-active-code');
+      if (flagEl) flagEl.textContent = meta.flag;
+      if (codeEl) codeEl.textContent = meta.code;
     }
-    /* Persist choice */
+    /* 3. Update active state + aria-selected on .lang-opt buttons */
+    var opts = document.querySelectorAll('.lang-opt');
+    for (var k = 0; k < opts.length; k++) {
+      var isActive = opts[k].getAttribute('data-lang') === lang;
+      opts[k].classList.toggle('active', isActive);
+      opts[k].setAttribute('aria-selected', String(isActive));
+    }
+    /* 4. Persist choice */
     try { localStorage.setItem('mpc-lang', lang); } catch (e) {}
-    /* Update html lang attribute */
+    /* 5. Update html lang attribute */
     var langMap = { th: 'th', km: 'km', lo: 'lo', mm: 'my' };
     document.documentElement.lang = langMap[lang] || 'en';
   }
 
-  /* Attach click listeners */
+  /* Close lang dropdown */
+  function closeLangMenu() {
+    var menu = document.getElementById('lang-selector-menu');
+    var btn  = document.getElementById('lang-selector-btn');
+    if (menu) menu.classList.remove('open');
+    if (btn)  { btn.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }
+  }
+
+  /* Attach all click listeners */
   function attachListeners() {
-    var btns = document.querySelectorAll('.lang-btn');
-    for (var i = 0; i < btns.length; i++) {
-      (function (btn) {
-        btn.addEventListener('click', function () {
-          apply(btn.getAttribute('data-lang'));
+    /* --- New .lang-opt option buttons --- */
+    var opts = document.querySelectorAll('.lang-opt');
+    for (var j = 0; j < opts.length; j++) {
+      (function (opt) {
+        opt.addEventListener('click', function () {
+          apply(opt.getAttribute('data-lang'));
+          closeLangMenu();
         });
-      })(btns[i]);
+      })(opts[j]);
     }
+
+    /* --- Toggle button opens/closes the panel --- */
+    var toggleBtn = document.getElementById('lang-selector-btn');
+    var menu      = document.getElementById('lang-selector-menu');
+    var wrapper   = document.getElementById('lang-selector');
+    if (toggleBtn && menu) {
+      toggleBtn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var open = menu.classList.toggle('open');
+        toggleBtn.classList.toggle('open', open);
+        toggleBtn.setAttribute('aria-expanded', String(open));
+      });
+    }
+
+    /* --- Close on outside click --- */
+    document.addEventListener('click', function (e) {
+      if (wrapper && !wrapper.contains(e.target)) {
+        closeLangMenu();
+      }
+    });
+
+    /* --- Close on Escape key --- */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') closeLangMenu();
+    });
   }
 
   document.addEventListener('DOMContentLoaded', function () {
