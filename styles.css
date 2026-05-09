@@ -589,15 +589,15 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   75%  { transform: scale(1.03) translate(1.0%,  -0.4%); }
   100% { transform: scale(1.00) translate(0%,    0%);    }
 }
-/* Hero video layer — anchored top, taller than hero so bottom (text) is clipped by overflow:hidden */
+/* Hero video layer — fills hero naturally, no artificial zoom */
 .hero-video {
   position: absolute;
-  top: 0; left: 0; right: 0; bottom: auto;
+  top: 0; left: 0; right: 0; bottom: 0;
   width: 100%;
-  height: 135%;
+  height: 100%;
   object-fit: cover;
-  object-position: center top;
-  opacity: 0.38;
+  object-position: center center;
+  opacity: 0.72;
   z-index: 1;
   pointer-events: none;
   will-change: transform;
