@@ -15,172 +15,354 @@
   <title>Resources &amp; Catalogs | Motion Plus Corporation</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ── RESOURCES PAGE ── */
-    .res-section {
-      padding: var(--space-2xl) 0;
-    }
-    .res-section + .res-section {
-      padding-top: 0;
-    }
+    /* ═══════════════════════════════════════════
+       RESOURCES PAGE — PREMIUM REDESIGN 2026
+    ═══════════════════════════════════════════ */
 
-    /* Category header */
-    .res-cat-label {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: .9rem;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+    /* ── Hero stats strip ── */
+    .res-stats-bar {
+      display: inline-flex;
+      align-items: stretch;
+      margin-top: 2.25rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      border-radius: 12px;
+      overflow: hidden;
     }
-    .res-cat-icon {
-      width: 40px; height: 40px;
-      border-radius: 10px;
-      background: rgba(0,86,164,.3);
-      border: 1px solid rgba(74,144,226,.25);
-      display: flex; align-items: center; justify-content: center;
-      color: #7ec8e3;
-      flex-shrink: 0;
+    .res-stat {
+      padding: .9rem 1.5rem;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,.07);
     }
-    .res-cat-label-text h3 {
-      color: var(--color-white);
-      font-size: 1.05rem;
+    .res-stat:last-child { border-right: none; }
+    .res-stat-num {
+      display: block;
+      font-size: 1.6rem;
       font-weight: 800;
-      margin: 0 0 .15rem;
-      letter-spacing: .02em;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: .2rem;
+      letter-spacing: -.02em;
     }
-    .res-cat-label-text span {
-      font-size: .7rem;
+    .res-stat-lbl {
+      display: block;
+      font-size: .62rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: rgba(255,255,255,.35);
+      color: rgba(255,255,255,.33);
     }
 
-    /* Download cards grid */
+    /* ── Filter tab bar ── */
+    .res-filter-bar {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.75rem;
+    }
+    .res-tab {
+      padding: .48rem 1.1rem;
+      border-radius: 100px;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.09);
+      color: rgba(255,255,255,.48);
+      font-size: .77rem;
+      font-weight: 600;
+      letter-spacing: .03em;
+      cursor: pointer;
+      transition: background .18s ease, color .18s ease, border-color .18s ease, box-shadow .18s ease;
+      white-space: nowrap;
+    }
+    .res-tab:hover {
+      background: rgba(255,255,255,.08);
+      color: rgba(255,255,255,.78);
+      border-color: rgba(255,255,255,.16);
+    }
+    .res-tab.active {
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      color: #fff;
+      box-shadow: 0 2px 14px rgba(0,86,164,.38);
+    }
+    .res-tab-count {
+      display: inline-block;
+      background: rgba(255,255,255,.12);
+      border-radius: 100px;
+      padding: .05rem .42rem;
+      font-size: .6rem;
+      margin-left: .3rem;
+      font-weight: 700;
+    }
+    .res-tab.active .res-tab-count {
+      background: rgba(255,255,255,.2);
+    }
+
+    /* ── Info strip ── */
+    .res-intro-strip {
+      background: rgba(0,86,164,.1);
+      border: 1px solid rgba(74,144,226,.14);
+      border-radius: 12px;
+      padding: 1.1rem 1.6rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+    }
+    .res-intro-strip svg { color: #7ec8e3; flex-shrink: 0; }
+    .res-intro-strip p { color: rgba(255,255,255,.48); font-size: .84rem; margin: 0; flex: 1; }
+    .res-intro-strip strong { color: rgba(255,255,255,.75); }
+
+    /* ── Section block ── */
+    .res-block { margin-bottom: 5rem; }
+    .res-block.hidden { display: none; }
+
+    /* ── Section header ── */
+    .res-block-hdr {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      gap: 1.5rem;
+      padding-bottom: 1.5rem;
+      margin-bottom: 2.25rem;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .res-block-hdr::after {
+      content: '';
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      width: 56px;
+      height: 2px;
+      background: linear-gradient(90deg, var(--color-primary) 0%, rgba(0,86,164,0) 100%);
+    }
+    .res-block-num {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: .8;
+      color: rgba(255,255,255,.04);
+      letter-spacing: -.06em;
+      flex-shrink: 0;
+      user-select: none;
+      margin-bottom: .1rem;
+    }
+    .res-block-meta { flex: 1; min-width: 0; }
+    .res-block-eyebrow {
+      display: block;
+      font-size: .63rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: #5aadff;
+      margin-bottom: .35rem;
+    }
+    .res-block-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--color-white);
+      margin: 0 0 .28rem;
+      letter-spacing: .01em;
+    }
+    .res-block-sub {
+      font-size: .79rem;
+      color: rgba(255,255,255,.36);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .res-block-count {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      padding: .35rem .85rem;
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 100px;
+      font-size: .67rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.32);
+      letter-spacing: .06em;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: .5rem;
+      white-space: nowrap;
+    }
+
+    /* ── Card grid ── */
     .res-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 1rem;
+      grid-template-columns: repeat(auto-fill, minmax(282px, 1fr));
+      gap: 1.15rem;
     }
+
+    /* ── Card — vertical premium layout ── */
     .res-card {
       background: rgba(255,255,255,.03);
       border: 1px solid rgba(255,255,255,.07);
-      border-radius: 12px;
-      padding: 1.25rem 1.4rem 1.3rem;
+      border-radius: 14px;
       display: flex;
-      align-items: flex-start;
-      gap: 1rem;
-      transition: border-color .22s ease, background .22s ease;
+      flex-direction: column;
+      overflow: hidden;
+      transition: border-color .22s ease, background .22s ease, box-shadow .22s ease, transform .22s ease;
     }
     .res-card:hover {
-      border-color: rgba(74,144,226,.35);
-      background: rgba(0,86,164,.07);
+      border-color: rgba(74,144,226,.4);
+      background: rgba(0,86,164,.075);
+      box-shadow: 0 10px 36px rgba(0,0,0,.28);
+      transform: translateY(-3px);
     }
-    .res-card-icon {
-      width: 44px; height: 44px;
+
+    /* Card head zone */
+    .res-card-head {
+      padding: 1.2rem 1.35rem .7rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .75rem;
+    }
+    .res-pdf-icon {
+      width: 40px; height: 40px;
       border-radius: 10px;
-      background: rgba(255,255,255,.06);
-      border: 1px solid rgba(255,255,255,.1);
+      background: rgba(220,90,90,.09);
+      border: 1px solid rgba(220,90,90,.17);
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
-      margin-top: 1px;
     }
-    .res-card-icon svg { color: #e05c5c; }
+    .res-pdf-icon svg { color: #d97070; }
+    .res-file-size {
+      font-size: .62rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.22);
+      padding-top: .15rem;
+      text-align: right;
+    }
+
+    /* Card body */
     .res-card-body {
+      padding: 0 1.35rem .7rem;
       flex: 1;
-      min-width: 0;
     }
-    .res-card-meta {
-      display: flex;
-      align-items: center;
-      gap: .4rem;
-      margin-bottom: .4rem;
-      flex-wrap: wrap;
+    .res-badges {
+      display: flex; align-items: center; gap: .3rem;
+      flex-wrap: wrap; margin-bottom: .6rem;
     }
     .res-badge {
       display: inline-block;
-      padding: .15rem .5rem;
+      padding: .12rem .46rem;
       border-radius: 4px;
-      font-size: .65rem;
+      font-size: .6rem;
       font-weight: 700;
       letter-spacing: .06em;
       text-transform: uppercase;
     }
     .res-badge-brand {
-      background: rgba(0,86,164,.35);
+      background: rgba(0,86,164,.3);
       color: #7ec8e3;
-      border: 1px solid rgba(74,144,226,.25);
+      border: 1px solid rgba(74,144,226,.22);
     }
     .res-badge-pdf {
-      background: rgba(224,92,92,.15);
-      color: #e05c5c;
-      border: 1px solid rgba(224,92,92,.25);
-    }
-    .res-badge-size {
-      color: rgba(255,255,255,.3);
-      font-size: .65rem;
-      font-weight: 600;
+      background: rgba(220,90,90,.12);
+      color: #d97070;
+      border: 1px solid rgba(220,90,90,.22);
     }
     .res-card-title {
-      font-size: .88rem;
+      font-size: .91rem;
       font-weight: 700;
-      color: rgba(255,255,255,.88);
-      line-height: 1.4;
-      margin: 0 0 .75rem;
+      color: rgba(255,255,255,.87);
+      line-height: 1.45;
+      margin: 0 0 .45rem;
+    }
+    .res-card-desc {
+      font-size: .775rem;
+      color: rgba(255,255,255,.32);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Card footer */
+    .res-card-foot {
+      padding: .9rem 1.35rem 1.15rem;
+      border-top: 1px solid rgba(255,255,255,.05);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
     .res-download-btn {
       display: inline-flex;
       align-items: center;
-      gap: .4rem;
-      padding: .38rem .9rem;
-      background: rgba(0,86,164,.4);
-      border: 1px solid rgba(74,144,226,.3);
-      border-radius: 6px;
+      gap: .45rem;
+      padding: .5rem 1.1rem;
+      background: rgba(0,86,164,.35);
+      border: 1px solid rgba(74,144,226,.28);
+      border-radius: 8px;
       color: #a8d4ff;
       font-size: .72rem;
       font-weight: 700;
       text-decoration: none;
       letter-spacing: .04em;
       text-transform: uppercase;
-      transition: background .2s ease, color .2s ease, border-color .2s ease;
+      transition: background .2s ease, color .2s ease, border-color .2s ease, box-shadow .2s ease;
     }
     .res-download-btn:hover {
       background: var(--color-primary);
       border-color: var(--color-primary);
       color: #fff;
+      box-shadow: 0 4px 18px rgba(0,86,164,.4);
     }
     .res-download-btn svg { flex-shrink: 0; }
 
-    /* Divider between category blocks */
-    .res-divider {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,.05);
-      margin: 0 0 var(--space-2xl);
-    }
-
-    /* Intro strip */
-    .res-intro-strip {
-      background: rgba(0,86,164,.12);
-      border: 1px solid rgba(74,144,226,.15);
-      border-radius: 12px;
-      padding: 1.4rem 1.75rem;
+    /* ── Subsection (inside Industry block) ── */
+    .res-sub-block { margin-bottom: 2.75rem; }
+    .res-sub-block:last-child { margin-bottom: 0; }
+    .res-sub-label {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
+      gap: .65rem;
+      margin-bottom: 1.35rem;
     }
-    .res-intro-strip svg { color: #7ec8e3; flex-shrink: 0; }
-    .res-intro-strip p {
-      color: rgba(255,255,255,.55);
-      font-size: .875rem;
+    .res-sub-icon {
+      width: 30px; height: 30px;
+      border-radius: 7px;
+      background: rgba(0,86,164,.2);
+      border: 1px solid rgba(74,144,226,.18);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      color: #7ec8e3;
+    }
+    .res-sub-title {
+      font-size: .78rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.52);
+      text-transform: uppercase;
+      letter-spacing: .1em;
       margin: 0;
-      flex: 1;
     }
-    .res-intro-strip strong { color: rgba(255,255,255,.8); }
+    .res-sub-sep {
+      flex: 1;
+      height: 1px;
+      background: rgba(255,255,255,.05);
+    }
+    .res-sub-ct {
+      font-size: .62rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.22);
+      letter-spacing: .05em;
+      flex-shrink: 0;
+    }
 
-    @media (max-width: 768px) {
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .res-grid { grid-template-columns: repeat(2, 1fr); }
+      .res-block-num { font-size: 3rem; }
+    }
+    @media (max-width: 600px) {
       .res-grid { grid-template-columns: 1fr; }
+      .res-stats-bar { display: flex; flex-wrap: wrap; }
+      .res-stat { padding: .75rem 1.1rem; min-width: 25%; }
+      .res-stat-num { font-size: 1.35rem; }
+      .res-block-hdr { gap: .75rem; }
+      .res-block-num { display: none; }
+      .res-block-count { display: none; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
@@ -275,462 +457,587 @@
   </nav>
 </header>
 
-<!-- Inner Hero -->
+<!-- ── Page Hero ── -->
 <section class="inner-hero">
   <div class="inner-hero-bg"></div>
   <div class="inner-hero-overlay"></div>
   <div class="container inner-hero-content">
-    <span class="section-eyebrow">Downloads</span>
-    <h1>Resources &amp; Catalogs</h1>
-    <p class="hero-sub-text">Product catalogs, technical datasheets, and company profiles — all in one place.</p>
+    <span class="section-eyebrow">Catalog Download Center</span>
+    <h1>Technical Resources</h1>
+    <p class="hero-sub-text">Download product catalogs, brand specifications, and industrial application guides — everything your procurement and engineering team needs.</p>
+    <div class="res-stats-bar">
+      <div class="res-stat">
+        <span class="res-stat-num">18</span>
+        <span class="res-stat-lbl">Documents</span>
+      </div>
+      <div class="res-stat">
+        <span class="res-stat-num">6</span>
+        <span class="res-stat-lbl">Brands</span>
+      </div>
+      <div class="res-stat">
+        <span class="res-stat-num">2</span>
+        <span class="res-stat-lbl">Industries</span>
+      </div>
+      <div class="res-stat">
+        <span class="res-stat-num">PDF</span>
+        <span class="res-stat-lbl">All Formats</span>
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ============ CATALOG LIBRARY ============ -->
-<section class="section--dark" style="padding-top:3rem; padding-bottom:5rem;">
+<!-- ═══════════════════════ CATALOG LIBRARY ═══════════════════════ -->
+<section class="section--dark" style="padding-top:3.5rem; padding-bottom:5.5rem;">
   <div class="container">
+
+    <!-- Filter tabs -->
+    <div class="res-filter-bar" id="res-filter-bar" role="tablist" aria-label="Filter resources by category">
+      <button class="res-tab active" data-filter="all" role="tab" aria-selected="true">
+        All Resources <span class="res-tab-count">18</span>
+      </button>
+      <button class="res-tab" data-filter="company" role="tab" aria-selected="false">
+        Company <span class="res-tab-count">3</span>
+      </button>
+      <button class="res-tab" data-filter="brand" role="tab" aria-selected="false">
+        Brand Catalogs <span class="res-tab-count">7</span>
+      </button>
+      <button class="res-tab" data-filter="industry" role="tab" aria-selected="false">
+        Industry Guides <span class="res-tab-count">8</span>
+      </button>
+    </div>
 
     <!-- Info strip -->
     <div class="res-intro-strip">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-      <p><strong>All files are PDF format.</strong> Click any download button to open or save the catalog. Contact <a href="mailto:contact@motionpluscorp.com" style="color:#7ec8e3;">contact@motionpluscorp.com</a> if you need a specific specification not listed here.</p>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+      <p><strong>All files are PDF format.</strong> Click any download button to open or save the document directly. Contact <a href="mailto:contact@motionpluscorp.com" style="color:#7ec8e3;">contact@motionpluscorp.com</a> for specifications, custom datasheets, or technical consultation not listed here.</p>
     </div>
 
-    <!-- ── 1. Company Profiles & Brochures ── -->
-    <div class="res-section">
-      <div class="res-cat-label">
-        <div class="res-cat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+    <!-- ══════════════════════════════════════
+         BLOCK 01 — COMPANY RESOURCES
+    ══════════════════════════════════════ -->
+    <div class="res-block" data-block="company">
+      <div class="res-block-hdr">
+        <div class="res-block-num">01</div>
+        <div class="res-block-meta">
+          <span class="res-block-eyebrow">Motion Plus Corporation</span>
+          <h2 class="res-block-title">Company Resources</h2>
+          <p class="res-block-sub">Corporate brochures, company profiles, and MPC overview documents for procurement and reference</p>
         </div>
-        <div class="res-cat-label-text">
-          <h3>Company Profiles &amp; Brochures</h3>
-          <span>3 documents · MPC</span>
-        </div>
+        <span class="res-block-count">3 documents</span>
       </div>
+
       <div class="res-grid">
 
+        <!-- MPC Product Brochure -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">3.2 MB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">MPC</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">3.2 MB</span>
             </div>
             <p class="res-card-title">Motion Plus Corporation — Product Brochure</p>
+            <p class="res-card-desc">Full product range overview including roller chains, conveyor systems, and industrial power transmission components</p>
+          </div>
+          <div class="res-card-foot">
             <a href="Motion Plus Brochure.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
+        <!-- Company Profile EN -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">11.3 MB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">MPC</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">11.3 MB</span>
             </div>
             <p class="res-card-title">Company Profile — English</p>
+            <p class="res-card-desc">Company history, capabilities, authorized brand portfolio, and service offerings — English edition</p>
+          </div>
+          <div class="res-card-foot">
             <a href="Motion Plus Corporation_Company Profile (Eng) .pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
+        <!-- Company Profile TH -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">11.6 MB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">MPC</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">11.6 MB</span>
             </div>
             <p class="res-card-title">Company Profile — Thai (ภาษาไทย)</p>
+            <p class="res-card-desc">ข้อมูลบริษัท ความสามารถ แบรนด์ที่ได้รับอนุญาต และบริการหลังการขาย — ฉบับภาษาไทย</p>
+          </div>
+          <div class="res-card-foot">
             <a href="Motion Plus Corporation_Company Profile (THA) .pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
       </div>
-    </div><!-- /company -->
+    </div><!-- /block 01 -->
 
-    <hr class="res-divider">
 
-    <!-- ── 2. House Brands (UNO & TRIO) ── -->
-    <div class="res-section">
-      <div class="res-cat-label">
-        <div class="res-cat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    <!-- ══════════════════════════════════════
+         BLOCK 02 — BRAND CATALOGS
+    ══════════════════════════════════════ -->
+    <div class="res-block" data-block="brand">
+      <div class="res-block-hdr">
+        <div class="res-block-num">02</div>
+        <div class="res-block-meta">
+          <span class="res-block-eyebrow">UNO · TRIO · IWIS · Dongbo · KMH</span>
+          <h2 class="res-block-title">Brand Catalogs</h2>
+          <p class="res-block-sub">Technical product catalogs for all authorized distributor brands and MPC house-brand product lines</p>
         </div>
-        <div class="res-cat-label-text">
-          <h3>House Brands — UNO &amp; TRIO</h3>
-          <span>1 document · UNO Roller Chain · TRIO Forged Chain</span>
-        </div>
+        <span class="res-block-count">7 documents</span>
       </div>
+
       <div class="res-grid">
 
+        <!-- UNO & TRIO House Brand -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">17.1 MB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">UNO · TRIO</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">17.1 MB</span>
             </div>
-            <p class="res-card-title">House Brand Product Brochure — UNO Roller Chain &amp; TRIO Forged Chain</p>
+            <p class="res-card-title">House Brand Brochure — UNO Roller Chain &amp; TRIO Forged Chain</p>
+            <p class="res-card-desc">Complete specifications for MPC house-brand products — UNO standard roller chains and TRIO heavy-duty forged drag chains</p>
+          </div>
+          <div class="res-card-foot">
             <a href="House Brand Brochure.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
-      </div>
-    </div><!-- /house brands -->
-
-    <hr class="res-divider">
-
-    <!-- ── 3. Roller & Conveyor Chains ── -->
-    <div class="res-section">
-      <div class="res-cat-label">
-        <div class="res-cat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
-        <div class="res-cat-label-text">
-          <h3>Roller Chains &amp; Conveyor Chains</h3>
-          <span>4 documents · IWIS · Dongbo</span>
-        </div>
-      </div>
-      <div class="res-grid">
-
+        <!-- IWIS Elite Full Catalog -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">14.8 MB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">IWIS</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">14.8 MB</span>
             </div>
             <p class="res-card-title">IWIS Elite — Roller &amp; Conveyor Chains Full Catalog</p>
+            <p class="res-card-desc">Complete chain range — drive chains, conveyor chains, and special-purpose series with full dimensional and load data</p>
+          </div>
+          <div class="res-card-foot">
             <a href="IWIS elite-catalog-roller-and-conveyor-chains-.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
+        <!-- IWIS Hollow Pin HB50 -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">1,010 KB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">IWIS</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">1,010 KB</span>
             </div>
             <p class="res-card-title">IWIS Elite — Hollow Pin Chains (HB50 Series)</p>
+            <p class="res-card-desc">HB50 series hollow pin chains for attachment-point conveyors and special-purpose industrial applications</p>
+          </div>
+          <div class="res-card-foot">
             <a href="IWIS_elite-hollow-pin-chains-seriers-hb50-8.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
+        <!-- IWIS HSP Elevator -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">1.4 MB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">IWIS</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">1.4 MB</span>
             </div>
             <p class="res-card-title">IWIS Elite HSP — Elevator Series Chains (mm)</p>
+            <p class="res-card-desc">Heavy-duty bucket elevator chains in metric sizing for vertical bulk material handling in silos and plants</p>
+          </div>
+          <div class="res-card-foot">
             <a href="IWIS elite-hsp-elevator-series-chain-in-mm-.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
+        <!-- IWIS Elidur Lubricant -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">Dongbo</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">6.3 MB</span>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
             </div>
-            <p class="res-card-title">Dongbo (DBC) — General Roller Chain Catalog</p>
-            <a href="DBC general  catolugue_.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- /roller & conveyor -->
-
-    <hr class="res-divider">
-
-    <!-- ── 4. Cement Industry Chains ── -->
-    <div class="res-section">
-      <div class="res-cat-label">
-        <div class="res-cat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-        </div>
-        <div class="res-cat-label-text">
-          <h3>Cement Industry Chains</h3>
-          <span>5 documents · HS Chain</span>
-        </div>
-      </div>
-      <div class="res-grid">
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <span class="res-file-size">407 KB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">HS Chain</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">5.2 MB</span>
-            </div>
-            <p class="res-card-title">HS Chain — Cement Industrial Chains Catalog</p>
-            <a href="HS Chain Catalog_Cement Industrial Chains.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">HS Chain</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">636 KB</span>
-            </div>
-            <p class="res-card-title">HS Chain — Cement Industry Chain Specifications</p>
-            <a href="HS Chain Catalog_Cement Industry_Chain.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">HS Chain</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">739 KB</span>
-            </div>
-            <p class="res-card-title">HS Chain — Cement Industry Bucket Elevator Chain</p>
-            <a href="HS Chain Catalog_Cement Industry_Bucket Elevator Chain.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">HS Chain</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">732 KB</span>
-            </div>
-            <p class="res-card-title">HS Chain — Cement Industry Catalog Vol. 1</p>
-            <a href="HS Chain Catalog_Cement Industry.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">HS Chain</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">621 KB</span>
-            </div>
-            <p class="res-card-title">HS Chain — Cement Industry Catalog Vol. 2</p>
-            <a href="HS Chain Catalog_Cement Industry_1.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- /cement -->
-
-    <hr class="res-divider">
-
-    <!-- ── 5. Palm Oil Industry Chains ── -->
-    <div class="res-section">
-      <div class="res-cat-label">
-        <div class="res-cat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 22"/><path d="M9.5 11.5C11 16 13.5 17.5 22 17"/><path d="M10 15C8 19 8 21 8 21"/></svg>
-        </div>
-        <div class="res-cat-label-text">
-          <h3>Palm Oil Industry Chains</h3>
-          <span>3 documents · HS Chain</span>
-        </div>
-      </div>
-      <div class="res-grid">
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">HS Chain</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">354 KB</span>
-            </div>
-            <p class="res-card-title">HS Chain — Palm Oil Hollow Pin Chain</p>
-            <a href="HS Chain Catalog_Palm Oil Chain_Hollow Pin.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">HS Chain</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">261 KB</span>
-            </div>
-            <p class="res-card-title">HS Chain — Palm Oil Chain Attachments</p>
-            <a href="HS Chain Catalog_Palm Oil_Attachments.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
-              <span class="res-badge res-badge-brand">HS Chain</span>
-              <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">495 KB</span>
-            </div>
-            <p class="res-card-title">HS Chain — Palm Oil Straight Plate Chain</p>
-            <a href="HS Chain Catalog_Palm Oil_Straight Plate.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div><!-- /palm oil -->
-
-    <hr class="res-divider">
-
-    <!-- ── 6. Lubrication & Conveyor Systems ── -->
-    <div class="res-section">
-      <div class="res-cat-label">
-        <div class="res-cat-icon">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"/></svg>
-        </div>
-        <div class="res-cat-label-text">
-          <h3>Lubrication &amp; Conveyor Systems</h3>
-          <span>2 documents · IWIS · KMH</span>
-        </div>
-      </div>
-      <div class="res-grid">
-
-        <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          </div>
-          <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">IWIS</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">407 KB</span>
             </div>
             <p class="res-card-title">IWIS Elite — Elidur High-Performance Chain Lubricant</p>
+            <p class="res-card-desc">High-performance initial lubricant formulated to extend chain service life in demanding industrial environments</p>
+          </div>
+          <div class="res-card-foot">
             <a href="IWIS_elite-elidur-high-performance-initial-lubricant.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
+        <!-- Dongbo General Catalog -->
         <div class="res-card">
-          <div class="res-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">6.3 MB</span>
           </div>
           <div class="res-card-body">
-            <div class="res-card-meta">
+            <div class="res-badges">
+              <span class="res-badge res-badge-brand">Dongbo</span>
+              <span class="res-badge res-badge-pdf">PDF</span>
+            </div>
+            <p class="res-card-title">Dongbo (DBC) — General Roller Chain Catalog</p>
+            <p class="res-card-desc">Standard and heavy-duty series roller chain catalog covering all major pitch sizes and breaking load specifications</p>
+          </div>
+          <div class="res-card-foot">
+            <a href="DBC general  catolugue_.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
+            </a>
+          </div>
+        </div>
+
+        <!-- KMH Pipe Conveyor -->
+        <div class="res-card">
+          <div class="res-card-head">
+            <div class="res-pdf-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <span class="res-file-size">8.8 MB</span>
+          </div>
+          <div class="res-card-body">
+            <div class="res-badges">
               <span class="res-badge res-badge-brand">KMH</span>
               <span class="res-badge res-badge-pdf">PDF</span>
-              <span class="res-badge-size">8.8 MB</span>
             </div>
             <p class="res-card-title">KMH — Pipe Conveyor Systems Product Catalog (2023)</p>
+            <p class="res-card-desc">Complete pipe conveyor system catalog including components, technical specifications, and application data sheets</p>
+          </div>
+          <div class="res-card-foot">
             <a href="KMH-Produktkatalog-2023-05-24(2)z-z779434252854.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              Download
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Download PDF
             </a>
           </div>
         </div>
 
       </div>
-    </div><!-- /lubrication & conveyor -->
+    </div><!-- /block 02 -->
 
-    <!-- Bottom CTA -->
-    <div class="prod-cta" style="margin-top:2.5rem;">
+
+    <!-- ══════════════════════════════════════
+         BLOCK 03 — INDUSTRY APPLICATION GUIDES
+    ══════════════════════════════════════ -->
+    <div class="res-block" data-block="industry">
+      <div class="res-block-hdr">
+        <div class="res-block-num">03</div>
+        <div class="res-block-meta">
+          <span class="res-block-eyebrow">Cement · Palm Oil · Steel · Sugar</span>
+          <h2 class="res-block-title">Industry Application Guides</h2>
+          <p class="res-block-sub">Sector-specific chain selection guides, technical specifications, and application datasheets by industry</p>
+        </div>
+        <span class="res-block-count">8 documents</span>
+      </div>
+
+      <!-- ── Cement Industry ── -->
+      <div class="res-sub-block">
+        <div class="res-sub-label">
+          <div class="res-sub-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <span class="res-sub-title">Cement Industry</span>
+          <div class="res-sub-sep"></div>
+          <span class="res-sub-ct">5 documents &nbsp;·&nbsp; HS Chain</span>
+        </div>
+
+        <div class="res-grid">
+
+          <!-- HS Chain Cement Industrial Chains Catalog -->
+          <div class="res-card">
+            <div class="res-card-head">
+              <div class="res-pdf-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <span class="res-file-size">5.2 MB</span>
+            </div>
+            <div class="res-card-body">
+              <div class="res-badges">
+                <span class="res-badge res-badge-brand">HS Chain</span>
+                <span class="res-badge res-badge-pdf">PDF</span>
+              </div>
+              <p class="res-card-title">HS Chain — Cement Industrial Chains Catalog</p>
+              <p class="res-card-desc">Main catalog for cement plant chain applications — drag chains, apron chains, and high-temperature kiln drive chains</p>
+            </div>
+            <div class="res-card-foot">
+              <a href="HS Chain Catalog_Cement Industrial Chains.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- HS Chain Cement Chain Specs -->
+          <div class="res-card">
+            <div class="res-card-head">
+              <div class="res-pdf-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <span class="res-file-size">636 KB</span>
+            </div>
+            <div class="res-card-body">
+              <div class="res-badges">
+                <span class="res-badge res-badge-brand">HS Chain</span>
+                <span class="res-badge res-badge-pdf">PDF</span>
+              </div>
+              <p class="res-card-title">HS Chain — Cement Industry Chain Specifications</p>
+              <p class="res-card-desc">Detailed technical specifications for all standard chain types used in cement processing and material handling</p>
+            </div>
+            <div class="res-card-foot">
+              <a href="HS Chain Catalog_Cement Industry_Chain.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- HS Chain Cement Bucket Elevator -->
+          <div class="res-card">
+            <div class="res-card-head">
+              <div class="res-pdf-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <span class="res-file-size">739 KB</span>
+            </div>
+            <div class="res-card-body">
+              <div class="res-badges">
+                <span class="res-badge res-badge-brand">HS Chain</span>
+                <span class="res-badge res-badge-pdf">PDF</span>
+              </div>
+              <p class="res-card-title">HS Chain — Cement Industry Bucket Elevator Chain</p>
+              <p class="res-card-desc">Bucket elevator chain specifications for vertical bulk material handling in cement plant silos and storage towers</p>
+            </div>
+            <div class="res-card-foot">
+              <a href="HS Chain Catalog_Cement Industry_Bucket Elevator Chain.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- HS Chain Cement Vol 1 -->
+          <div class="res-card">
+            <div class="res-card-head">
+              <div class="res-pdf-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <span class="res-file-size">732 KB</span>
+            </div>
+            <div class="res-card-body">
+              <div class="res-badges">
+                <span class="res-badge res-badge-brand">HS Chain</span>
+                <span class="res-badge res-badge-pdf">PDF</span>
+              </div>
+              <p class="res-card-title">HS Chain — Cement Industry Catalog Vol. 1</p>
+              <p class="res-card-desc">Cement industry chain series Part 1 — application guidance, chain selection, and dimensional specifications</p>
+            </div>
+            <div class="res-card-foot">
+              <a href="HS Chain Catalog_Cement Industry.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- HS Chain Cement Vol 2 -->
+          <div class="res-card">
+            <div class="res-card-head">
+              <div class="res-pdf-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <span class="res-file-size">621 KB</span>
+            </div>
+            <div class="res-card-body">
+              <div class="res-badges">
+                <span class="res-badge res-badge-brand">HS Chain</span>
+                <span class="res-badge res-badge-pdf">PDF</span>
+              </div>
+              <p class="res-card-title">HS Chain — Cement Industry Catalog Vol. 2</p>
+              <p class="res-card-desc">Cement industry chain series Part 2 — supplementary chain types, attachment variants, and extended specifications</p>
+            </div>
+            <div class="res-card-foot">
+              <a href="HS Chain Catalog_Cement Industry_1.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /cement sub-block -->
+
+      <!-- ── Palm Oil Industry ── -->
+      <div class="res-sub-block">
+        <div class="res-sub-label">
+          <div class="res-sub-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8C8 10 5.9 16.17 3.82 22"/><path d="M9.5 11.5C11 16 13.5 17.5 22 17"/><path d="M10 15C8 19 8 21 8 21"/></svg>
+          </div>
+          <span class="res-sub-title">Palm Oil Industry</span>
+          <div class="res-sub-sep"></div>
+          <span class="res-sub-ct">3 documents &nbsp;·&nbsp; HS Chain</span>
+        </div>
+
+        <div class="res-grid">
+
+          <!-- HS Chain Palm Oil Hollow Pin -->
+          <div class="res-card">
+            <div class="res-card-head">
+              <div class="res-pdf-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <span class="res-file-size">354 KB</span>
+            </div>
+            <div class="res-card-body">
+              <div class="res-badges">
+                <span class="res-badge res-badge-brand">HS Chain</span>
+                <span class="res-badge res-badge-pdf">PDF</span>
+              </div>
+              <p class="res-card-title">HS Chain — Palm Oil Hollow Pin Chain</p>
+              <p class="res-card-desc">Hollow pin chains for Fresh Fruit Bunch (FFB) processing lines and palm oil mill sterilizer conveyor systems</p>
+            </div>
+            <div class="res-card-foot">
+              <a href="HS Chain Catalog_Palm Oil Chain_Hollow Pin.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- HS Chain Palm Oil Attachments -->
+          <div class="res-card">
+            <div class="res-card-head">
+              <div class="res-pdf-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <span class="res-file-size">261 KB</span>
+            </div>
+            <div class="res-card-body">
+              <div class="res-badges">
+                <span class="res-badge res-badge-brand">HS Chain</span>
+                <span class="res-badge res-badge-pdf">PDF</span>
+              </div>
+              <p class="res-card-title">HS Chain — Palm Oil Chain Attachments</p>
+              <p class="res-card-desc">Attachment variants and custom link configurations for specialized palm oil processing and handling equipment</p>
+            </div>
+            <div class="res-card-foot">
+              <a href="HS Chain Catalog_Palm Oil_Attachments.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+          <!-- HS Chain Palm Oil Straight Plate -->
+          <div class="res-card">
+            <div class="res-card-head">
+              <div class="res-pdf-icon">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              </div>
+              <span class="res-file-size">495 KB</span>
+            </div>
+            <div class="res-card-body">
+              <div class="res-badges">
+                <span class="res-badge res-badge-brand">HS Chain</span>
+                <span class="res-badge res-badge-pdf">PDF</span>
+              </div>
+              <p class="res-card-title">HS Chain — Palm Oil Straight Plate Chain</p>
+              <p class="res-card-desc">Straight plate chains for heavy-duty palm oil mill bulk conveyor systems and transfer line applications</p>
+            </div>
+            <div class="res-card-foot">
+              <a href="HS Chain Catalog_Palm Oil_Straight Plate.pdf" class="res-download-btn" target="_blank" rel="noopener noreferrer">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /palm oil sub-block -->
+
+    </div><!-- /block 03 -->
+
+
+    <!-- ── Bottom CTA ── -->
+    <div class="prod-cta" style="margin-top:1rem;">
       <div>
         <h3 style="color:var(--color-white); margin:0 0 .4rem; font-size:1.15rem;">Need a specific datasheet?</h3>
-        <p style="color:rgba(255,255,255,.55); font-size:.9rem; margin:0;">Contact our team for custom specifications, chain cross-references, or technical consultation.</p>
+        <p style="color:rgba(255,255,255,.5); font-size:.88rem; margin:0;">Contact our team for custom specifications, chain cross-references, or full technical consultation.</p>
       </div>
       <div style="display:flex; gap:.75rem; flex-wrap:wrap;">
         <a href="contact.html" class="btn-primary">Get Technical Support</a>
@@ -810,6 +1117,7 @@
 
 <script>
 (function() {
+  /* ── Mobile hamburger ── */
   var btn = document.getElementById('hamburger');
   var nav = document.getElementById('mobile-nav');
   if (btn && nav) {
@@ -828,6 +1136,40 @@
       trigger.setAttribute('aria-expanded', String(open));
     });
   }
+
+  /* ── Resource filter tabs ── */
+  var tabs   = document.querySelectorAll('#res-filter-bar .res-tab');
+  var blocks = document.querySelectorAll('.res-block');
+
+  tabs.forEach(function(tab) {
+    tab.addEventListener('click', function() {
+      /* update active tab */
+      tabs.forEach(function(t) {
+        t.classList.remove('active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('active');
+      tab.setAttribute('aria-selected', 'true');
+
+      /* show / hide blocks */
+      var filter = tab.getAttribute('data-filter');
+      blocks.forEach(function(block) {
+        if (filter === 'all' || block.getAttribute('data-block') === filter) {
+          block.classList.remove('hidden');
+        } else {
+          block.classList.add('hidden');
+        }
+      });
+
+      /* smooth scroll to first visible block */
+      var first = document.querySelector('.res-block:not(.hidden)');
+      if (first && filter !== 'all') {
+        setTimeout(function() {
+          first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 60);
+      }
+    });
+  });
 })();
 </script>
 <script src="animations.js"></script><script src="lang.js"></script>
