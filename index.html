@@ -432,73 +432,37 @@
       margin: 0 auto;
       line-height: 1.75;
     }
-    /* ══════════════════════════════════════════════════════
-       Product Range Gallery — uniform-size image showcase
-       All tiles: same 4:3 ratio, no added backgrounds.
-       object-fit:contain on transparent wrapper → image sits
-       directly on the page dark bg with no colour added.
-       ══════════════════════════════════════════════════════ */
-    .prg-gallery {
-      display: flex;
-      flex-direction: column;
-      gap: 52px;
-    }
+    /* ═══════════════════════════════════════════════════════════════
+       Product Range Gallery — single symmetric 3 × 2 grid
+       All 6 tiles are structurally identical: same class, same frame,
+       same gap — one grid, zero special treatment per row.
+       No backgrounds added; image sits on page dark bg (#050d1c).
+       ═══════════════════════════════════════════════════════════════ */
 
-    /* ── Row group (one per brand cluster) ── */
-    .prg-row-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    /* Row heading: label + hairline rule */
-    .prg-row-head {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-      margin-bottom: 18px;
-    }
-    .prg-row-head-name {
-      font-size: 0.58rem;
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      color: rgba(255,255,255,0.36);
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .prg-row-head-rule {
-      flex: 1;
-      height: 1px;
-      background: rgba(255,255,255,0.07);
-    }
-
-    /* ── 3-column image grid (same for both rows) ── */
+    /* Single flat grid — 3 equal columns */
     .prg-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 22px;
+      gap: 28px 28px;          /* equal row-gap and column-gap */
     }
 
-    /* ── Individual tile ── */
+    /* Every tile: identical flex column — frame + label */
     .prg-tile {
       display: flex;
       flex-direction: column;
-      gap: 11px;
+      gap: 12px;
     }
 
-    /* ── Image frame: enforces identical 4:3 dimensions.
-          background intentionally omitted — shows page bg.  ── */
+    /* Image frame — locked 4:3 ratio, NO background colour */
     .prg-frame {
       aspect-ratio: 4 / 3;
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      /* ← NO background colour — letterbox areas are transparent */
     }
 
-    /* ── Image: scales to fit frame without cropping ── */
+    /* Image fills frame, contained — never cropped */
     .prg-frame img {
       width: 100%;
       height: 100%;
@@ -510,20 +474,21 @@
       -webkit-user-drag: none;
     }
 
-    /* ── Tile sub-label ── */
+    /* Label — uniform style for every tile */
     .prg-tile-lbl {
-      font-size: 0.57rem;
-      font-weight: 800;
+      font-size: 0.60rem;
+      font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: rgba(255,255,255,0.30);
+      letter-spacing: 0.16em;
+      color: rgba(255,255,255,0.35);
       text-align: center;
+      line-height: 1.4;
     }
 
     /* "View All" link row */
     .prod-range-footer {
       text-align: center;
-      margin-top: 2.5rem;
+      margin-top: 2.75rem;
     }
     .prod-range-footer a {
       display: inline-flex;
@@ -546,15 +511,12 @@
       background: rgba(0,86,164,.15);
     }
 
-    /* ── Gallery responsive ── */
-    @media (max-width: 860px) {
-      .prg-gallery  { gap: 40px; }
-      .prg-grid     { grid-template-columns: repeat(2, 1fr); gap: 18px; }
-      .prg-row-head { margin-bottom: 14px; }
+    /* Responsive breakpoints */
+    @media (max-width: 880px) {
+      .prg-grid { grid-template-columns: repeat(2, 1fr); gap: 20px; }
     }
-    @media (max-width: 500px) {
-      .prg-gallery { gap: 32px; }
-      .prg-grid    { grid-template-columns: 1fr; gap: 14px; }
+    @media (max-width: 480px) {
+      .prg-grid { grid-template-columns: 1fr; gap: 16px; }
     }
 
     /* ---- Commitment image clip-path reveal ---- */
@@ -1267,81 +1229,58 @@
       <p data-i18n="prod-range-sub">Precision-engineered industrial chains, conveyor systems, and power transmission components from the world's leading manufacturers.</p>
     </div>
 
-    <!-- ══ Product Range Gallery — uniform 4:3 tiles, no card backgrounds ══ -->
-    <div class="prg-gallery">
+    <!-- ══ Product Range Gallery — single symmetric 3×2 grid ══ -->
+    <div class="prg-grid reveal">
 
-      <!-- ── ROW 1 — HS CHAIN (cement · sugar · palm oil) ── -->
-      <div class="prg-row-group reveal">
-        <div class="prg-row-head">
-          <span class="prg-row-head-name">HS chain</span>
-          <div class="prg-row-head-rule"></div>
+      <div class="prg-tile">
+        <div class="prg-frame">
+          <img src="HS chain cement-chain-2.png"
+               alt="HS Chain — cement industry" loading="lazy" decoding="async">
         </div>
-        <div class="prg-grid">
+        <span class="prg-tile-lbl">HS chain · Cement</span>
+      </div>
 
-          <div class="prg-tile">
-            <div class="prg-frame">
-              <img src="HS chain cement-chain-2.png"
-                   alt="HS Chain — cement industry" loading="lazy" decoding="async">
-            </div>
-            <span class="prg-tile-lbl">Cement industry</span>
-          </div>
-
-          <div class="prg-tile">
-            <div class="prg-frame">
-              <img src="HS chain sugar-mill-chain-1.png"
-                   alt="HS Chain — sugar mill" loading="lazy" decoding="async">
-            </div>
-            <span class="prg-tile-lbl">Sugar mill</span>
-          </div>
-
-          <div class="prg-tile">
-            <div class="prg-frame">
-              <img src="HS chain palm-oil-industry.png"
-                   alt="HS Chain — palm oil industry" loading="lazy" decoding="async">
-            </div>
-            <span class="prg-tile-lbl">Palm oil industry</span>
-          </div>
-
-        </div><!-- /prg-grid -->
-      </div><!-- /prg-row-group HS -->
-
-      <!-- ── ROW 2 — KMH · DONGBO · IWIS ── -->
-      <div class="prg-row-group reveal">
-        <div class="prg-row-head">
-          <span class="prg-row-head-name">Product lineup</span>
-          <div class="prg-row-head-rule"></div>
+      <div class="prg-tile">
+        <div class="prg-frame">
+          <img src="HS chain sugar-mill-chain-1.png"
+               alt="HS Chain — sugar mill" loading="lazy" decoding="async">
         </div>
-        <div class="prg-grid">
+        <span class="prg-tile-lbl">HS chain · Sugar mill</span>
+      </div>
 
-          <div class="prg-tile">
-            <div class="prg-frame">
-              <img src="kmh-conveyor-pipe.png"
-                   alt="KMH conveyor pipe system" loading="lazy" decoding="async">
-            </div>
-            <span class="prg-tile-lbl">KMH conveyor pipe</span>
-          </div>
+      <div class="prg-tile">
+        <div class="prg-frame">
+          <img src="HS chain palm-oil-industry.png"
+               alt="HS Chain — palm oil industry" loading="lazy" decoding="async">
+        </div>
+        <span class="prg-tile-lbl">HS chain · Palm oil</span>
+      </div>
 
-          <!-- Dongbo: correct image from products.html Dongbo section -->
-          <div class="prg-tile">
-            <div class="prg-frame">
-              <img src="Dongbo standard roller chain .png"
-                   alt="Dongbo standard roller chain" loading="lazy" decoding="async">
-            </div>
-            <span class="prg-tile-lbl">Dongbo roller chain</span>
-          </div>
+      <div class="prg-tile">
+        <div class="prg-frame">
+          <img src="kmh-conveyor-pipe.png"
+               alt="KMH conveyor pipe system" loading="lazy" decoding="async">
+        </div>
+        <span class="prg-tile-lbl">KMH conveyor pipe</span>
+      </div>
 
-          <div class="prg-tile">
-            <div class="prg-frame">
-              <img src="iwis-roller-chain-1.webp"
-                   alt="IWIS precision roller chain" loading="lazy" decoding="async">
-            </div>
-            <span class="prg-tile-lbl">IWIS roller chain</span>
-          </div>
+      <div class="prg-tile">
+        <div class="prg-frame">
+          <img src="Dongbo standard roller chain .png"
+               alt="Dongbo standard roller chain" loading="lazy" decoding="async">
+        </div>
+        <span class="prg-tile-lbl">Dongbo roller chain</span>
+      </div>
 
-        </div><!-- /prg-grid -->
-      </div><!-- /prg-row-group brands -->
+      <div class="prg-tile">
+        <div class="prg-frame">
+          <img src="iwis-roller-chain-1.webp"
+               alt="IWIS precision roller chain" loading="lazy" decoding="async">
+        </div>
+        <span class="prg-tile-lbl">IWIS roller chain</span>
+      </div>
 
-    </div><!-- /prg-gallery -->
+    </div><!-- /prg-grid -->
 
     <div class="prod-range-footer reveal">
       <a href="products.html">
