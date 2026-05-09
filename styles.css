@@ -52,7 +52,7 @@ body {
   font-family: var(--font-body);
   color: var(--color-black);
   background: var(--color-white);
-  line-height: 1.65;
+  line-height: 1.72;
   -webkit-font-smoothing: antialiased;
 }
 img {
@@ -512,12 +512,12 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   background: var(--color-primary);
   color: var(--color-white);
   border: 2px solid var(--color-primary);
-  box-shadow: 0 4px 16px rgba(0,86,164,0.25);
+  box-shadow: 0 4px 18px rgba(0,86,164,0.32);
 }
 .btn-primary:hover {
   background: var(--color-primary-dk);
   border-color: var(--color-primary-dk);
-  box-shadow: 0 6px 24px rgba(0,86,164,0.35);
+  box-shadow: 0 8px 28px rgba(0,86,164,0.44);
 }
 
 .btn-outline {
@@ -563,7 +563,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   background-image: url('industrial-chain-thailand.jpg');
   background-size: 115%;
   background-position: center 40%;
-  opacity: 0.25;
+  opacity: 0.38;
   z-index: 0;
   animation: hero-bg-drift 28s ease-in-out infinite;
   transform-origin: center center;
@@ -584,7 +584,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   height: 100%;
   object-fit: cover;
   object-position: center center;
-  opacity: 0.72;
+  opacity: 0.82;
   z-index: 1;
   pointer-events: none;
   will-change: transform;
@@ -594,7 +594,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 }
 .hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(135deg, rgba(0,15,40,0.88) 0%, rgba(0,40,90,0.72) 55%, rgba(0,65,130,0.52) 100%);
+  background: linear-gradient(135deg, rgba(0,15,40,0.70) 0%, rgba(0,40,90,0.54) 55%, rgba(0,65,130,0.32) 100%);
   z-index: 2;
 }
 #chain-canvas {
@@ -640,7 +640,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 }
 .hero h1 span { color: var(--color-light-blue); }
 .hero-sub {
-  color: rgba(255,255,255,0.78);
+  color: rgba(255,255,255,0.88);
   font-size: 1.1rem;
   max-width: 540px;
   margin-bottom: 2rem;
@@ -684,7 +684,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 .hero-stat-label {
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.65);
+  color: rgba(255,255,255,0.76);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-top: 0.35rem;
@@ -710,11 +710,11 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   background-image: url('industrial-chain-thailand.jpg');
   background-size: cover;
   background-position: center 50%;
-  opacity: 0.22;
+  opacity: 0.34;
 }
 .inner-hero-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(120deg, rgba(0,30,70,0.92) 0%, rgba(0,56,120,0.75) 100%);
+  background: linear-gradient(120deg, rgba(0,30,70,0.76) 0%, rgba(0,56,120,0.56) 100%);
   z-index: 2;
 }
 .inner-hero-content {
@@ -727,7 +727,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   margin-bottom: 0.6rem;
 }
 .inner-hero .hero-sub-text {
-  color: rgba(255,255,255,0.7);
+  color: rgba(255,255,255,0.82);
   font-size: 1.05rem;
   max-width: 520px;
 }
@@ -804,7 +804,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 .since2004-stat-lbl {
   font-size: 0.72rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.60);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   max-width: 120px;
@@ -821,7 +821,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 .since2004-badge span {
   font-size: 0.75rem;
   font-weight: 600;
-  color: rgba(255,255,255,0.45);
+  color: rgba(255,255,255,0.60);
   letter-spacing: 0.04em;
   line-height: 1.5;
 }
@@ -834,7 +834,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 
 /* ---------- Stats Bar ---------- */
 .stats-bar {
-  background: var(--color-primary);
+  background: linear-gradient(135deg, #005bae 0%, #0056A4 55%, #004d96 100%);
   padding: var(--space-lg) 0;
 }
 .stats-bar-grid {
@@ -851,7 +851,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 }
 .stat-item-label {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.75);
+  color: rgba(255,255,255,0.88);
   text-transform: uppercase;
   letter-spacing: 0.08em;
   margin-top: 0.3rem;
@@ -949,7 +949,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 .industry-card:hover img { transform: scale(1.08); }
 .industry-card-overlay {
   position: absolute; inset: 0;
-  background: linear-gradient(to top, rgba(0,30,70,0.88) 0%, rgba(0,56,120,0.3) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,30,70,0.76) 0%, rgba(0,56,120,0.22) 60%, transparent 100%);
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -957,10 +957,10 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   transition: background var(--transition);
 }
 .industry-card:hover .industry-card-overlay {
-  background: linear-gradient(to top, rgba(0,56,120,0.92) 0%, rgba(0,86,164,0.55) 60%, transparent 100%);
+  background: linear-gradient(to top, rgba(0,56,120,0.86) 0%, rgba(0,86,164,0.48) 60%, transparent 100%);
 }
 .industry-card-overlay h3 { color: var(--color-white); font-size: 1.2rem; }
-.industry-card-overlay p  { color: rgba(255,255,255,0.75); font-size: 0.85rem; margin-top: 0.25rem; }
+.industry-card-overlay p  { color: rgba(255,255,255,0.84); font-size: 0.85rem; margin-top: 0.25rem; }
 
 .testimonial-card {
   background: var(--color-white);
@@ -980,7 +980,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
 .dark-feature .section-eyebrow::before,
 .dark-feature .section-eyebrow::after { background: #7ec8e3; }
 .dark-feature h2 { color: var(--color-white); }
-.dark-feature p  { color: rgba(255,255,255,0.7); }
+.dark-feature p  { color: rgba(255,255,255,0.78); }
 .dark-feature-img {
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1177,7 +1177,7 @@ html[data-lang="km"] { font-family: 'Noto Sans Khmer', 'Nunito', sans-serif; }
   text-align: center;
 }
 .cta-block h2 { color: var(--color-white); margin-bottom: 0.75rem; }
-.cta-block p  { color: rgba(255,255,255,0.65); margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
+.cta-block p  { color: rgba(255,255,255,0.76); margin-bottom: 2rem; max-width: 520px; margin-left: auto; margin-right: auto; }
 .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
 
 /* ---------- Portfolio Filter ---------- */
@@ -1512,8 +1512,8 @@ select.form-control { cursor: pointer; }
 }
 .prod-rep-desc {
   font-size: 0.82rem;
-  color: rgba(255,255,255,0.50);
-  line-height: 1.65;
+  color: rgba(255,255,255,0.64);
+  line-height: 1.7;
   margin: 0;
 }
 @media (max-width: 1100px) {
@@ -1538,17 +1538,17 @@ select.form-control { cursor: pointer; }
 .footer-contact-label {
   font-size: .7rem; font-weight: 700;
   text-transform: uppercase; letter-spacing: .1em;
-  color: rgba(255,255,255,.50);
+  color: rgba(255,255,255,.60);
 }
-.footer-contact-value { font-size: .85rem; color: rgba(255,255,255,.75); line-height: 1.5; }
+.footer-contact-value { font-size: .85rem; color: rgba(255,255,255,.85); line-height: 1.5; }
 .footer-contact-value a { color: var(--color-light-blue); }
 .footer-contact-value a:hover { color: var(--color-white); }
 .footer-hours-grid {
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: .1rem .5rem; font-size: .8rem; color: rgba(255,255,255,.55); margin-top: .2rem;
+  gap: .1rem .5rem; font-size: .8rem; color: rgba(255,255,255,.68); margin-top: .2rem;
 }
 .footer-hours-grid span:nth-child(odd) {
-  color: rgba(255,255,255,.38); font-size: .72rem;
+  color: rgba(255,255,255,.50); font-size: .72rem;
   text-transform: uppercase; letter-spacing: .04em;
 }
 
@@ -1592,8 +1592,8 @@ select.form-control { cursor: pointer; }
 }
 .footer-about-text {
   font-size: 0.88rem;
-  color: rgba(255,255,255,0.55);
-  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.72;
   margin-bottom: 1.5rem;
 }
 .footer-socials { display: flex; gap: 0.75rem; }
@@ -1626,7 +1626,7 @@ select.form-control { cursor: pointer; }
 .footer-links { display: flex; flex-direction: column; gap: 0.6rem; }
 .footer-links a {
   font-size: 0.875rem;
-  color: rgba(255,255,255,0.55);
+  color: rgba(255,255,255,0.65);
   transition: color var(--transition), padding-left var(--transition);
 }
 .footer-links a:hover { color: var(--color-white); padding-left: 4px; }
@@ -1642,7 +1642,7 @@ select.form-control { cursor: pointer; }
 }
 .footer-copyright {
   font-size: 0.8rem;
-  color: rgba(255,255,255,0.4);
+  color: rgba(255,255,255,0.52);
 }
 .footer-badges { display: flex; gap: 0.5rem; align-items: center; }
 .footer-badge {
@@ -1694,9 +1694,9 @@ select.form-control { cursor: pointer; }
 .section--dark .section-eyebrow::after { background: #7ec8e3; }
 .section--dark h2 { color: var(--color-white); }
 .section--dark h3 { color: var(--color-white); }
-.section--dark p  { color: rgba(255,255,255,0.7); }
+.section--dark p  { color: rgba(255,255,255,0.78); }
 .section--dark .section-header h2 { color: var(--color-white); }
-.section--dark .feature-list li { color: rgba(255,255,255,0.75); }
+.section--dark .feature-list li { color: rgba(255,255,255,0.83); }
 .section--dark .feature-list li::before { background: #7ec8e3; }
 .section--dark .commitment-img { box-shadow: 0 20px 60px rgba(0,0,0,0.55); }
 .section--dark .expertise-img  { box-shadow: 0 20px 60px rgba(0,0,0,0.55); }
@@ -1719,8 +1719,8 @@ select.form-control { cursor: pointer; }
 /* ---------- Dark Filter Bar Variant ---------- */
 .filter-bar--dark .filter-btn {
   background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.15);
-  color: rgba(255,255,255,0.65);
+  border-color: rgba(255,255,255,0.18);
+  color: rgba(255,255,255,0.74);
 }
 .filter-bar--dark .filter-btn:hover {
   border-color: var(--color-light-blue);
