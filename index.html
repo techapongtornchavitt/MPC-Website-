@@ -430,39 +430,50 @@
       margin: 0 auto;
       line-height: 1.75;
     }
-    /* ── High-impact product showcase — 3 cols × 2 rows, pure display ── */
-    .prg-showcase {
+    /* ── Product Range Gallery — 3 cols × 2 rows, category-labelled ── */
+    .prs-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      gap: 22px;
     }
-    .prg-card {
-      background: #ece9e2;          /* warm cream — products float cleanly */
-      border-radius: 16px;
+    .prs-tile {
+      display: flex;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+    .prs-img-wrap {
+      background: #edeae4;        /* warm neutral — all images show cleanly */
+      border-radius: 12px;
       overflow: hidden;
       aspect-ratio: 4 / 3;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.5rem;
-      box-shadow: 0 6px 32px rgba(0,0,0,0.30), 0 1px 4px rgba(0,0,0,0.18);
-      cursor: default;              /* pure display — no click affordance */
-      transition: box-shadow .35s ease, transform .35s ease;
+      padding: 1.25rem;
+      flex: 1;
     }
-    .prg-card:hover {
-      box-shadow: 0 14px 52px rgba(0,0,0,0.42), 0 2px 8px rgba(0,0,0,0.22);
-      transform: translateY(-5px);
-    }
-    .prg-card img {
+    .prs-img-wrap img {
       max-width: 100%;
       max-height: 100%;
       width: 100%;
       height: 100%;
-      object-fit: contain;          /* show full product, no cropping */
+      object-fit: contain;        /* full product visible — no cropping */
       object-position: center;
       display: block;
       pointer-events: none;
       user-select: none;
+      -webkit-user-drag: none;
+    }
+    .prs-lbl {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: rgba(255,255,255,0.50);
+      text-align: center;
+      padding: 0.72rem 0 0;
+      margin: 0;
     }
     /* "View All" link row */
     .prod-range-footer {
@@ -489,13 +500,12 @@
       border-color: rgba(74,144,226,.4);
       background: rgba(0,86,164,.15);
     }
-    /* Showcase responsive */
-    @media (max-width: 900px) {
-      .prg-showcase { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    /* Gallery responsive */
+    @media (max-width: 860px) {
+      .prs-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
     }
-    @media (max-width: 520px) {
-      .prg-showcase { grid-template-columns: 1fr; gap: 14px; }
-      .prg-card { aspect-ratio: 3 / 2; }
+    @media (max-width: 440px) {
+      .prs-grid { grid-template-columns: 1fr; gap: 14px; }
     }
 
     /* ---- Commitment image clip-path reveal ---- */
@@ -1208,48 +1218,64 @@
       <p data-i18n="prod-range-sub">Precision-engineered industrial chains, conveyor systems, and power transmission components from the world's leading manufacturers.</p>
     </div>
 
-    <!-- ── 6-card showcase — 3 cols × 2 rows, pure display (no links) ── -->
-    <div class="prg-showcase">
+    <!-- ── 6-tile category gallery — Row 1: HS chain / Row 2: KMH · IWIS · Dongbo ── -->
+    <div class="prs-grid">
 
-      <!-- Row 1 -->
-      <div class="prg-card reveal">
-        <img src="IWIS Roller Chain.jpg"
-             alt="IWIS precision roller chain — industrial engineering"
-             loading="lazy" decoding="async">
-      </div>
+      <!-- ROW 1 — HS chain (cement industry) -->
+      <figure class="prs-tile reveal">
+        <div class="prs-img-wrap">
+          <img src="HS chain cement-chain-2.png"
+               alt="HS Chain industrial chains" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="prs-lbl">HS chain</figcaption>
+      </figure>
 
-      <div class="prg-card reveal reveal-delay-1">
-        <img src="hs-chain-korea.webp"
-             alt="HS Chain industrial conveyor chain product range"
-             loading="lazy" decoding="async">
-      </div>
+      <!-- ROW 1 — HS chain (sugar industry) -->
+      <figure class="prs-tile reveal reveal-delay-1">
+        <div class="prs-img-wrap">
+          <img src="HS chain sugar-mill-chain-1.png"
+               alt="HS Chain industrial chains" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="prs-lbl">HS chain</figcaption>
+      </figure>
 
-      <div class="prg-card reveal reveal-delay-2">
-        <img src="HS chain cement-chain-2.png"
-             alt="HS Chain forged bushed and bucket elevator chains"
-             loading="lazy" decoding="async">
-      </div>
+      <!-- ROW 1 — HS chain (palm oil industry) -->
+      <figure class="prs-tile reveal reveal-delay-2">
+        <div class="prs-img-wrap">
+          <img src="HS chain palm-oil-industry.png"
+               alt="HS Chain industrial chains" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="prs-lbl">HS chain</figcaption>
+      </figure>
 
-      <!-- Row 2 -->
-      <div class="prg-card reveal reveal-delay-1">
-        <img src="HS chain sugar-mill-chain-1.png"
-             alt="HS Chain O-Chain SS1125 and intermediate chain types"
-             loading="lazy" decoding="async">
-      </div>
+      <!-- ROW 2 — KMH -->
+      <figure class="prs-tile reveal reveal-delay-1">
+        <div class="prs-img-wrap">
+          <img src="kmh-conveyor-pipe.png"
+               alt="KMH conveyor pipe system" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="prs-lbl">KMH conveyor pipe</figcaption>
+      </figure>
 
-      <div class="prg-card reveal reveal-delay-2">
-        <img src="kmh-conveyor-pipe.png"
-             alt="KMH pipe conveyor system"
-             loading="lazy" decoding="async">
-      </div>
+      <!-- ROW 2 — IWIS -->
+      <figure class="prs-tile reveal reveal-delay-2">
+        <div class="prs-img-wrap">
+          <img src="IWIS Roller Chain.jpg"
+               alt="IWIS precision roller chain" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="prs-lbl">IWIS roller chain</figcaption>
+      </figure>
 
-      <div class="prg-card reveal reveal-delay-3">
-        <img src="Dongbo standard roller chain .png"
-             alt="Dongbo standard roller chain"
-             loading="lazy" decoding="async">
-      </div>
+      <!-- ROW 2 — Dongbo -->
+      <figure class="prs-tile reveal reveal-delay-3">
+        <div class="prs-img-wrap">
+          <img src="dongbo-chain-product.png"
+               alt="Dongbo roller chain" loading="lazy" decoding="async">
+        </div>
+        <figcaption class="prs-lbl">Dongbo roller chain</figcaption>
+      </figure>
 
-    </div><!-- /prg-showcase -->
+    </div><!-- /prs-grid -->
 
     <div class="prod-range-footer reveal">
       <a href="products.html">
