@@ -967,6 +967,18 @@
       <nav class="site-nav" aria-label="Main navigation">
         <a href="index.html"     class="nav-link active" data-i18n="nav-home">Home</a>
         <a href="about.html"     class="nav-link" data-i18n="nav-about">About</a>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav-industries">Industries</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="steel-industry.html"    class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-steel">Steel Industry</a>
+            <a href="cement-industry.html"   class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-cement">Cement Industry</a>
+            <a href="sugar-industry.html"    class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-sugar">Sugar Industry</a>
+            <a href="palm-oil-industry.html" class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-palm">Palm Oil Industry</a>
+          </div>
+        </div>
         <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
         <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
         <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
@@ -987,6 +999,18 @@
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
     <a href="index.html"     class="nav-link active" data-i18n="nav-home">Home</a>
     <a href="about.html"     class="nav-link" data-i18n="nav-about">About</a>
+    <div class="mobile-nav-group">
+      <button class="nav-link mobile-nav-trigger" id="mob-ind-trigger" aria-expanded="false">
+        <span data-i18n="nav-industries">Industries</span>
+        <span class="m-chevron" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-nav-sub" id="mob-ind-sub">
+        <a href="steel-industry.html"    class="nav-link" data-i18n="nav-ind-steel">Steel Industry</a>
+        <a href="cement-industry.html"   class="nav-link" data-i18n="nav-ind-cement">Cement Industry</a>
+        <a href="sugar-industry.html"    class="nav-link" data-i18n="nav-ind-sugar">Sugar Industry</a>
+        <a href="palm-oil-industry.html" class="nav-link" data-i18n="nav-ind-palm">Palm Oil Industry</a>
+      </div>
+    </div>
     <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
     <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
     <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
@@ -1037,8 +1061,8 @@
         <span class="hero-stat-label" data-i18n="stat-clients-lbl">Clients Served</span>
       </div>
       <div class="hero-stat-card reveal reveal-delay-3">
-        <span class="hero-stat-num" data-target="4">0</span>
-        <span class="hero-stat-label" data-i18n="stat-ind-lbl">Industries</span>
+        <span class="hero-stat-num" data-target="10">0</span><span style="font-size:1.6rem;font-weight:800;color:var(--color-primary)">+</span>
+        <span class="hero-stat-label" data-i18n="stat-ind-lbl">Industries Served</span>
       </div>
     </div>
   </div>
@@ -1077,8 +1101,8 @@
             <span class="company-fact-lbl" data-i18n="ci-fact-staff">Engineers &amp; Staff</span>
           </div>
           <div class="company-fact">
-            <span class="company-fact-num">4</span>
-            <span class="company-fact-lbl" data-i18n="ci-fact-ind">Key Industries</span>
+            <span class="company-fact-num">10+</span>
+            <span class="company-fact-lbl" data-i18n="ci-fact-ind">Industries Served</span>
           </div>
         </div>
         <div class="company-intro-badges">
@@ -1572,6 +1596,18 @@
     var open = nav.classList.toggle('open');
     btn.classList.toggle('open', open);
     btn.setAttribute('aria-expanded', String(open));
+  });
+})();
+
+/* ---- Mobile Industries Sub-menu ---- */
+(function() {
+  var trigger = document.getElementById('mob-ind-trigger');
+  var sub = document.getElementById('mob-ind-sub');
+  if (!trigger || !sub) return;
+  trigger.addEventListener('click', function() {
+    var open = sub.classList.toggle('open');
+    trigger.classList.toggle('open', open);
+    trigger.setAttribute('aria-expanded', String(open));
   });
 })();
 
