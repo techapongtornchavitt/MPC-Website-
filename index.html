@@ -134,11 +134,6 @@
       .hero-sub          { animation-delay: 0.4s; }
       .hero-btns         { animation-delay: 0.55s; }
 
-      .hero-stat-card:nth-child(1) { animation: heroFadeUp 550ms 0.6s var(--ease-out-strong) both; opacity: 0; }
-      .hero-stat-card:nth-child(2) { animation: heroFadeUp 550ms 0.7s var(--ease-out-strong) both; opacity: 0; }
-      .hero-stat-card:nth-child(3) { animation: heroFadeUp 550ms 0.8s var(--ease-out-strong) both; opacity: 0; }
-      .hero-stat-card:nth-child(4) { animation: heroFadeUp 550ms 0.9s var(--ease-out-strong) both; opacity: 0; }
-
       @keyframes heroFadeUp {
         to { opacity: 1; transform: translateY(0); }
       }
@@ -158,14 +153,14 @@
 
     /* ---- Hero layout ---- */
     .hero-inner {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 2rem;
-      align-items: center;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
       width: 100%;
+      max-width: 720px;
       position: relative;
       z-index: 3;
-      padding: 3rem 0 6rem;
+      padding: 4rem 0 5rem;
     }
     /* ---- Brands grid: 3 large columns ---- */
     .brands-grid {
@@ -321,17 +316,7 @@
       }
     }
 
-    /* ---- Cert badge pulse glow ---- */
-    @media (prefers-reduced-motion: no-preference) {
-      @keyframes badgePulse {
-        0%, 100% { box-shadow: 0 0 0 0 rgba(74,144,226,0); }
-        50%       { box-shadow: 0 0 0 4px rgba(74,144,226,0.18); }
-      }
-      .cert-badge { animation: badgePulse 3s ease-in-out infinite; }
-      .cert-badge:nth-child(2) { animation-delay: 0.75s; }
-      .cert-badge:nth-child(3) { animation-delay: 1.5s; }
-      .cert-badge:nth-child(4) { animation-delay: 2.25s; }
-    }
+    /* cert badges — static, no pulse */
 
     /* ---- Industry card hover — touch-safe ---- */
     @media (hover: hover) and (pointer: fine) {
@@ -341,6 +326,45 @@
         opacity: 1;
       }
       .industry-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
+    }
+    /* Industry card overlay always visible on touch/mobile devices */
+    @media (hover: none) {
+      .industry-card-overlay {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+      }
+    }
+
+    /* ======================================
+       HERO STATS BAND (below hero)
+    ====================================== */
+    .hero-stats-band {
+      background: var(--color-dark-navy);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      padding: 2.25rem 0;
+    }
+    .hero-stats-band-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      text-align: center;
+    }
+    .hero-stats-band-grid .hero-stat-card {
+      padding: 0.75rem 1rem;
+      border-right: 1px solid rgba(255,255,255,0.08);
+    }
+    .hero-stats-band-grid .hero-stat-card:last-child {
+      border-right: none;
+    }
+    @media (max-width: 600px) {
+      .hero-stats-band-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero-stats-band-grid .hero-stat-card:nth-child(2) { border-right: none; }
+      .hero-stats-band-grid .hero-stat-card:nth-child(1),
+      .hero-stats-band-grid .hero-stat-card:nth-child(2) {
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
     }
 
     /* ---- Commitment image clip-path reveal ---- */
@@ -454,9 +478,12 @@
     ====================================== */
     .brands-showcase-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5rem;
       margin-top: 2.5rem;
+      max-width: 960px;
+      margin-left: auto;
+      margin-right: auto;
     }
     .brand-showcase-card {
       display: flex;
@@ -554,10 +581,10 @@
       line-height: 1.4;
     }
 
-    /* Responsive: 3 columns on tablet */
+    /* Responsive: 2 columns on tablet */
     @media (max-width: 960px) {
       .brands-showcase-grid {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
         gap: 1.2rem;
       }
     }
@@ -785,13 +812,13 @@
     .commitment-dark h2 { color: var(--color-white) !important; }
     .commitment-dark p  { color: rgba(255,255,255,.68) !important; }
 
-    /* Hero overlay: deeper */
+    /* Hero overlay: balanced — lets video breathe */
     .hero-overlay {
       background: linear-gradient(
         155deg,
-        rgba(4, 10, 26, 0.87) 0%,
-        rgba(7, 16, 38, 0.78) 55%,
-        rgba(0, 60, 120, 0.22) 100%
+        rgba(4, 10, 26, 0.72) 0%,
+        rgba(7, 16, 38, 0.65) 55%,
+        rgba(0, 60, 120, 0.18) 100%
       ) !important;
     }
 
@@ -880,31 +907,37 @@
         <h1 data-i18n="hero-h1">Precision Industrial<br><span>Chain Systems</span></h1>
         <p class="hero-sub" data-i18n="hero-sub">Engineered for Steel, Cement, Palm Oil &amp; Heavy Industry Across Southeast Asia.</p>
         <div class="hero-btns">
-          <a href="portfolio.html" class="btn-primary" data-i18n="hero-btn-view">View Our Work</a>
-          <a href="contact.html"   class="btn-outline-white" data-i18n="hero-btn-quote">Get a Quote</a>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="hero-stat-card">
-          <span class="hero-stat-num" data-target="20">0</span>
-          <span class="hero-stat-label" data-i18n="stat-years-lbl">Years Experience</span>
-        </div>
-        <div class="hero-stat-card">
-          <span class="hero-stat-num" data-target="10">0</span><span style="font-size:2rem;font-weight:700;color:var(--color-primary);line-height:1">+</span>
-          <span class="hero-stat-label" data-i18n="stat-brands-lbl">Premium Brands</span>
-        </div>
-        <div class="hero-stat-card">
-          <span class="hero-stat-num" data-target="500">0</span>
-          <span class="hero-stat-label" data-i18n="stat-clients-lbl">Clients Served</span>
-        </div>
-        <div class="hero-stat-card">
-          <span class="hero-stat-num" data-target="4">0</span>
-          <span class="hero-stat-label" data-i18n="stat-ind-lbl">Industries</span>
+          <a href="contact.html"   class="btn-primary"       data-i18n="hero-btn-quote">Get a Quote</a>
+          <a href="portfolio.html" class="btn-outline-white" data-i18n="hero-btn-view">View Our Work</a>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- ============ HERO STATS BAND ============ -->
+<div class="hero-stats-band">
+  <div class="container">
+    <div class="hero-stats-band-grid">
+      <div class="hero-stat-card reveal">
+        <span class="hero-stat-num" data-target="20">0</span>
+        <span class="hero-stat-label" data-i18n="stat-years-lbl">Years Experience</span>
+      </div>
+      <div class="hero-stat-card reveal reveal-delay-1">
+        <span class="hero-stat-num" data-target="10">0</span><span style="font-size:2rem;font-weight:700;color:var(--color-primary);line-height:1">+</span>
+        <span class="hero-stat-label" data-i18n="stat-brands-lbl">Premium Brands</span>
+      </div>
+      <div class="hero-stat-card reveal reveal-delay-2">
+        <span class="hero-stat-num" data-target="500">0</span>
+        <span class="hero-stat-label" data-i18n="stat-clients-lbl">Clients Served</span>
+      </div>
+      <div class="hero-stat-card reveal reveal-delay-3">
+        <span class="hero-stat-num" data-target="4">0</span>
+        <span class="hero-stat-label" data-i18n="stat-ind-lbl">Industries</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ============ INDUSTRIES ============ -->
 <section class="section reveal industries-dark">
@@ -1210,14 +1243,14 @@
 
       <div class="faq-item">
         <button class="faq-question" aria-expanded="false">
-          What chain standards does MPC stock?
+          What chain standards does MPC supply?
           <span class="faq-chevron">
             <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            We stock chains to international standards including ANSI B29.1, ISO 606, DIN 8187/8188, and JIS B1801. Our range covers pitches from 6.35mm (1/4") up to 102mm heavy forged chains, in single, double, and triple strand configurations. We also supply metric and non-standard chains on request.
+            MPC supplies chains to international standards including ANSI B29.1, ISO 606, DIN 8187/8188, and JIS B1801. Our range covers pitches from 6.35mm (1/4") up to 102mm heavy forged chains, in single, double, and triple strand configurations. We also supply metric and non-standard chains on request.
           </div>
         </div>
       </div>
@@ -1231,7 +1264,7 @@
         </button>
         <div class="faq-answer">
           <div class="faq-answer-inner">
-            For standard in-stock items, we typically respond within <strong>one business day</strong>. For custom or imported products, allow 2–3 business days for a detailed quotation including lead time. Contact us by email at contact@motionpluscorp.com or call <a href="tel:022865656">02 286-5656</a>.
+            For standard supply items, we typically respond within <strong>one business day</strong>. For custom or imported products, allow 2–3 business days for a detailed quotation including lead time. Contact us by email at contact@motionpluscorp.com or call <a href="tel:022865656">02 286-5656</a>.
           </div>
         </div>
       </div>
@@ -1250,23 +1283,6 @@
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-
-<!-- ============ COMMITMENT / PROMISE ============ -->
-<section class="section commitment-section commitment-dark reveal">
-  <div class="container">
-    <div class="two-col">
-      <div>
-        <span class="section-eyebrow" data-i18n="promise-eyebrow">Our Promise</span>
-        <h2 data-i18n="promise-h2">Built on Precision,<br>Driven by Excellence</h2>
-        <p style="margin-bottom:1.75rem;" data-i18n="promise-p">We conduct strict quality checks and provide reliable after-sales service. We coordinate with manufacturers and suppliers to resolve any issues efficiently, without requiring international site visits.</p>
-        <a href="about.html" class="btn-primary" style="margin-top:.25rem; display:inline-flex;" data-i18n="promise-btn">Learn More About Us</a>
-      </div>
-      <div class="commitment-img">
-        <img src="industrial-chain-thailand.jpg" alt="Our Commitment to Quality" loading="lazy">
-      </div>
     </div>
   </div>
 </section>
