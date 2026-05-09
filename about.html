@@ -101,6 +101,9 @@
       <div class="lang-toggle" role="group" aria-label="Language">
         <button class="lang-btn active" data-lang="en">EN</button>
         <button class="lang-btn" data-lang="th">TH</button>
+      <button class="lang-btn" data-lang="km">KM</button>
+      <button class="lang-btn" data-lang="lo">LO</button>
+      <button class="lang-btn" data-lang="mm">MM</button>
       </div>
       <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -164,37 +167,111 @@
   </div>
 </section>
 
-<!-- ============ COMPANY OVERVIEW (dark navy) ============ -->
-<section class="section--dark">
+<!-- ============ SECTION 1: COMPANY PROFILE ============ -->
+<section class="section abt-cp-section reveal">
   <div class="container">
-    <div class="two-col">
-      <div>
-        <span class="section-eyebrow" data-i18n="abt-story-eyebrow">Company Profile</span>
-        <h2 data-i18n="abt-story-h2">Built on Precision,<br>Driven by Excellence</h2>
-        <p style="margin-bottom:1rem;" data-i18n="abt-story-p1">Determine to be the best for conveyor systems business in the region, to provide one Stop service as turned key business, including, local and imported goods sales &amp; services, designed made to order, assembly parts and construction works.</p>
-        <p data-i18n="abt-story-p2">To build and design for fundamental structure of conveyor systems in several business industries such as steel mill, sugar mill, cement plant, food &amp; beverage industry.</p>
+    <div class="section-header" style="margin-bottom:var(--space-xl);">
+      <span class="section-eyebrow" data-i18n="abt-cp-eyebrow">Company Profile</span>
+      <h2 data-i18n="abt-cp-h2">Who We Are</h2>
+    </div>
+
+    <div class="abt-cp-layout">
+      <!-- Left: data table -->
+      <div class="reveal">
+        <div class="abt-cp-table">
+          <div class="abt-cp-row">
+            <span class="abt-cp-label" data-i18n="abt-cp-lbl-type">Business Type</span>
+            <span class="abt-cp-value" data-i18n="abt-cp-val-type">Trading &amp; Manufacturer</span>
+          </div>
+          <div class="abt-cp-row">
+            <span class="abt-cp-label" data-i18n="abt-cp-lbl-cap">Capital</span>
+            <span class="abt-cp-value" data-i18n="abt-cp-val-cap">THB 10,000,000.-</span>
+          </div>
+          <div class="abt-cp-row">
+            <span class="abt-cp-label" data-i18n="abt-cp-lbl-primary">Primary</span>
+            <span class="abt-cp-value" data-i18n="abt-cp-val-primary">Trading, Assembly &amp; Design</span>
+          </div>
+          <div class="abt-cp-row">
+            <span class="abt-cp-label" data-i18n="abt-cp-lbl-comp">Competitive</span>
+            <span class="abt-cp-value" data-i18n="abt-cp-val-comp">Steel Mill, Sugar Mill, Cement Plant and Conveyor Fabrication &amp; Construction</span>
+          </div>
+          <div class="abt-cp-row">
+            <span class="abt-cp-label" data-i18n="abt-cp-lbl-adv">Advantages</span>
+            <span class="abt-cp-value" data-i18n="abt-cp-val-adv">Inventory Reliability, R&amp;D</span>
+          </div>
+          <div class="abt-cp-row">
+            <span class="abt-cp-label" data-i18n="abt-cp-lbl-sales">Sales Volume</span>
+            <span class="abt-cp-value" data-i18n="abt-cp-val-sales">THB 90,000,000.-</span>
+          </div>
+          <div class="abt-cp-row">
+            <span class="abt-cp-label" data-i18n="abt-cp-lbl-staff">No. of Staff</span>
+            <span class="abt-cp-value" data-i18n="abt-cp-val-staff">35</span>
+          </div>
+          <div class="abt-cp-row">
+            <span class="abt-cp-label" data-i18n="abt-cp-lbl-year">Year Established</span>
+            <span class="abt-cp-value" data-i18n="abt-cp-val-year">2004</span>
+          </div>
+        </div>
+
+        <div class="abt-cp-downloads">
+          <a href="Motion Plus Corporation_Company Profile (Eng) .pdf"
+             data-pdf="Motion Plus Corporation_Company Profile (Eng) .pdf"
+             data-pdf-title="MPC Company Profile (English)"
+             class="abt-cp-btn-primary">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span data-i18n="abt-dl-en">Company Profile (EN)</span>
+          </a>
+          <a href="Motion Plus Corporation_Company Profile (THA) .pdf"
+             data-pdf="Motion Plus Corporation_Company Profile (THA) .pdf"
+             data-pdf-title="MPC Company Profile (Thai)"
+             class="abt-cp-btn-outline">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+            <span data-i18n="abt-dl-th">Company Profile (TH)</span>
+          </a>
+        </div>
       </div>
-      <div class="commitment-img">
-        <img src="built-on-precision.jpg" alt="Motion Plus Corporation — Built on Precision, Driven by Excellence" loading="lazy">
+
+      <!-- Right: image -->
+      <div class="commitment-img reveal reveal-delay-2">
+        <img src="built-on-precision.jpg" alt="Motion Plus Corporation — Company Profile" loading="lazy">
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ COMPANY PILLARS (grey-lt) ============ -->
-<section class="section" style="background:var(--color-grey-lt); padding-top:var(--space-2xl); padding-bottom:var(--space-2xl);">
+<!-- ============ SECTION 2: VISION ============ -->
+<section class="abt-vision-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-eyebrow" data-i18n="abt-vision-label">Vision</span>
+      <blockquote class="abt-vision-quote" data-i18n="abt-vision-p">Determine to be the best for conveyor systems business in the region, to provide one Stop service as turned key business, including, local and imported goods sales &amp; services, designed made to order, assembly parts and construction works.</blockquote>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3: EXPERIENCES ============ -->
+<section class="abt-exp-section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <span class="section-eyebrow" data-i18n="abt-exp-label">Experiences</span>
+      <p class="abt-exp-text" data-i18n="abt-exp-body">To build and design for fundamental structure of conveyor systems in several business industries such as steel mill, sugar mill, cement plant, food &amp; beverage industry.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ COMPANY PILLARS (3 cards) ============ -->
+<section class="section" style="background:var(--color-white); padding-top:var(--space-2xl); padding-bottom:var(--space-2xl);">
   <div class="container">
 
     <div class="section-header" style="margin-bottom:var(--space-xl);">
-      <span class="section-eyebrow" data-i18n="abt-found-eyebrow">Who We Are</span>
+      <span class="section-eyebrow" data-i18n="abt-found-eyebrow">Our Philosophy &amp; Commitment</span>
       <h2 data-i18n="abt-found-h2">Our Foundation &amp; Philosophy</h2>
-      <p data-i18n="abt-found-body">Established in <strong>2004</strong> in Bangkok, Thailand. Business Type: Trading &amp; Manufacturer. Capital: THB 10,000,000.- &nbsp;|&nbsp; Sales Volume: THB 90,000,000.- &nbsp;|&nbsp; Staff: 35</p>
     </div>
 
-    <div class="grid-2" style="gap:1.75rem;">
+    <div class="grid-3" style="gap:1.75rem;">
 
       <!-- Key to Success -->
-      <div style="background:var(--color-white); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+      <div class="reveal" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
           <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
@@ -205,7 +282,7 @@
       </div>
 
       <!-- Company Philosophy -->
-      <div style="background:var(--color-white); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+      <div class="reveal reveal-delay-1" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
           <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
@@ -216,7 +293,7 @@
       </div>
 
       <!-- Commitment -->
-      <div style="background:var(--color-white); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+      <div class="reveal reveal-delay-2" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
           <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -224,58 +301,6 @@
           <h3 style="margin:0; font-size:1.1rem; color:var(--color-dark);" data-i18n="abt-commit-h3">Our Commitment</h3>
         </div>
         <p style="color:var(--color-grey); line-height:1.7; margin:0;" data-i18n="abt-commit-p">To assure high quality products with reliable services, we manage to arrange both domestic &amp; principle engineers from abroad to consult proper applications, solve problems as well as visiting customers' sites from time to time for free of charges as our value added company policy.</p>
-      </div>
-
-      <!-- Experience & Company Profile -->
-      <div style="background:var(--color-dark-navy); border:1px solid rgba(74,144,226,0.25); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card); position:relative; overflow:hidden;">
-        <div style="position:absolute; top:-20px; right:-20px; width:120px; height:120px; background:var(--color-primary); opacity:.07; border-radius:50%;"></div>
-        <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1.25rem;">
-          <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-          </div>
-          <h3 style="margin:0; font-size:1.1rem; color:var(--color-white);" data-i18n="abt-exp-h3">Experience &amp; Company Profile</h3>
-        </div>
-
-        <!-- Company Metrics Table -->
-        <p style="font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,0.4); margin:0 0 .75rem;" data-i18n="abt-exp-headline">Company Profile</p>
-        <ul style="list-style:none; padding:0; margin:0 0 1.4rem; display:flex; flex-direction:column; gap:.45rem;">
-          <li style="font-size:.82rem; color:rgba(255,255,255,0.78); line-height:1.5;" data-i18n="abt-exp-li1">Business Type : Trading &amp; Manufacturer</li>
-          <li style="font-size:.82rem; color:rgba(255,255,255,0.78); line-height:1.5;" data-i18n="abt-exp-li2">Capital : THB 10,000,000.-</li>
-          <li style="font-size:.82rem; color:rgba(255,255,255,0.78); line-height:1.5;" data-i18n="abt-exp-li3">Primary : Trading, Assembly &amp; Design</li>
-          <li style="font-size:.82rem; color:rgba(255,255,255,0.78); line-height:1.5;" data-i18n="abt-exp-li4">Competitive : Steel Mill, Sugar Mill, Cement Plant and Conveyor Fabrication &amp; Construction</li>
-          <li style="font-size:.82rem; color:rgba(255,255,255,0.78); line-height:1.5;" data-i18n="abt-exp-li5">Advantages : Inventory Reliability, R&amp;D</li>
-          <li style="font-size:.82rem; color:rgba(255,255,255,0.78); line-height:1.5;" data-i18n="abt-exp-li6">Sales Volume : THB 90,000,000.-</li>
-          <li style="font-size:.82rem; color:rgba(255,255,255,0.78); line-height:1.5;" data-i18n="abt-exp-li7">No. of total Staff : 35</li>
-          <li style="font-size:.82rem; color:rgba(255,255,255,0.78); line-height:1.5;" data-i18n="abt-exp-li8">Year Established : 2004</li>
-        </ul>
-
-        <!-- Vision -->
-        <p style="font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(126,200,227,0.8); margin:0 0 .4rem;" data-i18n="abt-vision-label">Vision</p>
-        <p style="font-size:.85rem; color:rgba(255,255,255,0.75); line-height:1.7; margin:0 0 1.1rem;" data-i18n="abt-vision-p">Determine to be the best for conveyor systems business in the region, to provide one Stop service as turned key business, including, local and imported goods sales &amp; services, designed made to order, assembly parts and construction works.</p>
-
-        <!-- Experiences -->
-        <p style="font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:rgba(126,200,227,0.8); margin:0 0 .4rem;" data-i18n="abt-exp-label">Experiences</p>
-        <p style="font-size:.85rem; color:rgba(255,255,255,0.75); line-height:1.7; margin:0 0 1.25rem;" data-i18n="abt-exp-body">To build and design for fundamental structure of conveyor systems in several business industries such as steel mill, sugar mill, cement plant, food &amp; beverage industry.</p>
-
-        <!-- Company Profile — Flipbook Viewers -->
-        <div style="border-top:1px solid rgba(255,255,255,0.12); padding-top:1.1rem; display:flex; flex-wrap:wrap; gap:.65rem;">
-          <a href="Motion Plus Corporation_Company Profile (Eng) .pdf"
-             data-pdf="Motion Plus Corporation_Company Profile (Eng) .pdf"
-             data-pdf-title="MPC Company Profile (English)"
-             style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:var(--color-primary);border-radius:var(--radius-sm);color:white;font-size:.8rem;font-weight:700;text-decoration:none;transition:opacity .2s;cursor:pointer;"
-             onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            Company Profile (EN)
-          </a>
-          <a href="Motion Plus Corporation_Company Profile (THA) .pdf"
-             data-pdf="Motion Plus Corporation_Company Profile (THA) .pdf"
-             data-pdf-title="MPC Company Profile (Thai)"
-             style="display:inline-flex;align-items:center;gap:.5rem;padding:.55rem 1rem;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.22);border-radius:var(--radius-sm);color:rgba(255,255,255,0.85);font-size:.8rem;font-weight:700;text-decoration:none;transition:background .2s;cursor:pointer;"
-             onmouseover="this.style.background='rgba(255,255,255,0.18)'" onmouseout="this.style.background='rgba(255,255,255,0.10)'">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-            Company Profile (TH)
-          </a>
-        </div>
       </div>
 
     </div>

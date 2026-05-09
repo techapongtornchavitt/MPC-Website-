@@ -2493,3 +2493,163 @@ select.form-control { cursor: pointer; }
   .industry-challenge-grid { grid-template-columns: 1fr; }
   .industry-product-grid { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   ABOUT PAGE — RESTRUCTURED SECTIONS
+   ============================================================ */
+
+/* --- Company Profile Table --- */
+.abt-cp-section {
+  background: var(--color-white);
+}
+.abt-cp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+.abt-cp-table {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.abt-cp-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: .85rem 1.25rem;
+  border-bottom: 1px solid var(--color-border);
+  transition: background var(--transition);
+}
+.abt-cp-row:last-child { border-bottom: none; }
+.abt-cp-row:hover { background: var(--color-grey-lt); }
+.abt-cp-label {
+  font-size: .8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--color-primary);
+  min-width: 155px;
+  flex-shrink: 0;
+}
+.abt-cp-value {
+  font-size: .9rem;
+  color: var(--color-dark);
+  line-height: 1.5;
+}
+.abt-cp-downloads {
+  margin-top: 1.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+}
+.abt-cp-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem 1.25rem;
+  background: var(--color-primary);
+  border-radius: var(--radius-sm);
+  color: white;
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--transition);
+}
+.abt-cp-btn-primary:hover { background: var(--color-primary-dk); }
+.abt-cp-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .65rem 1.25rem;
+  background: transparent;
+  border: 1.5px solid var(--color-primary);
+  border-radius: var(--radius-sm);
+  color: var(--color-primary);
+  font-size: .85rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background var(--transition), color var(--transition);
+}
+.abt-cp-btn-outline:hover { background: var(--color-primary); color: white; }
+
+/* --- Vision Section --- */
+.abt-vision-section {
+  background: var(--color-dark-navy);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+.abt-vision-section .section-eyebrow {
+  color: rgba(126,200,227,0.85);
+  border-color: rgba(126,200,227,0.3);
+}
+.abt-vision-quote {
+  font-size: clamp(1.1rem, 2vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.9);
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0;
+  border: none;
+  quotes: "\201C" "\201D";
+  position: relative;
+}
+.abt-vision-quote::before {
+  content: open-quote;
+  font-size: 4rem;
+  line-height: 0;
+  vertical-align: -1.2rem;
+  color: var(--color-primary);
+  margin-right: .25rem;
+}
+
+/* --- Experiences Section --- */
+.abt-exp-section {
+  background: var(--color-grey-lt);
+  padding: var(--space-2xl) 0;
+  text-align: center;
+}
+.abt-exp-text {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  line-height: 1.8;
+  color: var(--color-grey);
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+/* --- Language Toggle — 5 buttons --- */
+.lang-toggle {
+  display: flex;
+  gap: .2rem;
+  flex-wrap: wrap;
+}
+.lang-btn {
+  padding: .28rem .55rem;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  background: transparent;
+  color: rgba(255,255,255,0.65);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+  line-height: 1;
+}
+.lang-btn.active,
+.lang-btn:hover {
+  background: var(--color-primary);
+  color: white;
+  border-color: var(--color-primary);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .abt-cp-layout { grid-template-columns: 1fr; gap: 2rem; }
+}
+@media (max-width: 600px) {
+  .abt-cp-label { min-width: 120px; }
+  .abt-cp-row { flex-direction: column; gap: .25rem; }
+}
