@@ -3040,13 +3040,13 @@
     }
   };
 
-  /* Language selector metadata — flag emoji + short code */
+  /* Language selector metadata — ISO-3166-1 alpha-2 code for flag-icons SVG library */
   var LANG_META = {
-    en: { flag: '🇬🇧', code: 'EN' },
-    th: { flag: '🇹🇭', code: 'TH' },
-    km: { flag: '🇰🇭', code: 'KM' },
-    lo: { flag: '🇱🇦', code: 'LO' },
-    mm: { flag: '🇲🇲', code: 'MM' }
+    en: { flagCode: 'gb', code: 'EN' },
+    th: { flagCode: 'th', code: 'TH' },
+    km: { flagCode: 'kh', code: 'KM' },
+    lo: { flagCode: 'la', code: 'LO' },
+    mm: { flagCode: 'mm', code: 'MM' }
   };
 
   function apply(lang) {
@@ -3059,12 +3059,15 @@
         el.innerHTML = T[lang][key];
       }
     }
-    /* 2. Update lang-selector button display (flag + code) */
+    /* 2. Update lang-selector button: swap the fi-XX country class on the flag span */
     var meta = LANG_META[lang];
     if (meta) {
       var flagEl = document.getElementById('lang-active-flag');
       var codeEl = document.getElementById('lang-active-code');
-      if (flagEl) flagEl.textContent = meta.flag;
+      if (flagEl) {
+        /* Replace existing fi-XX with the new country code */
+        flagEl.className = flagEl.className.replace(/\bfi-[a-z]{2}\b/g, '') + ' fi-' + meta.flagCode;
+      }
       if (codeEl) codeEl.textContent = meta.code;
     }
     /* 3. Update active state + aria-selected on .lang-opt buttons */

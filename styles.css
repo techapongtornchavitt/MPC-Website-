@@ -2686,9 +2686,17 @@ select.form-control { cursor: pointer; }
   color: #ffffff;
   box-shadow: 0 3px 12px rgba(0,86,164,0.28);
 }
+/* flag-icons .fi element sizing inside selector button */
 .lang-sel-flag {
-  font-size: 1.05rem;
-  line-height: 1;
+  display: inline-block;
+  width: 1.25rem;          /* fixed width beats font-size for SVG sprites */
+  height: 0.94rem;         /* 4:3 ratio — flag-icons default */
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.12);
+  flex-shrink: 0;
+  vertical-align: middle;
+  background-size: cover;
+  background-position: center;
 }
 .lang-sel-code {
   font-size: .74rem;
@@ -2765,10 +2773,16 @@ select.form-control { cursor: pointer; }
 .lang-opt:first-child { border-top: none; }
 .lang-opt:hover { background: rgba(255,255,255,0.09); }
 .lang-opt.active { background: rgba(255,255,255,0.07); }
+/* flag-icons .fi element sizing inside dropdown options */
 .lang-opt-flag {
-  font-size: 1.2rem;
-  line-height: 1;
+  display: inline-block;
+  width: 1.45rem;
+  height: 1.09rem;         /* 4:3 ratio */
+  border-radius: 2px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.1);
   flex-shrink: 0;
+  background-size: cover;
+  background-position: center;
 }
 .lang-opt-name {
   color: rgba(255,255,255,0.7);
