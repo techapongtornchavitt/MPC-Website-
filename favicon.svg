@@ -1,22 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
   <!--
-    MPC Sprocket Favicon — Motion Plus Corporation
-    Faithfully reproduces the circular gear icon from the official logo:
-      · Dark-navy 10-tooth gear body (fill-rule evenodd cuts a clean inner circle)
-      · Lighter-blue inner fill matches the brand light-blue accent
-      · White ring outline + upward arrow  ← the centre emblem from the mark
+    MPC Official Sprocket Favicon — rebuilt from uploaded logo image
+    Structure (observed from image):
+      1. Dark royal-navy 10-tooth gear  (#1a3080)
+      2. Medium-blue inner disc         (#2B68D0)
+      3. White circular arc arrow:
+           · ~300° CCW arc from 3 o'clock → 1 o'clock
+           · round cap at the closed end (3 o'clock, right side)
+           · arrowhead at the open end (1 o'clock, upper-right) pointing UP
+           · ~60° gap at upper-right — matches the logo exactly
   -->
 
-  <!-- ① Gear body (dark navy) + inner-circle hole via evenodd -->
+  <!-- ① Gear body (royal navy) with circular inner hole via fill-rule evenodd -->
   <path
-    fill="#0d1e40"
+    fill="#1a3080"
     fill-rule="evenodd"
     d="M 44.857,13.864
-       L 42.005,4.192
-       L 57.995,4.192
+       L 42.005, 4.192
+       L 57.995, 4.192
        L 55.143,13.864
        L 67.079,17.743
-       L 70.457,8.242
+       L 70.457, 8.242
        L 83.393,17.640
        L 75.401,23.788
        L 82.778,33.942
@@ -49,26 +53,29 @@
        L 17.222,33.942
        L 24.599,23.788
        L 16.607,17.640
-       L 29.543,8.242
+       L 29.543, 8.242
        L 32.921,17.743 Z
-       M 50,20.5 A 29.5,29.5 0 1 0 50,79.5 A 29.5,29.5 0 1 0 50,20.5 Z"
+       M 50,20.5 A 29.5,29.5 0 1 0 50,79.5
+       A 29.5,29.5 0 1 0 50,20.5 Z"
   />
 
-  <!-- ② Lighter-blue ring — fills the gear's inner circle, forms the colour band -->
-  <circle cx="50" cy="50" r="29.5" fill="#4A90E2"/>
+  <!-- ② Medium-blue inner disc — fills the gear's inner circle -->
+  <circle cx="50" cy="50" r="29.5" fill="#2B68D0"/>
 
-  <!-- ③ Dark-navy centre disc — punches back to create the blue ring width -->
-  <circle cx="50" cy="50" r="19" fill="#0d1e40"/>
+  <!-- ③ White circular arc arrow
+         Start : (70, 50)  = 3 o'clock (right side)  — rounded cap end
+         End   : (60, 32.7)= 1 o'clock (upper-right) — arrowhead end
+         Sweep : CCW (sweep-flag=0), large-arc (flag=1) = ~300° arc
+         Gap   : ~60° at upper-right between 1 and 3 o'clock — matches logo -->
+  <path
+    d="M 70,50 A 20,20 0 1 0 60,32.7"
+    fill="none"
+    stroke="white"
+    stroke-width="7"
+    stroke-linecap="round"
+  />
 
-  <!-- ④ Lighter-blue inner disc — second blue layer (matches logo inner circle) -->
-  <circle cx="50" cy="50" r="14" fill="#4A90E2"/>
-
-  <!-- ⑤ White ring outline — the decorative circle stroke on the centre emblem -->
-  <circle cx="50" cy="50" r="22.5" fill="none" stroke="#ffffff" stroke-width="2.5"/>
-
-  <!-- ⑥ White upward-arrow (the emblem at the very centre of the logo) -->
-  <!-- Arrow head (triangle pointing up) -->
-  <polygon points="50,27 41.5,40 58.5,40" fill="#ffffff"/>
-  <!-- Arrow shaft -->
-  <rect x="46.5" y="39" width="7" height="11" rx="1" fill="#ffffff"/>
+  <!-- ④ White arrowhead at arc end (1 o'clock), pointing straight UP
+         Base overlaps the arc endpoint for a seamless visual join -->
+  <polygon points="60,20 52,37 68,37" fill="white"/>
 </svg>
