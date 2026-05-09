@@ -40,7 +40,6 @@
 
   --container-max: 1200px;
   --header-h: 80px;
-  --announce-h: 38px;
 }
 
 /* ---------- Reset ---------- */
@@ -282,27 +281,6 @@ p  { font-size: 1.0625rem; color: var(--color-grey); }
   border-color: rgba(255,255,255,0.28);
   color: var(--color-white);
 }
-
-/* ---------- Announcement Bar ---------- */
-.announcement {
-  background: var(--color-primary);
-  color: var(--color-white);
-  text-align: center;
-  font-size: 0.82rem;
-  font-weight: 600;
-  padding: 0.55rem var(--space-sm);
-  letter-spacing: 0.02em;
-  position: relative;
-  z-index: 200;
-}
-.announcement a {
-  color: #ffe066;
-  text-decoration: underline;
-  margin-left: 0.4rem;
-  font-weight: 700;
-  transition: color var(--transition);
-}
-.announcement a:hover { color: var(--color-white); }
 
 /* ---------- Header ---------- */
 .site-header {
@@ -2340,7 +2318,7 @@ select.form-control { cursor: pointer; }
    ============================================================ */
 .industry-hero {
   background: linear-gradient(135deg, var(--color-dark-navy) 0%, var(--color-dark) 100%);
-  padding: calc(var(--header-h) + var(--announce-h) + 4rem) 0 4rem;
+  padding: calc(var(--header-h) + 4rem) 0 4rem;
   text-align: center;
 }
 .industry-hero-badge {
