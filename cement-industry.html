@@ -243,59 +243,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="industry-faq">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow" data-i18n="ind-faq-eyebrow">FAQ</span>
-      <h2 data-i18n="cem-ind-faq-h2">Cement Industry Chain — Common Questions</h2>
-    </div>
-    <div class="faq-grid" style="margin-top:1.5rem;">
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="cem-ind-faq-q1">What chain standard is used for cement kiln drives?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="cem-ind-faq-a1">Rotary kiln drives typically use heavy-duty multi-strand roller chains to ISO 606 or ANSI B29.1 standards, selected for their high breaking load and fatigue life. The exact pitch and strand count depend on the kiln diameter, rotational speed, and drive torque. MPC's engineers size kiln drive chains based on your specific equipment data.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="cem-ind-faq-q2">How do I extend chain life in a dusty cement environment?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="cem-ind-faq-a2">Three strategies extend chain life significantly in cement environments: (1) specify sealed-joint chains that exclude abrasive particles from the pin-bushing interface; (2) use automated lubrication systems to maintain consistent lubricant films; (3) specify chains with hardened pins and bushings (HRC 55–62) that resist abrasive wear. MPC will advise the optimal approach for each application zone in your plant.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="cem-ind-faq-q3">Does MPC supply cement chains throughout Thailand?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="cem-ind-faq-a3">Yes. MPC supplies cement plant chains to plants throughout Thailand — from the central region around Bangkok to northern, northeastern, and southern facilities. We also supply cement industry customers in Laos, Myanmar, and Cambodia. Fast logistics from our Bangkok warehouse ensures quick supply turnaround.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="cem-ind-faq-q4">What is the typical replacement interval for cement conveyor chains?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="cem-ind-faq-a4">Replacement intervals vary widely depending on the application, chain quality, lubrication, and operating conditions. In abrasive clinker conveying, even high-quality chains may need replacement every 12–18 months. For protected conveyor sections with good lubrication, service life can extend to 3–5 years. MPC can recommend a chain monitoring programme to optimise replacement timing and prevent unplanned shutdowns.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- CTA Band -->
 <section class="cta-band">
   <div class="container">
@@ -387,20 +334,6 @@
       btn.setAttribute('aria-expanded', String(open));
     });
   }
-  var items = document.querySelectorAll('.faq-item');
-  items.forEach(function(item) {
-    var b = item.querySelector('.faq-question');
-    var a = item.querySelector('.faq-answer');
-    if (!b || !a) return;
-    b.addEventListener('click', function() {
-      var isOpen = b.getAttribute('aria-expanded') === 'true';
-      items.forEach(function(i) {
-        i.querySelector('.faq-question').setAttribute('aria-expanded','false');
-        i.querySelector('.faq-answer').style.maxHeight = '0';
-      });
-      if (!isOpen) { b.setAttribute('aria-expanded','true'); a.style.maxHeight = a.scrollHeight + 'px'; }
-    });
-  });
 })();
 </script>
 </body>

@@ -243,59 +243,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="industry-faq">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow" data-i18n="ind-faq-eyebrow">FAQ</span>
-      <h2 data-i18n="sug-faq-h2">Sugar Mill Chain — Frequently Asked Questions</h2>
-    </div>
-    <div class="faq-grid" style="margin-top:1.5rem;">
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="sug-faq-q1">What chain pitch is used for sugarcane carrier conveyors?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="sug-faq-a1">Cane carrier chains typically use pitches ranging from 66.7mm up to 102mm (P.102) depending on the carrier design and manufacturer. The exact pitch and strand arrangement depends on the carrier width, design load, and speed. MPC engineers specify cane carrier chains based on your equipment drawing or the existing chain dimensions and number.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="sug-faq-q2">When is the best time to replace sugar mill chains?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="sug-faq-a2">The optimal time to replace sugar mill chains is during the inter-season shutdown (typically April to October in Thailand). This allows thorough inspection, measurement for elongation (replace at 2–3% wear), and ordering of replacement chains well before the next harvest begins. MPC can help mills plan their inter-season maintenance schedule and ensure chains are available before the season starts.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="sug-faq-q3">Can MPC supply chains for sugar mills in northeastern Thailand?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="sug-faq-a3">Yes. Many of Thailand's sugar mills are located in the northeast (Isan) and north. We supply chains to mills throughout all regions of Thailand, with logistics from our Bangkok warehouse. For urgent harvest-season requirements, we ensure priority supply of common sugar mill chain specifications. Contact us early in the inter-season to ensure availability.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="sug-faq-q4">Does MPC provide technical support for sugar mill chain selection?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="sug-faq-a4">Yes. Our technical team provides free chain selection consultation for sugar mill applications. We review your application parameters — conveyor design, throughput, chain speed, environment — and recommend the optimal chain specification. We can also cross-reference existing chain part numbers to equivalent or upgraded alternatives. Contact us with your technical drawings or existing chain details.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- CTA Band -->
 <section class="cta-band">
   <div class="container">
@@ -387,20 +334,6 @@
       btn.setAttribute('aria-expanded', String(open));
     });
   }
-  var items = document.querySelectorAll('.faq-item');
-  items.forEach(function(item) {
-    var b = item.querySelector('.faq-question');
-    var a = item.querySelector('.faq-answer');
-    if (!b || !a) return;
-    b.addEventListener('click', function() {
-      var isOpen = b.getAttribute('aria-expanded') === 'true';
-      items.forEach(function(i) {
-        i.querySelector('.faq-question').setAttribute('aria-expanded','false');
-        i.querySelector('.faq-answer').style.maxHeight = '0';
-      });
-      if (!isOpen) { b.setAttribute('aria-expanded','true'); a.style.maxHeight = a.scrollHeight + 'px'; }
-    });
-  });
 })();
 </script>
 </body>

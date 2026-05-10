@@ -277,56 +277,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="industry-faq">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow" data-i18n="ind-faq-eyebrow">FAQ</span>
-      <h2 data-i18n="si-faq-h2">Steel Industry Chain — Frequently Asked Questions</h2>
-    </div>
-    <div class="faq-grid" style="margin-top:1.5rem;">
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="si-faq-q1">What chain pitch is standard for steel mill conveyors?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="si-faq-a1">Steel mill conveyors typically use chains ranging from 38.1mm (1.5") pitch for lighter conveyor applications up to 102mm pitch for heavy scraper and drag chain systems. The selection depends on the required breaking load, chain speed, and conveyor geometry. Our technical team will specify the correct pitch for your application.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="si-faq-q2">Can MPC supply chains for high-temperature furnace applications?</span>`n          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="si-faq-a2">Yes. We supply specialist heat-resistant chains for furnace applications including walking beam furnaces, reheat furnaces, and annealing lines. These chains use high-alloy steel grades, heat-stable lubricants, and special surface treatments to maintain performance at elevated temperatures. Contact us with your specific temperature and load requirements.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="si-faq-q3">How do I match a replacement chain for my existing steel mill equipment?</span>`n          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="si-faq-a3">Share the chain number stamped on the existing chain, your equipment manufacturer, or the key dimensions (pitch, inner width, plate height, breaking load). Our team will cross-reference to an equivalent or upgraded specification. We can also conduct site visits for large replacement projects in Thailand.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="si-faq-q4">What lubrication do you recommend for steel mill chains?</span>`n          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="si-faq-a4">Lubrication depends on the operating temperature zone. For ambient-temperature conveyors, we recommend high-pressure EP chain oils applied via automatic lubrication systems. For elevated-temperature applications, dry-film solid lubricants (graphite or molybdenum disulfide based) are more appropriate. We will advise the correct lubrication strategy as part of our chain selection service.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- CTA Band -->
 <section class="cta-band">
   <div class="container">
@@ -419,24 +369,6 @@
       btn.setAttribute('aria-expanded', String(open));
     });
   }
-  /* FAQ Accordion */
-  var items = document.querySelectorAll('.faq-item');
-  items.forEach(function(item) {
-    var b = item.querySelector('.faq-question');
-    var a = item.querySelector('.faq-answer');
-    if (!b || !a) return;
-    b.addEventListener('click', function() {
-      var isOpen = b.getAttribute('aria-expanded') === 'true';
-      items.forEach(function(i) {
-        i.querySelector('.faq-question').setAttribute('aria-expanded','false');
-        i.querySelector('.faq-answer').style.maxHeight = '0';
-      });
-      if (!isOpen) {
-        b.setAttribute('aria-expanded','true');
-        a.style.maxHeight = a.scrollHeight + 'px';
-      }
-    });
-  });
 })();
 </script>
 </body>

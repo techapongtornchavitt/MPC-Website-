@@ -243,59 +243,6 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="industry-faq">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow" data-i18n="ind-faq-eyebrow">FAQ</span>
-      <h2 data-i18n="palm-ind-faq-h2">Palm Oil Chain — Frequently Asked Questions</h2>
-    </div>
-    <div class="faq-grid" style="margin-top:1.5rem;">
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="palm-ind-faq-q1">What chain is used for palm oil sterilizer conveyors?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="palm-ind-faq-a1">Palm oil sterilizer conveyors require chains that can withstand saturated steam at 140–145°C and exposure to fatty acid condensate. Specialist grades with alloy steel components, heat-resistant seals (where applicable), and appropriate high-temperature, water-resistant lubrication are specified. The chain must also handle the weight of loaded sterilizer trolleys. MPC engineers specify the correct grade for your sterilizer system.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="palm-ind-faq-q2">Does MPC supply food-grade chains for palm oil processing?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="palm-ind-faq-a2">Yes. For product-contact zones in palm oil processing — including fruit conveyors, clarification systems, and oil handling lines — we supply chains with food-safe H1 lubricants, FDA-compliant materials, stainless steel components, and nickel-plated finishes. These meet the hygiene standards required for RSPO certification, BRC, SQF, and other food industry audits.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="palm-ind-faq-q3">How often should palm oil mill chains be replaced?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="palm-ind-faq-a3">Replacement intervals depend on chain quality, lubrication frequency, and the specific process environment. In sterilizer applications, even high-quality chains may need replacement every 12–24 months due to the severe environment. In more protected zones with good lubrication, 3–5 year service life is achievable. We recommend 3% elongation as the replacement trigger — beyond this, sprocket wear and chain jumping become risks.</div>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" aria-expanded="false">
-          <span data-i18n="palm-ind-faq-q4">Can MPC supply chains to palm oil mills outside Bangkok?</span>
-          <span class="faq-chevron"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
-        </button>
-        <div class="faq-answer">
-          <div class="faq-answer-inner" data-i18n="palm-ind-faq-a4">Yes. We supply palm oil industry customers throughout Thailand's southern provinces — the main palm oil producing region — as well as customers in Malaysia, Indonesia, and Myanmar. Fast logistics from Bangkok with nationwide delivery, and export shipping for regional customers. Contact us for delivery timelines to your location.</div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
 <!-- CTA Band -->
 <section class="cta-band">
   <div class="container">
@@ -387,20 +334,6 @@
       btn.setAttribute('aria-expanded', String(open));
     });
   }
-  var items = document.querySelectorAll('.faq-item');
-  items.forEach(function(item) {
-    var b = item.querySelector('.faq-question');
-    var a = item.querySelector('.faq-answer');
-    if (!b || !a) return;
-    b.addEventListener('click', function() {
-      var isOpen = b.getAttribute('aria-expanded') === 'true';
-      items.forEach(function(i) {
-        i.querySelector('.faq-question').setAttribute('aria-expanded','false');
-        i.querySelector('.faq-answer').style.maxHeight = '0';
-      });
-      if (!isOpen) { b.setAttribute('aria-expanded','true'); a.style.maxHeight = a.scrollHeight + 'px'; }
-    });
-  });
 })();
 </script>
 </body>
