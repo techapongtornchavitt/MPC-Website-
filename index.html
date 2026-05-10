@@ -762,6 +762,8 @@
 
     /* ======================================
        BRAND SHOWCASE GRID
+       No scale() tricks — every logo is
+       perfectly centered via object-fit.
     ====================================== */
     .brands-showcase-grid {
       display: grid;
@@ -775,75 +777,76 @@
     .brand-showcase-card {
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: stretch;
       background: #fff;
       border: 1px solid rgba(0,0,0,0.07);
       border-radius: 14px;
-      padding: 0;
       overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.05);
-      transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
-                  box-shadow 0.32s ease,
-                  border-color 0.25s ease;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+      transition: transform 0.28s cubic-bezier(0.25,0.46,0.45,0.94),
+                  box-shadow 0.28s ease,
+                  border-color 0.22s ease;
       cursor: default;
       position: relative;
     }
+    /* Accent border on hover — inset overlay avoids layout shift */
     .brand-showcase-card::after {
       content: '';
       position: absolute;
       inset: 0;
       border-radius: 14px;
       border: 2px solid transparent;
-      transition: border-color 0.28s ease;
+      transition: border-color 0.25s ease;
       pointer-events: none;
+      z-index: 1;
     }
-    .brand-showcase-card:hover {
-      transform: translateY(-7px);
-      box-shadow: 0 18px 48px rgba(0,86,164,0.18), 0 4px 14px rgba(0,0,0,0.1);
-    }
-    .brand-showcase-card:hover::after {
-      border-color: rgba(0,86,164,0.35);
+    @media (hover: hover) and (pointer: fine) {
+      .brand-showcase-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 48px rgba(0,86,164,0.16), 0 4px 14px rgba(0,0,0,0.08);
+      }
+      .brand-showcase-card:hover::after {
+        border-color: rgba(0,86,164,0.30);
+      }
     }
 
-    /* Logo area: tall container, overflow:hidden clips white margins */
+    /* ── Logo area ──
+       Fixed height, generous padding, pure white bg.
+       object-fit:contain + flex centering = perfect alignment on
+       every logo regardless of source aspect ratio or whitespace. */
     .brand-showcase-logo {
       width: 100%;
-      height: 200px;
-      overflow: hidden;
+      height: 180px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #fff;
+      background: #ffffff;
+      padding: 1.75rem 2rem;    /* equal breathing room on all sides */
+      box-sizing: border-box;
+      overflow: hidden;
       position: relative;
     }
-    /* Subtle inner shadow at bottom of logo area to separate from label */
-    .brand-showcase-logo::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 28px;
-      background: linear-gradient(to bottom, transparent, rgba(240,244,248,0.55));
-      pointer-events: none;
-    }
     .brand-showcase-logo img {
-      width: 80%;
-      height: 80%;
-      object-fit: contain;
-      /* Scale up so logo mark fills container; white edges clipped by overflow:hidden */
-      transform: scale(2.1);
-      transform-origin: center center;
-      transition: transform 0.38s cubic-bezier(0.25,0.46,0.45,0.94),
+      width: 100%;
+      height: 100%;
+      object-fit: contain;       /* never stretch; always centered */
+      object-position: center;
+      display: block;
+      /* CSS-only quality boost: extra contrast + slight sharpness */
+      filter: brightness(1.02) contrast(1.08) saturate(1.04);
+      transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
                   filter 0.28s ease;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
-      filter: brightness(0.93) contrast(1.05);
     }
-    .brand-showcase-card:hover .brand-showcase-logo img {
-      transform: scale(2.22);
-      filter: brightness(1) contrast(1.08) saturate(1.08);
+    @media (hover: hover) and (pointer: fine) {
+      .brand-showcase-card:hover .brand-showcase-logo img {
+        transform: scale(1.06);
+        filter: brightness(1.04) contrast(1.10) saturate(1.08);
+      }
     }
 
-    /* Label area below the logo */
+    /* ── Label area ── */
     .brand-showcase-info {
       width: 100%;
       background: #f5f7fa;
