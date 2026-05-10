@@ -788,7 +788,25 @@
       'sgm-step6-title': 'Packing Line',
       'sgm-step6-body':  'Precision roller chains for bagging machines, packaging conveyors, and final product dispatch systems.',
       'sgm-cta-h3':      'Looking for sugar mill chain solutions?',
-      'sgm-cta-p':       'Contact MPC for technical selection, pricing, and supply of HS sugar mill chains across Southeast Asia.'
+      'sgm-cta-p':       'Contact MPC for technical selection, pricing, and supply of HS sugar mill chains across Southeast Asia.',
+      /* ---------- Product Range featured section ---------- */
+      'prf-feat-tag':   'Featured Product',
+      'prf-feat-title': 'KMH Conveyor Pipe System',
+      'prf-feat-desc':  'High-capacity pipe conveyor systems engineered for continuous heavy-duty material handling in cement, mining, and industrial applications across Southeast Asia.',
+      'prf-feat-cta':   'View Products',
+      'prf-card1-name': 'UNO Roller Chain',
+      'prf-card1-sub':  'Standard &amp; heavy-duty series',
+      'prf-card2-name': 'Cement Industry Chain',
+      'prf-card2-sub':  'HS chain · Heavy conveyor series',
+      'prf-card3-name': 'Industrial Bearings',
+      'prf-card3-sub':  'Precision-grade, all industries',
+      'prf-card4-name': 'IWIS Roller Chain',
+      'prf-card4-sub':  'German precision engineering',
+      'prod-view-all':  'View All Products',
+      /* ---------- Distributor section stats ---------- */
+      'distrib-stat-brands': 'Brands Distributed',
+      'distrib-stat-years':  'Years Experience',
+      'distrib-stat-reach':  'Regional Reach'
     },
 
     /* ============================================================
@@ -1790,7 +1808,25 @@
       'abt-cp-lbl-year':    'ปีที่ก่อตั้ง',
       'abt-cp-val-year':    '2004',
       'abt-dl-en':          'โปรไฟล์บริษัท (EN)',
-      'abt-dl-th':          'โปรไฟล์บริษัท (TH)'
+      'abt-dl-th':          'โปรไฟล์บริษัท (TH)',
+      /* ---------- Product Range featured section ---------- */
+      'prf-feat-tag':   'สินค้าแนะนำ',
+      'prf-feat-title': 'ระบบท่อสายพาน KMH',
+      'prf-feat-desc':  'ระบบท่อสายพานประสิทธิภาพสูงสำหรับการขนถ่ายวัสดุในงานหนักอย่างต่อเนื่อง เหมาะสำหรับอุตสาหกรรมซีเมนต์ เหมืองแร่ และอุตสาหกรรมทั่วไปในเอเชียตะวันออกเฉียงใต้',
+      'prf-feat-cta':   'ดูสินค้า',
+      'prf-card1-name': 'UNO ลูกโซ่ลูกกลิ้ง',
+      'prf-card1-sub':  'ชุดมาตรฐานและงานหนัก',
+      'prf-card2-name': 'โซ่อุตสาหกรรมซีเมนต์',
+      'prf-card2-sub':  'HS chain · สายพานขนส่งหนัก',
+      'prf-card3-name': 'ตลับลูกปืนอุตสาหกรรม',
+      'prf-card3-sub':  'เกรดความแม่นยำ ทุกอุตสาหกรรม',
+      'prf-card4-name': 'IWIS ลูกโซ่ลูกกลิ้ง',
+      'prf-card4-sub':  'วิศวกรรมความแม่นยำจากเยอรมัน',
+      'prod-view-all':  'ดูสินค้าทั้งหมด',
+      /* ---------- Distributor section stats ---------- */
+      'distrib-stat-brands': 'แบรนด์ที่จัดจำหน่าย',
+      'distrib-stat-years':  'ปีประสบการณ์',
+      'distrib-stat-reach':  'การครอบคลุมภูมิภาค'
     },
 
     /* ============================================================
@@ -2432,7 +2468,25 @@
       'abt-cp-lbl-year':    'ឆ្នាំបង្កើត',
       'abt-cp-val-year':    '2004',
       'abt-dl-en':          'ព័ត៌មានក្រុមហ៊ុន (EN)',
-      'abt-dl-th':          'ព័ត៌មានក្រុមហ៊ុន (TH)'
+      'abt-dl-th':          'ព័ត៌មានក្រុមហ៊ុន (TH)',
+      /* ---------- Product Range featured section ---------- */
+      'prf-feat-tag':   'ផលិតផលណែនាំ',
+      'prf-feat-title': 'ប្រព័ន្ធបំពង់ KMH',
+      'prf-feat-desc':  'ប្រព័ន្ធបំពង់ដឹកទំនិញសម្ថភាពខ្ពស់សម្រាប់ការដឹកជញ្ជូនវត្ថុធ្ងន់ ក្នុងឧស្សាហកម្មស៊ីម៉ង់ ការជីកយករ៉ែ និងឧស្សាហកម្មធំ​ក្នុងអាស៊ីអាគ្នេយ៍',
+      'prf-feat-cta':   'មើលផលិតផល',
+      'prf-card1-name': 'UNO ខ្សែសង្វាក់ Roller',
+      'prf-card1-sub':  'ស៊េរីស្ដង់ដារ និងការងារធ្ងន់',
+      'prf-card2-name': 'ខ្សែសង្វាក់ឧស្សាហកម្មស៊ីម៉ង់',
+      'prf-card2-sub':  'HS chain · ស៊េរីអ្នកដឹកធ្ងន់',
+      'prf-card3-name': 'ជើងអ័ក្សឧស្សាហកម្ម',
+      'prf-card3-sub':  'ថ្នាក់ precision ក្នុងគ្រប់ឧស្សាហកម្ម',
+      'prf-card4-name': 'IWIS ខ្សែសង្វាក់ Roller',
+      'prf-card4-sub':  'វិស្វកម្មមានភាពជាក់ស្ដែងពីអាល្លឺម៉ង់',
+      'prod-view-all':  'មើលផលិតផលទាំងអស់',
+      /* ---------- Distributor section stats ---------- */
+      'distrib-stat-brands': 'ម៉ាកដែលចែកចាយ',
+      'distrib-stat-years':  'ឆ្នាំនៃបទពិសោធន៍',
+      'distrib-stat-reach':  'ការគ្របដណ្ដប់ក្នុងតំបន់'
     },
 
     /* ============================================================
@@ -2745,7 +2799,25 @@
       'distrib-body':    'ນອກຈາກຍີ່ຫໍ້ທີ່ໄດ້ຮັບອະນຸຍາດ MPC ຍັງຈໍາໜ່າຍຜະລິດຕະພັນອຸດສາຫະກໍາຊັ້ນໂລກ',
       'port-stat-ind':  'ອຸດສາຫະກໍາທີ່ໃຫ້ບໍລິການ',
       'port-stat-proj': 'ໂຄງການ',
-      'port-stat-cov':  'ຄວາມຄຸ້ມຄອງ'
+      'port-stat-cov':  'ຄວາມຄຸ້ມຄອງ',
+      /* ---------- Product Range featured section ---------- */
+      'prf-feat-tag':   'ສິນຄ້າແນະນຳ',
+      'prf-feat-title': 'ລະບົບທໍ່ KMH',
+      'prf-feat-desc':  'ລະບົບທໍ່ສາຍພານທີ່ມີກຳລັງສູງສຳລັບການຂນຖ່າຍວັດຖຸໜັກໃນອຸດສາຫະກໍາປູນ ການຂຸດຄົ້ນ ແລະ ອຸດສາຫະກໍາໃຫຍ່ໃນອາຊີຕາເວັນອອກສ່ຽງໃຕ້',
+      'prf-feat-cta':   'ເບິ່ງຜະລິດຕະພັນ',
+      'prf-card1-name': 'UNO ລູກໂຊ່ Roller',
+      'prf-card1-sub':  'ຊຸດມາດຕະຖານ ແລະ ໜັກ',
+      'prf-card2-name': 'ລູກໂຊ່ອຸດສາຫະກໍາປູນ',
+      'prf-card2-sub':  'HS chain · ຊຸດສາຍພານໜັກ',
+      'prf-card3-name': 'ລູກປ້ານອຸດສາຫະກໍາ',
+      'prf-card3-sub':  'ລະດັບຄວາມແນ່ນອນ ທຸກອຸດສາຫະກໍາ',
+      'prf-card4-name': 'IWIS ລູກໂຊ່ Roller',
+      'prf-card4-sub':  'ວິສະວະກໍາຄວາມແນ່ນອນຈາກເຢຍລະມັນ',
+      'prod-view-all':  'ເບິ່ງຜະລິດຕະພັນທັງໝົດ',
+      /* ---------- Distributor section stats ---------- */
+      'distrib-stat-brands': 'ຍີ່ຫໍ້ທີ່ຈຳໜ່າຍ',
+      'distrib-stat-years':  'ປີຂອງປະສົບການ',
+      'distrib-stat-reach':  'ການຄຸ້ມຄອງພາກພື້ນ'
     },
 
     /* ============================================================
@@ -3056,7 +3128,25 @@
       'hb-trio-p':  'သံမဏိ ဘိလပ်မြေ စက်ရုံများအတွက် Forged Chain ကြီး',
       'distrib-eyebrow': 'ဖြန့်ချိရေး ပေါ်တ်ဖိုလျ',
       'distrib-h2':      'ကျွန်ုပ်တို့ ဖြန့်ချိသော ဘရန်းများ',
-      'distrib-body':    'ခွင့်ပြုချက်ရ ဘရန်းများ အပြင် MPC သည် ကမ္ဘာ့ ထိပ်တန်း ကွင်းဆက် ကုန်ပစ္စည်းများ ဖြန့်ချိသည်'
+      'distrib-body':    'ခွင့်ပြုချက်ရ ဘရန်းများ အပြင် MPC သည် ကမ္ဘာ့ ထိပ်တန်း ကွင်းဆက် ကုန်ပစ္စည်းများ ဖြန့်ချိသည်',
+      /* ---------- Product Range featured section ---------- */
+      'prf-feat-tag':   'အကြံပြုသောထုတ်ကုန်',
+      'prf-feat-title': 'KMH ပိုက်ကွန်ဆောင်ရေးစနစ်',
+      'prf-feat-desc':  'ဘိလပ်မြေ၊ သတ္တုတူးဖော်ရေး နှင့် အာရှတောင်အရှေ့ပိုင်းရှိ ကြီးမားသောစက်မှုလုပ်ငန်းများတွင် ပစ္စည်းများ ဆက်တိုက်သယ်ဆောင်ရန် ဒီဇိုင်းဆွဲထားသော ပိုက်ကွန်ဆောင်ရေးစနစ်',
+      'prf-feat-cta':   'ကုန်ပစ္စည်း ကြည့်ရန်',
+      'prf-card1-name': 'UNO ရိုလာကွင်းဆက်',
+      'prf-card1-sub':  'စံနှုန်းနှင့် အလေးချိန်မြင့်မားသော စီးရီး',
+      'prf-card2-name': 'ဘိလပ်မြေ စက်မှုလုပ်ငန်း ကွင်းဆက်',
+      'prf-card2-sub':  'HS chain · လေးလံသောသယ်ယူပိုဆောင်ရေးစီးရီး',
+      'prf-card3-name': 'စက်မှုလုပ်ငန်း ဘဲရင်းများ',
+      'prf-card3-sub':  'တိကျမှုအဆင့်မြင့်၊ ကဏ္ဍ အားလုံးအတွက်',
+      'prf-card4-name': 'IWIS ရိုလာကွင်းဆက်',
+      'prf-card4-sub':  'ဂျာမနီ တိကျမှန်ကန်သော အင်ဂျင်နီယာ',
+      'prod-view-all':  'ကုန်ပစ္စည်းအားလုံး ကြည့်ရန်',
+      /* ---------- Distributor section stats ---------- */
+      'distrib-stat-brands': 'ဖြန့်ချိသော ဘရန်းများ',
+      'distrib-stat-years':  'တွေ့ကြုံမှုနှစ်ပေါင်း',
+      'distrib-stat-reach':  'ဒေသဆိုင်ရာ ကျရောက်မှု'
     }
   };
 
