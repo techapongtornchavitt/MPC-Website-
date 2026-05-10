@@ -437,10 +437,10 @@
       line-height: 1.75;
     }
 
-    /* ── Two-column featured layout: 60 / 40 ── */
+    /* ── Two-column featured layout: 53 / 47 ── */
     .prf-layout {
       display: grid;
-      grid-template-columns: 3fr 2fr;
+      grid-template-columns: 53fr 47fr;
       gap: 24px;
       align-items: stretch;
     }
@@ -468,17 +468,17 @@
     }
     .prf-feat-img {
       flex: 1;
-      padding: 2.8rem 3.2rem;
+      padding: 1.5rem 1.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
       background: var(--color-white);
-      min-height: 270px;
+      min-height: 300px;
       overflow: hidden;
     }
     .prf-feat-img img {
       width: 100%;
-      max-height: 270px;
+      max-height: 340px;
       object-fit: contain;
       object-position: center;
       display: block;
@@ -527,11 +527,11 @@
       color: var(--color-white);
     }
 
-    /* ── Small cards grid (right, ~40%) — 2-col, 3 rows: 2+2+1 ── */
+    /* ── Small cards grid (right, ~47%) — 2-col, 3 rows: 2+2+1 ── */
     .prf-small-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 18px;
+      gap: 16px;
     }
     .prf-card {
       background: var(--color-white);
@@ -555,7 +555,7 @@
     /* ── Standard small card image frame ── */
     .prf-card-img {
       aspect-ratio: 5 / 4;       /* slightly more square = more visual room */
-      padding: 1.3rem;
+      padding: 0.6rem;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -596,7 +596,7 @@
       aspect-ratio: unset;
       width: 42%;
       flex-shrink: 0;
-      padding: 1.4rem 1.6rem;
+      padding: 0.8rem 1rem;
     }
     .prf-card--wide .prf-card-body {
       flex: 1;
