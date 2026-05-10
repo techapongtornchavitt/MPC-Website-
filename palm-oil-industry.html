@@ -6,10 +6,9 @@
   <meta name="description" content="Industrial chain solutions for palm oil mills and palm oil processing facilities in Thailand and Southeast Asia. MPC supplies food-grade, corrosion-resistant chains for FFB conveyors, sterilizer chains, and palm oil processing lines.">
   <meta name="keywords" content="palm oil chain Thailand, palm oil mill chain, FFB conveyor chain, sterilizer chain, food grade chain palm oil, corrosion resistant chain palm oil, chain palm oil processing Southeast Asia">
   <link rel="canonical" href="https://motionpluscorp.com/palm-oil-industry.html">
-  <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
-  <link rel="icon" href="favicon-32x32.png?v=3" sizes="32x32" type="image/png">
-  <link rel="icon" href="favicon-16x16.png?v=3" sizes="16x16" type="image/png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3">
+  <link rel="icon" href="favicon.svg?v=4" type="image/svg+xml">
+  <link rel="icon" href="mpc-logo.jpg?v=4" type="image/jpeg" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="mpc-logo.jpg?v=4">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Palm Oil Industry Chain Solutions | Motion Plus Corporation">
   <meta property="og:description" content="Food-grade and corrosion-resistant chains for palm oil milling. FFB conveyors, sterilizer chains, and processing line solutions. MPC — Bangkok, Thailand.">
@@ -86,6 +85,56 @@
     @media (max-width: 760px) {
       .spec-highlight-grid { grid-template-columns: repeat(2,1fr); }
       .spec-highlight { padding: 1.75rem 1.5rem; }
+    }
+
+    /* ── Product Image Gallery ── */
+    .ind-products-showcase {
+      padding: var(--space-2xl) 0;
+      background: var(--color-grey-lt);
+    }
+    .ind-products-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.25rem;
+      max-width: 740px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .ind-product-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+      overflow: hidden;
+      transition: transform .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .ind-product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(0,86,164,.14);
+      }
+    }
+    .ind-product-img {
+      aspect-ratio: 4 / 3;
+      padding: .6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+    .ind-product-img img {
+      width: 100%;
+      height: 100% !important;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+    .ind-product-cta {
+      text-align: center;
+      margin-top: 2.25rem;
+    }
+    @media (max-width: 520px) {
+      .ind-products-grid { grid-template-columns: 1fr; gap: 1rem; max-width: 100%; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
@@ -240,6 +289,36 @@
           <span class="spec-highlight-lbl" data-i18n="palm-ind-spec-lbl4">Continuous harvest season operation</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product Image Gallery -->
+<section class="ind-products-showcase">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Product Range</span>
+      <h2>Palm Oil Industry Chain Products</h2>
+      <p>Anti-corrosion, food-grade chains engineered for the wet and acidic conditions of palm oil milling — from FFB reception and sterilizer conveyors through to oil processing and dispatch lines.</p>
+    </div>
+    <div class="ind-products-grid">
+      <div class="ind-product-card">
+        <div class="ind-product-img">
+          <img src="HS chain palm-oil-industry.png"
+               alt="HS Chain — Palm oil industry anti-corrosion chains for FFB conveyors and sterilizer systems"
+               loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="ind-product-card">
+        <div class="ind-product-img">
+          <img src="palm-oil-industry-1.png"
+               alt="HS Chain — Palm oil processing chain for high-moisture acidic mill environments"
+               loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+    <div class="ind-product-cta">
+      <a href="palm-oil-chains.html" class="btn-primary">View Full Palm Oil Chain Range →</a>
     </div>
   </div>
 </section>

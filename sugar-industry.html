@@ -6,10 +6,9 @@
   <meta name="description" content="Industrial chain solutions for sugar mills and sugar processing facilities in Thailand and Southeast Asia. MPC supplies heavy-duty cane carrier chains, elevator chains, and conveyor chains for sugar industry applications.">
   <meta name="keywords" content="sugar mill chain Thailand, cane carrier chain, sugar conveyor chain Bangkok, sugar industry chain Southeast Asia, elevator chain sugar mill, sugarcane processing chain, sugar factory chain distributor Thailand">
   <link rel="canonical" href="https://motionpluscorp.com/sugar-industry.html">
-  <link rel="icon" href="favicon.svg?v=3" type="image/svg+xml">
-  <link rel="icon" href="favicon-32x32.png?v=3" sizes="32x32" type="image/png">
-  <link rel="icon" href="favicon-16x16.png?v=3" sizes="16x16" type="image/png">
-  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png?v=3">
+  <link rel="icon" href="favicon.svg?v=4" type="image/svg+xml">
+  <link rel="icon" href="mpc-logo.jpg?v=4" type="image/jpeg" sizes="any">
+  <link rel="apple-touch-icon" sizes="180x180" href="mpc-logo.jpg?v=4">
   <meta property="og:type" content="website">
   <meta property="og:title" content="Sugar Industry Chain Solutions | Motion Plus Corporation">
   <meta property="og:description" content="Heavy-duty cane carrier and conveyor chains for sugar mills. Elevator chains, juice processing chains, and more. MPC — Bangkok, Thailand.">
@@ -87,6 +86,56 @@
       .spec-highlight-grid { grid-template-columns: repeat(2,1fr); }
       .spec-highlight { padding: 1.75rem 1.5rem; }
     }
+
+    /* ── Product Image Gallery ── */
+    .ind-products-showcase {
+      padding: var(--space-2xl) 0;
+      background: var(--color-grey-lt);
+    }
+    .ind-products-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 2.25rem;
+    }
+    .ind-product-card {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.07);
+      overflow: hidden;
+      transition: transform .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s ease;
+    }
+    @media (hover: hover) and (pointer: fine) {
+      .ind-product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(0,86,164,.14);
+      }
+    }
+    .ind-product-img {
+      aspect-ratio: 4 / 3;
+      padding: .6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+    }
+    .ind-product-img img {
+      width: 100%;
+      height: 100% !important;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+    .ind-product-cta {
+      text-align: center;
+      margin-top: 2.25rem;
+    }
+    @media (max-width: 720px) {
+      .ind-products-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .ind-products-grid { grid-template-columns: 1fr; gap: 1rem; }
+    }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 </head>
@@ -117,7 +166,7 @@
         <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
         <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
         <a href="resources.html" class="nav-link" data-i18n="nav-resources">Resources</a>
-        <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
+        <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
       </nav>
       <div class="lang-selector" id="lang-selector">
         <button class="lang-selector-btn" id="lang-selector-btn" aria-haspopup="listbox" aria-expanded="false" title="Select language">
@@ -240,6 +289,43 @@
           <span class="spec-highlight-lbl" data-i18n="sug-spec-lbl4">Harvest season continuous operation</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- Product Image Gallery -->
+<section class="ind-products-showcase">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Product Range</span>
+      <h2>Sugar Industry Chain Products</h2>
+      <p>Heavy-duty chains engineered for every critical stage of sugarcane processing — cane carrier systems, trash plate conveyors, juice screens, cane cutters, and elevator applications.</p>
+    </div>
+    <div class="ind-products-grid">
+      <div class="ind-product-card">
+        <div class="ind-product-img">
+          <img src="HS chain sugar-mill-chain-1.png"
+               alt="HS Chain — Sugar mill cane carrier chain for heavy-duty sugarcane conveying"
+               loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="ind-product-card">
+        <div class="ind-product-img">
+          <img src="HS chain sugar-mill-chain-2.png"
+               alt="HS Chain — Sugar mill elevator and intermediate conveyor chain"
+               loading="lazy" decoding="async">
+        </div>
+      </div>
+      <div class="ind-product-card">
+        <div class="ind-product-img">
+          <img src="sugar-mill-chain.png"
+               alt="HS Chain — Precision sugar mill chain for juice screen and cane cutter applications"
+               loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+    <div class="ind-product-cta">
+      <a href="sugar-mill-chains.html" class="btn-primary">View Full Sugar Mill Chain Range →</a>
     </div>
   </div>
 </section>
