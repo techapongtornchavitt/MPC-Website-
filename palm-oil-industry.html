@@ -136,6 +136,25 @@
     @media (max-width: 520px) {
       .ind-products-grid { grid-template-columns: 1fr; gap: 1rem; max-width: 100%; }
     }
+
+    /* ── Brochure Catalog Section ── */
+    .ind-catalog-section {
+      padding: var(--space-2xl) 0;
+      background: #ffffff;
+    }
+    .ind-catalog-img-wrap {
+      margin-top: 2.5rem;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,.10), 0 2px 10px rgba(0,0,0,.06);
+      border: 1px solid rgba(0,0,0,.06);
+      background: #f9f9f9;
+    }
+    .ind-catalog-img-wrap img {
+      width: 100%;
+      height: auto !important;
+      display: block;
+    }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 </head>
@@ -319,6 +338,22 @@
     </div>
     <div class="ind-product-cta">
       <a href="palm-oil-chains.html" class="btn-primary">View Full Palm Oil Chain Range →</a>
+    </div>
+  </div>
+</section>
+
+<!-- Brochure Catalog Page -->
+<section class="ind-catalog-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Product Catalog</span>
+      <h2>Palm Oil Industry — Detailed Specifications</h2>
+      <p>Full product specification overview from the official MPC catalog, covering solid pin chains, hollow pin chains, and connecting links for FFB conveyors, sterilizer systems, and palm oil processing lines.</p>
+    </div>
+    <div class="ind-catalog-img-wrap">
+      <img src="palm-oil-industry-catalog.png"
+           alt="MPC Palm Oil Industry chain catalog page — B1016H, BS6F36 solid pin chains, hollow pin chains, connecting link specifications"
+           loading="lazy" decoding="async">
     </div>
   </div>
 </section>
