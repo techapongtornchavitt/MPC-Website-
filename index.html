@@ -758,15 +758,16 @@
 
     /* ======================================
        BRAND SHOWCASE GRID
-       Premium partner showcase — large logos,
-       perfectly centered, equal visual weight.
+       2×2 premium partner showcase.
+       Each card ~430px wide = logos render
+       1.5–2.5× larger than a 4-col layout.
     ====================================== */
     .brands-showcase-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
       margin-top: 3rem;
-      max-width: 1100px;
+      max-width: 900px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -776,9 +777,9 @@
       align-items: stretch;
       background: #fff;
       border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 16px;
+      border-radius: 18px;
       overflow: hidden;
-      box-shadow: 0 4px 22px rgba(0,0,0,0.07), 0 1px 5px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.07), 0 1px 5px rgba(0,0,0,0.04);
       transition: transform 0.28s cubic-bezier(0.25,0.46,0.45,0.94),
                   box-shadow 0.28s ease;
       position: relative;
@@ -788,7 +789,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 16px;
+      border-radius: 18px;
       border: 2px solid transparent;
       transition: border-color 0.25s ease;
       pointer-events: none;
@@ -797,7 +798,7 @@
     @media (hover: hover) and (pointer: fine) {
       .brand-showcase-card:hover {
         transform: translateY(-7px);
-        box-shadow: 0 24px 56px rgba(0,86,164,0.17), 0 4px 16px rgba(0,0,0,0.08);
+        box-shadow: 0 28px 64px rgba(0,86,164,0.17), 0 4px 18px rgba(0,0,0,0.08);
       }
       .brand-showcase-card:hover::after {
         border-color: rgba(0,86,164,0.28);
@@ -805,17 +806,17 @@
     }
 
     /* ── Logo area ──
-       Tall container, minimal padding = logo is the hero.
-       object-fit:contain + place-items center = pixel-perfect
-       alignment on every logo regardless of source dimensions. */
+       Tall container, minimum padding = logo fills the card.
+       2-col grid means each card is ~430px wide, so every logo
+       renders at ~400px across — dramatically larger than before. */
     .brand-showcase-logo {
       width: 100%;
-      height: 240px;
+      height: 320px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #ffffff;
-      padding: 1.1rem 1.4rem;
+      padding: 0.55rem 1.1rem;
       box-sizing: border-box;
       overflow: hidden;
       position: relative;
@@ -834,7 +835,7 @@
     }
     @media (hover: hover) and (pointer: fine) {
       .brand-showcase-card:hover .brand-showcase-logo img {
-        transform: scale(1.07);
+        transform: scale(1.06);
         filter: brightness(1.04) contrast(1.10) saturate(1.08);
       }
     }
@@ -844,48 +845,46 @@
       width: 100%;
       background: #f5f7fa;
       border-top: 1px solid rgba(0,0,0,0.06);
-      padding: 1rem 1.1rem 1.1rem;
+      padding: 1.1rem 1.3rem 1.2rem;
       text-align: center;
     }
     .brand-showcase-name {
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #0a1628;
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.28rem;
       line-height: 1.2;
     }
     .brand-showcase-tag {
-      font-size: 0.74rem;
+      font-size: 0.76rem;
       font-weight: 500;
       color: #5a6a82;
       letter-spacing: 0.03em;
       line-height: 1.45;
     }
 
-    /* Responsive: 2 columns on tablet */
-    @media (max-width: 860px) {
+    /* Responsive: 2 columns on tablet — reduce height slightly */
+    @media (max-width: 720px) {
       .brands-showcase-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1.4rem;
-        max-width: 600px;
-      }
-      .brand-showcase-logo {
-        height: 210px;
-      }
-    }
-    /* Responsive: 2 columns on mobile — logos still large */
-    @media (max-width: 520px) {
-      .brands-showcase-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
+        gap: 1.6rem;
         max-width: 100%;
       }
       .brand-showcase-logo {
-        height: 170px;
-        padding: 0.85rem 1rem;
+        height: 260px;
       }
+    }
+    /* Responsive: 2 columns on mobile — logos still strong */
+    @media (max-width: 480px) {
+      .brands-showcase-grid {
+        gap: 1.1rem;
+      }
+      .brand-showcase-logo {
+        height: 200px;
+        padding: 0.45rem 0.75rem;
+      }
+      .brand-showcase-name { font-size: 0.92rem; }
     }
 
     /* ======================================
@@ -1482,7 +1481,6 @@
         <span class="section-eyebrow" data-i18n="ci-eyebrow">Who We Are</span>
         <h2 data-i18n="ci-h2">Thailand's Trusted<br>Industrial Chain Partner</h2>
         <p data-i18n="ci-p1">Motion Plus Corporation is an authorised distributor and after-sales service provider for world-class industrial chain solutions, founded in Bangkok in 2004. We serve Thailand's most demanding industries — steel, cement, palm oil, and sugar — with precision-engineered products from globally certified manufacturers.</p>
-        <p data-i18n="ci-p2">Our certified engineers provide total solutions — from product selection and system design to continuous after-sales support — ensuring your operations run without interruption.</p>
         <div class="company-intro-cta">
           <a href="about.html" class="btn-primary" data-i18n="ci-btn-about">Learn About MPC</a>
           <a href="contact.html" class="btn-outline" data-i18n="ci-btn-contact">Get in Touch</a>
