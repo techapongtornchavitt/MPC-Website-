@@ -787,15 +787,15 @@
 
     /* ======================================
        BRAND SHOWCASE GRID
-       No scale() tricks — every logo is
-       perfectly centered via object-fit.
+       Premium partner showcase — large logos,
+       perfectly centered, equal visual weight.
     ====================================== */
     .brands-showcase-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.5rem;
-      max-width: 960px;
+      gap: 2rem;
+      margin-top: 3rem;
+      max-width: 1100px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -805,13 +805,11 @@
       align-items: stretch;
       background: #fff;
       border: 1px solid rgba(0,0,0,0.07);
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.07), 0 1px 4px rgba(0,0,0,0.04);
+      box-shadow: 0 4px 22px rgba(0,0,0,0.07), 0 1px 5px rgba(0,0,0,0.04);
       transition: transform 0.28s cubic-bezier(0.25,0.46,0.45,0.94),
-                  box-shadow 0.28s ease,
-                  border-color 0.22s ease;
-      cursor: default;
+                  box-shadow 0.28s ease;
       position: relative;
     }
     /* Accent border on hover — inset overlay avoids layout shift */
@@ -819,7 +817,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      border-radius: 14px;
+      border-radius: 16px;
       border: 2px solid transparent;
       transition: border-color 0.25s ease;
       pointer-events: none;
@@ -827,26 +825,26 @@
     }
     @media (hover: hover) and (pointer: fine) {
       .brand-showcase-card:hover {
-        transform: translateY(-6px);
-        box-shadow: 0 20px 48px rgba(0,86,164,0.16), 0 4px 14px rgba(0,0,0,0.08);
+        transform: translateY(-7px);
+        box-shadow: 0 24px 56px rgba(0,86,164,0.17), 0 4px 16px rgba(0,0,0,0.08);
       }
       .brand-showcase-card:hover::after {
-        border-color: rgba(0,86,164,0.30);
+        border-color: rgba(0,86,164,0.28);
       }
     }
 
     /* ── Logo area ──
-       Fixed height, generous padding, pure white bg.
-       object-fit:contain + flex centering = perfect alignment on
-       every logo regardless of source aspect ratio or whitespace. */
+       Tall container, minimal padding = logo is the hero.
+       object-fit:contain + place-items center = pixel-perfect
+       alignment on every logo regardless of source dimensions. */
     .brand-showcase-logo {
       width: 100%;
-      height: 180px;
+      height: 240px;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #ffffff;
-      padding: 1.75rem 2rem;    /* equal breathing room on all sides */
+      padding: 1.1rem 1.4rem;
       box-sizing: border-box;
       overflow: hidden;
       position: relative;
@@ -854,19 +852,18 @@
     .brand-showcase-logo img {
       width: 100%;
       height: 100%;
-      object-fit: contain;       /* never stretch; always centered */
+      object-fit: contain;
       object-position: center;
       display: block;
-      /* CSS-only quality boost: extra contrast + slight sharpness */
       filter: brightness(1.02) contrast(1.08) saturate(1.04);
-      transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
-                  filter 0.28s ease;
+      transition: transform 0.30s cubic-bezier(0.25,0.46,0.45,0.94),
+                  filter 0.26s ease;
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
     @media (hover: hover) and (pointer: fine) {
       .brand-showcase-card:hover .brand-showcase-logo img {
-        transform: scale(1.06);
+        transform: scale(1.07);
         filter: brightness(1.04) contrast(1.10) saturate(1.08);
       }
     }
@@ -876,41 +873,47 @@
       width: 100%;
       background: #f5f7fa;
       border-top: 1px solid rgba(0,0,0,0.06);
-      padding: 0.85rem 1rem 0.95rem;
+      padding: 1rem 1.1rem 1.1rem;
       text-align: center;
     }
     .brand-showcase-name {
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 800;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: #0a1628;
-      margin-bottom: 0.22rem;
+      margin-bottom: 0.25rem;
       line-height: 1.2;
     }
     .brand-showcase-tag {
-      font-size: 0.72rem;
+      font-size: 0.74rem;
       font-weight: 500;
       color: #5a6a82;
       letter-spacing: 0.03em;
-      line-height: 1.4;
+      line-height: 1.45;
     }
 
     /* Responsive: 2 columns on tablet */
-    @media (max-width: 960px) {
+    @media (max-width: 860px) {
       .brands-showcase-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.2rem;
+        gap: 1.4rem;
+        max-width: 600px;
+      }
+      .brand-showcase-logo {
+        height: 210px;
       }
     }
-    /* Responsive: 2 columns on mobile */
-    @media (max-width: 560px) {
+    /* Responsive: 2 columns on mobile — logos still large */
+    @media (max-width: 520px) {
       .brands-showcase-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+        max-width: 100%;
       }
       .brand-showcase-logo {
-        height: 160px;
+        height: 170px;
+        padding: 0.85rem 1rem;
       }
     }
 
