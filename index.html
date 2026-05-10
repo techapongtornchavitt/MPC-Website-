@@ -757,16 +757,24 @@
 
     /* ======================================
        BRAND SHOWCASE GRID
-       2×2 premium partner showcase.
-       Each card ~430px wide = logos render
-       1.5–2.5× larger than a 4-col layout.
+       ROOT FIX: styles.css line 60 declares
+       img { height: auto } globally. Previous
+       height: 100% on .brand-showcase-logo img
+       was silently overridden, so fixed-px heights
+       on the container had zero effect on the image.
+
+       Fix A — height: 100% !important on the img
+         overrides the global reset decisively.
+       Fix B — aspect-ratio (not fixed px) on the
+         container so it scales with card width;
+         at 2-col / 960px = ~464px × 309px per card.
     ====================================== */
     .brands-showcase-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
+      gap: 2rem;
       margin-top: 3rem;
-      max-width: 900px;
+      max-width: 960px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -805,24 +813,26 @@
     }
 
     /* ── Logo area ──
-       Tall container, minimum padding = logo fills the card.
-       2-col grid means each card is ~430px wide, so every logo
-       renders at ~400px across — dramatically larger than before. */
+       aspect-ratio: 3/2 replaces fixed px height — the container
+       grows with its column width so logos scale with the viewport.
+       height: 100% !important is required to override the global
+       img { height: auto } rule in styles.css (specificity: 0,0,1)
+       which was silently shrinking all brand images. */
     .brand-showcase-logo {
       width: 100%;
-      height: 320px;
+      aspect-ratio: 3 / 2;
       display: flex;
       align-items: center;
       justify-content: center;
       background: #ffffff;
-      padding: 0.55rem 1.1rem;
+      padding: 1.25rem 1.75rem;
       box-sizing: border-box;
       overflow: hidden;
       position: relative;
     }
     .brand-showcase-logo img {
       width: 100%;
-      height: 100%;
+      height: 100% !important;   /* !important: overrides global img{height:auto} */
       object-fit: contain;
       object-position: center;
       display: block;
@@ -864,26 +874,27 @@
       line-height: 1.45;
     }
 
-    /* Responsive: 2 columns on tablet — reduce height slightly */
+    /* Responsive: 2-col on tablet (aspect-ratio handles height) */
     @media (max-width: 720px) {
       .brands-showcase-grid {
-        gap: 1.6rem;
+        gap: 1.4rem;
         max-width: 100%;
       }
       .brand-showcase-logo {
-        height: 260px;
+        padding: 1rem 1.4rem;
       }
     }
-    /* Responsive: 2 columns on mobile — logos still strong */
-    @media (max-width: 480px) {
+    /* Responsive: single column on narrow mobile = maximum logo width */
+    @media (max-width: 520px) {
       .brands-showcase-grid {
-        gap: 1.1rem;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+        max-width: 480px;
       }
       .brand-showcase-logo {
-        height: 200px;
-        padding: 0.45rem 0.75rem;
+        padding: 1rem 1.25rem;
       }
-      .brand-showcase-name { font-size: 0.92rem; }
+      .brand-showcase-name { font-size: 0.95rem; }
     }
 
     /* ======================================
