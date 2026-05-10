@@ -1,81 +1,17 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100">
   <!--
-    MPC Official Sprocket Favicon — rebuilt from uploaded logo image
-    Structure (observed from image):
-      1. Dark royal-navy 10-tooth gear  (#1a3080)
-      2. Medium-blue inner disc         (#2B68D0)
-      3. White circular arc arrow:
-           · ~300° CCW arc from 3 o'clock → 1 o'clock
-           · round cap at the closed end (3 o'clock, right side)
-           · arrowhead at the open end (1 o'clock, upper-right) pointing UP
-           · ~60° gap at upper-right — matches the logo exactly
+    Motion Plus Corporation — official logo favicon
+    Embeds mpc-logo.jpg via SVG <image> so every modern browser
+    (Chrome, Edge, Firefox, Safari) shows the real company logo
+    in browser tabs, bookmarks, and mobile home-screen shortcuts.
+    White background ensures the logo reads cleanly on both light
+    and dark browser chrome.
   -->
-
-  <!-- ① Gear body (royal navy) with circular inner hole via fill-rule evenodd -->
-  <path
-    fill="#1a3080"
-    fill-rule="evenodd"
-    d="M 44.857,13.864
-       L 42.005, 4.192
-       L 57.995, 4.192
-       L 55.143,13.864
-       L 67.079,17.743
-       L 70.457, 8.242
-       L 83.393,17.640
-       L 75.401,23.788
-       L 82.778,33.942
-       L 91.095,28.241
-       L 96.036,43.448
-       L 85.956,43.725
-       L 85.956,56.275
-       L 96.036,56.552
-       L 91.095,71.759
-       L 82.778,66.058
-       L 75.401,76.212
-       L 83.393,82.360
-       L 70.457,91.758
-       L 67.079,82.257
-       L 55.143,86.136
-       L 57.995,95.808
-       L 42.005,95.808
-       L 44.857,86.136
-       L 32.921,82.257
-       L 29.543,91.758
-       L 16.607,82.360
-       L 24.599,76.212
-       L 17.222,66.058
-       L  8.905,71.759
-       L  3.964,56.552
-       L 14.044,56.275
-       L 14.044,43.725
-       L  3.964,43.448
-       L  8.905,28.241
-       L 17.222,33.942
-       L 24.599,23.788
-       L 16.607,17.640
-       L 29.543, 8.242
-       L 32.921,17.743 Z
-       M 50,20.5 A 29.5,29.5 0 1 0 50,79.5
-       A 29.5,29.5 0 1 0 50,20.5 Z"
+  <rect width="100" height="100" rx="14" fill="#ffffff"/>
+  <image
+    href="mpc-logo.jpg"
+    x="4" y="4"
+    width="92" height="92"
+    preserveAspectRatio="xMidYMid meet"
   />
-
-  <!-- ② Medium-blue inner disc — fills the gear's inner circle -->
-  <circle cx="50" cy="50" r="29.5" fill="#2B68D0"/>
-
-  <!-- ③ White circular arc arrow
-         Start : (70, 50)  = 3 o'clock (right side)  — rounded cap end
-         End   : (60, 32.7)= 1 o'clock (upper-right) — arrowhead end
-         Sweep : CCW (sweep-flag=0), large-arc (flag=1) = ~300° arc
-         Gap   : ~60° at upper-right between 1 and 3 o'clock — matches logo -->
-  <path
-    d="M 70,50 A 20,20 0 1 0 60,32.7"
-    fill="none"
-    stroke="white"
-    stroke-width="7"
-    stroke-linecap="round"
-  />
-
-  <!-- ④ White arrowhead at arc end (1 o'clock), pointing straight UP
-         Base overlaps the arc endpoint for a seamless visual join -->
-  <polygon points="60,20 52,37 68,37" fill="white"/>
 </svg>
