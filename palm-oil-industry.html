@@ -68,76 +68,10 @@
     .breadcrumb-bar a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .18s; }
     .breadcrumb-bar a:hover { color: var(--color-light-blue); }
     .breadcrumb-bar .bc-active { color: rgba(255,255,255,.8); font-weight: 600; }
-    .spec-highlight {
-      background: linear-gradient(135deg, #166534 0%, #14532d 100%);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem 3rem;
-      color: #fff;
-      margin-top: 2rem;
-    }
-    .spec-highlight h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
-    .spec-highlight-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
-    .spec-highlight-item { text-align: center; }
-    .spec-highlight-num { font-size: 2rem; font-weight: 900; display: block; line-height: 1; margin-bottom: .25rem; }
-    .spec-highlight-lbl { font-size: .78rem; color: rgba(255,255,255,.65); font-weight: 600; }
     .cta-band { background: var(--color-dark-navy); padding: 3.5rem 0; text-align: center; }
     .cta-band h2 { color: #fff; font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; margin-bottom: .75rem; }
     .cta-band p { color: rgba(255,255,255,.55); margin-bottom: 1.75rem; font-size: .95rem; }
     .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    @media (max-width: 760px) {
-      .spec-highlight-grid { grid-template-columns: repeat(2,1fr); }
-      .spec-highlight { padding: 1.75rem 1.5rem; }
-    }
-
-    /* ── Product Image Gallery ── */
-    .ind-products-showcase {
-      padding: var(--space-2xl) 0;
-      background: var(--color-grey-lt);
-    }
-    .ind-products-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2.25rem;
-      max-width: 740px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .ind-product-card {
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.07);
-      overflow: hidden;
-      transition: transform .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s ease;
-    }
-    @media (hover: hover) and (pointer: fine) {
-      .ind-product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 16px 40px rgba(0,86,164,.14);
-      }
-    }
-    .ind-product-img {
-      aspect-ratio: 4 / 3;
-      padding: .6rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-    }
-    .ind-product-img img {
-      width: 100%;
-      height: 100% !important;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-    }
-    .ind-product-cta {
-      text-align: center;
-      margin-top: 2.25rem;
-    }
-    @media (max-width: 520px) {
-      .ind-products-grid { grid-template-columns: 1fr; gap: 1rem; max-width: 100%; }
-    }
 
     /* ── Brochure Catalog Section ── */
     .ind-catalog-section {
@@ -290,57 +224,6 @@
       </div>
     </div>
 
-    <div class="spec-highlight">
-      <h3 data-i18n="palm-ind-spec-h3">Palm Oil Mill Chain — Key Application Parameters</h3>
-      <div class="spec-highlight-grid">
-        <div class="spec-highlight-item">
-          <span class="spec-highlight-num">145°C</span>
-          <span class="spec-highlight-lbl" data-i18n="palm-ind-spec-lbl1">Sterilizer steam temperature</span>
-        </div>
-        <div class="spec-highlight-item">
-          <span class="spec-highlight-num">pH 3–5</span>
-          <span class="spec-highlight-lbl" data-i18n="palm-ind-spec-lbl2">Fatty acid environment — corrosive grade required</span>
-        </div>
-        <div class="spec-highlight-item">
-          <span class="spec-highlight-num">Food-Safe</span>
-          <span class="spec-highlight-lbl" data-i18n="palm-ind-spec-lbl3">Compliant lubricants &amp; materials available</span>
-        </div>
-        <div class="spec-highlight-item">
-          <span class="spec-highlight-num">24/7</span>
-          <span class="spec-highlight-lbl" data-i18n="palm-ind-spec-lbl4">Continuous harvest season operation</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Product Image Gallery -->
-<section class="ind-products-showcase">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow">Product Range</span>
-      <h2>Palm Oil Industry Chain Products</h2>
-      <p>Anti-corrosion, food-grade chains engineered for the wet and acidic conditions of palm oil milling — from FFB reception and sterilizer conveyors through to oil processing and dispatch lines.</p>
-    </div>
-    <div class="ind-products-grid">
-      <div class="ind-product-card">
-        <div class="ind-product-img">
-          <img src="HS chain palm-oil-industry.png"
-               alt="HS Chain — Palm oil industry anti-corrosion chains for FFB conveyors and sterilizer systems"
-               loading="lazy" decoding="async">
-        </div>
-      </div>
-      <div class="ind-product-card">
-        <div class="ind-product-img">
-          <img src="palm-oil-industry-1.png"
-               alt="HS Chain — Palm oil processing chain for high-moisture acidic mill environments"
-               loading="lazy" decoding="async">
-        </div>
-      </div>
-    </div>
-    <div class="ind-product-cta">
-      <a href="palm-oil-chains.html" class="btn-primary">View Full Palm Oil Chain Range →</a>
-    </div>
   </div>
 </section>
 

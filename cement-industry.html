@@ -68,76 +68,10 @@
     .breadcrumb-bar a { color: rgba(255,255,255,.5); text-decoration: none; transition: color .18s; }
     .breadcrumb-bar a:hover { color: var(--color-light-blue); }
     .breadcrumb-bar .bc-active { color: rgba(255,255,255,.8); font-weight: 600; }
-    .spec-highlight {
-      background: linear-gradient(135deg, #b45309 0%, #92400e 100%);
-      border-radius: var(--radius-lg);
-      padding: 2.5rem 3rem;
-      color: #fff;
-      margin-top: 2rem;
-    }
-    .spec-highlight h3 { font-size: 1.1rem; font-weight: 800; margin-bottom: 1rem; }
-    .spec-highlight-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.5rem; }
-    .spec-highlight-item { text-align: center; }
-    .spec-highlight-num { font-size: 2rem; font-weight: 900; display: block; line-height: 1; margin-bottom: .25rem; }
-    .spec-highlight-lbl { font-size: .78rem; color: rgba(255,255,255,.65); font-weight: 600; }
     .cta-band { background: var(--color-dark-navy); padding: 3.5rem 0; text-align: center; }
     .cta-band h2 { color: #fff; font-size: clamp(1.4rem,3vw,2rem); font-weight: 800; margin-bottom: .75rem; }
     .cta-band p { color: rgba(255,255,255,.55); margin-bottom: 1.75rem; font-size: .95rem; }
     .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-    @media (max-width: 760px) {
-      .spec-highlight-grid { grid-template-columns: repeat(2,1fr); }
-      .spec-highlight { padding: 1.75rem 1.5rem; }
-    }
-
-    /* ── Product Image Gallery ── */
-    .ind-products-showcase {
-      padding: var(--space-2xl) 0;
-      background: var(--color-grey-lt);
-    }
-    .ind-products-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1.25rem;
-      margin-top: 2.25rem;
-    }
-    .ind-product-card {
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(0,0,0,.07);
-      overflow: hidden;
-      transition: transform .28s cubic-bezier(.25,.46,.45,.94), box-shadow .28s ease;
-    }
-    @media (hover: hover) and (pointer: fine) {
-      .ind-product-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 16px 40px rgba(0,86,164,.14);
-      }
-    }
-    .ind-product-img {
-      aspect-ratio: 4 / 3;
-      padding: .6rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #ffffff;
-    }
-    .ind-product-img img {
-      width: 100%;
-      height: 100% !important;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-    }
-    .ind-product-cta {
-      text-align: center;
-      margin-top: 2.25rem;
-    }
-    @media (max-width: 840px) {
-      .ind-products-grid { grid-template-columns: repeat(2, 1fr); }
-    }
-    @media (max-width: 480px) {
-      .ind-products-grid { grid-template-columns: 1fr; gap: 1rem; }
-    }
 
     /* ── Brochure Catalog Section ── */
     .ind-catalog-section {
@@ -290,71 +224,6 @@
       </div>
     </div>
 
-    <div class="spec-highlight">
-      <h3 data-i18n="cem-ind-spec-h3">Cement Industry Chain — Key Performance Data</h3>
-      <div class="spec-highlight-grid">
-        <div class="spec-highlight-item">
-          <span class="spec-highlight-num">500°C</span>
-          <span class="spec-highlight-lbl" data-i18n="cem-ind-spec-lbl1">Max operating temp (clinker chains)</span>
-        </div>
-        <div class="spec-highlight-item">
-          <span class="spec-highlight-num">HRC 58+</span>
-          <span class="spec-highlight-lbl" data-i18n="cem-ind-spec-lbl2">Pin &amp; bushing hardness (abrasion grade)</span>
-        </div>
-        <div class="spec-highlight-item">
-          <span class="spec-highlight-num">3× Life</span>
-          <span class="spec-highlight-lbl" data-i18n="cem-ind-spec-lbl3">vs. standard chains in cement environments</span>
-        </div>
-        <div class="spec-highlight-item">
-          <span class="spec-highlight-num">24/7</span>
-          <span class="spec-highlight-lbl" data-i18n="cem-ind-spec-lbl4">Continuous operation rated</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Product Image Gallery -->
-<section class="ind-products-showcase">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow">Product Range</span>
-      <h2>Cement Industry Chain Products</h2>
-      <p>Precision-engineered chains specifically designed for every stage of cement production — from raw material handling and kiln drives to clinker conveying and bulk dispatch.</p>
-    </div>
-    <div class="ind-products-grid">
-      <div class="ind-product-card">
-        <div class="ind-product-img">
-          <img src="cement-chain.png"
-               alt="HS Chain — Cranked Link Bushed Chains for cement industry bucket elevator and conveyor systems"
-               loading="lazy" decoding="async">
-        </div>
-      </div>
-      <div class="ind-product-card">
-        <div class="ind-product-img">
-          <img src="cement-chain-3.png"
-               alt="HS Chain — Bucket Elevator and Feed Taking Machine Chains for cement plant applications"
-               loading="lazy" decoding="async">
-        </div>
-      </div>
-      <div class="ind-product-card">
-        <div class="ind-product-img">
-          <img src="HS chain cement-chain-1.png"
-               alt="HS Chain cement industry — high-abrasion conveyor chain with hardened pins and bushings"
-               loading="lazy" decoding="async">
-        </div>
-      </div>
-      <div class="ind-product-card">
-        <div class="ind-product-img">
-          <img src="HS chain cement-chain-2.png"
-               alt="HS Chain cement industry — heavy-duty cement plant conveyor and kiln drive chain"
-               loading="lazy" decoding="async">
-        </div>
-      </div>
-    </div>
-    <div class="ind-product-cta">
-      <a href="cement-chains.html" class="btn-primary">View Full Cement Chain Range →</a>
-    </div>
   </div>
 </section>
 
