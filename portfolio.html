@@ -29,49 +29,60 @@
   <!-- Google Search Console: add <meta name="google-site-verification" content="YOUR_CODE"> here --><link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="flipbook-viewer.css">
   <style>
-    /* Gallery section on dark background */
+    /* ── Portfolio Gallery — fully overrides styles.css gallery for this page ─ */
+
     .portfolio-dark {
       background: var(--color-dark-navy);
       padding: var(--space-2xl) 0;
     }
 
-    /* Placeholder gradient cards */
-    .gallery-item--ph { background: #1a2438; }
-    .gallery-placeholder {
-      width: 100%; height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: .75rem;
+    /* 4-column symmetric grid on desktop */
+    .portfolio-dark .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
     }
-    .ph-icon {
-      width: 52px; height: 52px;
-      border: 2.5px solid rgba(255,255,255,.18);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .ph-icon svg { width: 26px; height: 26px; }
-    .ph-label {
-      font-size: .82rem;
-      font-weight: 700;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.35);
-    }
-    .gallery-placeholder--steel  { background: linear-gradient(140deg, #1e2e48 0%, #111820 100%); }
-    .gallery-placeholder--cement { background: linear-gradient(140deg, #2e2c28 0%, #181614 100%); }
-    .gallery-placeholder--sugar  { background: linear-gradient(140deg, #2c2010 0%, #18120a 100%); }
 
-    /* Pure visual gallery — no pointer, no hover zoom */
-    .portfolio-dark .gallery-item { cursor: default; }
+    /* ── All regular items: strict 4:3, cover crop ── */
+    .portfolio-dark .gallery-item {
+      aspect-ratio: 4 / 3;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #0c1525;
+      cursor: default;
+      position: relative;
+    }
+    .portfolio-dark .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform 0.45s ease;
+    }
+    /* Suppress hover effects — pure visual showcase */
+    .portfolio-dark .gallery-item:hover { transform: none !important; }
     .portfolio-dark .gallery-item:hover img { transform: none; }
     .portfolio-dark .gallery-overlay { display: none !important; }
 
-    /* Hide filtered items */
-    .gallery-item.hidden { display: none; }
+    /* ── Full-width banner: collage image spans all 4 columns ── */
+    .gallery-item--wide {
+      grid-column: 1 / -1;
+      aspect-ratio: 16 / 5;
+      background: #0c1525;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    .gallery-item--wide img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
 
-    /* Filter result empty state */
+    /* ── Empty / hidden state ── */
+    .gallery-item.hidden { display: none; }
     .gallery-empty {
       grid-column: 1 / -1;
       text-align: center;
@@ -80,21 +91,30 @@
       font-size: 1rem;
     }
 
-    /* Wide landscape item — spans 2 columns (Thai case studies collage) */
-    .gallery-item--wide {
-      grid-column: span 2;
-      aspect-ratio: 2 / 1;
-      background: #ffffff;
-    }
-    .gallery-item--wide img {
-      object-fit: contain;
-      background: #ffffff;
-    }
-    @media (max-width: 768px) {
-      .gallery-item--wide {
-        grid-column: 1 / -1;
-        aspect-ratio: 16 / 9;
+    /* ── Responsive ── */
+    /* Tablet: 3-col */
+    @media (max-width: 1100px) {
+      .portfolio-dark .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.875rem;
       }
+      .gallery-item--wide { aspect-ratio: 16 / 5; }
+    }
+    /* Small tablet / large phone: 2-col */
+    @media (max-width: 720px) {
+      .portfolio-dark .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+      }
+      .gallery-item--wide { aspect-ratio: 16 / 6; }
+    }
+    /* Mobile: 2-col tight */
+    @media (max-width: 440px) {
+      .portfolio-dark .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+      }
+      .gallery-item--wide { aspect-ratio: 3 / 2; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
@@ -235,8 +255,7 @@
       <div class="gallery-item gallery-item--wide">
         <img src="mpc-portfolio-projects.png"
              alt="MPC Case Studies — Industrial Chain Projects and Field Operations in Thailand"
-             loading="eager" fetchpriority="high" decoding="async"
-             style="width:100%;height:100%;object-fit:contain;">
+             loading="eager" fetchpriority="high" decoding="async">
       </div>
 
       <div class="gallery-item">
