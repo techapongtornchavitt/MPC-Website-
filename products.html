@@ -213,75 +213,6 @@
       justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
     }
 
-    /* ── KMH BRAND STRIP ── */
-    .kmh-brand-strip {
-      background: linear-gradient(135deg, rgba(0,56,120,.35) 0%, rgba(0,86,164,.18) 100%);
-      border: 1px solid rgba(74,144,226,.18);
-      border-radius: 14px;
-      padding: 1.75rem 2rem;
-      margin-bottom: 2rem;
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
-    .kmh-brand-wordmark {
-      font-size: 2.4rem;
-      font-weight: 900;
-      color: var(--color-white);
-      letter-spacing: -.04em;
-      line-height: 1;
-      flex-shrink: 0;
-      opacity: .95;
-    }
-    .kmh-brand-info { flex: 1; min-width: 200px; }
-    .kmh-brand-origin {
-      display: inline-flex;
-      align-items: center;
-      gap: .4rem;
-      font-size: .63rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .13em;
-      color: #7ec8e3;
-      margin-bottom: .45rem;
-    }
-    .kmh-brand-tagline {
-      display: block;
-      font-size: .95rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.82);
-      margin: 0 0 .45rem;
-      line-height: 1.35;
-    }
-    .kmh-brand-desc {
-      font-size: .8rem;
-      color: rgba(255,255,255,.4);
-      line-height: 1.65;
-      margin: 0;
-    }
-    .kmh-explore-link {
-      display: inline-flex;
-      align-items: center;
-      gap: .45rem;
-      font-size: .74rem;
-      font-weight: 700;
-      color: #7ec8e3;
-      text-decoration: none;
-      letter-spacing: .05em;
-      text-transform: uppercase;
-      padding: .55rem 1.2rem;
-      border: 1px solid rgba(74,144,226,.3);
-      border-radius: 8px;
-      background: rgba(0,86,164,.2);
-      transition: background .2s ease, color .2s ease, gap .2s ease;
-      flex-shrink: 0;
-    }
-    .kmh-explore-link:hover {
-      background: var(--color-primary);
-      color: #fff;
-      gap: .65rem;
-    }
 
     /* ── PRODUCT SUB-LABEL (inside brand section) ── */
     .prod-sub-label {
@@ -316,8 +247,6 @@
     @media (max-width: 768px) {
       .prod-cards { grid-template-columns: 1fr 1fr; gap: 1.1rem; }
       .prod-cta  { flex-direction: column; text-align: center; }
-      .kmh-brand-strip { gap: 1.25rem; padding: 1.35rem 1.5rem; }
-      .kmh-brand-wordmark { font-size: 1.9rem; }
     }
     @media (max-width: 480px) {
       .prod-cards { grid-template-columns: 1fr; }
@@ -587,23 +516,6 @@
           <h3>KMH</h3>
           <span>1 product line &nbsp;·&nbsp; German Engineering</span>
         </div>
-      </div>
-
-      <!-- KMH Brand Identity Strip -->
-      <div class="kmh-brand-strip">
-        <div class="kmh-brand-wordmark">KMH</div>
-        <div class="kmh-brand-info">
-          <span class="kmh-brand-origin">
-            <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-            German Engineering &nbsp;·&nbsp; Authorised Distributor
-          </span>
-          <span class="kmh-brand-tagline">Pipe Conveyor Systems for Bulk Material Handling</span>
-          <p class="kmh-brand-desc">KMH manufactures precision pipe conveyor systems engineered for enclosed aspiration and transport of bulk goods. Available in modular standard range and fully custom-made configurations for demanding industrial environments.</p>
-        </div>
-        <a href="kmh-conveyor-pipe.html" class="kmh-explore-link">
-          Explore Products
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-        </a>
       </div>
 
       <!-- Sub-section: Conveyor Pipe -->
