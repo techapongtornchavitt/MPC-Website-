@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ï»¿<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Motion Plus Corporation — Get in touch with our technical team for industrial chain solutions, product enquiries, and consultancy.">
+  <meta name="description" content="Contact Motion Plus Corporation ï¿½ Get in touch with our technical team for industrial chain solutions, product enquiries, and consultancy.">
   <link rel="shortcut icon"    href="favicon.ico?v=7"       type="image/x-icon">
   <link rel="icon"             href="favicon-32.png?v=7"    type="image/png"      sizes="32x32">
   <link rel="icon"             href="favicon-192.png?v=7"   type="image/png"      sizes="192x192">
@@ -18,7 +18,7 @@
   <meta name="twitter:title" content="Contact Us | Motion Plus Corporation">
   <title>Contact Us | Motion Plus Corporation</title>
   
-  <!-- GOOGLE ANALYTICS 4 — replace G-XXXXXXXXXX with your Measurement ID -->
+  <!-- GOOGLE ANALYTICS 4 ï¿½ replace G-XXXXXXXXXX with your Measurement ID -->
   <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -62,6 +62,112 @@
     /* Map section */
     .map-section { padding: var(--space-xl) 0 var(--space-2xl); background: var(--color-dark-navy); }
     .map-placeholder-wrap { border-radius: var(--radius-md); overflow: hidden; }
+
+    /* ===== ENQUIRY FORM â€” contact-page scoped overrides =====
+       Root cause: styles.css defines .enquiry-form twice.
+       The second definition (for the homepage CTA strip) overrides
+       display/background/padding/border-radius with flex-row values.
+       These rules restore the white-card form layout and fix all
+       contrast/visibility issues on the dark-navy section.
+    ============================================================ */
+
+    /* 1. Restore white card container */
+    .enquiry-form-section .enquiry-form {
+      display: block;
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      padding: 2.75rem 3rem;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4), 0 4px 16px rgba(0,0,0,0.2);
+      margin-top: 2.5rem;
+      max-width: none;
+    }
+
+    /* 2. Labels: dark text inside white card */
+    .enquiry-form-section .form-group label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #1a2a42;
+      letter-spacing: 0.02em;
+    }
+
+    /* 3. Input / select / textarea: crisp high-contrast fields */
+    .enquiry-form-section .form-group input,
+    .enquiry-form-section .form-group select,
+    .enquiry-form-section .form-group textarea {
+      background: #f4f7fb;
+      color: #111827;
+      border: 1.5px solid #c4d2e4;
+      border-radius: 8px;
+      padding: 0.85rem 1.05rem;
+      font-size: 0.93rem;
+      transition: border-color 160ms ease-out, box-shadow 160ms ease-out, background 160ms ease-out;
+      outline: none;
+    }
+    .enquiry-form-section .form-group input:hover,
+    .enquiry-form-section .form-group select:hover,
+    .enquiry-form-section .form-group textarea:hover {
+      border-color: #93aecb;
+      background: #edf2f9;
+    }
+    .enquiry-form-section .form-group input:focus,
+    .enquiry-form-section .form-group select:focus,
+    .enquiry-form-section .form-group textarea:focus {
+      background: #ffffff;
+      border-color: #0056a4;
+      box-shadow: 0 0 0 3px rgba(0,86,164,0.15);
+    }
+
+    /* 4. Placeholder: readable but clearly subdued */
+    .enquiry-form-section .form-group input::placeholder,
+    .enquiry-form-section .form-group textarea::placeholder {
+      color: #9ca3af;
+    }
+
+    /* 5. Select: dark chevron arrow for light background */
+    .enquiry-form-section .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23374151' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      background-color: #f4f7fb;
+      padding-right: 2.5rem;
+      cursor: pointer;
+    }
+    .enquiry-form-section .form-group select:focus {
+      background-color: #ffffff;
+    }
+
+    /* 6. Textarea: comfortably tall, resizable */
+    .enquiry-form-section .form-group textarea {
+      min-height: 152px;
+      resize: vertical;
+      line-height: 1.68;
+    }
+
+    /* 7. Field spacing */
+    .enquiry-form-section .form-row { gap: 1.5rem; }
+    .enquiry-form-section .form-group { margin-bottom: 1.4rem; }
+
+    /* 8. Success state inside white card */
+    .enquiry-form-section .form-success {
+      background: #ffffff;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 16px;
+      box-shadow: 0 24px 64px rgba(0,0,0,0.4);
+    }
+    .enquiry-form-section .form-success h3 { color: #1a2a42; }
+    .enquiry-form-section .form-success p  { color: #4b5563; }
+
+    /* 9. Mobile */
+    @media (max-width: 640px) {
+      .enquiry-form-section .enquiry-form {
+        padding: 1.75rem 1.25rem;
+      }
+      .enquiry-form-section .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+    }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 </head>
@@ -172,7 +278,7 @@
       <h2 style="color:var(--color-black); margin-bottom:2.5rem;" data-i18n="cont-line-h2">Chat with Us on LINE</h2>
       <div class="line-qr-block">
         <div class="line-qr-img-wrap" id="line-qr-container" style="min-width:200px; max-width:220px;">
-          <img src="line-qr-salesco-motion.png" alt="LINE Official QR Code — Scan to contact us on LINE">
+          <img src="line-qr-salesco-motion.png" alt="LINE Official QR Code ï¿½ Scan to contact us on LINE">
         </div>
         <div class="line-qr-info">
           <div class="line-qr-badge">
@@ -208,7 +314,7 @@
     <div style="max-width:900px; margin:0 auto;">
       <span class="section-eyebrow" data-i18n="cont-how-eyebrow">How to Reach Us</span>
       <h2 style="color:var(--color-white); margin-bottom:.5rem;" data-i18n="cont-h2">Contact Information</h2>
-      <p style="margin-bottom:3rem;" data-i18n="cont-intro">Reach us directly — our team is ready to assist with product enquiries, after-sales support, and general information.</p>
+      <p style="margin-bottom:3rem;" data-i18n="cont-intro">Reach us directly ï¿½ our team is ready to assist with product enquiries, after-sales support, and general information.</p>
 
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem 3rem;">
 
@@ -260,7 +366,7 @@
           </div>
         </div>
 
-        <!-- Business Hours — full width -->
+        <!-- Business Hours ï¿½ full width -->
         <div class="contact-detail-item" style="grid-column:1/-1; background:rgba(255,255,255,0.04); padding:1.5rem 1.75rem; border-radius:var(--radius-md); border-left:3px solid var(--color-light-blue);">
           <div class="contact-detail-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
@@ -268,8 +374,8 @@
           <div style="flex:1;">
             <p class="contact-detail-label" style="margin-bottom:.6rem;" data-i18n="cont-hours-lbl">Business Hours</p>
             <div style="display:grid; grid-template-columns:auto 1fr; gap:.35rem .75rem; max-width:320px;">
-              <span style="font-size:.82rem;color:rgba(255,255,255,.5);" data-i18n="footer-mon-fri">Mon – Fri</span><span style="font-size:.82rem;color:rgba(255,255,255,.85);" data-i18n="cont-hours-monfri-val">8:30 AM – 5:00 PM</span>
-              <span style="font-size:.82rem;color:rgba(255,255,255,.5);" data-i18n="footer-sat">Saturday</span><span style="font-size:.82rem;color:rgba(255,255,255,.85);" data-i18n="cont-hours-sat-val">9:00 AM – 3:00 PM</span>
+              <span style="font-size:.82rem;color:rgba(255,255,255,.5);" data-i18n="footer-mon-fri">Mon ï¿½ Fri</span><span style="font-size:.82rem;color:rgba(255,255,255,.85);" data-i18n="cont-hours-monfri-val">8:30 AM ï¿½ 5:00 PM</span>
+              <span style="font-size:.82rem;color:rgba(255,255,255,.5);" data-i18n="footer-sat">Saturday</span><span style="font-size:.82rem;color:rgba(255,255,255,.85);" data-i18n="cont-hours-sat-val">9:00 AM ï¿½ 3:00 PM</span>
             </div>
           </div>
         </div>
@@ -300,13 +406,13 @@
           </a>
 
           <!-- Shopee -->
-          <a href="https://th.shp.ee/7FUYG6Uz" target="_blank" rel="noopener noreferrer" aria-label="Shopee — MotionPlusCorporation" class="social-link-btn">
+          <a href="https://th.shp.ee/7FUYG6Uz" target="_blank" rel="noopener noreferrer" aria-label="Shopee ï¿½ MotionPlusCorporation" class="social-link-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
             Shopee
           </a>
 
           <!-- TikTok -->
-          <a href="https://www.tiktok.com/@motion_plus_corporation?_r=1&_t=ZS-95bOYoXH7sT" target="_blank" rel="noopener noreferrer" aria-label="TikTok — motion_plus_corporation" class="social-link-btn">
+          <a href="https://www.tiktok.com/@motion_plus_corporation?_r=1&_t=ZS-95bOYoXH7sT" target="_blank" rel="noopener noreferrer" aria-label="TikTok ï¿½ motion_plus_corporation" class="social-link-btn">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
             TikTok
           </a>
@@ -370,27 +476,27 @@
         <div class="form-row">
           <div class="form-group">
             <label for="company-name" data-i18n="cont-form-lbl-company">Company Name</label><label for="company-name" style="display:none"><span aria-hidden="true" style="color:#e53e3e;">*</span></label>
-            <input type="text" id="company-name" name="company" required placeholder="Your company name" autocomplete="organization">
+            <input type="text" id="company-name" name="company" required placeholder="Enter your company name" autocomplete="organization">
           </div>
           <div class="form-group">
             <label for="contact-name"><span data-i18n="cont-form-lbl-name">Your Name</span> <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
-            <input type="text" id="contact-name" name="name" required placeholder="Full name" autocomplete="name">
+            <input type="text" id="contact-name" name="name" required placeholder="Enter your full name" autocomplete="name">
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
             <label for="contact-email"><span data-i18n="cont-form-lbl-email">Email Address</span> <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
-            <input type="email" id="contact-email" name="email" required placeholder="your@company.com" autocomplete="email">
+            <input type="email" id="contact-email" name="email" required placeholder="Enter your email address" autocomplete="email">
           </div>
           <div class="form-group">
             <label for="contact-phone" data-i18n="cont-form-lbl-phone">Phone / LINE</label>
-            <input type="tel" id="contact-phone" name="phone" placeholder="+66 2 286-5656" autocomplete="tel">
+            <input type="tel" id="contact-phone" name="phone" placeholder="Enter your phone or LINE ID" autocomplete="tel">
           </div>
         </div>
         <div class="form-group">
           <label for="product-interest" data-i18n="cont-form-lbl-product">Product Interest</label>
           <select id="product-interest" name="product">
-            <option value="">Select a product category…</option>
+            <option value="">Select a product categoryï¿½</option>
             <option value="Standard Roller Chains (UNO / DONGBO / IWIS)">Standard Roller Chains (UNO / DONGBO / IWIS)</option>
             <option value="Conveyor Chains (IWIS / HS Chain)">Conveyor Chains (IWIS / HS Chain)</option>
             <option value="Heavy-Duty Forged Chains">Heavy-Duty Forged Chains</option>
@@ -407,7 +513,7 @@
         </div>
         <div class="form-group">
           <label for="enquiry-message"><span data-i18n="cont-form-lbl-message">Message</span> <span aria-hidden="true" style="color:#e53e3e;">*</span></label>
-          <textarea id="enquiry-message" name="message" required rows="5" placeholder="Describe your application, quantities, or any specific requirements…"></textarea>
+          <textarea id="enquiry-message" name="message" required rows="6" placeholder="Write your inquiry here &#8212; include product type, quantities, application, or any specific requirements&#8230;"></textarea>
         </div>
         <button type="submit" class="btn-primary enquiry-submit">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
@@ -501,8 +607,8 @@
           <div class="footer-contact-item">
             <span class="footer-contact-label" data-i18n="footer-hours-lbl">Business Hours</span>
             <div class="footer-hours-grid">
-              <span data-i18n="footer-mon-fri">Mon – Fri</span><span>8:30 AM – 5:00 PM</span>
-              <span data-i18n="footer-sat">Saturday</span><span>9:00 AM – 3:00 PM</span>
+              <span data-i18n="footer-mon-fri">Mon ï¿½ Fri</span><span>8:30 AM ï¿½ 5:00 PM</span>
+              <span data-i18n="footer-sat">Saturday</span><span>9:00 AM ï¿½ 3:00 PM</span>
             </div>
           </div>
         </div>
@@ -562,25 +668,41 @@
     var product  = document.getElementById('product-interest').value;
     var message  = document.getElementById('enquiry-message').value.trim();
 
-    /* Basic validation */
+    /* Basic validation â€” focus the first empty required field */
     if (!company || !name || !email || !message) {
-      var firstEmpty = form.querySelector('input:required:placeholder-shown, textarea:required:placeholder-shown');
-      if (firstEmpty) firstEmpty.focus();
+      var reqFields = [
+        { val: company,  el: document.getElementById('company-name') },
+        { val: name,     el: document.getElementById('contact-name') },
+        { val: email,    el: document.getElementById('contact-email') },
+        { val: message,  el: document.getElementById('enquiry-message') }
+      ];
+      for (var i = 0; i < reqFields.length; i++) {
+        if (!reqFields[i].val) {
+          reqFields[i].el.focus();
+          reqFields[i].el.style.borderColor = '#e53e3e';
+          reqFields[i].el.style.boxShadow   = '0 0 0 3px rgba(229,62,62,0.18)';
+          reqFields[i].el.addEventListener('input', function() {
+            this.style.borderColor = '';
+            this.style.boxShadow   = '';
+          }, { once: true });
+          break;
+        }
+      }
       return;
     }
 
-    var subject = 'Product Enquiry — ' + (product || 'General') + ' | ' + company;
+    var subject = 'Product Enquiry ï¿½ ' + (product || 'General') + ' | ' + company;
     var body = [
       'Company:  ' + company,
       'Name:     ' + name,
       'Email:    ' + email,
-      'Phone:    ' + (phone || '—'),
+      'Phone:    ' + (phone || 'ï¿½'),
       'Product:  ' + (product || 'Not specified'),
       '',
       'Message:',
       message,
       '',
-      '— Sent via motionpluscorp.com contact form'
+      'ï¿½ Sent via motionpluscorp.com contact form'
     ].join('\n');
 
     window.location.href =
