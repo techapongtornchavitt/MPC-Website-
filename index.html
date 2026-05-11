@@ -193,7 +193,14 @@
     }
 
     /* ---- Industries grid ---- */
-    .industries-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 1.25rem; }
+    .industries-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1080px;
+      margin-left: auto;
+      margin-right: auto;
+    }
 
     /* Industry card base styles */
     .industry-card {
@@ -1217,7 +1224,6 @@
     /* ---- Responsive ---- */
     @media (max-width: 1100px) {
       .brands-grid    { grid-template-columns: repeat(3,1fr); }
-      .industries-grid{ grid-template-columns: repeat(2,1fr); }
       .footer-grid-5  { grid-template-columns: 1fr 1fr; gap: var(--space-md); }
     }
     @media (max-width: 768px) {
@@ -1225,10 +1231,22 @@
       .hero-stats { flex-direction: row; flex-wrap: wrap; justify-content: center; padding-top: 1rem; }
       .brands-grid { grid-template-columns: repeat(2,1fr); }
       .footer-grid-5  { grid-template-columns: 1fr; gap: var(--space-md); }
+      .industries-grid { grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
+      /* Centre the lone 3rd card when it sits by itself in the last row */
+      .industries-grid .industry-card:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: calc(50% - 0.55rem);
+        margin-left: auto;
+        margin-right: auto;
+      }
     }
     @media (max-width: 480px) {
-      .brands-grid    { grid-template-columns: 1fr 1fr; }
-      .industries-grid{ grid-template-columns: 1fr; }
+      .brands-grid     { grid-template-columns: 1fr 1fr; }
+      .industries-grid { grid-template-columns: 1fr; max-width: 420px; }
+      .industries-grid .industry-card:last-child:nth-child(odd) {
+        grid-column: auto;
+        max-width: 100%;
+      }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
