@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -18,14 +18,14 @@
   <title>Resources &amp; Catalogs | Motion Plus Corporation</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* ══════════════════════════════════════════════
-       RESOURCES — CLEAN LIGHT B2B KNOWLEDGE CENTER
-    ══════════════════════════════════════════════ */
+    /* ══════════════════════════════════════════════════
+       RESOURCES — INDUSTRY-FIRST KNOWLEDGE CENTER
+    ══════════════════════════════════════════════════ */
 
     /* ── Page background ── */
     .res-main {
-      background: #f0f4fa;
-      padding: 4rem 0 7rem;
+      background: #eef2f8;
+      padding: 2.5rem 0 7rem;
     }
 
     /* ══ HERO STATS BAR ══ */
@@ -71,7 +71,7 @@
       color: #3a5070;
       font-size: .82rem;
       line-height: 1.65;
-      margin-bottom: 2.75rem;
+      margin-bottom: 1.75rem;
       padding: 1rem 1.3rem;
       background: #e4edf8;
       border-radius: 10px;
@@ -82,60 +82,282 @@
     .rl-note a:hover { color: #003b80; }
     .rl-note strong { color: #0a1a35; font-weight: 700; }
 
-    /* ══ SECTION BLOCK ══ */
-    .rl-block {
-      margin-bottom: 2.75rem;
-      background: #fff;
-      border-radius: 18px;
-      padding: 2.25rem 2.5rem 2.5rem;
-      box-shadow: 0 2px 18px rgba(0,50,120,.07), 0 0 0 1px rgba(0,86,164,.06);
+    /* ══════════════════════════════════════════════════
+       STICKY SECTOR NAVIGATION
+    ══════════════════════════════════════════════════ */
+    .res-sector-nav {
+      position: sticky;
+      top: 68px; /* adjust to match your site-header height */
+      z-index: 90;
+      background: rgba(255,255,255,.97);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(0,60,120,.10);
+      padding: .55rem 0;
+      box-shadow: 0 2px 16px rgba(0,30,80,.08);
     }
-
-    /* ══ SECTION HEADER ══ */
-    .rl-block-hdr {
-      margin-bottom: 2rem;
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(0,60,120,.08);
-      position: relative;
+    .rsn-inner {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: .1rem 0;
     }
-    .rl-block-hdr::after {
-      content: '';
-      position: absolute;
-      bottom: -1px; left: 0;
-      width: 52px; height: 3px;
-      background: #0056a4;
-      border-radius: 2px;
-    }
-    .rl-block-eyebrow {
-      display: block;
-      font-size: .65rem;
+    .rsn-inner::-webkit-scrollbar { display: none; }
+    .rsn-label {
+      font-size: .59rem;
       font-weight: 700;
       text-transform: uppercase;
-      letter-spacing: .15em;
-      color: #0056a4;
-      margin-bottom: .5rem;
+      letter-spacing: .13em;
+      color: #9aabb8;
+      padding-right: .65rem;
+      border-right: 1px solid rgba(0,60,120,.12);
+      margin-right: .2rem;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .rl-block-title {
-      font-size: clamp(1.2rem, 2.5vw, 1.55rem);
-      font-weight: 800;
-      color: #0a1a35;
-      margin: 0 0 .3rem;
-      letter-spacing: -.01em;
-      line-height: 1.2;
-    }
-    .rl-block-ct {
-      display: block;
+    .rsn-item {
+      display: inline-flex;
+      align-items: center;
+      gap: .38rem;
+      padding: .38rem .95rem;
+      border-radius: 50px;
       font-size: .7rem;
-      font-weight: 500;
-      color: #8a9bb0;
-      letter-spacing: .04em;
+      font-weight: 700;
+      color: #4a6080;
+      text-decoration: none;
+      white-space: nowrap;
+      letter-spacing: .03em;
+      transition: background .18s, color .18s, border-color .18s;
+      border: 1px solid transparent;
+      flex-shrink: 0;
+    }
+    .rsn-item:hover {
+      background: rgba(0,86,164,.07);
+      color: #0056a4;
+      border-color: rgba(0,86,164,.15);
+    }
+    .rsn-item.rsn-active {
+      background: #0056a4;
+      color: #fff;
+      border-color: #0056a4;
+    }
+    .rsn-item svg { width: 12px; height: 12px; flex-shrink: 0; }
+    .rsn-dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: rgba(0,60,120,.18);
+      flex-shrink: 0;
     }
 
-    /* ══ CARD GRID — 3 equal columns ══ */
+    /* ══════════════════════════════════════════════════
+       INDUSTRY SECTION — accordion container
+    ══════════════════════════════════════════════════ */
+    .ind-section {
+      margin-bottom: 1.25rem;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid rgba(0,60,120,.09);
+      box-shadow: 0 2px 18px rgba(0,40,100,.07);
+      background: #fff;
+      scroll-margin-top: 132px;
+    }
+
+    /* ── Section header (clickable toggle) ── */
+    .ind-sec-hdr {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.45rem 1.75rem;
+      background: #fff;
+      cursor: pointer;
+      transition: background .18s;
+      user-select: none;
+      position: relative;
+      border-left: 4px solid transparent;
+    }
+    .ind-sec-hdr:hover { background: #f8fafd; }
+
+    /* Color accent bar per industry */
+    .ind-section[data-ind="cement"]   .ind-sec-hdr { border-left-color: #d97706; }
+    .ind-section[data-ind="palmoil"]  .ind-sec-hdr { border-left-color: #16a34a; }
+    .ind-section[data-ind="conveyor"] .ind-sec-hdr { border-left-color: #0056a4; }
+    .ind-section[data-ind="brands"]   .ind-sec-hdr { border-left-color: #7c3aed; }
+    .ind-section[data-ind="company"]  .ind-sec-hdr { border-left-color: #374151; }
+
+    /* Icon pill */
+    .ind-sec-icon-wrap {
+      width: 46px; height: 46px;
+      border-radius: 11px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .ind-section[data-ind="cement"]   .ind-sec-icon-wrap { background: rgba(217,119,6,.10); }
+    .ind-section[data-ind="palmoil"]  .ind-sec-icon-wrap { background: rgba(22,163,74,.10); }
+    .ind-section[data-ind="conveyor"] .ind-sec-icon-wrap { background: rgba(0,86,164,.10); }
+    .ind-section[data-ind="brands"]   .ind-sec-icon-wrap { background: rgba(124,58,237,.10); }
+    .ind-section[data-ind="company"]  .ind-sec-icon-wrap { background: rgba(55,65,81,.10); }
+    .ind-sec-icon-wrap svg { width: 21px; height: 21px; }
+    .ind-section[data-ind="cement"]   .ind-sec-icon-wrap svg { color: #d97706; }
+    .ind-section[data-ind="palmoil"]  .ind-sec-icon-wrap svg { color: #16a34a; }
+    .ind-section[data-ind="conveyor"] .ind-sec-icon-wrap svg { color: #0056a4; }
+    .ind-section[data-ind="brands"]   .ind-sec-icon-wrap svg { color: #7c3aed; }
+    .ind-section[data-ind="company"]  .ind-sec-icon-wrap svg { color: #374151; }
+
+    /* Text meta */
+    .ind-sec-meta { flex: 1; min-width: 0; }
+    .ind-sec-eyebrow {
+      display: block;
+      font-size: .59rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .15em;
+      margin-bottom: .22rem;
+    }
+    .ind-section[data-ind="cement"]   .ind-sec-eyebrow { color: #d97706; }
+    .ind-section[data-ind="palmoil"]  .ind-sec-eyebrow { color: #16a34a; }
+    .ind-section[data-ind="conveyor"] .ind-sec-eyebrow { color: #0056a4; }
+    .ind-section[data-ind="brands"]   .ind-sec-eyebrow { color: #7c3aed; }
+    .ind-section[data-ind="company"]  .ind-sec-eyebrow { color: #374151; }
+    .ind-sec-title {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-weight: 800;
+      color: #0a1a35;
+      margin: 0 0 .22rem;
+      letter-spacing: -.015em;
+      line-height: 1.2;
+    }
+    .ind-sec-meta-row {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+    }
+    .ind-sec-ct {
+      font-size: .67rem;
+      color: #8a9bb0;
+      font-weight: 500;
+    }
+    .ind-sec-sep { color: rgba(0,60,120,.18); font-size: .67rem; }
+    .ind-sec-brand-pills { display: flex; gap: .28rem; flex-wrap: wrap; }
+    .ind-sec-brand-pill {
+      padding: .14rem .52rem;
+      border-radius: 50px;
+      font-size: .58rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      background: rgba(0,60,120,.07);
+      color: #2a4060;
+      border: 1px solid rgba(0,60,120,.1);
+    }
+
+    /* Right side: doc badge + toggle button */
+    .ind-sec-right {
+      display: flex; align-items: center; gap: .65rem; flex-shrink: 0;
+    }
+    .ind-sec-doc-badge {
+      display: flex; flex-direction: column; align-items: center; text-align: center;
+      padding: .38rem .7rem;
+      border-radius: 8px;
+      background: rgba(0,60,120,.05);
+      border: 1px solid rgba(0,60,120,.08);
+      min-width: 48px;
+    }
+    .ind-sec-doc-num {
+      font-size: 1.1rem;
+      font-weight: 900;
+      color: #0a1a35;
+      line-height: 1;
+    }
+    .ind-sec-doc-lbl {
+      font-size: .52rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: #9aabb8;
+      margin-top: .13rem;
+    }
+    .ind-sec-toggle {
+      width: 34px; height: 34px;
+      border: 1px solid rgba(0,60,120,.13);
+      border-radius: 50%;
+      background: rgba(0,86,164,.05);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      color: #6b7d90;
+      transition: background .18s, color .18s;
+      padding: 0;
+    }
+    .ind-sec-toggle:hover { background: rgba(0,86,164,.13); color: #0056a4; }
+    .ind-sec-toggle svg {
+      width: 14px; height: 14px;
+      transition: transform .3s cubic-bezier(.4,0,.2,1);
+    }
+    .ind-section[data-expanded="false"] .ind-sec-toggle svg {
+      transform: rotate(-90deg);
+    }
+
+    /* ── Accordion body — grid-row trick for smooth animation ── */
+    .ind-sec-body-wrap {
+      display: grid;
+      grid-template-rows: 1fr;
+      transition: grid-template-rows .33s cubic-bezier(.4,0,.2,1);
+    }
+    .ind-section[data-expanded="false"] .ind-sec-body-wrap {
+      grid-template-rows: 0fr;
+    }
+    .ind-sec-body { overflow: hidden; min-height: 0; }
+    .ind-sec-body-inner {
+      border-top: 1px solid rgba(0,60,120,.07);
+      padding: 1.75rem 1.75rem 2rem;
+      background: #f7f9fc;
+    }
+    .ind-section[data-ind="cement"]   .ind-sec-body-inner { border-top-color: rgba(217,119,6,.14); background: #fffbf5; }
+    .ind-section[data-ind="palmoil"]  .ind-sec-body-inner { border-top-color: rgba(22,163,74,.14); background: #f5fdf7; }
+    .ind-section[data-ind="conveyor"] .ind-sec-body-inner { border-top-color: rgba(0,86,164,.14); background: #f5f8fd; }
+    .ind-section[data-ind="brands"]   .ind-sec-body-inner { border-top-color: rgba(124,58,237,.14); background: #f9f7fe; }
+    .ind-section[data-ind="company"]  .ind-sec-body-inner { border-top-color: rgba(55,65,81,.14); background: #f7f8f9; }
+
+    /* ══════════════════════════════════════════════════
+       BRAND GROUP — subsection within each industry
+    ══════════════════════════════════════════════════ */
+    .brand-group { margin-bottom: 2.1rem; }
+    .brand-group:last-child { margin-bottom: 0; }
+
+    .brand-grp-hdr {
+      display: flex; align-items: center; gap: .75rem;
+      margin-bottom: 1.1rem;
+    }
+    .brand-grp-badge {
+      display: inline-flex; align-items: center; gap: .38rem;
+      padding: .3rem .85rem;
+      border-radius: 7px;
+      font-size: .68rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      white-space: nowrap;
+      background: #fff;
+      border: 1.5px solid rgba(0,60,120,.15);
+      color: #0a1a35;
+      box-shadow: 0 1px 5px rgba(0,30,80,.06);
+    }
+    .brand-grp-badge svg { width: 11px; height: 11px; color: #0056a4; }
+    .brand-grp-line { flex: 1; height: 1px; background: rgba(0,60,120,.08); }
+    .brand-grp-ct {
+      font-size: .61rem; color: #9aabb8; font-weight: 600;
+      letter-spacing: .04em; white-space: nowrap;
+    }
+
+    /* ══ CARD GRID ══ */
     .rl-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1.1rem;
+      gap: 1rem;
       align-items: stretch;
     }
 
@@ -152,32 +374,24 @@
       transition: border-color .22s, box-shadow .22s, transform .22s;
     }
     .rl-card:hover {
-      border-color: rgba(0,86,164,.35);
+      border-color: rgba(0,86,164,.38);
       box-shadow: 0 10px 36px rgba(0,50,120,.14);
       transform: translateY(-4px);
     }
-
-    /* Card top strip */
     .rl-card-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: .95rem 1.1rem .85rem;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .9rem 1.05rem .8rem;
       border-bottom: 1px solid rgba(0,60,120,.07);
       background: #f6f9fd;
       flex-shrink: 0;
     }
     .rl-card-icon-badge {
-      width: 36px;
-      height: 36px;
-      border-radius: 9px;
+      width: 34px; height: 34px;
+      border-radius: 8px;
       background: rgba(0,86,164,.09);
       border: 1px solid rgba(0,86,164,.16);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      color: #0056a4;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; color: #0056a4;
       transition: background .2s, border-color .2s;
     }
     .rl-card:hover .rl-card-icon-badge {
@@ -185,162 +399,75 @@
       border-color: rgba(0,86,164,.32);
     }
     .rl-card-top-meta {
-      display: flex;
-      flex-direction: column;
-      gap: .18rem;
-      flex: 1;
-      padding: 0 .85rem;
-      min-width: 0;
+      display: flex; flex-direction: column; gap: .16rem;
+      flex: 1; padding: 0 .8rem; min-width: 0;
     }
     .rl-brand-pill {
-      font-size: .62rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: .09em;
-      color: #0056a4;
+      font-size: .6rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .09em; color: #0056a4;
     }
-    .rl-size-lbl {
-      font-size: .6rem;
-      color: #8a9bb0;
-      font-weight: 500;
-      letter-spacing: .02em;
-    }
+    .rl-size-lbl { font-size: .58rem; color: #8a9bb0; font-weight: 500; }
     .rl-dl-btn {
-      width: 28px;
-      height: 28px;
+      width: 28px; height: 28px;
       border-radius: 50%;
       background: rgba(0,86,164,.07);
       border: 1px solid rgba(0,86,164,.16);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: rgba(0,86,164,.55);
-      flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(0,86,164,.55); flex-shrink: 0;
       transition: background .18s, border-color .18s, color .18s;
     }
     .rl-card:hover .rl-dl-btn {
-      background: #0056a4;
-      border-color: #0056a4;
-      color: #fff;
+      background: #0056a4; border-color: #0056a4; color: #fff;
     }
-
-    /* Card body */
     .rl-card-body {
-      padding: .9rem 1.1rem 1.15rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      gap: .28rem;
+      padding: .85rem 1.05rem 1.1rem;
+      flex: 1; display: flex; flex-direction: column; gap: .25rem;
     }
-    .rl-title {
-      font-size: .93rem;
-      font-weight: 700;
-      color: #0a1a35;
-      line-height: 1.4;
-      margin: 0;
-    }
-    .rl-subtitle {
-      font-size: .73rem;
-      color: #6b7d90;
-      line-height: 1.5;
-      margin: 0;
-    }
-
-    /* ══ SUB-SECTION HEADERS ══ */
-    .rl-sub-block { margin-bottom: 2.5rem; }
-    .rl-sub-block:last-child { margin-bottom: 0; }
-    .rl-sub-hdr {
-      display: flex;
-      align-items: center;
-      gap: .85rem;
-      margin-bottom: 1.25rem;
-    }
-    .rl-sub-icon {
-      width: 28px;
-      height: 28px;
-      border-radius: 6px;
-      background: rgba(0,86,164,.08);
-      border: 1px solid rgba(0,86,164,.13);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-      font-size: .65rem;
-      font-weight: 700;
-    }
-    .rl-sub-name {
-      font-size: .78rem;
-      font-weight: 700;
-      color: #2a4060;
-      text-transform: uppercase;
-      letter-spacing: .1em;
-      white-space: nowrap;
-    }
-    .rl-sub-line {
-      flex: 1;
-      height: 1px;
-      background: rgba(0,60,120,.09);
-    }
-    .rl-sub-ct {
-      font-size: .62rem;
-      color: #8a9bb0;
-      font-weight: 600;
-      letter-spacing: .04em;
-      white-space: nowrap;
-    }
+    .rl-title { font-size: .91rem; font-weight: 700; color: #0a1a35; line-height: 1.4; margin: 0; }
+    .rl-subtitle { font-size: .72rem; color: #6b7d90; line-height: 1.5; margin: 0; }
 
     /* ══ BOTTOM CTA ══ */
     .res-cta {
-      margin-top: 1rem;
+      margin-top: 2rem;
       padding: 2.5rem 3rem;
       border-radius: 18px;
       background: linear-gradient(135deg, #00245a 0%, #0056a4 100%);
       border: none;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1.5rem; flex-wrap: wrap;
       box-shadow: 0 8px 40px rgba(0,36,90,.22);
     }
-    .res-cta-text h3 {
-      color: #fff;
-      margin: 0 0 .4rem;
-      font-size: 1.2rem;
-      font-weight: 800;
-    }
-    .res-cta-text p {
-      color: rgba(255,255,255,.62);
-      font-size: .88rem;
-      margin: 0;
-      line-height: 1.55;
-    }
-    .res-cta-btns {
-      display: flex;
-      gap: .85rem;
-      flex-wrap: wrap;
-      flex-shrink: 0;
-    }
+    .res-cta-text h3 { color: #fff; margin: 0 0 .4rem; font-size: 1.2rem; font-weight: 800; }
+    .res-cta-text p { color: rgba(255,255,255,.62); font-size: .88rem; margin: 0; line-height: 1.55; }
+    .res-cta-btns { display: flex; gap: .85rem; flex-wrap: wrap; flex-shrink: 0; }
 
     /* ══ RESPONSIVE ══ */
     @media (max-width: 1060px) {
-      .rl-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem; }
-      .rl-block-title { font-size: 1.3rem; }
-      .rl-block { padding: 1.75rem 1.75rem 2rem; }
+      .rl-grid { grid-template-columns: repeat(2, 1fr); gap: .9rem; }
+    }
+    @media (max-width: 820px) {
+      .ind-sec-hdr { padding: 1.2rem 1.25rem; gap: .75rem; }
+      .ind-sec-icon-wrap { width: 40px; height: 40px; border-radius: 9px; }
+      .ind-sec-icon-wrap svg { width: 18px; height: 18px; }
+      .ind-sec-body-inner { padding: 1.25rem 1.2rem 1.5rem; }
+      .ind-sec-doc-badge { display: none; }
+      .rsn-label { display: none; }
+      .ind-section { border-radius: 14px; }
     }
     @media (max-width: 768px) {
       .res-cta { flex-direction: column; text-align: center; }
       .res-cta-btns { justify-content: center; }
-      .res-main { padding: 3rem 0 5rem; }
+      .res-main { padding: 2rem 0 5rem; }
+      .res-stats-bar { display: flex; flex-wrap: wrap; }
+      .res-stat { padding: .9rem 1.3rem; flex: 1 1 40%; }
     }
     @media (max-width: 540px) {
-      .rl-grid { grid-template-columns: 1fr; gap: .9rem; }
-      .res-stats-bar { display: flex; flex-wrap: wrap; }
-      .res-stat { padding: .85rem 1.2rem; flex: 1 1 40%; }
-      .res-stat-num { font-size: 1.5rem; }
+      .rl-grid { grid-template-columns: 1fr; gap: .85rem; }
+      .ind-sec-hdr { padding: 1rem 1rem; gap: .65rem; }
+      .ind-sec-body-inner { padding: 1rem 1rem 1.25rem; }
+      .ind-sec-title { font-size: 1rem; }
       .res-cta { padding: 1.75rem 1.5rem; }
-      .rl-block-title { font-size: 1.1rem; }
-      .rl-block { padding: 1.4rem 1.25rem 1.75rem; }
+      .res-stat-num { font-size: 1.5rem; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
@@ -440,7 +567,7 @@
   <div class="container inner-hero-content">
     <span class="section-eyebrow">Catalog Download Center</span>
     <h1>Technical Resources</h1>
-    <p class="hero-sub-text">Download product catalogs, brand specifications, and industrial application guides.</p>
+    <p class="hero-sub-text">Browse by industry, then by brand — download product catalogs, technical specs, and application guides.</p>
     <div class="res-stats-bar">
       <div class="res-stat">
         <span class="res-stat-num">18</span>
@@ -462,428 +589,725 @@
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════
-     CATALOG LIBRARY
-═══════════════════════════════════════ -->
+<!-- ══════════════════════════════════════════
+     STICKY SECTOR NAVIGATION
+══════════════════════════════════════════ -->
+<div class="res-sector-nav" id="res-sector-nav" aria-label="Jump to section">
+  <div class="container">
+    <div class="rsn-inner">
+      <span class="rsn-label">Jump to</span>
+
+      <a href="#sec-cement" class="rsn-item rsn-active" data-sec="sec-cement">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="16" rx="2"/><path d="M2 12h20"/><path d="M8 6V4"/><path d="M16 6V4"/></svg>
+        Cement Industry
+      </a>
+
+      <div class="rsn-dot"></div>
+
+      <a href="#sec-palmoil" class="rsn-item" data-sec="sec-palmoil">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        Palm Oil Industry
+      </a>
+
+      <div class="rsn-dot"></div>
+
+      <a href="#sec-conveyor" class="rsn-item" data-sec="sec-conveyor">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        Conveyor Systems
+      </a>
+
+      <div class="rsn-dot"></div>
+
+      <a href="#sec-brands" class="rsn-item" data-sec="sec-brands">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        Brand Catalogs
+      </a>
+
+      <div class="rsn-dot"></div>
+
+      <a href="#sec-company" class="rsn-item" data-sec="sec-company">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        Company
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════
+     RESOURCE LIBRARY
+══════════════════════════════════════════ -->
 <section class="res-main">
   <div class="container">
 
-    <!-- ── Info Note ── -->
-    <p class="rl-note">
+    <!-- Info note -->
+    <div class="rl-note" role="note">
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
       <span><strong>All files are PDF format.</strong> Click any card to open or download. Contact <a href="mailto:contact@motionpluscorp.com">contact@motionpluscorp.com</a> for custom specifications or datasheets not listed here.</span>
-    </p>
+    </div>
 
 
-    <!-- ═══════════════════════════════════
-         01 — COMPANY RESOURCES
-    ════════════════════════════════════ -->
-    <div class="rl-block" data-block="company">
-      <div class="rl-block-hdr">
-        <span class="rl-block-eyebrow">Motion Plus Corporation</span>
-        <h2 class="rl-block-title">Company Resources</h2>
-        <span class="rl-block-ct">3 documents</span>
-      </div>
-      <div class="rl-grid">
+    <!-- ═══════════════════════════════════════════════
+         01 — CEMENT INDUSTRY
+    ════════════════════════════════════════════════ -->
+    <div class="ind-section" id="sec-cement" data-ind="cement" data-expanded="true">
 
-        <a href="Motion Plus Brochure.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">MPC</span>
-              <span class="rl-size-lbl">PDF · 3.2 MB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">MPC Product Brochure</p>
-            <p class="rl-subtitle">Corporate overview &amp; full product range</p>
-          </div>
-        </a>
-
-        <a href="Motion Plus Corporation_Company Profile (Eng) .pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">MPC</span>
-              <span class="rl-size-lbl">PDF · 11.3 MB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">Company Profile — English</p>
-            <p class="rl-subtitle">Company capabilities, brands &amp; services</p>
-          </div>
-        </a>
-
-        <a href="Motion Plus Corporation_Company Profile (THA) .pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">MPC</span>
-              <span class="rl-size-lbl">PDF · 11.6 MB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">Company Profile — Thai</p>
-            <p class="rl-subtitle">ข้อมูลบริษัท ความสามารถ และบริการ</p>
-          </div>
-        </a>
-
-      </div>
-    </div><!-- /company -->
-
-
-    <!-- ═══════════════════════════════════
-         02 — BRAND CATALOGS
-    ════════════════════════════════════ -->
-    <div class="rl-block" data-block="brand">
-      <div class="rl-block-hdr">
-        <span class="rl-block-eyebrow">UNO · TRIO · IWIS · Dongbo · KMH</span>
-        <h2 class="rl-block-title">Brand Catalogs</h2>
-        <span class="rl-block-ct">7 documents</span>
-      </div>
-      <div class="rl-grid">
-
-        <a href="House Brand Brochure.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">UNO · TRIO</span>
-              <span class="rl-size-lbl">PDF · 17.1 MB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">House Brand Brochure</p>
-            <p class="rl-subtitle">UNO roller chains &amp; TRIO forged chains</p>
-          </div>
-        </a>
-
-        <a href="IWIS elite-catalog-roller-and-conveyor-chains-.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">IWIS</span>
-              <span class="rl-size-lbl">PDF · 14.8 MB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">IWIS Elite — Full Catalog</p>
-            <p class="rl-subtitle">Complete roller &amp; conveyor chain range</p>
-          </div>
-        </a>
-
-        <a href="IWIS_elite-hollow-pin-chains-seriers-hb50-8.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">IWIS</span>
-              <span class="rl-size-lbl">PDF · 1,010 KB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">IWIS Hollow Pin Chains — HB50</p>
-            <p class="rl-subtitle">HB50 series for attachment conveyors</p>
-          </div>
-        </a>
-
-        <a href="IWIS elite-hsp-elevator-series-chain-in-mm-.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">IWIS</span>
-              <span class="rl-size-lbl">PDF · 1.4 MB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">IWIS HSP — Elevator Series Chains</p>
-            <p class="rl-subtitle">Elevator bucket chains in metric (mm)</p>
-          </div>
-        </a>
-
-        <a href="IWIS_elite-elidur-high-performance-initial-lubricant.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">IWIS</span>
-              <span class="rl-size-lbl">PDF · 407 KB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">IWIS Elidur Lubricant</p>
-            <p class="rl-subtitle">High-performance initial chain lubricant</p>
-          </div>
-        </a>
-
-        <a href="DBC general  catolugue_.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">Dongbo</span>
-              <span class="rl-size-lbl">PDF · 6.3 MB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">Dongbo — General Catalog</p>
-            <p class="rl-subtitle">Standard &amp; heavy-duty roller chain range</p>
-          </div>
-        </a>
-
-        <a href="KMH-Produktkatalog-2023-05-24(2)z-z779434252854.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-          <div class="rl-card-top">
-            <div class="rl-card-icon-badge">
-              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            </div>
-            <div class="rl-card-top-meta">
-              <span class="rl-brand-pill">KMH</span>
-              <span class="rl-size-lbl">PDF · 8.8 MB</span>
-            </div>
-            <div class="rl-dl-btn">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            </div>
-          </div>
-          <div class="rl-card-body">
-            <p class="rl-title">KMH — Pipe Conveyor Systems</p>
-            <p class="rl-subtitle">Components &amp; systems catalog (2023)</p>
-          </div>
-        </a>
-
-      </div>
-    </div><!-- /brand -->
-
-
-    <!-- ═══════════════════════════════════
-         03 — INDUSTRY APPLICATION GUIDES
-    ════════════════════════════════════ -->
-    <div class="rl-block" data-block="industry">
-      <div class="rl-block-hdr">
-        <span class="rl-block-eyebrow">Cement · Palm Oil · Sugar</span>
-        <h2 class="rl-block-title">Industry Application Guides</h2>
-        <span class="rl-block-ct">8 documents</span>
-      </div>
-
-      <!-- ── Cement Industry ── -->
-      <div class="rl-sub-block">
-        <div class="rl-sub-hdr">
-          <div class="rl-sub-icon">🏗️</div>
-          <span class="rl-sub-name">Cement Industry</span>
-          <div class="rl-sub-line"></div>
-          <span class="rl-sub-ct">5 documents &nbsp;·&nbsp; HS Chain</span>
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-cement" aria-expanded="true">
+        <div class="ind-sec-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
         </div>
-        <div class="rl-grid">
-
-          <a href="HS Chain Catalog_Cement Industrial Chains.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-            <div class="rl-card-top">
-              <div class="rl-card-icon-badge">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <div class="rl-card-top-meta">
-                <span class="rl-brand-pill">HS Chain</span>
-                <span class="rl-size-lbl">PDF · 5.2 MB</span>
-              </div>
-              <div class="rl-dl-btn">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
+        <div class="ind-sec-meta">
+          <span class="ind-sec-eyebrow">Industry Application</span>
+          <h2 class="ind-sec-title">Cement Industry</h2>
+          <div class="ind-sec-meta-row">
+            <span class="ind-sec-ct">5 documents</span>
+            <span class="ind-sec-sep">·</span>
+            <div class="ind-sec-brand-pills">
+              <span class="ind-sec-brand-pill">HS Chain</span>
             </div>
-            <div class="rl-card-body">
-              <p class="rl-title">Cement Industrial Chains Catalog</p>
-              <p class="rl-subtitle">Drag, apron &amp; kiln chain applications</p>
-            </div>
-          </a>
-
-          <a href="HS Chain Catalog_Cement Industry_Chain.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-            <div class="rl-card-top">
-              <div class="rl-card-icon-badge">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <div class="rl-card-top-meta">
-                <span class="rl-brand-pill">HS Chain</span>
-                <span class="rl-size-lbl">PDF · 636 KB</span>
-              </div>
-              <div class="rl-dl-btn">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
-            </div>
-            <div class="rl-card-body">
-              <p class="rl-title">Cement Industry Chain Specifications</p>
-              <p class="rl-subtitle">Technical specs for cement plant chains</p>
-            </div>
-          </a>
-
-          <a href="HS Chain Catalog_Cement Industry_Bucket Elevator Chain.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-            <div class="rl-card-top">
-              <div class="rl-card-icon-badge">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <div class="rl-card-top-meta">
-                <span class="rl-brand-pill">HS Chain</span>
-                <span class="rl-size-lbl">PDF · 739 KB</span>
-              </div>
-              <div class="rl-dl-btn">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
-            </div>
-            <div class="rl-card-body">
-              <p class="rl-title">Cement Bucket Elevator Chain</p>
-              <p class="rl-subtitle">Vertical bulk material handling chains</p>
-            </div>
-          </a>
-
-          <a href="HS Chain Catalog_Cement Industry.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-            <div class="rl-card-top">
-              <div class="rl-card-icon-badge">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <div class="rl-card-top-meta">
-                <span class="rl-brand-pill">HS Chain</span>
-                <span class="rl-size-lbl">PDF · 732 KB</span>
-              </div>
-              <div class="rl-dl-btn">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
-            </div>
-            <div class="rl-card-body">
-              <p class="rl-title">Cement Industry Catalog — Vol. 1</p>
-              <p class="rl-subtitle">Application guidance &amp; specifications</p>
-            </div>
-          </a>
-
-          <a href="HS Chain Catalog_Cement Industry_1.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-            <div class="rl-card-top">
-              <div class="rl-card-icon-badge">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <div class="rl-card-top-meta">
-                <span class="rl-brand-pill">HS Chain</span>
-                <span class="rl-size-lbl">PDF · 621 KB</span>
-              </div>
-              <div class="rl-dl-btn">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
-            </div>
-            <div class="rl-card-body">
-              <p class="rl-title">Cement Industry Catalog — Vol. 2</p>
-              <p class="rl-subtitle">Supplementary chain types &amp; variants</p>
-            </div>
-          </a>
-
+          </div>
         </div>
-      </div><!-- /cement -->
-
-      <!-- ── Palm Oil Industry ── -->
-      <div class="rl-sub-block">
-        <div class="rl-sub-hdr">
-          <div class="rl-sub-icon">🌴</div>
-          <span class="rl-sub-name">Palm Oil Industry</span>
-          <div class="rl-sub-line"></div>
-          <span class="rl-sub-ct">3 documents &nbsp;·&nbsp; HS Chain</span>
+        <div class="ind-sec-right">
+          <div class="ind-sec-doc-badge" aria-hidden="true">
+            <span class="ind-sec-doc-num">5</span>
+            <span class="ind-sec-doc-lbl">Docs</span>
+          </div>
+          <button class="ind-sec-toggle" aria-label="Collapse Cement Industry section" aria-expanded="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
         </div>
-        <div class="rl-grid">
+      </div>
 
-          <a href="HS Chain Catalog_Palm Oil Chain_Hollow Pin.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-            <div class="rl-card-top">
-              <div class="rl-card-icon-badge">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <div class="rl-card-top-meta">
-                <span class="rl-brand-pill">HS Chain</span>
-                <span class="rl-size-lbl">PDF · 354 KB</span>
-              </div>
-              <div class="rl-dl-btn">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
-            </div>
-            <div class="rl-card-body">
-              <p class="rl-title">Palm Oil Hollow Pin Chain</p>
-              <p class="rl-subtitle">FFB processing &amp; sterilizer conveyors</p>
-            </div>
-          </a>
+      <div class="ind-sec-body-wrap">
+        <div class="ind-sec-body" id="body-cement">
+          <div class="ind-sec-body-inner">
 
-          <a href="HS Chain Catalog_Palm Oil_Attachments.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-            <div class="rl-card-top">
-              <div class="rl-card-icon-badge">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            <!-- HS Chain brand group -->
+            <div class="brand-group">
+              <div class="brand-grp-hdr">
+                <span class="brand-grp-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  HS Chain
+                </span>
+                <div class="brand-grp-line"></div>
+                <span class="brand-grp-ct">5 documents</span>
               </div>
-              <div class="rl-card-top-meta">
-                <span class="rl-brand-pill">HS Chain</span>
-                <span class="rl-size-lbl">PDF · 261 KB</span>
-              </div>
-              <div class="rl-dl-btn">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
-            </div>
-            <div class="rl-card-body">
-              <p class="rl-title">Palm Oil Chain Attachments</p>
-              <p class="rl-subtitle">Attachment variants for palm oil mills</p>
-            </div>
-          </a>
 
-          <a href="HS Chain Catalog_Palm Oil_Straight Plate.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
-            <div class="rl-card-top">
-              <div class="rl-card-icon-badge">
-                <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-              </div>
-              <div class="rl-card-top-meta">
-                <span class="rl-brand-pill">HS Chain</span>
-                <span class="rl-size-lbl">PDF · 495 KB</span>
-              </div>
-              <div class="rl-dl-btn">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              </div>
-            </div>
-            <div class="rl-card-body">
-              <p class="rl-title">Palm Oil Straight Plate Chain</p>
-              <p class="rl-subtitle">Bulk conveyor straight plate chains</p>
-            </div>
-          </a>
+              <div class="rl-grid">
 
+                <a href="HS Chain Catalog_Cement Industrial Chains.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">HS Chain</span>
+                      <span class="rl-size-lbl">PDF · 5.2 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Cement Industrial Chains Catalog</p>
+                    <p class="rl-subtitle">Drag, apron &amp; kiln chain applications</p>
+                  </div>
+                </a>
+
+                <a href="HS Chain Catalog_Cement Industry_Chain.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">HS Chain</span>
+                      <span class="rl-size-lbl">PDF · 636 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Cement Industry Chain Specifications</p>
+                    <p class="rl-subtitle">Technical specs for cement plant chains</p>
+                  </div>
+                </a>
+
+                <a href="HS Chain Catalog_Cement Industry_Bucket Elevator Chain.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">HS Chain</span>
+                      <span class="rl-size-lbl">PDF · 739 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Cement Bucket Elevator Chain</p>
+                    <p class="rl-subtitle">Vertical bulk material handling chains</p>
+                  </div>
+                </a>
+
+                <a href="HS Chain Catalog_Cement Industry.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">HS Chain</span>
+                      <span class="rl-size-lbl">PDF · 732 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Cement Industry Catalog — Vol. 1</p>
+                    <p class="rl-subtitle">Application guidance &amp; specifications</p>
+                  </div>
+                </a>
+
+                <a href="HS Chain Catalog_Cement Industry_1.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">HS Chain</span>
+                      <span class="rl-size-lbl">PDF · 621 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Cement Industry Catalog — Vol. 2</p>
+                    <p class="rl-subtitle">Supplementary chain types &amp; variants</p>
+                  </div>
+                </a>
+
+              </div>
+            </div><!-- /HS Chain -->
+
+          </div>
         </div>
-      </div><!-- /palm oil -->
+      </div>
+    </div><!-- /Cement Industry -->
 
-    </div><!-- /industry -->
+
+    <!-- ═══════════════════════════════════════════════
+         02 — PALM OIL INDUSTRY
+    ════════════════════════════════════════════════ -->
+    <div class="ind-section" id="sec-palmoil" data-ind="palmoil" data-expanded="true">
+
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-palmoil" aria-expanded="true">
+        <div class="ind-sec-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
+        </div>
+        <div class="ind-sec-meta">
+          <span class="ind-sec-eyebrow">Industry Application</span>
+          <h2 class="ind-sec-title">Palm Oil Industry</h2>
+          <div class="ind-sec-meta-row">
+            <span class="ind-sec-ct">3 documents</span>
+            <span class="ind-sec-sep">·</span>
+            <div class="ind-sec-brand-pills">
+              <span class="ind-sec-brand-pill">HS Chain</span>
+            </div>
+          </div>
+        </div>
+        <div class="ind-sec-right">
+          <div class="ind-sec-doc-badge" aria-hidden="true">
+            <span class="ind-sec-doc-num">3</span>
+            <span class="ind-sec-doc-lbl">Docs</span>
+          </div>
+          <button class="ind-sec-toggle" aria-label="Collapse Palm Oil Industry section" aria-expanded="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ind-sec-body-wrap">
+        <div class="ind-sec-body" id="body-palmoil">
+          <div class="ind-sec-body-inner">
+
+            <!-- HS Chain brand group -->
+            <div class="brand-group">
+              <div class="brand-grp-hdr">
+                <span class="brand-grp-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  HS Chain
+                </span>
+                <div class="brand-grp-line"></div>
+                <span class="brand-grp-ct">3 documents</span>
+              </div>
+
+              <div class="rl-grid">
+
+                <a href="HS Chain Catalog_Palm Oil Chain_Hollow Pin.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">HS Chain</span>
+                      <span class="rl-size-lbl">PDF · 354 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Palm Oil Hollow Pin Chain</p>
+                    <p class="rl-subtitle">FFB processing &amp; sterilizer conveyors</p>
+                  </div>
+                </a>
+
+                <a href="HS Chain Catalog_Palm Oil_Attachments.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">HS Chain</span>
+                      <span class="rl-size-lbl">PDF · 261 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Palm Oil Chain Attachments</p>
+                    <p class="rl-subtitle">Attachment variants for palm oil mills</p>
+                  </div>
+                </a>
+
+                <a href="HS Chain Catalog_Palm Oil_Straight Plate.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">HS Chain</span>
+                      <span class="rl-size-lbl">PDF · 495 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Palm Oil Straight Plate Chain</p>
+                    <p class="rl-subtitle">Bulk conveyor straight plate chains</p>
+                  </div>
+                </a>
+
+              </div>
+            </div><!-- /HS Chain -->
+
+          </div>
+        </div>
+      </div>
+    </div><!-- /Palm Oil Industry -->
+
+
+    <!-- ═══════════════════════════════════════════════
+         03 — CONVEYOR SYSTEMS
+    ════════════════════════════════════════════════ -->
+    <div class="ind-section" id="sec-conveyor" data-ind="conveyor" data-expanded="true">
+
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-conveyor" aria-expanded="true">
+        <div class="ind-sec-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        </div>
+        <div class="ind-sec-meta">
+          <span class="ind-sec-eyebrow">Industry Application</span>
+          <h2 class="ind-sec-title">Conveyor Systems</h2>
+          <div class="ind-sec-meta-row">
+            <span class="ind-sec-ct">1 document</span>
+            <span class="ind-sec-sep">·</span>
+            <div class="ind-sec-brand-pills">
+              <span class="ind-sec-brand-pill">KMH</span>
+            </div>
+          </div>
+        </div>
+        <div class="ind-sec-right">
+          <div class="ind-sec-doc-badge" aria-hidden="true">
+            <span class="ind-sec-doc-num">1</span>
+            <span class="ind-sec-doc-lbl">Doc</span>
+          </div>
+          <button class="ind-sec-toggle" aria-label="Collapse Conveyor Systems section" aria-expanded="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ind-sec-body-wrap">
+        <div class="ind-sec-body" id="body-conveyor">
+          <div class="ind-sec-body-inner">
+
+            <!-- KMH brand group -->
+            <div class="brand-group">
+              <div class="brand-grp-hdr">
+                <span class="brand-grp-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+                  KMH
+                </span>
+                <div class="brand-grp-line"></div>
+                <span class="brand-grp-ct">1 document</span>
+              </div>
+
+              <div class="rl-grid">
+
+                <a href="KMH-Produktkatalog-2023-05-24(2)z-z779434252854.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">KMH</span>
+                      <span class="rl-size-lbl">PDF · 8.8 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">KMH — Pipe Conveyor Systems</p>
+                    <p class="rl-subtitle">Components &amp; systems catalog (2023)</p>
+                  </div>
+                </a>
+
+              </div>
+            </div><!-- /KMH -->
+
+          </div>
+        </div>
+      </div>
+    </div><!-- /Conveyor Systems -->
+
+
+    <!-- ═══════════════════════════════════════════════
+         04 — BRAND CATALOGS  (multi-industry reference)
+    ════════════════════════════════════════════════ -->
+    <div class="ind-section" id="sec-brands" data-ind="brands" data-expanded="true">
+
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-brands" aria-expanded="true">
+        <div class="ind-sec-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div class="ind-sec-meta">
+          <span class="ind-sec-eyebrow">Multi-Industry Reference</span>
+          <h2 class="ind-sec-title">Brand Catalogs</h2>
+          <div class="ind-sec-meta-row">
+            <span class="ind-sec-ct">6 documents</span>
+            <span class="ind-sec-sep">·</span>
+            <div class="ind-sec-brand-pills">
+              <span class="ind-sec-brand-pill">UNO · TRIO</span>
+              <span class="ind-sec-brand-pill">IWIS</span>
+              <span class="ind-sec-brand-pill">Dongbo</span>
+            </div>
+          </div>
+        </div>
+        <div class="ind-sec-right">
+          <div class="ind-sec-doc-badge" aria-hidden="true">
+            <span class="ind-sec-doc-num">6</span>
+            <span class="ind-sec-doc-lbl">Docs</span>
+          </div>
+          <button class="ind-sec-toggle" aria-label="Collapse Brand Catalogs section" aria-expanded="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ind-sec-body-wrap">
+        <div class="ind-sec-body" id="body-brands">
+          <div class="ind-sec-body-inner">
+
+            <!-- UNO · TRIO brand group -->
+            <div class="brand-group">
+              <div class="brand-grp-hdr">
+                <span class="brand-grp-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                  UNO · TRIO
+                </span>
+                <span style="font-size:.62rem;color:#9aabb8;font-weight:500;white-space:nowrap;padding-left:.4rem;">MPC House Brands</span>
+                <div class="brand-grp-line"></div>
+                <span class="brand-grp-ct">1 document</span>
+              </div>
+
+              <div class="rl-grid">
+
+                <a href="House Brand Brochure.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">UNO · TRIO</span>
+                      <span class="rl-size-lbl">PDF · 17.1 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">House Brand Brochure</p>
+                    <p class="rl-subtitle">UNO roller chains &amp; TRIO forged chains</p>
+                  </div>
+                </a>
+
+              </div>
+            </div><!-- /UNO·TRIO -->
+
+            <!-- IWIS brand group -->
+            <div class="brand-group">
+              <div class="brand-grp-hdr">
+                <span class="brand-grp-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  IWIS
+                </span>
+                <span style="font-size:.62rem;color:#9aabb8;font-weight:500;white-space:nowrap;padding-left:.4rem;">German Engineering</span>
+                <div class="brand-grp-line"></div>
+                <span class="brand-grp-ct">4 documents</span>
+              </div>
+
+              <div class="rl-grid">
+
+                <a href="IWIS elite-catalog-roller-and-conveyor-chains-.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">IWIS</span>
+                      <span class="rl-size-lbl">PDF · 14.8 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">IWIS Elite — Full Catalog</p>
+                    <p class="rl-subtitle">Complete roller &amp; conveyor chain range</p>
+                  </div>
+                </a>
+
+                <a href="IWIS_elite-hollow-pin-chains-seriers-hb50-8.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">IWIS</span>
+                      <span class="rl-size-lbl">PDF · 1,010 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">IWIS Hollow Pin Chains — HB50</p>
+                    <p class="rl-subtitle">HB50 series for attachment conveyors</p>
+                  </div>
+                </a>
+
+                <a href="IWIS elite-hsp-elevator-series-chain-in-mm-.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">IWIS</span>
+                      <span class="rl-size-lbl">PDF · 1.4 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">IWIS HSP — Elevator Series Chains</p>
+                    <p class="rl-subtitle">Elevator bucket chains in metric (mm)</p>
+                  </div>
+                </a>
+
+                <a href="IWIS_elite-elidur-high-performance-initial-lubricant.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">IWIS</span>
+                      <span class="rl-size-lbl">PDF · 407 KB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">IWIS Elidur Lubricant</p>
+                    <p class="rl-subtitle">High-performance initial chain lubricant</p>
+                  </div>
+                </a>
+
+              </div>
+            </div><!-- /IWIS -->
+
+            <!-- Dongbo brand group -->
+            <div class="brand-group">
+              <div class="brand-grp-hdr">
+                <span class="brand-grp-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                  Dongbo
+                </span>
+                <span style="font-size:.62rem;color:#9aabb8;font-weight:500;white-space:nowrap;padding-left:.4rem;">Korean Standard Chains</span>
+                <div class="brand-grp-line"></div>
+                <span class="brand-grp-ct">1 document</span>
+              </div>
+
+              <div class="rl-grid">
+
+                <a href="DBC general  catolugue_.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">Dongbo</span>
+                      <span class="rl-size-lbl">PDF · 6.3 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Dongbo — General Catalog</p>
+                    <p class="rl-subtitle">Standard &amp; heavy-duty roller chain range</p>
+                  </div>
+                </a>
+
+              </div>
+            </div><!-- /Dongbo -->
+
+          </div>
+        </div>
+      </div>
+    </div><!-- /Brand Catalogs -->
+
+
+    <!-- ═══════════════════════════════════════════════
+         05 — COMPANY RESOURCES
+    ════════════════════════════════════════════════ -->
+    <div class="ind-section" id="sec-company" data-ind="company" data-expanded="true">
+
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-company" aria-expanded="true">
+        <div class="ind-sec-icon-wrap" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+        </div>
+        <div class="ind-sec-meta">
+          <span class="ind-sec-eyebrow">Corporate Documents</span>
+          <h2 class="ind-sec-title">Company Resources</h2>
+          <div class="ind-sec-meta-row">
+            <span class="ind-sec-ct">3 documents</span>
+            <span class="ind-sec-sep">·</span>
+            <div class="ind-sec-brand-pills">
+              <span class="ind-sec-brand-pill">MPC</span>
+            </div>
+          </div>
+        </div>
+        <div class="ind-sec-right">
+          <div class="ind-sec-doc-badge" aria-hidden="true">
+            <span class="ind-sec-doc-num">3</span>
+            <span class="ind-sec-doc-lbl">Docs</span>
+          </div>
+          <button class="ind-sec-toggle" aria-label="Collapse Company Resources section" aria-expanded="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="ind-sec-body-wrap">
+        <div class="ind-sec-body" id="body-company">
+          <div class="ind-sec-body-inner">
+
+            <!-- MPC brand group -->
+            <div class="brand-group">
+              <div class="brand-grp-hdr">
+                <span class="brand-grp-badge">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                  Motion Plus Corporation
+                </span>
+                <div class="brand-grp-line"></div>
+                <span class="brand-grp-ct">3 documents</span>
+              </div>
+
+              <div class="rl-grid">
+
+                <a href="Motion Plus Brochure.pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">MPC</span>
+                      <span class="rl-size-lbl">PDF · 3.2 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">MPC Product Brochure</p>
+                    <p class="rl-subtitle">Corporate overview &amp; full product range</p>
+                  </div>
+                </a>
+
+                <a href="Motion Plus Corporation_Company Profile (Eng) .pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">MPC</span>
+                      <span class="rl-size-lbl">PDF · 11.3 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Company Profile — English</p>
+                    <p class="rl-subtitle">Company capabilities, brands &amp; services</p>
+                  </div>
+                </a>
+
+                <a href="Motion Plus Corporation_Company Profile (THA) .pdf" class="rl-card" target="_blank" rel="noopener noreferrer">
+                  <div class="rl-card-top">
+                    <div class="rl-card-icon-badge">
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    </div>
+                    <div class="rl-card-top-meta">
+                      <span class="rl-brand-pill">MPC</span>
+                      <span class="rl-size-lbl">PDF · 11.6 MB</span>
+                    </div>
+                    <div class="rl-dl-btn">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </div>
+                  </div>
+                  <div class="rl-card-body">
+                    <p class="rl-title">Company Profile — Thai</p>
+                    <p class="rl-subtitle">ข้อมูลบริษัท ความสามารถ และบริการ</p>
+                  </div>
+                </a>
+
+              </div>
+            </div><!-- /MPC -->
+
+          </div>
+        </div>
+      </div>
+    </div><!-- /Company Resources -->
 
 
     <!-- ══ BOTTOM CTA ══ -->
@@ -904,7 +1328,7 @@
 <!-- Footer -->
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-grid-5">
+    <div class="footer-grid-5" style="display:grid;grid-template-columns:1.4fr .9fr .9fr .9fr 1.1fr;gap:var(--space-lg);margin-bottom:var(--space-xl);">
       <div>
         <img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="footer-logo-img">
         <p class="footer-tagline">Motion Plus Corporation</p>
@@ -945,18 +1369,18 @@
       </div>
       <div class="footer-col">
         <h4 data-i18n="footer-contact-h">Contact</h4>
-        <div class="footer-contact-block">
-          <div class="footer-contact-item">
-            <span class="footer-contact-label" data-i18n="footer-addr-lbl">Address</span>
-            <span class="footer-contact-value">199/29 Soi Chuaplerng (Amorn),<br>Nanglinchee Rd., Yannawa, Bangkok 10120</span>
+        <div style="display:flex;flex-direction:column;gap:.85rem;">
+          <div style="display:flex;flex-direction:column;gap:.18rem;">
+            <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.50);" data-i18n="footer-addr-lbl">Address</span>
+            <span style="font-size:.85rem;color:rgba(255,255,255,.7);line-height:1.5;">199/29 Soi Chuaplerng (Amorn),<br>Nanglinchee Rd., Yannawa, Bangkok 10120</span>
           </div>
-          <div class="footer-contact-item">
-            <span class="footer-contact-label" data-i18n="footer-tel-lbl">Telephone</span>
-            <span class="footer-contact-value"><a href="tel:022865656">02 286-5656</a></span>
+          <div style="display:flex;flex-direction:column;gap:.18rem;">
+            <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.50);" data-i18n="footer-tel-lbl">Telephone</span>
+            <span style="font-size:.85rem;color:rgba(255,255,255,.7);"><a href="tel:022865656" style="color:var(--color-light-blue);">02 286-5656</a></span>
           </div>
-          <div class="footer-contact-item">
-            <span class="footer-contact-label" data-i18n="footer-email-lbl">Email</span>
-            <span class="footer-contact-value"><a href="mailto:contact@motionpluscorp.com">contact@motionpluscorp.com</a></span>
+          <div style="display:flex;flex-direction:column;gap:.18rem;">
+            <span style="font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:rgba(255,255,255,.50);" data-i18n="footer-email-lbl">Email</span>
+            <span style="font-size:.85rem;color:rgba(255,255,255,.7);"><a href="mailto:contact@motionpluscorp.com" style="color:var(--color-light-blue);">contact@motionpluscorp.com</a></span>
           </div>
         </div>
       </div>
@@ -969,12 +1393,13 @@
 </footer>
 
 <script>
-(function() {
+(function () {
+
   /* ── Mobile hamburger ── */
   var btn = document.getElementById('hamburger');
   var nav = document.getElementById('mobile-nav');
   if (btn && nav) {
-    btn.addEventListener('click', function() {
+    btn.addEventListener('click', function () {
       var open = nav.classList.toggle('open');
       btn.classList.toggle('open', open);
       btn.setAttribute('aria-expanded', String(open));
@@ -983,15 +1408,99 @@
   var trigger = document.getElementById('mob-ind-trigger');
   var sub     = document.getElementById('mob-ind-sub');
   if (trigger && sub) {
-    trigger.addEventListener('click', function() {
+    trigger.addEventListener('click', function () {
       var open = sub.classList.toggle('open');
       trigger.classList.toggle('open', open);
       trigger.setAttribute('aria-expanded', String(open));
     });
   }
 
+  /* ═══════════════════════════════════
+     ACCORDION — click header to toggle
+  ════════════════════════════════════ */
+  document.querySelectorAll('.ind-sec-hdr').forEach(function (hdr) {
+    hdr.addEventListener('click', function () {
+      var section  = hdr.closest('.ind-section');
+      var expanded = section.getAttribute('data-expanded') !== 'false';
+      var newState = expanded ? 'false' : 'true';
+      section.setAttribute('data-expanded', newState);
+      hdr.setAttribute('aria-expanded', String(!expanded));
+      var toggleBtn = hdr.querySelector('.ind-sec-toggle');
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-expanded', String(!expanded));
+        toggleBtn.setAttribute('aria-label',
+          (!expanded ? 'Collapse ' : 'Expand ') +
+          (section.querySelector('.ind-sec-title') || {textContent: 'section'}).textContent +
+          ' section'
+        );
+      }
+    });
+    /* keyboard accessibility */
+    hdr.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hdr.click(); }
+    });
+  });
+
+  /* ═══════════════════════════════════
+     SMOOTH SCROLL — sector nav links
+     (accounts for sticky header + nav)
+  ════════════════════════════════════ */
+  document.querySelectorAll('.rsn-item[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      var targetId = link.getAttribute('href').slice(1);
+      var target   = document.getElementById(targetId);
+      if (!target) return;
+
+      /* If section is collapsed, expand it first */
+      if (target.getAttribute('data-expanded') === 'false') {
+        target.setAttribute('data-expanded', 'true');
+        var hdr = target.querySelector('.ind-sec-hdr');
+        if (hdr) hdr.setAttribute('aria-expanded', 'true');
+      }
+
+      /* Scroll with offset for sticky elements */
+      var OFFSET = 140;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+
+  /* ═══════════════════════════════════
+     SCROLL SPY — highlight active nav item
+  ════════════════════════════════════ */
+  var sections = document.querySelectorAll('.ind-section[id]');
+  var navItems = document.querySelectorAll('.rsn-item[data-sec]');
+
+  function updateActiveNav () {
+    var scrollY  = window.pageYOffset;
+    var viewMid  = scrollY + 200; /* threshold: 200px from top of viewport */
+    var activeId = null;
+
+    sections.forEach(function (sec) {
+      var top = sec.offsetTop;
+      var bot = top + sec.offsetHeight;
+      if (viewMid >= top && viewMid < bot) activeId = sec.id;
+    });
+
+    /* fallback: use the first section if above all */
+    if (!activeId && sections.length) {
+      var firstTop = sections[0].offsetTop;
+      if (scrollY < firstTop + 100) activeId = sections[0].id;
+    }
+
+    navItems.forEach(function (item) {
+      item.classList.toggle('rsn-active', item.getAttribute('data-sec') === activeId);
+    });
+  }
+
+  window.addEventListener('scroll', updateActiveNav, { passive: true });
+  window.addEventListener('resize', updateActiveNav, { passive: true });
+  updateActiveNav();
+
 })();
 </script>
-<script src="animations.js"></script><script src="lang.js"></script>
+<script src="animations.js"></script>
+<script src="lang.js"></script>
 </body>
 </html>
