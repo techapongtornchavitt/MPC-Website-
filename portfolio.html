@@ -38,12 +38,12 @@
       padding: var(--space-2xl) 0 calc(var(--space-2xl) + 1rem);
     }
 
-    /* 5-column symmetric grid — compact, premium */
+    /* 4-column symmetric grid — prominent, premium */
     .portfolio-dark .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 0.7rem;
-      max-width: 1260px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      max-width: 1400px;
       margin-left: auto;
       margin-right: auto;
     }
@@ -251,32 +251,27 @@
     /* =====================================================
        RESPONSIVE
     ===================================================== */
-    @media (max-width: 1200px) {
-      .portfolio-dark .gallery-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 0.7rem;
-      }
-    }
-    @media (max-width: 900px) {
+    /* Desktop large — 4 columns (default above) */
+    @media (max-width: 1100px) {
       .portfolio-dark .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.65rem;
+        gap: 0.85rem;
       }
     }
-    @media (max-width: 720px) {
+    @media (max-width: 760px) {
       .portfolio-dark .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.55rem;
+        gap: 0.65rem;
       }
       .pglb-stage { padding: 3.5rem 3.25rem; }
       .pglb-nav { width: 42px; height: 42px; }
       .pglb-prev { left: .55rem; }
       .pglb-next { right: .55rem; }
     }
-    @media (max-width: 440px) {
+    @media (max-width: 420px) {
       .portfolio-dark .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.45rem;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 0.55rem;
       }
       .pglb-stage { padding: 3rem 2.75rem; }
     }
@@ -413,24 +408,20 @@
     <!-- Gallery Grid -->
     <div class="gallery-grid" id="gallery-grid">
 
-      <div class="gallery-item" data-img="Portfolio image6.jpg.png" data-alt="MPC Portfolio">
-        <img src="Portfolio image6.jpg.png" alt="MPC Portfolio" loading="eager" decoding="async">
-        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
-      </div>
       <div class="gallery-item" data-img="mpc-portfolio-3.jpg" data-alt="Palm Oil Industry Chain Solution">
-        <img src="mpc-portfolio-3.jpg" alt="Palm Oil Industry Chain Solution" loading="lazy" decoding="async">
+        <img src="mpc-portfolio-3.jpg" alt="Palm Oil Industry Chain Solution" loading="eager" decoding="async">
         <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
       <div class="gallery-item" data-img="mpc-portfolio-4.jpg" data-alt="Sugar Industry Chain Solution">
-        <img src="mpc-portfolio-4.jpg" alt="Sugar Industry Chain Solution" loading="lazy" decoding="async">
+        <img src="mpc-portfolio-4.jpg" alt="Sugar Industry Chain Solution" loading="eager" decoding="async">
         <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
       <div class="gallery-item" data-img="mpc-portfolio-5.jpg" data-alt="Industrial Chain Application">
-        <img src="mpc-portfolio-5.jpg" alt="Industrial Chain Application" loading="lazy" decoding="async">
+        <img src="mpc-portfolio-5.jpg" alt="Industrial Chain Application" loading="eager" decoding="async">
         <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
       <div class="gallery-item" data-img="mpc-portfolio-6.jpg" data-alt="Drive Chain System">
-        <img src="mpc-portfolio-6.jpg" alt="Drive Chain System" loading="lazy" decoding="async">
+        <img src="mpc-portfolio-6.jpg" alt="Drive Chain System" loading="eager" decoding="async">
         <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
       <div class="gallery-item" data-img="mpc-portfolio-8.jpg" data-alt="Cement Plant Chain System">
@@ -483,6 +474,10 @@
       </div>
       <div class="gallery-item" data-img="Portfolio image5.jpg.png" data-alt="MPC Portfolio">
         <img src="Portfolio image5.jpg.png" alt="MPC Portfolio" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="Portfolio image6.jpg.png" data-alt="MPC Portfolio">
+        <img src="Portfolio image6.jpg.png" alt="MPC Portfolio" loading="lazy" decoding="async">
         <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
 
