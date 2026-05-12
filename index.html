@@ -1264,7 +1264,7 @@
     /* ── Section wrapper ── */
     .soc-section {
       background: linear-gradient(168deg, #f7f9fd 0%, #eef3fb 55%, #e8eef8 100%);
-      padding: 5.5rem 0 0;
+      padding: 0 0 5rem;
       position: relative;
       overflow: hidden;
     }
@@ -1390,7 +1390,7 @@
     /* ── Full-width dark feed band ── */
     .soc-feed-band {
       background: #09121f;
-      margin-top: 3rem;
+      margin-top: 0;
       padding: 3.5rem 0 4.5rem;
       position: relative;
       overflow: hidden;
@@ -1481,13 +1481,13 @@
       .soc-feed-band-inner { padding: 0 1.25rem; }
     }
     @media (max-width: 540px) {
-      .soc-section    { padding: 4rem 0 0; }
+      .soc-section    { padding: 0 0 3rem; }
       .soc-hdr        { margin-bottom: 2.25rem; }
       .soc-follow-row { gap: .5rem; }
       .soc-plat-card  { min-width: 90px; max-width: 110px; padding: 1.1rem .7rem 1rem; }
       .soc-plat-ico   { width: 40px; height: 40px; border-radius: 11px; }
       .soc-plat-handle { display: none; }
-      .soc-feed-band  { padding: 2.25rem 0 3rem; margin-top: 2rem; }
+      .soc-feed-band  { padding: 2.25rem 0 3rem; margin-top: 0; }
       .soc-feed-band-footer { flex-direction: column; align-items: flex-start; }
       .soc-view-btn   { align-self: flex-end; }
     }
@@ -1563,7 +1563,16 @@
     }
     .ig-card-bg {
       position: absolute; inset: 0;
+      background-size: cover;
+      background-position: center;
       transition: transform .45s cubic-bezier(.4,0,.2,1);
+    }
+    /* Subtle dark vignette over each photo */
+    .ig-card-bg::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(160deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.38) 100%);
+      pointer-events: none;
     }
     .ig-card:hover .ig-card-bg { transform: scale(1.07); }
 
@@ -2158,7 +2167,98 @@
 -->
 <section class="soc-section" id="social-updates">
 
-  <div class="container">
+  <!-- ── Full-width dark Instagram feed band — PRIMARY showcase ── -->
+  <div class="soc-feed-band">
+    <div class="soc-feed-band-inner">
+
+      <!-- Feed header — Instagram branded -->
+      <div class="soc-feed-band-hdr">
+        <div class="sfb-ig-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div>
+          <div class="sfb-name">@motionpluscorporation</div>
+          <div class="sfb-sub">Instagram &nbsp;&bull;&nbsp; Product updates &amp; field installation highlights</div>
+        </div>
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="sfb-follow-ig" aria-label="Follow Motion Plus Corporation on Instagram">
+          <span class="sfb-live-dot sfb-live-dot-ig" aria-hidden="true"></span>
+          Follow
+        </a>
+      </div>
+
+      <!-- Instagram post grid — 6 tiles with real company photos -->
+      <div class="ig-grid" role="list" aria-label="Instagram posts — click to view on Instagram">
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-1" style="background-image:url('mpc-portfolio-3.jpg')"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-2" style="background-image:url('mpc-portfolio-5.jpg')"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-3" style="background-image:url('mpc-portfolio-8.jpg')"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-4" style="background-image:url('Portfolio experience.jpg')"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-5" style="background-image:url('Portfolio experience 1.jpg')"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-6" style="background-image:url('mpc-portfolio-9.jpg')"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+      </div><!-- /ig-grid -->
+
+      <p class="ig-note">Follow us on Instagram to see our latest posts — product updates, real installation photos, and behind-the-scenes content from across Southeast Asia.</p>
+
+      <!-- Feed footer -->
+      <div class="soc-feed-band-footer">
+        <div class="soc-hashtags">
+          <span class="soc-hash">#MotionPlusCorporation</span>
+          <span class="soc-hash">#IndustrialChains</span>
+          <span class="soc-hash">#SoutheastAsia</span>
+        </div>
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="soc-view-btn soc-view-ig-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          View All Posts on Instagram
+        </a>
+      </div>
+
+    </div><!-- /soc-feed-band-inner -->
+  </div><!-- /soc-feed-band -->
+
+  <!-- ── Follow Us — platform cards below the feed ── -->
+  <div class="container" style="padding-top:3.5rem;">
 
     <!-- ── Section header ── -->
     <div class="soc-hdr reveal">
@@ -2216,108 +2316,6 @@
       </a>
 
     </div><!-- /soc-follow-row -->
-
-    <!-- ── Divider into feed ── -->
-    <div class="soc-feed-intro reveal">
-      <span class="soc-fi-line"></span>
-      <span class="soc-fi-badge">
-        <span class="soc-fi-dot" aria-hidden="true"></span>
-        Latest on Instagram
-      </span>
-      <span class="soc-fi-line"></span>
-    </div>
-
-  </div><!-- /container -->
-
-  <!-- ── Full-width dark feed band ── -->
-  <div class="soc-feed-band">
-    <div class="soc-feed-band-inner">
-
-      <!-- Feed header — Instagram branded -->
-      <div class="soc-feed-band-hdr">
-        <div class="sfb-ig-icon" aria-hidden="true">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-        </div>
-        <div>
-          <div class="sfb-name">@motionpluscorporation</div>
-          <div class="sfb-sub">Instagram &nbsp;&bull;&nbsp; Product updates &amp; field installation highlights</div>
-        </div>
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="sfb-follow-ig" aria-label="Follow Motion Plus Corporation on Instagram">
-          <span class="sfb-live-dot sfb-live-dot-ig" aria-hidden="true"></span>
-          Follow
-        </a>
-      </div>
-
-      <!-- Instagram post grid — 6 tiles (3 × 2), all open the Instagram profile -->
-      <div class="ig-grid" role="list" aria-label="Instagram posts — click to view on Instagram">
-
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-1"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <span>View on Instagram</span>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-2"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <span>View on Instagram</span>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-3"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <span>View on Instagram</span>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-4"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <span>View on Instagram</span>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-5"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <span>View on Instagram</span>
-          </div>
-        </a>
-
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-6"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-            <span>View on Instagram</span>
-          </div>
-        </a>
-
-      </div><!-- /ig-grid -->
-
-      <p class="ig-note">Follow us on Instagram to see our latest posts — product updates, real installation photos, and behind-the-scenes content from across Southeast Asia.</p>
-
-      <!-- Feed footer -->
-      <div class="soc-feed-band-footer">
-        <div class="soc-hashtags">
-          <span class="soc-hash">#MotionPlusCorporation</span>
-          <span class="soc-hash">#IndustrialChains</span>
-          <span class="soc-hash">#SoutheastAsia</span>
-        </div>
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="soc-view-btn soc-view-ig-btn">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-          View All Posts on Instagram
-        </a>
-      </div>
-
-    </div><!-- /soc-feed-band-inner -->
-  </div><!-- /soc-feed-band -->
 
 </section>
 
