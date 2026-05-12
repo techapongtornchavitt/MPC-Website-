@@ -1536,77 +1536,150 @@
       animation: soc-pulse 1.8s ease-in-out infinite;
     }
 
-    /* ── Instagram post grid (6 tiles, 3 × 2) ── */
-    .ig-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 0.6rem;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 28px 90px rgba(0,0,0,.55), 0 4px 20px rgba(0,0,0,.22);
-      border: 1px solid rgba(255,255,255,.07);
-    }
-    .ig-card {
-      aspect-ratio: 1;
+    /* ── Instagram horizontal scrolling strip ── */
+
+    /* Outer wrapper — full bleed, hides overflow, holds fade-edge masks */
+    .ig-scroll-wrap {
       position: relative;
+      width: 100%;
+      margin: 0;
+      padding: 0.25rem 0 1.4rem;
+    }
+    /* Fade-out edges */
+    .ig-scroll-wrap::before,
+    .ig-scroll-wrap::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 80px;
+      pointer-events: none;
+      z-index: 3;
+    }
+    .ig-scroll-wrap::before {
+      left: 0;
+      background: linear-gradient(to right, #09121f 0%, transparent 100%);
+    }
+    .ig-scroll-wrap::after {
+      right: 0;
+      background: linear-gradient(to left, #09121f 0%, transparent 100%);
+    }
+
+    /* Scrollable track */
+    .ig-strip-track {
+      display: flex;
+      gap: 0.85rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;             /* Firefox */
+      padding: 0.5rem 80px 0.5rem;
+      cursor: grab;
+    }
+    .ig-strip-track:active { cursor: grabbing; }
+    .ig-strip-track::-webkit-scrollbar { display: none; }
+
+    /* Individual post card */
+    .ig-post-card {
+      flex: 0 0 240px;
+      height: 300px;
+      scroll-snap-align: start;
+      border-radius: 14px;
       overflow: hidden;
+      position: relative;
       display: block;
       text-decoration: none;
+      background: #0c1525;
+      box-shadow: 0 8px 32px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;
     }
-    /* Subtle dot-grid texture */
-    .ig-card::before {
-      content: '';
-      position: absolute; inset: 0;
-      background-image: radial-gradient(circle, rgba(255,255,255,.055) 1px, transparent 1px);
-      background-size: 18px 18px;
-      pointer-events: none; z-index: 1;
+    .ig-post-card:hover {
+      transform: translateY(-5px) scale(1.025);
+      box-shadow: 0 18px 50px rgba(0,0,0,.6), 0 4px 14px rgba(188,24,136,.2);
     }
-    .ig-card-bg {
+
+    /* Photo fill */
+    .ig-post-img {
       position: absolute; inset: 0;
       background-size: cover;
       background-position: center;
       transition: transform .45s cubic-bezier(.4,0,.2,1);
     }
-    /* Subtle dark vignette over each photo */
-    .ig-card-bg::after {
-      content: '';
+    .ig-post-card:hover .ig-post-img { transform: scale(1.06); }
+
+    /* Bottom gradient scrim — always visible, shows IG icon */
+    .ig-post-scrim {
       position: absolute; inset: 0;
-      background: linear-gradient(160deg, rgba(0,0,0,.18) 0%, rgba(0,0,0,.38) 100%);
+      background: linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.12) 45%, transparent 100%);
+      z-index: 1;
       pointer-events: none;
     }
-    .ig-card:hover .ig-card-bg { transform: scale(1.07); }
 
-    /* Six distinct moody-industrial gradient swatches */
-    .ig-bg-1 { background: radial-gradient(ellipse at 40% 60%, rgba(240,148,51,.24) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(188,24,136,.16) 0%, transparent 50%), #0c1118; }
-    .ig-bg-2 { background: radial-gradient(ellipse at 60% 40%, rgba(220,39,67,.22) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(204,35,102,.15) 0%, transparent 50%), #0c1118; }
-    .ig-bg-3 { background: radial-gradient(ellipse at 50% 55%, rgba(0,86,164,.24) 0%, transparent 60%), radial-gradient(ellipse at 85% 15%, rgba(0,56,120,.18) 0%, transparent 45%), #0c1118; }
-    .ig-bg-4 { background: radial-gradient(ellipse at 30% 70%, rgba(230,104,60,.24) 0%, transparent 55%), radial-gradient(ellipse at 70% 28%, rgba(240,148,51,.16) 0%, transparent 50%), #0c1118; }
-    .ig-bg-5 { background: radial-gradient(ellipse at 72% 60%, rgba(188,24,136,.22) 0%, transparent 55%), radial-gradient(ellipse at 28% 30%, rgba(220,39,67,.13) 0%, transparent 45%), #0c1118; }
-    .ig-bg-6 { background: radial-gradient(ellipse at 50% 42%, rgba(204,35,102,.20) 0%, transparent 55%), radial-gradient(ellipse at 78% 72%, rgba(240,148,51,.14) 0%, transparent 45%), #0c1118; }
+    /* IG icon badge bottom-right */
+    .ig-post-badge {
+      position: absolute;
+      bottom: 10px; right: 10px;
+      width: 28px; height: 28px;
+      background: rgba(0,0,0,.45);
+      border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2;
+      opacity: 0.72;
+      transition: opacity .25s ease;
+    }
+    .ig-post-card:hover .ig-post-badge { opacity: 1; }
 
-    /* Hover overlay */
-    .ig-card-hover {
+    /* Hover overlay — "View on Instagram" */
+    .ig-post-hover {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
-      align-items: center; justify-content: center; gap: .55rem;
-      background: rgba(0,0,0,.56);
+      align-items: center; justify-content: center; gap: .5rem;
+      background: rgba(0,0,0,.52);
+      backdrop-filter: blur(2px);
       opacity: 0;
       transition: opacity .28s ease;
-      z-index: 2;
+      z-index: 3;
     }
-    .ig-card:hover .ig-card-hover { opacity: 1; }
-    .ig-card-hover span {
-      font-size: .78rem; font-weight: 700;
-      color: rgba(255,255,255,.9); letter-spacing: .04em;
+    .ig-post-card:hover .ig-post-hover { opacity: 1; }
+    .ig-post-hover span {
+      font-size: .76rem; font-weight: 700;
+      color: rgba(255,255,255,.92); letter-spacing: .05em;
+      text-transform: uppercase;
     }
 
-    /* Small caption below grid */
-    .ig-note {
-      font-size: .79rem;
-      color: rgba(255,255,255,.36);
+    /* Prev / Next arrow buttons */
+    .ig-arrow {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer;
+      z-index: 4;
+      transition: background .2s, opacity .2s;
+      padding: 0;
+      line-height: 1;
+      user-select: none;
+    }
+    .ig-arrow:hover { background: rgba(188,24,136,.45); border-color: rgba(188,24,136,.55); }
+    .ig-arrow:disabled,
+    .ig-arrow[data-at-edge="true"] { opacity: 0.25; pointer-events: none; }
+    .ig-arrow-prev { left: 10px; }
+    .ig-arrow-next { right: 10px; }
+
+    /* Strip caption */
+    .ig-strip-note {
+      font-size: .76rem;
+      color: rgba(255,255,255,.32);
       text-align: center;
-      margin: 1.2rem 0 0;
-      line-height: 1.65;
+      margin: 0 0 0;
+      padding: 0 1.75rem 1.5rem;
+      line-height: 1.6;
+      letter-spacing: .01em;
     }
 
     /* "View All Posts on Instagram" button — IG gradient */
@@ -1619,9 +1692,13 @@
       transform: translateY(-2px);
     }
 
-    /* Responsive */
-    @media (max-width: 480px) {
-      .ig-grid { grid-template-columns: repeat(2, 1fr); }
+    /* Responsive card sizing */
+    @media (max-width: 600px) {
+      .ig-post-card { flex: 0 0 190px; height: 238px; }
+      .ig-arrow { display: none; }
+      .ig-scroll-wrap::before,
+      .ig-scroll-wrap::after { width: 40px; }
+      .ig-strip-track { padding: 0.5rem 40px; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
@@ -2186,62 +2263,136 @@
         </a>
       </div>
 
-      <!-- Instagram post grid — 6 tiles with real company photos -->
-      <div class="ig-grid" role="list" aria-label="Instagram posts — click to view on Instagram">
+    </div><!-- /soc-feed-band-inner (header) -->
 
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-1" style="background-image:url('mpc-portfolio-3.jpg')"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    <!-- ── Full-width horizontal scrolling photo strip ── -->
+    <div class="ig-scroll-wrap" id="ig-scroll-wrap">
+
+      <!-- Prev arrow -->
+      <button class="ig-arrow ig-arrow-prev" id="ig-prev" aria-label="Scroll left" data-at-edge="true">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+
+      <!-- Scrollable track -->
+      <div class="ig-strip-track" id="ig-track" role="list" aria-label="Instagram photo showcase — swipe or use arrows to browse">
+
+        <!-- Card 1 -->
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-post-card" role="listitem" aria-label="View on Instagram">
+          <div class="ig-post-img" style="background-image:url('mpc-portfolio-3.jpg')"></div>
+          <div class="ig-post-scrim"></div>
+          <div class="ig-post-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="ig-post-hover" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <span>View on Instagram</span>
           </div>
         </a>
 
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-2" style="background-image:url('mpc-portfolio-5.jpg')"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <!-- Card 2 -->
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-post-card" role="listitem" aria-label="View on Instagram">
+          <div class="ig-post-img" style="background-image:url('mpc-portfolio-4.jpg')"></div>
+          <div class="ig-post-scrim"></div>
+          <div class="ig-post-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="ig-post-hover" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <span>View on Instagram</span>
           </div>
         </a>
 
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-3" style="background-image:url('mpc-portfolio-8.jpg')"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <!-- Card 3 -->
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-post-card" role="listitem" aria-label="View on Instagram">
+          <div class="ig-post-img" style="background-image:url('mpc-portfolio-5.jpg')"></div>
+          <div class="ig-post-scrim"></div>
+          <div class="ig-post-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="ig-post-hover" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <span>View on Instagram</span>
           </div>
         </a>
 
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-4" style="background-image:url('Portfolio experience.jpg')"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <!-- Card 4 -->
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-post-card" role="listitem" aria-label="View on Instagram">
+          <div class="ig-post-img" style="background-image:url('mpc-portfolio-6.jpg')"></div>
+          <div class="ig-post-scrim"></div>
+          <div class="ig-post-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="ig-post-hover" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <span>View on Instagram</span>
           </div>
         </a>
 
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-5" style="background-image:url('Portfolio experience 1.jpg')"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <!-- Card 5 -->
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-post-card" role="listitem" aria-label="View on Instagram">
+          <div class="ig-post-img" style="background-image:url('mpc-portfolio-8.jpg')"></div>
+          <div class="ig-post-scrim"></div>
+          <div class="ig-post-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="ig-post-hover" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <span>View on Instagram</span>
           </div>
         </a>
 
-        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
-          <div class="ig-card-bg ig-bg-6" style="background-image:url('mpc-portfolio-9.jpg')"></div>
-          <div class="ig-card-hover" aria-hidden="true">
-            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <!-- Card 6 -->
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-post-card" role="listitem" aria-label="View on Instagram">
+          <div class="ig-post-img" style="background-image:url('Portfolio experience.jpg')"></div>
+          <div class="ig-post-scrim"></div>
+          <div class="ig-post-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="ig-post-hover" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             <span>View on Instagram</span>
           </div>
         </a>
 
-      </div><!-- /ig-grid -->
+        <!-- Card 7 -->
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-post-card" role="listitem" aria-label="View on Instagram">
+          <div class="ig-post-img" style="background-image:url('Portfolio experience 1.jpg')"></div>
+          <div class="ig-post-scrim"></div>
+          <div class="ig-post-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="ig-post-hover" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
 
-      <p class="ig-note">Follow us on Instagram to see our latest posts — product updates, real installation photos, and behind-the-scenes content from across Southeast Asia.</p>
+        <!-- Card 8 -->
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-post-card" role="listitem" aria-label="View on Instagram">
+          <div class="ig-post-img" style="background-image:url('mpc-portfolio-9.jpg')"></div>
+          <div class="ig-post-scrim"></div>
+          <div class="ig-post-badge" aria-hidden="true">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </div>
+          <div class="ig-post-hover" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
 
-      <!-- Feed footer -->
+      </div><!-- /ig-strip-track -->
+
+      <!-- Next arrow -->
+      <button class="ig-arrow ig-arrow-next" id="ig-next" aria-label="Scroll right">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+
+    </div><!-- /ig-scroll-wrap -->
+
+    <p class="ig-strip-note">Swipe or use arrows to browse &nbsp;·&nbsp; Tap any photo to visit our Instagram</p>
+
+    <!-- Feed footer -->
+    <div class="soc-feed-band-inner" style="padding-top:0;">
       <div class="soc-feed-band-footer">
         <div class="soc-hashtags">
           <span class="soc-hash">#MotionPlusCorporation</span>
@@ -2253,8 +2404,8 @@
           View All Posts on Instagram
         </a>
       </div>
+    </div><!-- /soc-feed-band-inner (footer) -->
 
-    </div><!-- /soc-feed-band-inner -->
   </div><!-- /soc-feed-band -->
 
   <!-- ── Follow Us — platform cards below the feed ── -->
@@ -2625,6 +2776,59 @@ window.addEventListener('scroll', function() {
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape' && lb.classList.contains('lb-active')) closeLb();
   });
+}());
+</script>
+
+<!-- Instagram horizontal strip — arrow nav + drag scroll -->
+<script>
+(function () {
+  'use strict';
+  var track = document.getElementById('ig-track');
+  var btnPrev = document.getElementById('ig-prev');
+  var btnNext = document.getElementById('ig-next');
+  if (!track || !btnPrev || !btnNext) return;
+
+  var SCROLL_STEP = 260; // px per arrow click (~1 card + gap)
+
+  function updateArrows() {
+    var atStart = track.scrollLeft <= 4;
+    var atEnd   = track.scrollLeft >= track.scrollWidth - track.clientWidth - 4;
+    btnPrev.setAttribute('data-at-edge', atStart ? 'true' : 'false');
+    btnNext.setAttribute('data-at-edge', atEnd   ? 'true' : 'false');
+  }
+
+  btnPrev.addEventListener('click', function () {
+    track.scrollBy({ left: -SCROLL_STEP, behavior: 'smooth' });
+  });
+  btnNext.addEventListener('click', function () {
+    track.scrollBy({ left:  SCROLL_STEP, behavior: 'smooth' });
+  });
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  updateArrows();
+
+  /* ── Drag-to-scroll (mouse) ── */
+  var isDragging = false, startX = 0, scrollStart = 0;
+  track.addEventListener('mousedown', function (e) {
+    isDragging = true;
+    startX     = e.pageX;
+    scrollStart = track.scrollLeft;
+    track.style.userSelect = 'none';
+  });
+  document.addEventListener('mousemove', function (e) {
+    if (!isDragging) return;
+    track.scrollLeft = scrollStart - (e.pageX - startX);
+  });
+  document.addEventListener('mouseup', function () {
+    if (!isDragging) return;
+    isDragging = false;
+    track.style.userSelect = '';
+    updateArrows();
+  });
+
+  /* Prevent click-to-navigate firing after a drag */
+  track.addEventListener('click', function (e) {
+    if (Math.abs(track.scrollLeft - scrollStart) > 6) e.preventDefault();
+  }, true);
 }());
 </script>
 </body>
