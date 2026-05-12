@@ -29,27 +29,29 @@
   <!-- Google Search Console: add <meta name="google-site-verification" content="YOUR_CODE"> here --><link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="flipbook-viewer.css">
   <style>
-    /* �� Portfolio Gallery � fully overrides styles.css gallery for this page � */
+    /* =====================================================
+       PORTFOLIO GALLERY — clean symmetric grid + lightbox
+    ===================================================== */
 
     .portfolio-dark {
       background: var(--color-dark-navy);
-      padding: var(--space-2xl) 0;
+      padding: var(--space-2xl) 0 calc(var(--space-2xl) + 1rem);
     }
 
-    /* 4-column symmetric grid on desktop */
+    /* 4-column symmetric grid */
     .portfolio-dark .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
+      gap: 0.9rem;
     }
 
-    /* �� All regular items: strict 4:3, cover crop �� */
+    /* All items: strict 4:3, cover crop, clickable */
     .portfolio-dark .gallery-item {
       aspect-ratio: 4 / 3;
-      border-radius: 12px;
+      border-radius: 10px;
       overflow: hidden;
       background: #0c1525;
-      cursor: default;
+      cursor: pointer;
       position: relative;
     }
     .portfolio-dark .gallery-item img {
@@ -58,63 +60,216 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      transition: transform 0.45s ease;
-    }
-    /* Suppress hover effects � pure visual showcase */
-    .portfolio-dark .gallery-item:hover { transform: none !important; }
-    .portfolio-dark .gallery-item:hover img { transform: none; }
-    .portfolio-dark .gallery-overlay { display: none !important; }
-
-    /* �� Full-width banner: collage image spans all 4 columns �� */
-    .gallery-item--wide {
-      grid-column: 1 / -1;
-      aspect-ratio: 16 / 5;
-      background: #0c1525;
-      border-radius: 12px;
-      overflow: hidden;
-    }
-    .gallery-item--wide img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
+      transition: transform 0.42s cubic-bezier(.4,0,.2,1);
+      will-change: transform;
     }
 
-    /* �� Empty / hidden state �� */
+    /* Hover: subtle zoom + overlay */
+    .portfolio-dark .gallery-item:hover img {
+      transform: scale(1.06);
+    }
+    .portfolio-dark .gallery-item .pg-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,22,56,0.52);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.28s ease;
+    }
+    .portfolio-dark .gallery-item:hover .pg-overlay {
+      opacity: 1;
+    }
+    .pg-expand-icon {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.18);
+      border: 2px solid rgba(255,255,255,0.75);
+      display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      transition: background 0.18s, transform 0.18s;
+    }
+    .portfolio-dark .gallery-item:hover .pg-expand-icon {
+      background: rgba(255,255,255,0.28);
+      transform: scale(1.1);
+    }
+
+    /* Empty state */
     .gallery-item.hidden { display: none; }
     .gallery-empty {
       grid-column: 1 / -1;
       text-align: center;
       padding: 4rem 0;
       color: rgba(255,255,255,.4);
-      font-size: 1rem;
     }
 
-    /* �� Responsive �� */
-    /* Tablet: 3-col */
+    /* =====================================================
+       LIGHTBOX MODAL
+    ===================================================== */
+    .pglb-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.94);
+      z-index: 9900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+    .pglb-overlay.pglb-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* Image stage */
+    .pglb-stage {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      padding: 4rem 5.5rem;
+      box-sizing: border-box;
+    }
+    .pglb-img-wrap {
+      max-width: 100%;
+      max-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .pglb-img {
+      max-width: 100%;
+      max-height: calc(100vh - 8rem);
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.7);
+      opacity: 0;
+      transform: scale(0.94);
+      transition: opacity 0.32s ease, transform 0.32s ease;
+      display: block;
+      user-select: none;
+      -webkit-user-drag: none;
+    }
+    .pglb-overlay.pglb-open .pglb-img {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    /* Counter badge */
+    .pglb-counter {
+      position: absolute;
+      bottom: 1.25rem;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255,255,255,0.12);
+      color: rgba(255,255,255,0.7);
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .3rem .9rem;
+      border-radius: 100px;
+      letter-spacing: .05em;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      white-space: nowrap;
+    }
+
+    /* Close button */
+    .pglb-close {
+      position: absolute;
+      top: 1.1rem;
+      right: 1.3rem;
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.25);
+      color: #fff;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .18s, transform .15s;
+      z-index: 10;
+    }
+    .pglb-close:hover {
+      background: rgba(255,255,255,0.22);
+      transform: scale(1.08);
+    }
+
+    /* Prev / Next arrows */
+    .pglb-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.1);
+      border: 1.5px solid rgba(255,255,255,0.22);
+      color: #fff;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .18s, transform .2s;
+      z-index: 10;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .pglb-nav:hover { background: rgba(255,255,255,0.22); }
+    .pglb-nav:active { transform: translateY(-50%) scale(0.94); }
+    .pglb-prev { left: 1.1rem; }
+    .pglb-next { right: 1.1rem; }
+
+    /* Dot indicators */
+    .pglb-dots {
+      position: absolute;
+      bottom: 3.75rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: .38rem;
+      align-items: center;
+    }
+    .pglb-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.28);
+      cursor: pointer;
+      transition: background .22s, transform .22s;
+      border: none;
+      padding: 0;
+    }
+    .pglb-dot.active {
+      background: #fff;
+      transform: scale(1.35);
+    }
+    .pglb-dots.pglb-dots-hidden { display: none; }
+
+    /* =====================================================
+       RESPONSIVE
+    ===================================================== */
     @media (max-width: 1100px) {
       .portfolio-dark .gallery-grid {
         grid-template-columns: repeat(3, 1fr);
-        gap: 0.875rem;
+        gap: 0.8rem;
       }
-      .gallery-item--wide { aspect-ratio: 16 / 5; }
     }
-    /* Small tablet / large phone: 2-col */
     @media (max-width: 720px) {
       .portfolio-dark .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.75rem;
+        gap: 0.65rem;
       }
-      .gallery-item--wide { aspect-ratio: 16 / 6; }
+      .pglb-stage { padding: 3.5rem 3.25rem; }
+      .pglb-nav { width: 42px; height: 42px; }
+      .pglb-prev { left: .55rem; }
+      .pglb-next { right: .55rem; }
     }
-    /* Mobile: 2-col tight */
     @media (max-width: 440px) {
       .portfolio-dark .gallery-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
+        gap: 0.45rem;
       }
-      .gallery-item--wide { aspect-ratio: 3 / 2; }
+      .pglb-stage { padding: 3rem 2.75rem; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
@@ -249,62 +404,121 @@
     <!-- Gallery Grid -->
     <div class="gallery-grid" id="gallery-grid">
 
-      <!-- Case studies collage � spans 2 columns (wide landscape image) -->
-      <div class="gallery-item gallery-item--wide">
-        <img src="mpc-portfolio-projects.png"
-             alt="MPC Case Studies � Industrial Chain Projects and Field Operations in Thailand"
-             loading="eager" fetchpriority="high" decoding="async">
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="Portfolio image1.png" data-alt="MPC Portfolio">
+        <img src="Portfolio image1.png" alt="MPC Portfolio" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="Portfolio image2.jpg.png" data-alt="MPC Portfolio">
+        <img src="Portfolio image2.jpg.png" alt="MPC Portfolio" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="Portfolio image3.jpg.png" data-alt="MPC Portfolio">
+        <img src="Portfolio image3.jpg.png" alt="MPC Portfolio" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="Portfolio image4.jpg.png" data-alt="MPC Portfolio">
+        <img src="Portfolio image4.jpg.png" alt="MPC Portfolio" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="Portfolio image5.jpg.png" data-alt="MPC Portfolio">
+        <img src="Portfolio image5.jpg.png" alt="MPC Portfolio" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="Portfolio image6.jpg.png" data-alt="MPC Portfolio">
+        <img src="Portfolio image6.jpg.png" alt="MPC Portfolio" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="mpc-portfolio-3.jpg" data-alt="Palm Oil Industry Chain Solution">
         <img src="mpc-portfolio-3.jpg" alt="Palm Oil Industry Chain Solution" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="mpc-portfolio-4.jpg" data-alt="Sugar Industry Chain Solution">
         <img src="mpc-portfolio-4.jpg" alt="Sugar Industry Chain Solution" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="mpc-portfolio-5.jpg" data-alt="Industrial Chain Application">
         <img src="mpc-portfolio-5.jpg" alt="Industrial Chain Application" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="mpc-portfolio-6.jpg" data-alt="Drive Chain System">
         <img src="mpc-portfolio-6.jpg" alt="Drive Chain System" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="mpc-portfolio-8.jpg" data-alt="Cement Plant Chain System">
         <img src="mpc-portfolio-8.jpg" alt="Cement Plant Chain System" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="mpc-portfolio-9.jpg" data-alt="Sugar Mill Chain Supply">
         <img src="mpc-portfolio-9.jpg" alt="Sugar Mill Chain Supply" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="mpc-portfolio-10.webp" data-alt="Palm Oil Industry Chain">
         <img src="mpc-portfolio-10.webp" alt="Palm Oil Industry Chain" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="mpc-portfolio-11.webp" data-alt="Industrial Chain Solution">
         <img src="mpc-portfolio-11.webp" alt="Industrial Chain Solution" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
+      <div class="gallery-item" data-img="mpc-portfolio-12.webp" data-alt="Industrial Chain Supply">
         <img src="mpc-portfolio-12.webp" alt="Industrial Chain Supply" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
-        <img src="Portfolio experience.jpg" alt="MPC technicians installing heavy-duty industrial drag chain on-site" loading="lazy" decoding="async">
+      <div class="gallery-item" data-img="Portfolio experience.jpg" data-alt="MPC technicians installing industrial drag chain on-site">
+        <img src="Portfolio experience.jpg" alt="MPC technicians installing industrial drag chain on-site" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
-        <img src="Portfolio experience 1.jpg" alt="MPC team conducting quality inspection of forged chains upon delivery" loading="lazy" decoding="async">
+      <div class="gallery-item" data-img="Portfolio experience 1.jpg" data-alt="MPC team quality inspection of forged chains">
+        <img src="Portfolio experience 1.jpg" alt="MPC team quality inspection of forged chains" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
-
-      <div class="gallery-item">
-        <img src="Portfolio experience 2.jpg" alt="Industrial chain delivery and logistics � forklift loading palletised chains onto transport" loading="lazy" decoding="async">
+      <div class="gallery-item" data-img="Portfolio experience 2.jpg" data-alt="Industrial chain delivery and logistics">
+        <img src="Portfolio experience 2.jpg" alt="Industrial chain delivery and logistics" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="mpc-portfolio-13.jpg" data-alt="MPC technicians conducting conveyor chain inspection">
+        <img src="mpc-portfolio-13.jpg" alt="MPC technicians conducting conveyor chain inspection" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="mpc-portfolio-14.jpg" data-alt="Industrial sprocket and drive gear close-up">
+        <img src="mpc-portfolio-14.jpg" alt="Industrial sprocket and drive gear close-up" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="mpc-portfolio-15.jpg" data-alt="MPC engineer performing on-site machinery inspection">
+        <img src="mpc-portfolio-15.jpg" alt="MPC engineer performing on-site machinery inspection" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="mpc-portfolio-16.jpg" data-alt="MPC team on-site conveyor chain quality check">
+        <img src="mpc-portfolio-16.jpg" alt="MPC team on-site conveyor chain quality check" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
+      </div>
+      <div class="gallery-item" data-img="mpc-portfolio-17.jpg" data-alt="Heavy industrial chain system installation project">
+        <img src="mpc-portfolio-17.jpg" alt="Heavy industrial chain system installation project" loading="lazy" decoding="async">
+        <div class="pg-overlay"><span class="pg-expand-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg></span></div>
       </div>
 
     </div><!-- /gallery-grid -->
+
+    <!-- LIGHTBOX MODAL -->
+    <div class="pglb-overlay" id="pglb" role="dialog" aria-modal="true" aria-label="Image viewer">
+      <div class="pglb-stage" id="pglb-stage">
+        <button class="pglb-close" id="pglb-close" aria-label="Close image viewer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <button class="pglb-nav pglb-prev" id="pglb-prev" aria-label="Previous image">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <div class="pglb-img-wrap">
+          <img class="pglb-img" id="pglb-img" src="" alt="">
+        </div>
+        <button class="pglb-nav pglb-next" id="pglb-next" aria-label="Next image">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+        <span class="pglb-counter" id="pglb-counter">1 / 23</span>
+        <div class="pglb-dots pglb-dots-hidden" id="pglb-dots"></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -503,5 +717,107 @@
 </script>
 <script src="animations.js"></script><script src="lang.js"></script>
 <script src="flipbook-viewer.js"></script>
+<script>
+(function () {
+  'use strict';
+  var overlay  = document.getElementById('pglb');
+  var imgEl    = document.getElementById('pglb-img');
+  var counter  = document.getElementById('pglb-counter');
+  var btnClose = document.getElementById('pglb-close');
+  var btnPrev  = document.getElementById('pglb-prev');
+  var btnNext  = document.getElementById('pglb-next');
+  var dotsWrap = document.getElementById('pglb-dots');
+  if (!overlay) return;
+
+  var items = Array.prototype.slice.call(
+    document.querySelectorAll('#gallery-grid .gallery-item[data-img]')
+  );
+  var total = items.length;
+  var current = 0;
+  var touchStartX = 0;
+
+  if (total <= 20) {
+    dotsWrap.classList.remove('pglb-dots-hidden');
+    items.forEach(function (_, i) {
+      var d = document.createElement('button');
+      d.className = 'pglb-dot' + (i === 0 ? ' active' : '');
+      d.setAttribute('aria-label', 'Image ' + (i + 1));
+      d.dataset.idx = String(i);
+      d.addEventListener('click', function (e) {
+        e.stopPropagation();
+        goTo(parseInt(this.dataset.idx, 10));
+      });
+      dotsWrap.appendChild(d);
+    });
+  }
+
+  function syncDots() {
+    dotsWrap.querySelectorAll('.pglb-dot').forEach(function (d, i) {
+      d.classList.toggle('active', i === current);
+    });
+  }
+
+  function goTo(n) {
+    current = ((n % total) + total) % total;
+    imgEl.style.opacity   = '0';
+    imgEl.style.transform = 'scale(0.94)';
+    setTimeout(function () {
+      imgEl.src = items[current].dataset.img;
+      imgEl.alt = items[current].dataset.alt || '';
+      imgEl.style.opacity   = '1';
+      imgEl.style.transform = 'scale(1)';
+    }, 160);
+    counter.textContent = (current + 1) + ' / ' + total;
+    syncDots();
+  }
+
+  function open(idx) {
+    current = idx;
+    imgEl.src = items[current].dataset.img;
+    imgEl.alt = items[current].dataset.alt || '';
+    counter.textContent = (current + 1) + ' / ' + total;
+    syncDots();
+    overlay.classList.add('pglb-open');
+    document.body.style.overflow = 'hidden';
+    btnClose.focus();
+  }
+
+  function close() {
+    overlay.classList.remove('pglb-open');
+    document.body.style.overflow = '';
+    setTimeout(function () { imgEl.src = ''; }, 340);
+  }
+
+  items.forEach(function (item, i) {
+    item.addEventListener('click', function () { open(i); });
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
+    item.setAttribute('aria-label', 'View image ' + (i + 1) + ' fullscreen');
+    item.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); }
+    });
+  });
+
+  btnPrev.addEventListener('click', function (e) { e.stopPropagation(); goTo(current - 1); });
+  btnNext.addEventListener('click', function (e) { e.stopPropagation(); goTo(current + 1); });
+  btnClose.addEventListener('click', close);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay || e.target.id === 'pglb-stage') close();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (!overlay.classList.contains('pglb-open')) return;
+    if (e.key === 'Escape')     close();
+    if (e.key === 'ArrowLeft')  goTo(current - 1);
+    if (e.key === 'ArrowRight') goTo(current + 1);
+  });
+  overlay.addEventListener('touchstart', function (e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  overlay.addEventListener('touchend', function (e) {
+    var diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) goTo(diff > 0 ? current + 1 : current - 1);
+  }, { passive: true });
+}());
+</script>
 </body>
 </html>

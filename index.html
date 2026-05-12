@@ -70,7 +70,7 @@
     ],
     "sameAs": [
       "https://www.linkedin.com/company/motion-plus-corporation-co-ltd/",
-      "https://www.facebook.com/share/17eAnMrP2q/",
+      "https://www.facebook.com/share/1ErTQWb5hF/",
       "https://www.instagram.com/motionpluscorporation"
     ],
     "areaServed": {
@@ -1250,218 +1250,369 @@
     }
 
     /* ============================================================
-       SOCIAL MEDIA FEED SECTION  — "Latest Social Updates"
+       SOCIAL SECTION — "Stay Connected"
+       TOP: Follow Us hub (5 platform cards)
+       BOTTOM: Full-width dark live Facebook feed band
     ============================================================ */
-    .social-section {
-      background: #ffffff;
-      padding: var(--space-2xl) 0 var(--space-xl);
-      border-top: 1px solid #edf0f5;
+
+    /* Shared pulse animation (reused by live dots) */
+    @keyframes soc-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: .4; transform: scale(.72); }
     }
 
-    /* Header */
-    .social-hdr {
+    /* ── Section wrapper ── */
+    .soc-section {
+      background: linear-gradient(168deg, #f7f9fd 0%, #eef3fb 55%, #e8eef8 100%);
+      padding: 5.5rem 0 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .soc-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 1100px; height: 480px;
+      background: radial-gradient(ellipse at top, rgba(0,86,164,.065) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    /* ── Section header ── */
+    .soc-hdr {
       text-align: center;
-      max-width: 620px;
-      margin: 0 auto 3.5rem;
+      max-width: 600px;
+      margin: 0 auto 2.75rem;
+      position: relative;
     }
-    .social-hdr h2 {
-      color: var(--color-dark-navy);
-      margin-bottom: .65rem;
-    }
-    .social-hdr-sub {
+    .soc-hdr h2 { color: var(--color-dark-navy); margin-bottom: .55rem; }
+    .soc-hdr-sub {
       color: var(--color-grey);
-      font-size: .97rem;
+      font-size: .96rem;
       line-height: 1.72;
       margin: 0;
     }
 
-    /* Two-column layout: feed | side panel */
-    .social-layout {
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 2.5rem;
-      align-items: start;
-    }
-
-    /* ── Feed column ── */
-    .social-feed-wrap { position: relative; }
-
-    .social-feed-frame {
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,86,164,0.1), 0 2px 8px rgba(0,0,0,0.06);
-      background: #fff;
-      min-height: 400px;
-      /* Let FB plugin fill available width */
-    }
-    .social-feed-frame .fb-page { display: block; }
-
-    /* Fallback (shown via JS if plugin blocked) */
-    .social-feed-fallback {
-      display: none;
-      flex-direction: column;
-      align-items: center;
+    /* ── Follow Us — 5 platform cards ── */
+    .soc-follow-row {
+      display: flex;
+      gap: 1rem;
       justify-content: center;
-      min-height: 360px;
-      background: #f8fafc;
-      border-radius: 14px;
-      border: 1.5px dashed #d1dae6;
-      padding: 3rem 2rem;
-      text-align: center;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
     }
-    .social-feed-fallback.sf-show { display: flex; }
-    .sf-fallback-icon {
-      width: 68px; height: 68px;
-      background: #1877F2;
-      border-radius: 16px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.25rem;
-      box-shadow: 0 6px 20px rgba(24,119,242,0.3);
-    }
-    .sf-fallback-title {
-      font-size: 1.05rem; font-weight: 800;
-      color: var(--color-dark-navy); margin-bottom: .4rem;
-    }
-    .sf-fallback-text {
-      color: var(--color-grey); font-size: .88rem;
-      max-width: 340px; margin-bottom: 1.5rem; line-height: 1.65;
-    }
-    .sf-fallback-btn {
-      display: inline-flex; align-items: center; gap: .55rem;
-      background: #1877F2; color: #fff; font-weight: 700; font-size: .9rem;
-      padding: .65rem 1.5rem; border-radius: 9px; text-decoration: none;
-      transition: background .2s, transform .15s;
-      box-shadow: 0 4px 16px rgba(24,119,242,0.3);
-    }
-    .sf-fallback-btn:hover {
-      background: #1465d8; transform: translateY(-1px);
-    }
-
-    /* ── Side panel ── */
-    .social-side {
+    .soc-plat-card {
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-      position: sticky;
-      top: 100px;
-    }
-
-    /* Facebook info card */
-    .social-info-card {
+      align-items: center;
+      gap: .6rem;
+      padding: 1.6rem 1.25rem 1.4rem;
       background: #fff;
-      border-radius: 14px;
-      padding: 1.75rem 1.6rem;
-      box-shadow: 0 8px 40px rgba(0,86,164,0.1), 0 2px 8px rgba(0,0,0,0.06);
+      border-radius: 18px;
+      border: 1.5px solid #e4edf8;
+      box-shadow: 0 4px 22px rgba(0,36,90,.07), 0 1px 4px rgba(0,0,0,.04);
+      text-decoration: none;
+      flex: 1;
+      min-width: 120px;
+      max-width: 158px;
+      transition: transform .22s, box-shadow .22s, border-color .22s;
+      cursor: pointer;
+    }
+    .soc-plat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(0,36,90,.14);
+      border-color: #c8daf5;
+    }
+    .soc-plat-ico {
+      width: 54px; height: 54px;
+      border-radius: 16px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: transform .22s;
+    }
+    .soc-plat-card:hover .soc-plat-ico { transform: scale(1.08); }
+    .soc-plat-ico-fb { background:#1877F2; box-shadow:0 6px 18px rgba(24,119,242,.3); }
+    .soc-plat-ico-li { background:#0077B5; box-shadow:0 6px 18px rgba(0,119,181,.28); }
+    .soc-plat-ico-ig { background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); box-shadow:0 6px 18px rgba(220,39,67,.25); }
+    .soc-plat-ico-tt { background:#111; box-shadow:0 6px 18px rgba(0,0,0,.22); }
+    .soc-plat-ico-sp { background:#EE4D2D; box-shadow:0 6px 18px rgba(238,77,45,.28); }
+    .soc-plat-name {
+      font-size: .9rem; font-weight: 800;
+      color: var(--color-dark-navy); line-height: 1.2;
       text-align: center;
     }
-    .sic-fb-avatar {
-      width: 70px; height: 70px;
-      background: linear-gradient(140deg, #1877F2 0%, #0f5bca 100%);
-      border-radius: 18px;
-      display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.1rem;
-      box-shadow: 0 6px 20px rgba(24,119,242,0.32);
-      flex-shrink: 0;
+    .soc-plat-handle {
+      font-size: .72rem; color: var(--color-grey);
+      line-height: 1.4; text-align: center;
     }
-    .sic-name {
-      font-size: 1rem; font-weight: 800;
-      color: var(--color-dark-navy);
-      margin-bottom: .25rem; line-height: 1.3;
-    }
-    .sic-sub {
-      font-size: .78rem; color: var(--color-grey);
-      margin-bottom: 1rem; letter-spacing: .01em;
-    }
-    .sic-divider {
-      height: 1px; background: #edf0f5; margin-bottom: 1rem;
-    }
-    .sic-desc {
-      font-size: .85rem; color: var(--color-grey);
-      line-height: 1.65; margin-bottom: 1.5rem; text-align: left;
-    }
-    .sic-follow-btn {
-      display: flex; align-items: center; justify-content: center; gap: .55rem;
-      background: #1877F2; color: #fff; font-weight: 700; font-size: .9rem;
-      padding: .72rem 1.4rem; border-radius: 9px; text-decoration: none;
-      transition: background .2s, box-shadow .2s, transform .15s;
-      box-shadow: 0 4px 16px rgba(24,119,242,0.3);
-      width: 100%;
-    }
-    .sic-follow-btn:hover {
-      background: #1465d8;
-      box-shadow: 0 6px 24px rgba(24,119,242,0.45);
-      transform: translateY(-1px);
-    }
-
-    /* Other platforms card */
-    .social-others-card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 1.5rem 1.6rem;
-      box-shadow: 0 8px 40px rgba(0,86,164,0.1), 0 2px 8px rgba(0,0,0,0.06);
-    }
-    .soc-others-lbl {
+    .soc-plat-follow {
+      display: inline-flex; align-items: center;
       font-size: .72rem; font-weight: 700;
-      color: var(--color-grey); text-transform: uppercase;
-      letter-spacing: .08em; margin-bottom: 1rem;
+      padding: .3rem .9rem;
+      border-radius: 100px;
+      margin-top: .1rem;
+      transition: opacity .15s, transform .15s;
     }
-    .soc-others-list {
-      display: flex; flex-direction: column; gap: .3rem;
+    .soc-plat-follow:hover { opacity: .88; transform: scale(1.04); }
+    .soc-follow-fb { background:#1877F2; color:#fff; }
+    .soc-follow-li { background:#0077B5; color:#fff; }
+    .soc-follow-ig { background:linear-gradient(120deg,#f09433,#dc2743,#bc1888); color:#fff; }
+    .soc-follow-tt { background:#111; color:#fff; }
+    .soc-follow-sp { background:#EE4D2D; color:#fff; }
+
+    /* ── Feed intro divider ── */
+    .soc-feed-intro {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
     }
-    .soc-other-item {
-      display: flex; align-items: center; gap: .8rem;
-      padding: .55rem .65rem; border-radius: 9px;
-      text-decoration: none;
-      transition: background .15s;
+    .soc-fi-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, transparent, #c8d8ee 50%, transparent);
     }
-    .soc-other-item:hover { background: #f4f7fb; }
-    .soc-other-icon {
-      width: 34px; height: 34px; border-radius: 9px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+    .soc-fi-badge {
+      display: inline-flex; align-items: center; gap: .48rem;
+      background: #fff;
+      border: 1.5px solid #d0ddf0;
+      border-radius: 100px;
+      padding: .44rem 1.1rem;
+      font-size: .78rem; font-weight: 700;
+      color: var(--color-dark-navy);
+      white-space: nowrap;
+      box-shadow: 0 2px 10px rgba(0,36,90,.08);
     }
-    .soc-other-icon.li  { background: #0077B5; }
-    .soc-other-icon.ig  { background: linear-gradient(135deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
-    .soc-other-icon.tt  { background: #000; }
-    .soc-other-icon.sp  { background: #EE4D2D; }
-    .soc-other-name {
-      font-size: .86rem; font-weight: 700;
-      color: var(--color-dark-navy); line-height: 1.2;
-    }
-    .soc-other-handle {
-      font-size: .74rem; color: var(--color-grey); margin-top: .1rem;
+    .soc-fi-dot {
+      width: 7px; height: 7px;
+      background: #1877F2; border-radius: 50%;
+      animation: soc-pulse 1.8s ease-in-out infinite;
     }
 
-    /* Bottom row: hashtags + contact CTA */
-    .social-footer-row {
+    /* ── Full-width dark feed band ── */
+    .soc-feed-band {
+      background: #09121f;
+      margin-top: 3rem;
+      padding: 3.5rem 0 4.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Subtle texture lines */
+    .soc-feed-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -50deg,
+        rgba(255,255,255,.012) 0px,
+        rgba(255,255,255,.012) 1px,
+        transparent 1px,
+        transparent 64px
+      );
+      pointer-events: none;
+    }
+    /* Blue glow centre */
+    .soc-feed-band::after {
+      content: '';
+      position: absolute;
+      top: -25%; left: 50%;
+      transform: translateX(-50%);
+      width: 860px; height: 480px;
+      background: radial-gradient(ellipse, rgba(24,119,242,.11) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .soc-feed-band-inner {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 1.75rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Feed band header bar */
+    .soc-feed-band-hdr {
+      display: flex;
+      align-items: center;
+      gap: .9rem;
+      margin-bottom: 1.5rem;
+    }
+    .sfb-name { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.2; }
+    .sfb-sub  { font-size: .74rem; color: rgba(255,255,255,.5); margin-top: .1rem; }
+    .sfb-live-dot {
+      width: 6px; height: 6px;
+      background: #7ab6ff; border-radius: 50%;
+      animation: soc-pulse 1.8s ease-in-out infinite;
+    }
+
+    /* Feed band footer */
+    .soc-feed-band-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+    .soc-hashtags {
+      display: flex; gap: .45rem; flex-wrap: wrap;
+    }
+    .soc-hash {
+      font-size: .74rem; font-weight: 600;
+      color: rgba(255,255,255,.45);
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.09);
+      padding: .22rem .72rem; border-radius: 100px;
+    }
+    .soc-view-btn {
+      display: inline-flex; align-items: center; gap: .45rem;
+      font-size: .84rem; font-weight: 700; color: #fff;
+      text-decoration: none; padding: .55rem 1.3rem;
+      background: #1877F2; border-radius: 9px;
+      box-shadow: 0 4px 16px rgba(24,119,242,.32);
+      transition: background .15s, transform .15s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .soc-view-btn:hover { background: #1465d8; transform: translateY(-2px); }
+
+    /* ── Responsive ── */
+    @media (max-width: 980px) {
+      .soc-feed-band-inner { max-width: 100%; }
+    }
+    @media (max-width: 720px) {
+      .soc-follow-row { gap: .7rem; }
+      .soc-plat-card  { min-width: 100px; max-width: 124px; padding: 1.3rem .9rem 1.15rem; }
+      .soc-plat-ico   { width: 46px; height: 46px; border-radius: 13px; }
+      .soc-feed-band  { padding: 2.75rem 0 3.5rem; }
+      .soc-feed-band-inner { padding: 0 1.25rem; }
+    }
+    @media (max-width: 540px) {
+      .soc-section    { padding: 4rem 0 0; }
+      .soc-hdr        { margin-bottom: 2.25rem; }
+      .soc-follow-row { gap: .5rem; }
+      .soc-plat-card  { min-width: 90px; max-width: 110px; padding: 1.1rem .7rem 1rem; }
+      .soc-plat-ico   { width: 40px; height: 40px; border-radius: 11px; }
+      .soc-plat-handle { display: none; }
+      .soc-feed-band  { padding: 2.25rem 0 3rem; margin-top: 2rem; }
+      .soc-feed-band-footer { flex-direction: column; align-items: flex-start; }
+      .soc-view-btn   { align-self: flex-end; }
+    }
+
+    /* ============================================================
+       INSTAGRAM FEED BAND OVERRIDES
+    ============================================================ */
+
+    /* Override the glow colour in the dark band from FB-blue to IG-pink */
+    .soc-feed-band::after {
+      background: radial-gradient(ellipse, rgba(188,24,136,.10) 0%, transparent 68%);
+    }
+
+    /* Feed-intro divider dot — Instagram gradient */
+    .soc-fi-dot {
+      background: linear-gradient(135deg,#f09433,#bc1888);
+    }
+
+    /* Instagram icon badge in band header */
+    .sfb-ig-icon {
+      width: 46px; height: 46px;
+      background: linear-gradient(135deg,#f09433 0%,#e6683c 20%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+      border-radius: 13px;
       display: flex; align-items: center; justify-content: center;
-      gap: 1rem; flex-wrap: wrap; margin-top: 2.75rem;
+      box-shadow: 0 6px 22px rgba(188,24,136,.38);
+      flex-shrink: 0;
     }
-    .sf-tag {
-      display: inline-flex; align-items: center; gap: .4rem;
-      background: #f4f7fb; border: 1px solid #e0e8f2;
-      border-radius: 100px; padding: .35rem 1rem;
-      font-size: .8rem; color: var(--color-grey); font-weight: 600;
-      transition: border-color .15s, color .15s;
+
+    /* "Follow" pill badge */
+    .sfb-follow-ig {
+      display: inline-flex; align-items: center; gap: .38rem;
+      background: rgba(188,24,136,.18);
+      border: 1px solid rgba(188,24,136,.38);
+      color: #ff9ec8;
+      font-size: .7rem; font-weight: 700;
+      padding: .26rem .75rem; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: .05em;
+      text-decoration: none;
+      margin-left: auto; flex-shrink: 0;
+      transition: background .2s, color .2s;
     }
-    .sf-tag:hover { border-color: var(--color-primary); color: var(--color-primary); }
-    .sf-tag svg { flex-shrink: 0; }
+    .sfb-follow-ig:hover { background: rgba(188,24,136,.30); color: #ffc2de; }
+    .sfb-live-dot-ig {
+      width: 6px; height: 6px;
+      background: #ff9ec8; border-radius: 50%;
+      animation: soc-pulse 1.8s ease-in-out infinite;
+    }
+
+    /* ── Instagram post grid (6 tiles, 3 × 2) ── */
+    .ig-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.6rem;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 28px 90px rgba(0,0,0,.55), 0 4px 20px rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+    .ig-card {
+      aspect-ratio: 1;
+      position: relative;
+      overflow: hidden;
+      display: block;
+      text-decoration: none;
+    }
+    /* Subtle dot-grid texture */
+    .ig-card::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,.055) 1px, transparent 1px);
+      background-size: 18px 18px;
+      pointer-events: none; z-index: 1;
+    }
+    .ig-card-bg {
+      position: absolute; inset: 0;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+    }
+    .ig-card:hover .ig-card-bg { transform: scale(1.07); }
+
+    /* Six distinct moody-industrial gradient swatches */
+    .ig-bg-1 { background: radial-gradient(ellipse at 40% 60%, rgba(240,148,51,.24) 0%, transparent 55%), radial-gradient(ellipse at 80% 20%, rgba(188,24,136,.16) 0%, transparent 50%), #0c1118; }
+    .ig-bg-2 { background: radial-gradient(ellipse at 60% 40%, rgba(220,39,67,.22) 0%, transparent 55%), radial-gradient(ellipse at 20% 80%, rgba(204,35,102,.15) 0%, transparent 50%), #0c1118; }
+    .ig-bg-3 { background: radial-gradient(ellipse at 50% 55%, rgba(0,86,164,.24) 0%, transparent 60%), radial-gradient(ellipse at 85% 15%, rgba(0,56,120,.18) 0%, transparent 45%), #0c1118; }
+    .ig-bg-4 { background: radial-gradient(ellipse at 30% 70%, rgba(230,104,60,.24) 0%, transparent 55%), radial-gradient(ellipse at 70% 28%, rgba(240,148,51,.16) 0%, transparent 50%), #0c1118; }
+    .ig-bg-5 { background: radial-gradient(ellipse at 72% 60%, rgba(188,24,136,.22) 0%, transparent 55%), radial-gradient(ellipse at 28% 30%, rgba(220,39,67,.13) 0%, transparent 45%), #0c1118; }
+    .ig-bg-6 { background: radial-gradient(ellipse at 50% 42%, rgba(204,35,102,.20) 0%, transparent 55%), radial-gradient(ellipse at 78% 72%, rgba(240,148,51,.14) 0%, transparent 45%), #0c1118; }
+
+    /* Hover overlay */
+    .ig-card-hover {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: .55rem;
+      background: rgba(0,0,0,.56);
+      opacity: 0;
+      transition: opacity .28s ease;
+      z-index: 2;
+    }
+    .ig-card:hover .ig-card-hover { opacity: 1; }
+    .ig-card-hover span {
+      font-size: .78rem; font-weight: 700;
+      color: rgba(255,255,255,.9); letter-spacing: .04em;
+    }
+
+    /* Small caption below grid */
+    .ig-note {
+      font-size: .79rem;
+      color: rgba(255,255,255,.36);
+      text-align: center;
+      margin: 1.2rem 0 0;
+      line-height: 1.65;
+    }
+
+    /* "View All Posts on Instagram" button — IG gradient */
+    .soc-view-ig-btn {
+      background: linear-gradient(120deg,#f09433,#dc2743,#bc1888) !important;
+      box-shadow: 0 4px 16px rgba(188,24,136,.35) !important;
+    }
+    .soc-view-ig-btn:hover {
+      background: linear-gradient(120deg,#da8228,#c0202f,#9c1070) !important;
+      transform: translateY(-2px);
+    }
 
     /* Responsive */
-    @media (max-width: 960px) {
-      .social-layout {
-        grid-template-columns: 1fr;
-      }
-      .social-side {
-        position: static;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.25rem;
-      }
-    }
-    @media (max-width: 560px) {
-      .social-side { grid-template-columns: 1fr; }
-      .social-hdr  { margin-bottom: 2.5rem; }
+    @media (max-width: 480px) {
+      .ig-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
@@ -2005,150 +2156,169 @@
     https://www.facebook.com/MotionPlusCorporation
   (Go to your Facebook Page → About → copy the Page URL shown there.)
 -->
-<section class="social-section" id="social-updates">
-
-  <!-- Facebook JS SDK — loads the Page Plugin asynchronously -->
-  <div id="fb-root"></div>
-  <script async defer crossorigin="anonymous"
-    src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0"></script>
+<section class="soc-section" id="social-updates">
 
   <div class="container">
 
-    <!-- Section header -->
-    <div class="social-hdr reveal">
+    <!-- ── Section header ── -->
+    <div class="soc-hdr reveal">
       <span class="section-eyebrow" style="justify-content:center;display:flex;">Stay Connected</span>
       <h2>Latest Social Updates</h2>
-      <p class="social-hdr-sub">See our latest company activities, product showcases, and industry updates &mdash; shared directly from our social media channels and updated automatically.</p>
+      <p class="soc-hdr-sub">Follow Motion Plus Corporation for product updates, real installation photos, and behind-the-scenes content straight from the field across Southeast Asia.</p>
     </div>
 
-    <!-- Main layout: feed left, info panel right -->
-    <div class="social-layout reveal">
+    <!-- ── Follow Us — 5 platform cards ── -->
+    <div class="soc-follow-row reveal">
 
-      <!-- ── Left: Live Facebook feed ── -->
-      <div class="social-feed-wrap">
-
-        <div class="social-feed-frame" id="sf-frame">
-          <div class="fb-page"
-               data-href="https://www.facebook.com/share/17eAnMrP2q/"
-               data-tabs="timeline"
-               data-width=""
-               data-height="600"
-               data-small-header="true"
-               data-adapt-container-width="true"
-               data-hide-cover="false"
-               data-show-facepile="false">
-            <blockquote cite="https://www.facebook.com/share/17eAnMrP2q/" class="fb-xfbml-parse-ignore">
-              <a href="https://www.facebook.com/share/17eAnMrP2q/">Motion Plus Corporation &mdash; Facebook</a>
-            </blockquote>
-          </div>
+      <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="soc-plat-card" aria-label="Follow us on Facebook">
+        <div class="soc-plat-ico soc-plat-ico-fb" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </div>
-
-        <!-- Fallback: shown if plugin blocked by ad-blocker / privacy setting -->
-        <div class="social-feed-fallback" id="sf-fallback">
-          <div class="sf-fallback-icon">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </div>
-          <p class="sf-fallback-title">Facebook Feed Unavailable</p>
-          <p class="sf-fallback-text">Your browser or privacy settings are preventing the live feed from loading. Visit our Facebook page directly to see the latest posts.</p>
-          <a href="https://www.facebook.com/share/17eAnMrP2q/" target="_blank" rel="noopener noreferrer" class="sf-fallback-btn">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            View Our Facebook Page
-          </a>
-        </div>
-
-      </div><!-- /social-feed-wrap -->
-
-      <!-- ── Right: Info + other socials ── -->
-      <div class="social-side">
-
-        <!-- Facebook page info card -->
-        <div class="social-info-card">
-          <div class="sic-fb-avatar" aria-hidden="true">
-            <svg width="34" height="34" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-          </div>
-          <p class="sic-name">Motion Plus Corporation</p>
-          <p class="sic-sub">Industrial Chain Solutions &middot; Bangkok, Thailand</p>
-          <div class="sic-divider"></div>
-          <p class="sic-desc">Follow us for product updates, real installation photos, industry news, and behind-the-scenes content from Southeast Asia&rsquo;s trusted chain solutions provider.</p>
-          <a href="https://www.facebook.com/share/17eAnMrP2q/" target="_blank" rel="noopener noreferrer" class="sic-follow-btn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
-            Follow on Facebook
-          </a>
-        </div>
-
-        <!-- Other social platforms -->
-        <div class="social-others-card">
-          <p class="soc-others-lbl">Also Find Us On</p>
-          <div class="soc-others-list">
-
-            <a href="https://www.linkedin.com/company/motion-plus-corporation-co-ltd/" target="_blank" rel="noopener noreferrer" class="soc-other-item" aria-label="LinkedIn — Motion Plus Corporation">
-              <div class="soc-other-icon li" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-              </div>
-              <div>
-                <p class="soc-other-name">LinkedIn</p>
-                <p class="soc-other-handle">Motion Plus Corporation</p>
-              </div>
-            </a>
-
-            <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="soc-other-item" aria-label="Instagram — @motionpluscorporation">
-              <div class="soc-other-icon ig" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-              </div>
-              <div>
-                <p class="soc-other-name">Instagram</p>
-                <p class="soc-other-handle">@motionpluscorporation</p>
-              </div>
-            </a>
-
-            <a href="https://www.tiktok.com/@motion_plus_corporation?_r=1&_t=ZS-95bOYoXH7sT" target="_blank" rel="noopener noreferrer" class="soc-other-item" aria-label="TikTok — @motion_plus_corporation">
-              <div class="soc-other-icon tt" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
-              </div>
-              <div>
-                <p class="soc-other-name">TikTok</p>
-                <p class="soc-other-handle">@motion_plus_corporation</p>
-              </div>
-            </a>
-
-            <a href="https://th.shp.ee/7FUYG6Uz" target="_blank" rel="noopener noreferrer" class="soc-other-item" aria-label="Shopee — MotionPlusCorporation">
-              <div class="soc-other-icon sp" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-              </div>
-              <div>
-                <p class="soc-other-name">Shopee</p>
-                <p class="soc-other-handle">MotionPlusCorporation</p>
-              </div>
-            </a>
-
-          </div>
-        </div>
-
-      </div><!-- /social-side -->
-
-    </div><!-- /social-layout -->
-
-    <!-- Bottom hashtag + CTA row -->
-    <div class="social-footer-row reveal">
-      <span class="sf-tag">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
-        MotionPlusCorporation
-      </span>
-      <span class="sf-tag">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
-        IndustrialChains
-      </span>
-      <span class="sf-tag">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
-        SoutheastAsia
-      </span>
-      <a href="contact.html" class="btn-primary" style="font-size:.88rem; padding:.6rem 1.4rem;">
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        Get in Touch
+        <span class="soc-plat-name">Facebook</span>
+        <span class="soc-plat-handle">Latest posts &amp; news</span>
+        <span class="soc-plat-follow soc-follow-fb">Follow</span>
       </a>
+
+      <a href="https://www.linkedin.com/company/motion-plus-corporation-co-ltd/" target="_blank" rel="noopener noreferrer" class="soc-plat-card" aria-label="Follow us on LinkedIn">
+        <div class="soc-plat-ico soc-plat-ico-li" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        </div>
+        <span class="soc-plat-name">LinkedIn</span>
+        <span class="soc-plat-handle">Industry insights</span>
+        <span class="soc-plat-follow soc-follow-li">Connect</span>
+      </a>
+
+      <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="soc-plat-card" aria-label="Follow us on Instagram">
+        <div class="soc-plat-ico soc-plat-ico-ig" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <span class="soc-plat-name">Instagram</span>
+        <span class="soc-plat-handle">Photos &amp; highlights</span>
+        <span class="soc-plat-follow soc-follow-ig">Follow</span>
+      </a>
+
+      <a href="https://www.tiktok.com/@motion_plus_corporation?_r=1&_t=ZS-95bOYoXH7sT" target="_blank" rel="noopener noreferrer" class="soc-plat-card" aria-label="Follow us on TikTok">
+        <div class="soc-plat-ico soc-plat-ico-tt" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+        </div>
+        <span class="soc-plat-name">TikTok</span>
+        <span class="soc-plat-handle">Videos &amp; demos</span>
+        <span class="soc-plat-follow soc-follow-tt">Follow</span>
+      </a>
+
+      <a href="https://th.shp.ee/7FUYG6Uz" target="_blank" rel="noopener noreferrer" class="soc-plat-card" aria-label="Shop on Shopee">
+        <div class="soc-plat-ico soc-plat-ico-sp" aria-hidden="true">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        </div>
+        <span class="soc-plat-name">Shopee</span>
+        <span class="soc-plat-handle">Shop products online</span>
+        <span class="soc-plat-follow soc-follow-sp">Shop Now</span>
+      </a>
+
+    </div><!-- /soc-follow-row -->
+
+    <!-- ── Divider into feed ── -->
+    <div class="soc-feed-intro reveal">
+      <span class="soc-fi-line"></span>
+      <span class="soc-fi-badge">
+        <span class="soc-fi-dot" aria-hidden="true"></span>
+        Latest on Instagram
+      </span>
+      <span class="soc-fi-line"></span>
     </div>
 
-  </div>
+  </div><!-- /container -->
+
+  <!-- ── Full-width dark feed band ── -->
+  <div class="soc-feed-band">
+    <div class="soc-feed-band-inner">
+
+      <!-- Feed header — Instagram branded -->
+      <div class="soc-feed-band-hdr">
+        <div class="sfb-ig-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        </div>
+        <div>
+          <div class="sfb-name">@motionpluscorporation</div>
+          <div class="sfb-sub">Instagram &nbsp;&bull;&nbsp; Product updates &amp; field installation highlights</div>
+        </div>
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="sfb-follow-ig" aria-label="Follow Motion Plus Corporation on Instagram">
+          <span class="sfb-live-dot sfb-live-dot-ig" aria-hidden="true"></span>
+          Follow
+        </a>
+      </div>
+
+      <!-- Instagram post grid — 6 tiles (3 × 2), all open the Instagram profile -->
+      <div class="ig-grid" role="list" aria-label="Instagram posts — click to view on Instagram">
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-1"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-2"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-3"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-4"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-5"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="ig-card" role="listitem" aria-label="View our Instagram posts">
+          <div class="ig-card-bg ig-bg-6"></div>
+          <div class="ig-card-hover" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            <span>View on Instagram</span>
+          </div>
+        </a>
+
+      </div><!-- /ig-grid -->
+
+      <p class="ig-note">Follow us on Instagram to see our latest posts — product updates, real installation photos, and behind-the-scenes content from across Southeast Asia.</p>
+
+      <!-- Feed footer -->
+      <div class="soc-feed-band-footer">
+        <div class="soc-hashtags">
+          <span class="soc-hash">#MotionPlusCorporation</span>
+          <span class="soc-hash">#IndustrialChains</span>
+          <span class="soc-hash">#SoutheastAsia</span>
+        </div>
+        <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" target="_blank" rel="noopener noreferrer" class="soc-view-btn soc-view-ig-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          View All Posts on Instagram
+        </a>
+      </div>
+
+    </div><!-- /soc-feed-band-inner -->
+  </div><!-- /soc-feed-band -->
+
 </section>
 
 <!-- ============ FOOTER ============ -->
@@ -2165,7 +2335,7 @@
           <a href="https://www.linkedin.com/company/motion-plus-corporation-co-ltd/" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <a href="https://www.facebook.com/share/17eAnMrP2q/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/share/1ErTQWb5hF/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
           <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
