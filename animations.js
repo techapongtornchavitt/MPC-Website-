@@ -229,12 +229,24 @@
      Everything else is gated behind the preference.
   ────────────────────────────────────────────────────── */
 
+  /* ── Header scroll state — applies .scrolled to .site-header on all pages ── */
+  function initHeaderScroll() {
+    var header = document.querySelector('.site-header');
+    if (!header) return;
+    function updateHeader() {
+      header.classList.toggle('scrolled', window.pageYOffset > 40);
+    }
+    window.addEventListener('scroll', updateHeader, { passive: true });
+    updateHeader();
+  }
+
   function init() {
     if (!prefersReduced) {
       initReveal();
       initEyebrows();
     }
     initCounters(); /* numbers count up even in reduced-motion mode */
+    initHeaderScroll();
   }
 
   if (document.readyState === 'loading') {

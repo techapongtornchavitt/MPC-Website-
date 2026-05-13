@@ -267,51 +267,50 @@
     }
     .commitment-quote.in-view::before { height: 100%; }
 
-    /* ---- Header glassmorphism on scroll ---- */
+    /* ---- Header clean glass on scroll ---- */
     .site-header {
-      transition: background 300ms ease, box-shadow 300ms ease;
+      transition: background 280ms ease, box-shadow 280ms ease, border-bottom-color 280ms ease;
     }
     .site-header.scrolled {
-      background: rgba(5, 15, 35, 0.92) !important;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 1px 0 rgba(255,255,255,0.07), 0 4px 24px rgba(0,0,0,0.35);
-      border-bottom-color: rgba(255,255,255,0.08) !important;
+      background: rgba(255, 255, 255, 0.97) !important;
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 2px 20px rgba(0,56,120,0.10), 0 1px 0 rgba(0,86,164,0.08);
+      border-bottom-color: rgba(0,86,164,0.18) !important;
     }
-    /* Keep all nav text readable on the dark scrolled background */
+    /* Nav text stays dark on white scrolled background */
     .site-header.scrolled .nav-link {
-      color: rgba(255, 255, 255, 0.85);
+      color: #1a2a44;
     }
     .site-header.scrolled .nav-link:hover {
-      color: #ffffff;
-      background: rgba(255,255,255,0.06);
+      color: #0056a4;
+      background: rgba(0,86,164,0.06);
     }
     .site-header.scrolled .nav-link.active {
-      color: #7ec8e3;
+      color: #0056a4;
     }
     .site-header.scrolled .nav-link::after,
     .site-header.scrolled .nav-link.active::after,
     .site-header.scrolled .nav-link:hover::after {
-      background: #7ec8e3;
+      background: #0056a4;
     }
     .site-header.scrolled .hamburger span {
-      background: rgba(255, 255, 255, 0.9);
+      background: #1a2a44;
     }
-    /* Separator fades on dark background */
     .site-header.scrolled .site-nav + .lang-selector {
-      border-left-color: rgba(255,255,255,0.15);
+      border-left-color: rgba(0,86,164,0.15);
     }
     .site-header.scrolled .lang-selector-btn {
-      background: rgba(255,255,255,0.1);
-      border-color: rgba(255,255,255,0.32);
-      color: rgba(255,255,255,0.92);
+      background: rgba(0,86,164,0.06);
+      border-color: rgba(0,86,164,0.22);
+      color: #1a2a44;
     }
     .site-header.scrolled .lang-selector-btn:hover,
     .site-header.scrolled .lang-selector-btn.open {
-      background: rgba(255,255,255,0.2);
-      border-color: rgba(255,255,255,0.55);
-      color: #ffffff;
-      box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+      background: rgba(0,86,164,0.12);
+      border-color: rgba(0,86,164,0.40);
+      color: #0056a4;
+      box-shadow: 0 2px 10px rgba(0,86,164,0.12);
     }
 
     /* ---- CTA button shimmer + press state ---- */
