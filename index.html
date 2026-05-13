@@ -549,12 +549,16 @@
       margin-bottom: .28rem;
     }
     .prf-banner-logo {
-      height: 22px;
+      height: 26px;
       width: auto;
-      max-width: 64px;
+      max-width: 80px;
       object-fit: contain;
       display: block;
-      filter: brightness(0) invert(1); /* white version on dark gradient */
+      /* White pill badge so the colored JPG logo reads clearly on any dark overlay */
+      background: rgba(255,255,255,0.92);
+      border-radius: 5px;
+      padding: 3px 7px;
+      box-sizing: content-box;
     }
 
     /* �� Full-width KMH banner � card style matches grid cards �� */
