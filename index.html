@@ -204,26 +204,43 @@
 
     /* Industry card base styles */
     .industry-card {
-      overflow: hidden; position: relative; border-radius: var(--radius-md);
-      aspect-ratio: 3 / 2;
+      display: flex; flex-direction: column;
+      overflow: hidden; border-radius: var(--radius-md);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
       box-shadow: 0 8px 28px rgba(0,0,0,0.32);
-      transition: box-shadow 350ms var(--ease-out-strong), transform 350ms var(--ease-out-strong);
+      text-decoration: none;
+      transition: box-shadow 350ms var(--ease-out-strong), transform 350ms var(--ease-out-strong), border-color 300ms ease;
     }
-    .industry-card img {
-      transition: transform 500ms var(--ease-out-strong);
+    .industry-card-img {
+      overflow: hidden;
+      aspect-ratio: 4 / 3;
+      flex-shrink: 0;
+    }
+    .industry-card-img img {
       display: block; width: 100%; height: 100%;
       object-fit: cover; object-position: center;
+      transition: transform 500ms var(--ease-out-strong);
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
-    .industry-card-overlay {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      transform: translateY(30%);
-      opacity: 0;
-      transition: transform 300ms var(--ease-out-strong), opacity 300ms ease;
-      background: linear-gradient(to top, rgba(0,20,60,0.80) 0%, rgba(0,20,60,0.12) 70%, transparent 100%);
-      padding: 1.5rem 1.25rem 1.25rem;
+    .industry-card-body {
+      padding: 1.2rem 1.25rem 1.4rem;
+      display: flex; flex-direction: column; gap: .45rem;
+    }
+    .industry-card-body h3 {
+      font-size: 1.05rem; font-weight: 700;
+      color: #fff; margin: 0; letter-spacing: -.01em;
+    }
+    .industry-card-body p {
+      font-size: .84rem; color: rgba(255,255,255,.58);
+      margin: 0; line-height: 1.62;
+    }
+    .ind-learn-link {
+      display: inline-flex; align-items: center; gap: .3rem;
+      font-size: .78rem; font-weight: 700; color: #7ec8e3;
+      margin-top: .35rem; letter-spacing: .03em;
+      transition: gap 200ms ease;
     }
 
     /* ---- Cert row ---- */
@@ -370,21 +387,11 @@
 
     /* cert badges � static, no pulse */
 
-    /* ---- Industry card hover � touch-safe ---- */
+        /* ---- Industry card hover - touch-safe ---- */
     @media (hover: hover) and (pointer: fine) {
-      .industry-card:hover img { transform: scale(1.08); }
-      .industry-card:hover .industry-card-overlay {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      .industry-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.5); }
-    }
-    /* Industry card overlay always visible on touch/mobile devices */
-    @media (hover: none) {
-      .industry-card-overlay {
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-      }
+      .industry-card:hover { box-shadow: 0 16px 48px rgba(0,0,0,0.5); transform: translateY(-4px); border-color: rgba(74,144,226,0.35); }
+      .industry-card:hover .industry-card-img img { transform: scale(1.06); }
+      .industry-card:hover .ind-learn-link { gap: .52rem; }
     }
 
     /* ======================================
@@ -507,6 +514,42 @@
       color: var(--color-dark-navy);
       line-height: 1.3;
       margin: 0;
+    }
+    /* ---- Brand logo + name label inside product cards ---- */
+    .prf-brand-label {
+      display: flex;
+      align-items: center;
+      gap: .45rem;
+    }
+    .prf-brand-logo {
+      height: 20px;
+      width: auto;
+      max-width: 54px;
+      object-fit: contain;
+      flex-shrink: 0;
+      display: block;
+    }
+    .prf-card-sub {
+      font-size: .7rem;
+      color: var(--color-grey);
+      margin: .12rem 0 0;
+      font-weight: 500;
+      letter-spacing: .01em;
+    }
+    /* ---- KMH banner brand label overlay ---- */
+    .prf-banner-brand {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-bottom: .28rem;
+    }
+    .prf-banner-logo {
+      height: 22px;
+      width: auto;
+      max-width: 64px;
+      object-fit: contain;
+      display: block;
+      filter: brightness(0) invert(1); /* white version on dark gradient */
     }
 
     /* �� Full-width KMH banner � card style matches grid cards �� */
@@ -914,49 +957,7 @@
       .brand-showcase-name { font-size: 0.95rem; }
     }
 
-    /* ======================================
-       INDUSTRY CARD FILTERS
-    ====================================== */
-    .industry-filters {
-      display: flex;
-      gap: 0.6rem;
-      justify-content: center;
-      flex-wrap: wrap;
-      margin-bottom: 1.75rem;
-    }
-    .ind-filter-btn {
-      padding: 0.45rem 1.1rem;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.15);
-      background: rgba(255,255,255,0.05);
-      color: rgba(255,255,255,0.6);
-      font-size: 0.78rem;
-      font-weight: 700;
-      letter-spacing: 0.07em;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.22s ease;
-    }
-    .ind-filter-btn:hover {
-      border-color: rgba(74,144,226,0.5);
-      color: rgba(255,255,255,0.9);
-      background: rgba(0,86,164,0.2);
-    }
-    .ind-filter-btn.active {
-      background: var(--color-primary, #0056a4);
-      border-color: var(--color-primary, #0056a4);
-      color: #fff;
-      box-shadow: 0 4px 14px rgba(0,86,164,0.4);
-    }
-    .industry-card {
-      transition: opacity 0.35s ease, transform 0.35s ease, filter 0.35s ease;
-    }
-    .industry-card.dimmed {
-      opacity: 0.25;
-      filter: grayscale(0.6);
-      transform: scale(0.97);
-    }
-
+    
     /* ======================================
        DISTRIBUTOR PORTFOLIO SPLIT LAYOUT
     ====================================== */
@@ -1867,7 +1868,11 @@
                alt="Cranked Link Bushed Chains ? Bucket Elevator Chains � HS Chain cement industry" loading="lazy" decoding="async">
         </div>
         <div class="prf-card-body">
-          <p class="prf-card-name" data-i18n="prf-card1-name">HS CHAIN � Cement Industry</p>
+          <div class="prf-brand-label">
+            <img src="brand-logo-hs.jpg" alt="HS Chain" class="prf-brand-logo">
+            <p class="prf-card-name">HS Chain</p>
+          </div>
+          <p class="prf-card-sub">Cement Industry</p>
         </div>
       </div>
 
@@ -1880,7 +1885,11 @@
                alt="Bucket Elevator Chains ? Feed Taking Machine Chains � HS Chain cement" loading="lazy" decoding="async">
         </div>
         <div class="prf-card-body">
-          <p class="prf-card-name" data-i18n="prf-card1-name">HS CHAIN � Cement Industry</p>
+          <div class="prf-brand-label">
+            <img src="brand-logo-hs.jpg" alt="HS Chain" class="prf-brand-logo">
+            <p class="prf-card-name">HS Chain</p>
+          </div>
+          <p class="prf-card-sub">Cement Industry</p>
         </div>
       </div>
 
@@ -1893,7 +1902,11 @@
                alt="HS Chain sugar mill chain system" loading="lazy" decoding="async">
         </div>
         <div class="prf-card-body">
-          <p class="prf-card-name" data-i18n="prf-card2-name">HS CHAIN � Sugar Industry</p>
+          <div class="prf-brand-label">
+            <img src="brand-logo-hs.jpg" alt="HS Chain" class="prf-brand-logo">
+            <p class="prf-card-name">HS Chain</p>
+          </div>
+          <p class="prf-card-sub">Sugar Industry</p>
         </div>
       </div>
 
@@ -1906,20 +1919,28 @@
                alt="HS Chain palm oil processing chain" loading="lazy" decoding="async">
         </div>
         <div class="prf-card-body">
-          <p class="prf-card-name" data-i18n="prf-card3-name">HS CHAIN � Palm Industry</p>
+          <div class="prf-brand-label">
+            <img src="brand-logo-hs.jpg" alt="HS Chain" class="prf-brand-logo">
+            <p class="prf-card-name">HS Chain</p>
+          </div>
+          <p class="prf-card-sub">Palm Oil Industry</p>
         </div>
       </div>
 
       <!-- IWIS Roller Chain -->
       <div class="prf-card"
-           data-lbsrc="iwis-roller-chain-1.webp"
+           data-lbsrc="IWIS Roller Chain cover image.jpg"
            data-lbalt="IWIS � Roller Chain">
         <div class="prf-card-img">
-          <img src="iwis-roller-chain-1.webp"
+          <img src="IWIS Roller Chain cover image.jpg"
                alt="IWIS precision roller chain Germany" loading="lazy" decoding="async">
         </div>
         <div class="prf-card-body">
-          <p class="prf-card-name" data-i18n="prf-card5-name">IWIS � Roller Chain</p>
+          <div class="prf-brand-label">
+            <img src="brand-logo-iwis.jpg" alt="IWIS" class="prf-brand-logo">
+            <p class="prf-card-name">IWIS</p>
+          </div>
+          <p class="prf-card-sub">Roller Chain</p>
         </div>
       </div>
 
@@ -1932,7 +1953,11 @@
                alt="DONGBO Standard Single Strand Roller Chain � ANSI / KS B 1407" loading="lazy" decoding="async">
         </div>
         <div class="prf-card-body">
-          <p class="prf-card-name" data-i18n="prf-card4-name">DONGBO Roller Chain</p>
+          <div class="prf-brand-label">
+            <img src="brand-logo-dongbo.jpg" alt="Dongbo" class="prf-brand-logo">
+            <p class="prf-card-name">Dongbo</p>
+          </div>
+          <p class="prf-card-sub">Roller Chain</p>
         </div>
       </div>
 
@@ -1945,6 +1970,9 @@
       <img class="prf-banner-img" src="kmh-conveyor-pipe.png"
            alt="KMH Conveyor Pipe systems � pipe couplings, flap valves, industrial pipe fittings and installations" loading="lazy" decoding="async">
       <div class="prf-banner-label">
+        <div class="prf-banner-brand">
+          <img src="brand-logo-kmh.jpg" alt="KMH" class="prf-banner-logo">
+        </div>
         <p class="prf-banner-name" data-i18n="prf-feat-title">KMH Conveyor Pipe System</p>
       </div>
     </div><!-- /prf-banner -->
@@ -1967,35 +1995,35 @@
       <h2 data-i18n="ind-h2">Our Specialized Industries</h2>
       <p data-i18n="ind-body">From food-grade palm oil processing to cement and sugar production, our chain solutions are proven across the most demanding industrial environments.</p>
     </div>
-    <div class="industry-filters">
-      <button class="ind-filter-btn active" data-filter="all"     data-i18n="ind-tab-all">All Industries</button>
-      <button class="ind-filter-btn"         data-filter="cement"  data-i18n="ind-tab-cement">Cement</button>
-      <button class="ind-filter-btn"         data-filter="palmoil" data-i18n="ind-tab-palmoil">Palm Oil</button>
-      <button class="ind-filter-btn"         data-filter="sugar"   data-i18n="ind-tab-sugar">Sugar</button>
-    </div>
     <div class="industries-grid">
-      <a class="industry-card" data-industry="cement" href="cement-industry.html">
-        <img src="cement-industry-chains.webp" alt="Cement Industry" loading="lazy">
-        <div class="industry-card-overlay">
+      <a class="industry-card" href="cement-industry.html">
+        <div class="industry-card-img">
+          <img src="cement specialized industry.png" alt="Cement Industry" loading="lazy">
+        </div>
+        <div class="industry-card-body">
           <h3 data-i18n="cement-h3">Cement Industry</h3>
           <p data-i18n="cement-p">Abrasion-resistant chains for kiln drives and bulk cement handling systems.</p>
-          <span data-i18n="ind-learn-more" style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More </span>
+          <span class="ind-learn-link" data-i18n="ind-learn-more">Learn More &#8594;</span>
         </div>
       </a>
-      <a class="industry-card" data-industry="palmoil" href="palm-oil-industry.html">
-        <img src="palm-oil-chains.webp" alt="Palm Oil Industry" loading="lazy">
-        <div class="industry-card-overlay">
+      <a class="industry-card" href="palm-oil-industry.html">
+        <div class="industry-card-img">
+          <img src="Palm oil specialized industry.png" alt="Palm Oil Industry" loading="lazy">
+        </div>
+        <div class="industry-card-body">
           <h3 data-i18n="palm-h3">Palm Oil Industry</h3>
           <p data-i18n="palm-p">Food-grade and corrosion-resistant chains for palm oil milling and processing.</p>
-          <span data-i18n="ind-learn-more" style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More </span>
+          <span class="ind-learn-link" data-i18n="ind-learn-more">Learn More &#8594;</span>
         </div>
       </a>
-      <a class="industry-card" data-industry="sugar" href="sugar-industry.html">
-        <img src="sugar-mill-chains.webp" alt="Sugar Industry" loading="lazy">
-        <div class="industry-card-overlay">
+      <a class="industry-card" href="sugar-industry.html">
+        <div class="industry-card-img">
+          <img src="Sugar specialized industry.png" alt="Sugar Industry" loading="lazy">
+        </div>
+        <div class="industry-card-body">
           <h3 data-i18n="sugar-h3">Sugar Industry</h3>
           <p data-i18n="sugar-p">Heavy-duty cane carrier and conveyor chains engineered for sugar mill environments.</p>
-          <span data-i18n="ind-learn-more" style="display:inline-flex;align-items:center;gap:.3rem;font-size:.78rem;font-weight:700;color:rgba(255,255,255,.7);margin-top:.6rem;">Learn More </span>
+          <span class="ind-learn-link" data-i18n="ind-learn-more">Learn More &#8594;</span>
         </div>
       </a>
     </div>
@@ -2627,25 +2655,7 @@ window.addEventListener('scroll', function() {
   revealEls.forEach(function(el) { revealObserver.observe(el); });
 })();
 
-/* ---- Industry Card Filter ---- */
-(function() {
-  var btns = document.querySelectorAll('.ind-filter-btn');
-  var cards = document.querySelectorAll('.industry-card[data-industry]');
-  btns.forEach(function(btn) {
-    btn.addEventListener('click', function() {
-      btns.forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      var filter = btn.getAttribute('data-filter');
-      cards.forEach(function(card) {
-        if (filter === 'all' || card.getAttribute('data-industry') === filter) {
-          card.classList.remove('dimmed');
-        } else {
-          card.classList.add('dimmed');
-        }
-      });
-    });
-  });
-})();
+
 
 /* ---- Commitment quote border draw-in ---- */
 (function() {
