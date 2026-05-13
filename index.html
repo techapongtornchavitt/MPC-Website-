@@ -206,9 +206,9 @@
     .industry-card {
       display: flex; flex-direction: column;
       overflow: hidden; border-radius: var(--radius-md);
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.10);
-      box-shadow: 0 8px 28px rgba(0,0,0,0.32);
+      background: #0e2245;
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.42);
       text-decoration: none;
       transition: box-shadow 350ms var(--ease-out-strong), transform 350ms var(--ease-out-strong), border-color 300ms ease;
     }
@@ -224,22 +224,27 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
+    /* ── Label panel — always visible, no hover needed ── */
     .industry-card-body {
-      padding: 1.2rem 1.25rem 1.4rem;
-      display: flex; flex-direction: column; gap: .45rem;
+      padding: 1.1rem 1.25rem 1.4rem;
+      display: flex; flex-direction: column;
+      align-items: center; gap: .42rem;
+      background: linear-gradient(160deg, #112b54 0%, #0c1e3c 100%);
+      border-top: 2px solid rgba(100,180,255,0.38);
+      text-align: center;
     }
     .industry-card-body h3 {
-      font-size: 1.18rem; font-weight: 800;
-      color: #fff; margin: 0; letter-spacing: -.015em;
+      font-size: 1.22rem; font-weight: 900;
+      color: #fff; margin: 0; letter-spacing: .02em;
     }
     .industry-card-body p {
-      font-size: .84rem; color: rgba(255,255,255,.58);
-      margin: 0; line-height: 1.62;
+      font-size: .83rem; color: rgba(255,255,255,.58);
+      margin: 0; line-height: 1.6;
     }
     .ind-learn-link {
       display: inline-flex; align-items: center; gap: .3rem;
-      font-size: .78rem; font-weight: 700; color: #7ec8e3;
-      margin-top: .35rem; letter-spacing: .03em;
+      font-size: .76rem; font-weight: 700; color: #7ec8e3;
+      margin-top: .2rem; letter-spacing: .04em;
       transition: gap 200ms ease;
     }
 
