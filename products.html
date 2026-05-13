@@ -29,16 +29,16 @@
   <!-- Google Search Console: add <meta name="google-site-verification" content="YOUR_CODE"> here --><link rel="stylesheet" href="styles.css">
   <style>
     /* ============================================================
-       PRODUCTS PAGE  โ€”  Steel-Blue Industrial Theme
-       Palette: mid-dark steel blue #0e2a47 base, not pitch-black.
+       PRODUCTS PAGE  โ€”  Lighter Steel-Blue Industrial Theme
+       Palette: bright steel blue #1d4878 base, modern and readable.
        Cards: translucent steel with crisp borders.
        Typography: bright white headings, soft-white descriptions.
        Accent: vivid sky-blue #2a7fd4 and glow-blue #4aa8f0.
     ============================================================ */
 
-    /* โ”€โ”€ Section background: steel-blue gradient, not black โ”€โ”€ */
+    /* โ”€โ”€ Section background: lighter steel-blue, not near-black โ”€โ”€ */
     .section--dark {
-      background: linear-gradient(160deg, #0b2340 0%, #10304f 55%, #0d2945 100%) !important;
+      background: linear-gradient(160deg, #1d4878 0%, #1f5490 55%, #1c4474 100%) !important;
     }
     /* Section eyebrow lines: sky-blue on dark */
     .section--dark .section-eyebrow { color: #7ec8e3; }
@@ -110,7 +110,7 @@
       gap: .9rem;
       margin-bottom: 1.5rem;
       padding-bottom: .9rem;
-      border-bottom: 1px solid rgba(255,255,255,.14);
+      border-bottom: 1px solid rgba(255,255,255,.22);
     }
     .prod-cat-label-icon {
       width: 38px; height: 38px;
@@ -150,8 +150,8 @@
     .prod-card {
       display: flex;
       flex-direction: column;
-      background: rgba(255,255,255,.07);
-      border: 1px solid rgba(255,255,255,.13);
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.18);
       border-radius: 14px;
       overflow: hidden;
       text-decoration: none;
@@ -159,24 +159,24 @@
       position: relative;
     }
     .prod-card:hover {
-      background: rgba(255,255,255,.11);
-      border-color: rgba(74,168,240,.55);
+      background: rgba(255,255,255,.17);
+      border-color: rgba(74,168,240,.65);
       transform: translateY(-5px);
-      box-shadow: 0 20px 56px rgba(0,0,0,.28), 0 0 0 1px rgba(74,168,240,.28);
+      box-shadow: 0 20px 56px rgba(0,0,0,.22), 0 0 0 1px rgba(74,168,240,.32);
     }
     .prod-card-thumb {
       width: 100%;
       height: 200px;
       overflow: hidden;
-      background: rgba(10,28,55,.65);
+      background: rgba(22,50,90,.50);
       flex-shrink: 0;
       position: relative;
     }
     .prod-card-thumb::after {
-      content: "";
+      content: “”;
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 55%, rgba(8,22,48,.35) 100%);
+      background: linear-gradient(to bottom, transparent 55%, rgba(18,42,80,.25) 100%);
       pointer-events: none;
     }
     .prod-card-thumb img {
@@ -193,7 +193,7 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      border-top: 1px solid rgba(255,255,255,.09);
+      border-top: 1px solid rgba(255,255,255,.16);
     }
     .prod-card-name {
       font-size: .98rem;
@@ -230,9 +230,9 @@
     .prod-cta {
       margin-top: 3rem; padding: 2.25rem 2.5rem;
       border-radius: 16px;
-      background: linear-gradient(135deg, #0d3b7a 0%, #1a65c0 100%);
-      border: 1px solid rgba(74,168,240,.22);
-      box-shadow: 0 10px 40px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
+      background: linear-gradient(135deg, #1a52a0 0%, #2272d0 100%);
+      border: 1px solid rgba(74,168,240,.30);
+      box-shadow: 0 10px 40px rgba(0,0,0,.18), inset 0 1px 0 rgba(255,255,255,.12);
       display: flex; align-items: center;
       justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
     }
@@ -263,7 +263,7 @@
     .prod-sub-label-sep {
       flex: 1;
       height: 1px;
-      background: rgba(255,255,255,.14);
+      background: rgba(255,255,255,.22);
     }
 
     /* โ”€โ”€ RESPONSIVE โ”€โ”€ */
