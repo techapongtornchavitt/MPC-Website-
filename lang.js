@@ -3403,8 +3403,8 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     attachListeners();
-    var saved = 'en';
-    try { saved = localStorage.getItem('mpc-lang') || 'en'; } catch (e) {}
+    var saved = 'th';
+    try { saved = localStorage.getItem('mpc-lang') || 'th'; } catch (e) {}
     apply(saved);
   });
 
