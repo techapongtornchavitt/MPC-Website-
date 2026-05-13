@@ -29,20 +29,21 @@
   <!-- Google Search Console: add <meta name="google-site-verification" content="YOUR_CODE"> here --><link rel="stylesheet" href="styles.css">
   <style>
     /* ============================================================
-       PRODUCTS PAGE  โ€”  Light premium industrial redesign
-       Background shifted from dark navy to clean light palette.
-       Cards: white with shadow. Typography: dark navy on white.
-       Category icons: solid navy. Tabs: pill-on-white style.
+       PRODUCTS PAGE  โ€”  Steel-Blue Industrial Theme
+       Palette: mid-dark steel blue #0e2a47 base, not pitch-black.
+       Cards: translucent steel with crisp borders.
+       Typography: bright white headings, soft-white descriptions.
+       Accent: vivid sky-blue #2a7fd4 and glow-blue #4aa8f0.
     ============================================================ */
 
-    /* โ”€โ”€ Override section background to light โ”€โ”€ */
+    /* โ”€โ”€ Section background: steel-blue gradient, not black โ”€โ”€ */
     .section--dark {
-      background: #f4f7fb !important;
+      background: linear-gradient(160deg, #0b2340 0%, #10304f 55%, #0d2945 100%) !important;
     }
-    /* Section header adapts for light bg */
-    .section--dark .section-eyebrow { color: var(--color-primary); }
+    /* Section eyebrow lines: sky-blue on dark */
+    .section--dark .section-eyebrow { color: #7ec8e3; }
     .section--dark .section-eyebrow::before,
-    .section--dark .section-eyebrow::after { background: var(--color-primary); }
+    .section--dark .section-eyebrow::after { background: #7ec8e3; }
 
     /* โ”€โ”€ HERO SUBHEAD โ”€โ”€ */
     .prod-page-intro {
@@ -50,8 +51,8 @@
       margin: 0 auto 3rem;
       text-align: center;
     }
-    .prod-page-intro h2 { color: var(--color-dark-navy); }
-    .prod-page-intro p  { color: var(--color-grey) !important; }
+    .prod-page-intro h2 { color: #ffffff; }
+    .prod-page-intro p  { color: rgba(255,255,255,.62) !important; }
 
     /* โ”€โ”€ CATEGORY TABS โ”€โ”€ */
     .prod-tabs {
@@ -65,11 +66,11 @@
       display: inline-flex;
       align-items: center;
       gap: .45rem;
-      padding: .5rem 1.15rem;
+      padding: .52rem 1.15rem;
       border-radius: 999px;
-      border: 1.5px solid #d0dae8;
-      background: #ffffff;
-      color: #4a5568;
+      border: 1px solid rgba(255,255,255,.22);
+      background: rgba(255,255,255,.07);
+      color: rgba(255,255,255,.82);
       font-size: .78rem;
       font-weight: 700;
       letter-spacing: .06em;
@@ -77,18 +78,18 @@
       cursor: pointer;
       transition: all .2s ease;
       user-select: none;
-      box-shadow: 0 1px 3px rgba(0,0,0,.05);
+      backdrop-filter: blur(4px);
     }
     .prod-tab:hover {
-      border-color: var(--color-primary);
-      color: var(--color-primary);
-      background: rgba(0,86,164,.05);
+      border-color: rgba(74,168,240,.55);
+      color: #ffffff;
+      background: rgba(42,127,212,.22);
     }
     .prod-tab.active {
-      background: var(--color-primary, #0056a4);
-      border-color: var(--color-primary, #0056a4);
+      background: #2a7fd4;
+      border-color: #2a7fd4;
       color: #fff;
-      box-shadow: 0 4px 14px rgba(0,86,164,.30);
+      box-shadow: 0 4px 18px rgba(42,127,212,.40);
     }
     .prod-tab-dot {
       width: 6px; height: 6px;
@@ -109,22 +110,23 @@
       gap: .9rem;
       margin-bottom: 1.5rem;
       padding-bottom: .9rem;
-      border-bottom: 2px solid #e2e8f0;
+      border-bottom: 1px solid rgba(255,255,255,.14);
     }
     .prod-cat-label-icon {
       width: 38px; height: 38px;
       border-radius: 10px;
-      background: var(--color-primary, #0056a4);
-      border: none;
+      background: linear-gradient(135deg, #1c5ea0 0%, #2a7fd4 100%);
+      border: 1px solid rgba(74,168,240,.30);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #ffffff;
       flex-shrink: 0;
+      box-shadow: 0 4px 12px rgba(42,127,212,.30);
     }
     .prod-cat-label-text h3 {
-      color: var(--color-dark-navy);
-      font-size: 1.1rem;
+      color: #ffffff;
+      font-size: 1.12rem;
       font-weight: 800;
       margin: 0 0 .15rem;
       letter-spacing: .01em;
@@ -134,39 +136,39 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: .1em;
-      color: #6b7a99;
+      color: rgba(180,210,245,.65);
     }
 
     /* โ”€โ”€ PRODUCT CARDS GRID โ”€โ”€ */
     .prod-cards {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 1.5rem;
+      gap: 1.4rem;
     }
 
     /* โ”€โ”€ PRODUCT CARD โ”€โ”€ */
     .prod-card {
       display: flex;
       flex-direction: column;
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
+      background: rgba(255,255,255,.07);
+      border: 1px solid rgba(255,255,255,.13);
       border-radius: 14px;
       overflow: hidden;
       text-decoration: none;
-      transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease;
+      transition: border-color .25s ease, transform .25s ease, box-shadow .25s ease, background .25s ease;
       position: relative;
-      box-shadow: 0 2px 12px rgba(0,0,0,.06);
     }
     .prod-card:hover {
-      border-color: rgba(0,86,164,.40);
+      background: rgba(255,255,255,.11);
+      border-color: rgba(74,168,240,.55);
       transform: translateY(-5px);
-      box-shadow: 0 16px 48px rgba(0,56,120,.13), 0 0 0 1px rgba(0,86,164,.18);
+      box-shadow: 0 20px 56px rgba(0,0,0,.28), 0 0 0 1px rgba(74,168,240,.28);
     }
     .prod-card-thumb {
       width: 100%;
       height: 200px;
       overflow: hidden;
-      background: #f8fafc;
+      background: rgba(10,28,55,.65);
       flex-shrink: 0;
       position: relative;
     }
@@ -174,7 +176,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(to bottom, transparent 65%, rgba(0,30,80,.06) 100%);
+      background: linear-gradient(to bottom, transparent 55%, rgba(8,22,48,.35) 100%);
       pointer-events: none;
     }
     .prod-card-thumb img {
@@ -187,23 +189,23 @@
     .prod-card:hover .prod-card-thumb img { transform: scale(1.06); }
 
     .prod-card-body {
-      padding: 1.25rem 1.4rem 1.4rem;
+      padding: 1.2rem 1.4rem 1.4rem;
       flex: 1;
       display: flex;
       flex-direction: column;
-      border-top: 1px solid #f0f4f8;
+      border-top: 1px solid rgba(255,255,255,.09);
     }
     .prod-card-name {
       font-size: .98rem;
       font-weight: 800;
-      color: var(--color-dark-navy);
+      color: #ffffff;
       margin: 0 0 .45rem;
       letter-spacing: .01em;
       line-height: 1.3;
     }
     .prod-card-desc {
       font-size: .82rem;
-      color: #5a6a82;
+      color: rgba(200,220,245,.78);
       line-height: 1.72;
       flex: 1;
       margin: 0 0 1rem;
@@ -214,7 +216,7 @@
       gap: .35rem;
       font-size: .74rem;
       font-weight: 700;
-      color: var(--color-primary, #0056a4);
+      color: #7ec8e3;
       text-transform: uppercase;
       letter-spacing: .07em;
       margin-top: auto;
@@ -228,14 +230,14 @@
     .prod-cta {
       margin-top: 3rem; padding: 2.25rem 2.5rem;
       border-radius: 16px;
-      background: linear-gradient(135deg, #003878 0%, #0056a4 100%);
-      border: none;
-      box-shadow: 0 8px 32px rgba(0,56,120,.22);
+      background: linear-gradient(135deg, #0d3b7a 0%, #1a65c0 100%);
+      border: 1px solid rgba(74,168,240,.22);
+      box-shadow: 0 10px 40px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.08);
       display: flex; align-items: center;
       justify-content: space-between; gap: 1.5rem; flex-wrap: wrap;
     }
 
-    /* โ”€โ”€ PRODUCT SUB-LABEL (inside brand section) โ”€โ”€ */
+    /* โ”€โ”€ PRODUCT SUB-LABEL โ”€โ”€ */
     .prod-sub-label {
       display: flex;
       align-items: center;
@@ -245,8 +247,8 @@
     .prod-sub-label-icon {
       width: 26px; height: 26px;
       border-radius: 7px;
-      background: var(--color-primary, #0056a4);
-      border: none;
+      background: linear-gradient(135deg, #1c5ea0 0%, #2a7fd4 100%);
+      border: 1px solid rgba(74,168,240,.25);
       display: flex; align-items: center; justify-content: center;
       color: #ffffff;
       flex-shrink: 0;
@@ -254,14 +256,14 @@
     .prod-sub-label-title {
       font-size: .72rem;
       font-weight: 700;
-      color: #4a5568;
+      color: rgba(180,210,245,.75);
       text-transform: uppercase;
       letter-spacing: .1em;
     }
     .prod-sub-label-sep {
       flex: 1;
       height: 1px;
-      background: #e2e8f0;
+      background: rgba(255,255,255,.14);
     }
 
     /* โ”€โ”€ RESPONSIVE โ”€โ”€ */
@@ -381,7 +383,7 @@
     <div class="prod-page-intro">
       <span class="section-eyebrow" data-i18n="prod-cat-eyebrow">Product Range</span>
       <h2 data-i18n="prod-cat-h2">Browse Our Products</h2>
-      <p style="color:#6b7a99; margin:.75rem auto 0;" data-i18n="prod-cat-intro">Select a category to explore available products. Contact our team for specifications, pricing, or custom solutions.</p>
+      <p style="color:rgba(255,255,255,.62); margin:.75rem auto 0;" data-i18n="prod-cat-intro">Select a category to explore available products. Contact our team for specifications, pricing, or custom solutions.</p>
     </div>
 
     <!-- Category Tabs -->
