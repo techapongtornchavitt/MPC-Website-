@@ -205,7 +205,9 @@
     /* Industry card base styles */
     .industry-card {
       display: flex; flex-direction: column;
-      overflow: hidden; border-radius: var(--radius-md);
+      overflow: visible;          /* let label panel sit below image — image clipping handled by .industry-card-img */
+      aspect-ratio: unset;        /* override styles.css 4/3 which clips the label panel */
+      border-radius: var(--radius-md);
       background: #0e2245;
       border: 1px solid rgba(255,255,255,0.14);
       box-shadow: 0 8px 32px rgba(0,0,0,0.42);
@@ -213,7 +215,8 @@
       transition: box-shadow 350ms var(--ease-out-strong), transform 350ms var(--ease-out-strong), border-color 300ms ease;
     }
     .industry-card-img {
-      overflow: hidden;
+      overflow: hidden;           /* image zoom is clipped here, not at card level */
+      border-radius: var(--radius-md) var(--radius-md) 0 0;  /* round top corners only */
       aspect-ratio: 4 / 3;
       flex-shrink: 0;
     }
