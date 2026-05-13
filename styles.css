@@ -1,4 +1,4 @@
-﻿/* ============================================================
+/* ============================================================
    Motion Plus Corporation — styles.css
    Shared stylesheet for all pages
    ============================================================ */
@@ -2848,4 +2848,19 @@ select.form-control { cursor: pointer; }
 }
 .mobile-nav-sub .nav-link:hover {
   color: var(--color-primary);
+}
+
+
+/* -- Translation flash prevention ------------------------------------------------
+   Hide body until lang.js has applied the correct language, then
+   reveal it instantly. The 600 ms safety timer in lang.js ensures
+   the page always becomes visible even on very slow connections.
+   ------------------------------------------------------------------------------- */
+html:not(.lang-ready) body {
+  opacity: 0;
+  pointer-events: none;
+  user-select: none;
+}
+body {
+  transition: opacity 0.1s ease;
 }

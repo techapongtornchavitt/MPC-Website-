@@ -6,6 +6,13 @@
      EN / TH language toggle system
      ============================================================ */
 
+  /* Safety reveal: if DOMContentLoaded is very slow (heavy page,
+     slow network), ensure the page becomes visible within 600 ms
+     so users are never stuck on a blank screen.                  */
+  var _mpcRevealTimer = setTimeout(function () {
+    document.documentElement.classList.add('lang-ready');
+  }, 600);
+
   var T = {
     en: {
       /* ---------- Common (all pages) ---------- */
@@ -3406,6 +3413,8 @@
     var saved = 'th';
     try { saved = localStorage.getItem('mpc-lang') || 'th'; } catch (e) {}
     apply(saved);
+    clearTimeout(_mpcRevealTimer);
+    document.documentElement.classList.add('lang-ready');
   });
 
 })();
