@@ -1331,9 +1331,9 @@
       cursor: pointer;
     }
     .soc-plat-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 40px rgba(0,36,90,.14);
-      border-color: #c8daf5;
+      transform: translateY(-6px);
+      box-shadow: 0 16px 44px rgba(0,56,130,.18), 0 4px 16px rgba(0,0,0,.07);
+      border-color: #b8d0f4;
     }
     .soc-plat-ico {
       width: 54px; height: 54px;
@@ -1342,7 +1342,7 @@
       flex-shrink: 0;
       transition: transform .22s;
     }
-    .soc-plat-card:hover .soc-plat-ico { transform: scale(1.08); }
+    .soc-plat-card:hover .soc-plat-ico { transform: scale(1.10); }
     .soc-plat-ico-fb { background:#1877F2; box-shadow:0 6px 18px rgba(24,119,242,.3); }
     .soc-plat-ico-li { background:#0077B5; box-shadow:0 6px 18px rgba(0,119,181,.28); }
     .soc-plat-ico-ig { background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); box-shadow:0 6px 18px rgba(220,39,67,.25); }
@@ -1401,40 +1401,47 @@
 
     /* ── Full-width dark feed band ── */
     .soc-feed-band {
-      background: #09121f;
+      background: linear-gradient(175deg, #0b1a30 0%, #0d1e3a 60%, #0a1628 100%);
       margin-top: 0;
-      padding: 3.5rem 0 4.5rem;
+      padding: 4.25rem 0 5rem;
       position: relative;
       overflow: hidden;
     }
-    /* Subtle texture lines */
+    /* Top accent rule + diagonal texture */
     .soc-feed-band::before {
       content: '';
       position: absolute;
       inset: 0;
-      background-image: repeating-linear-gradient(
-        -50deg,
-        rgba(255,255,255,.012) 0px,
-        rgba(255,255,255,.012) 1px,
-        transparent 1px,
-        transparent 64px
-      );
+      background-image:
+        linear-gradient(90deg, transparent 0%, rgba(0,86,164,.75) 25%, rgba(24,119,242,.95) 50%, rgba(0,86,164,.75) 75%, transparent 100%),
+        repeating-linear-gradient(
+          -50deg,
+          rgba(255,255,255,.020) 0px,
+          rgba(255,255,255,.020) 1px,
+          transparent 1px,
+          transparent 64px
+        );
+      background-size: 100% 2px, 100% 100%;
+      background-position: top center, center;
+      background-repeat: no-repeat, repeat;
       pointer-events: none;
+      z-index: 0;
     }
-    /* Blue glow centre */
+    /* Brand glow centre */
     .soc-feed-band::after {
       content: '';
       position: absolute;
-      top: -25%; left: 50%;
+      top: -20%; left: 50%;
       transform: translateX(-50%);
-      width: 860px; height: 480px;
-      background: radial-gradient(ellipse, rgba(24,119,242,.11) 0%, transparent 68%);
+      width: 940px; height: 540px;
+      background: radial-gradient(ellipse, rgba(0,86,164,.15) 0%, rgba(24,119,242,.07) 45%, transparent 70%);
       pointer-events: none;
+      z-index: 0;
     }
     .soc-feed-band-inner {
-      max-width: 860px;
+      max-width: 880px;
       margin: 0 auto;
-      padding: 0 1.75rem;
+      padding: 0 2rem;
       position: relative;
       z-index: 1;
     }
@@ -1443,11 +1450,13 @@
     .soc-feed-band-hdr {
       display: flex;
       align-items: center;
-      gap: .9rem;
-      margin-bottom: 1.5rem;
+      gap: 1.1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
     }
-    .sfb-name { font-size: 1rem; font-weight: 800; color: #fff; line-height: 1.2; }
-    .sfb-sub  { font-size: .74rem; color: rgba(255,255,255,.5); margin-top: .1rem; }
+    .sfb-name { font-size: 1.15rem; font-weight: 800; color: #fff; line-height: 1.2; letter-spacing: -.01em; }
+    .sfb-sub  { font-size: .78rem; color: rgba(255,255,255,.55); margin-top: .12rem; letter-spacing: .01em; }
     .sfb-live-dot {
       width: 6px; height: 6px;
       background: #7ab6ff; border-radius: 50%;
@@ -1458,28 +1467,39 @@
     .soc-feed-band-footer {
       display: flex; align-items: center; justify-content: space-between;
       gap: 1rem; flex-wrap: wrap;
-      margin-top: 1.5rem;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,.08);
     }
     .soc-hashtags {
       display: flex; gap: .45rem; flex-wrap: wrap;
     }
     .soc-hash {
-      font-size: .74rem; font-weight: 600;
-      color: rgba(255,255,255,.45);
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.09);
-      padding: .22rem .72rem; border-radius: 100px;
+      font-size: .73rem; font-weight: 600;
+      color: rgba(255,255,255,.52);
+      background: rgba(255,255,255,.065);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: .26rem .78rem; border-radius: 100px;
+      letter-spacing: .02em;
+      transition: color .2s, background .2s, border-color .2s;
+      cursor: default;
     }
     .soc-view-btn {
-      display: inline-flex; align-items: center; gap: .45rem;
-      font-size: .84rem; font-weight: 700; color: #fff;
-      text-decoration: none; padding: .55rem 1.3rem;
-      background: #1877F2; border-radius: 9px;
-      box-shadow: 0 4px 16px rgba(24,119,242,.32);
-      transition: background .15s, transform .15s;
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .86rem; font-weight: 700; color: #fff;
+      text-decoration: none; padding: .62rem 1.45rem;
+      background: linear-gradient(135deg, #1877F2 0%, #1262cc 100%);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 4px 18px rgba(24,119,242,.42), 0 1px 4px rgba(0,0,0,.18);
+      transition: transform .22s ease, box-shadow .22s ease, background .22s;
       white-space: nowrap; flex-shrink: 0;
     }
-    .soc-view-btn:hover { background: #1465d8; transform: translateY(-2px); }
+    .soc-view-btn:hover {
+      background: linear-gradient(135deg, #1d82ff 0%, #1467d8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(24,119,242,.55), 0 2px 8px rgba(0,0,0,.20);
+    }
 
     /* ── Responsive ── */
     @media (max-width: 980px) {
@@ -1489,8 +1509,8 @@
       .soc-follow-row { gap: .7rem; }
       .soc-plat-card  { min-width: 100px; max-width: 124px; padding: 1.3rem .9rem 1.15rem; }
       .soc-plat-ico   { width: 46px; height: 46px; border-radius: 13px; }
-      .soc-feed-band  { padding: 2.75rem 0 3.5rem; }
-      .soc-feed-band-inner { padding: 0 1.25rem; }
+      .soc-feed-band  { padding: 3rem 0 4rem; }
+      .soc-feed-band-inner { padding: 0 1.5rem; }
     }
     @media (max-width: 540px) {
       .soc-section    { padding: 0 0 3rem; }
@@ -1499,8 +1519,13 @@
       .soc-plat-card  { min-width: 90px; max-width: 110px; padding: 1.1rem .7rem 1rem; }
       .soc-plat-ico   { width: 40px; height: 40px; border-radius: 11px; }
       .soc-plat-handle { display: none; }
-      .soc-feed-band  { padding: 2.25rem 0 3rem; margin-top: 0; }
-      .soc-feed-band-footer { flex-direction: column; align-items: flex-start; }
+      .soc-feed-band  { padding: 2.5rem 0 3.25rem; margin-top: 0; }
+      .soc-feed-band-inner { padding: 0 1.25rem; }
+      .soc-feed-band-hdr  { gap: .75rem; margin-bottom: 1.25rem; padding-bottom: 1rem; }
+      .sfb-fb-icon    { width: 44px; height: 44px; border-radius: 11px; }
+      .sfb-name       { font-size: .95rem; }
+      .sfb-sub        { font-size: .72rem; }
+      .soc-feed-band-footer { flex-direction: column; align-items: flex-start; gap: .85rem; }
       .soc-view-btn   { align-self: flex-end; }
     }
 
@@ -1508,9 +1533,9 @@
        FACEBOOK FEED BAND OVERRIDES
     ============================================================ */
 
-    /* Glow stays Facebook-blue (slightly stronger than base) */
+    /* Glow — aligned with site primary blue #0056A4 */
     .soc-feed-band::after {
-      background: radial-gradient(ellipse, rgba(24,119,242,.13) 0%, transparent 68%);
+      background: radial-gradient(ellipse, rgba(0,86,164,.16) 0%, rgba(24,119,242,.08) 45%, transparent 70%);
     }
 
     /* Feed-intro divider dot — Facebook blue */
@@ -1518,28 +1543,47 @@
 
     /* Facebook branded icon in band header */
     .sfb-fb-icon {
-      width: 46px; height: 46px;
-      background: #1877F2;
-      border-radius: 13px;
+      width: 52px; height: 52px;
+      background: linear-gradient(140deg, #1877F2 0%, #0d5ecc 100%);
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 22px rgba(24,119,242,.42);
+      box-shadow: 0 6px 24px rgba(24,119,242,.50), 0 2px 8px rgba(0,0,0,.28);
+      flex-shrink: 0;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .soc-feed-band-hdr:hover .sfb-fb-icon {
+      transform: scale(1.06);
+      box-shadow: 0 10px 32px rgba(24,119,242,.58), 0 4px 12px rgba(0,0,0,.32);
+    }
+    /* Live dot — brighter */
+    .sfb-live-dot {
+      width: 7px; height: 7px;
+      background: #60a5fa;
+      border-radius: 50%;
+      animation: soc-pulse 1.8s ease-in-out infinite;
       flex-shrink: 0;
     }
 
-    /* "Follow" pill badge — Facebook blue */
+    /* "Follow" pill badge — refined premium */
     .sfb-follow-fb {
-      display: inline-flex; align-items: center; gap: .38rem;
-      background: rgba(24,119,242,.18);
-      border: 1px solid rgba(24,119,242,.38);
-      color: #93c4ff;
-      font-size: .7rem; font-weight: 700;
-      padding: .26rem .75rem; border-radius: 100px;
-      text-transform: uppercase; letter-spacing: .05em;
+      display: inline-flex; align-items: center; gap: .44rem;
+      background: rgba(24,119,242,.22);
+      border: 1.5px solid rgba(24,119,242,.52);
+      color: #a8ceff;
+      font-size: .76rem; font-weight: 700;
+      padding: .4rem 1.05rem; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: .06em;
       text-decoration: none;
       margin-left: auto; flex-shrink: 0;
-      transition: background .2s, color .2s;
+      white-space: nowrap;
+      transition: background .22s, border-color .22s, color .22s, transform .22s;
     }
-    .sfb-follow-fb:hover { background: rgba(24,119,242,.30); color: #c2dcff; }
+    .sfb-follow-fb:hover {
+      background: rgba(24,119,242,.38);
+      border-color: rgba(24,119,242,.75);
+      color: #d4e8ff;
+      transform: translateY(-1px);
+    }
 
     /* ── Facebook horizontal scrolling strip ── */
     .fb-scroll-wrap {
@@ -1550,8 +1594,8 @@
       content: ''; position: absolute; top: 0; bottom: 0;
       width: 80px; pointer-events: none; z-index: 3;
     }
-    .fb-scroll-wrap::before { left:  0; background: linear-gradient(to right, #09121f 0%, transparent 100%); }
-    .fb-scroll-wrap::after  { right: 0; background: linear-gradient(to left,  #09121f 0%, transparent 100%); }
+    .fb-scroll-wrap::before { left:  0; background: linear-gradient(to right, #0b1a30 0%, transparent 100%); }
+    .fb-scroll-wrap::after  { right: 0; background: linear-gradient(to left,  #0b1a30 0%, transparent 100%); }
 
     .fb-strip-track {
       display: flex; gap: 0.85rem;
@@ -1613,7 +1657,7 @@
     /* Skeleton shimmer for loading state */
     .fb-skeleton {
       flex: 0 0 240px; height: 300px; border-radius: 14px; scroll-snap-align: start;
-      background: linear-gradient(90deg, #0c1525 25%, #162035 50%, #0c1525 75%);
+      background: linear-gradient(90deg, #0d1e35 25%, #182a48 50%, #0d1e35 75%);
       background-size: 200% 100%; animation: fb-shimmer 1.4s ease-in-out infinite;
     }
     @keyframes fb-shimmer {
@@ -1639,16 +1683,12 @@
 
     /* Strip note */
     .fb-strip-note {
-      font-size: .76rem; color: rgba(255,255,255,.32); text-align: center;
-      margin: 0; padding: 0 1.75rem 1.5rem; line-height: 1.6; letter-spacing: .01em;
+      font-size: .77rem; color: rgba(255,255,255,.35); text-align: center;
+      margin: 0; padding: 1.1rem 2rem 0; line-height: 1.6; letter-spacing: .01em;
     }
 
-    /* "View All Posts on Facebook" button */
-    .soc-view-fb-btn {
-      background: #1877F2 !important;
-      box-shadow: 0 4px 16px rgba(24,119,242,.38) !important;
-    }
-    .soc-view-fb-btn:hover { background: #1465d8 !important; transform: translateY(-2px); }
+    /* "View All Posts on Facebook" button — inherits premium .soc-view-btn styles */
+    .soc-view-fb-btn { /* no override needed — .soc-view-btn styles apply */ }
 
     @media (max-width: 600px) {
       .fb-post-card  { flex: 0 0 190px; height: 238px; }
@@ -1661,37 +1701,50 @@
     /* ── Facebook Page Plugin container ── */
     #fb-content-area { position: relative; z-index: 1; }
     .fb-plugin-outer {
-      max-width: 860px; margin: 0 auto;
-      padding: 0 1.75rem; position: relative; z-index: 1;
+      max-width: 880px; margin: 0 auto;
+      padding: 0 2rem; position: relative; z-index: 1;
     }
     .fb-plugin-frame {
-      border-radius: 14px; overflow: hidden;
-      box-shadow: 0 8px 40px rgba(0,0,0,.55), 0 2px 12px rgba(0,0,0,.30);
-      border: 1px solid rgba(255,255,255,.08);
-      background: #fff; min-height: 500px;
+      border-radius: 16px; overflow: hidden;
+      box-shadow:
+        0 24px 64px rgba(0,0,0,.65),
+        0 8px 24px rgba(0,0,0,.38),
+        0 0 0 1px rgba(255,255,255,.11),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      border: none;
+      background: #fff; min-height: 520px;
+      transition: box-shadow .3s ease;
+    }
+    .fb-plugin-frame:hover {
+      box-shadow:
+        0 32px 80px rgba(0,0,0,.70),
+        0 12px 32px rgba(0,0,0,.42),
+        0 0 0 1px rgba(24,119,242,.28),
+        inset 0 1px 0 rgba(255,255,255,.06);
     }
     .fb-plugin-frame .fb-page { display: block; }
     @media (max-width: 720px) {
       .fb-plugin-outer { padding: 0 1.25rem; }
-      .fb-plugin-frame { min-height: 420px; border-radius: 10px; }
+      .fb-plugin-frame { min-height: 440px; border-radius: 12px; }
     }
     @media (max-width: 540px) {
-      .fb-plugin-outer { padding: 0 .75rem; }
-      .fb-plugin-frame { min-height: 360px; border-radius: 8px; }
+      .fb-plugin-outer { padding: 0 .85rem; }
+      .fb-plugin-frame { min-height: 380px; border-radius: 10px; }
     }
     /* ── "Follow us on Facebook" placeholder — shown until credentials are set ── */
     .fb-placeholder-wrap {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
-      gap: .85rem; flex: 0 0 320px; height: 300px; border-radius: 14px;
-      background: linear-gradient(140deg, #0d1a30 0%, #142247 100%);
-      border: 1px solid rgba(24,119,242,.30); scroll-snap-align: start;
-      padding: 2rem; box-shadow: 0 8px 32px rgba(0,0,0,.45);
+      gap: .85rem; flex: 0 0 320px; height: 300px; border-radius: 16px;
+      background: linear-gradient(140deg, #0d1e35 0%, #122449 100%);
+      border: 1.5px solid rgba(24,119,242,.28); scroll-snap-align: start;
+      padding: 2rem; box-shadow: 0 12px 40px rgba(0,0,0,.50), 0 4px 16px rgba(0,0,0,.24);
       text-align: center; text-decoration: none;
-      transition: border-color .25s, box-shadow .25s; flex-shrink: 0;
+      transition: border-color .25s, box-shadow .25s, transform .25s; flex-shrink: 0;
     }
     .fb-placeholder-wrap:hover {
-      border-color: rgba(24,119,242,.60);
-      box-shadow: 0 14px 44px rgba(0,0,0,.55), 0 4px 18px rgba(24,119,242,.22);
+      border-color: rgba(24,119,242,.55);
+      box-shadow: 0 20px 56px rgba(0,0,0,.58), 0 6px 22px rgba(24,119,242,.20);
+      transform: translateY(-3px);
     }
     .fb-ph-icon {
       width: 52px; height: 52px; background: #1877F2; border-radius: 14px;
@@ -2315,8 +2368,8 @@
           <div class="fb-page"
             data-href="https://www.facebook.com/profile.php?id=1018130321389942"
             data-tabs="timeline"
-            data-width="820"
-            data-height="500"
+            data-width="840"
+            data-height="520"
             data-small-header="true"
             data-adapt-container-width="true"
             data-hide-cover="true"
