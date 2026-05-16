@@ -1658,6 +1658,27 @@
       .fb-scroll-wrap::after { width: 40px; }
       .fb-strip-track { padding: 0.5rem 40px; }
     }
+    /* ── Facebook Page Plugin container ── */
+    #fb-content-area { position: relative; z-index: 1; }
+    .fb-plugin-outer {
+      max-width: 860px; margin: 0 auto;
+      padding: 0 1.75rem; position: relative; z-index: 1;
+    }
+    .fb-plugin-frame {
+      border-radius: 14px; overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,.55), 0 2px 12px rgba(0,0,0,.30);
+      border: 1px solid rgba(255,255,255,.08);
+      background: #fff; min-height: 500px;
+    }
+    .fb-plugin-frame .fb-page { display: block; }
+    @media (max-width: 720px) {
+      .fb-plugin-outer { padding: 0 1.25rem; }
+      .fb-plugin-frame { min-height: 420px; border-radius: 10px; }
+    }
+    @media (max-width: 540px) {
+      .fb-plugin-outer { padding: 0 .75rem; }
+      .fb-plugin-frame { min-height: 360px; border-radius: 8px; }
+    }
     /* ── "Follow us on Facebook" placeholder — shown until credentials are set ── */
     .fb-placeholder-wrap {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
@@ -1709,6 +1730,10 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 </head>
 <body>
+
+<!-- Facebook SDK root -->
+<div id="fb-root"></div>
+
 
 <!-- Scroll Progress Bar -->
 <div id="scroll-progress"></div>
@@ -2283,35 +2308,28 @@
 
     </div><!-- /soc-feed-band-inner (header) -->
 
-    <!-- ── Full-width horizontal scrolling photo strip ── -->
-    <div class="fb-scroll-wrap" id="fb-scroll-wrap">
-
-      <!-- Prev arrow -->
-      <button class="fb-arrow fb-arrow-prev" id="fb-prev" aria-label="Scroll left" data-at-edge="true">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-      </button>
-
-      <!-- Scrollable track — populated dynamically by JS -->
-      <div class="fb-strip-track" id="fb-track" role="list" aria-label="Facebook photo showcase — swipe or use arrows to browse">
-        <!-- Skeleton shimmer cards shown while posts are loading -->
-        <div class="fb-skeleton" aria-hidden="true"></div>
-        <div class="fb-skeleton" aria-hidden="true"></div>
-        <div class="fb-skeleton" aria-hidden="true"></div>
-        <div class="fb-skeleton" aria-hidden="true"></div>
-        <div class="fb-skeleton" aria-hidden="true"></div>
-        <div class="fb-skeleton" aria-hidden="true"></div>
-        <div class="fb-skeleton" aria-hidden="true"></div>
-        <div class="fb-skeleton" aria-hidden="true"></div>
-      </div><!-- /fb-strip-track -->
-
-      <!-- Next arrow -->
-      <button class="fb-arrow fb-arrow-next" id="fb-next" aria-label="Scroll right">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-      </button>
-
-    </div><!-- /fb-scroll-wrap -->
-
-    <p class="fb-strip-note">Swipe or use arrows to browse &nbsp;&#183;&nbsp; Tap any photo to visit our Facebook Page</p>
+    <!-- ── Live Facebook Page Feed (Page Plugin — no token needed) ── -->
+    <div id="fb-content-area">
+      <div class="fb-plugin-outer">
+        <div class="fb-plugin-frame">
+          <div class="fb-page"
+            data-href="https://www.facebook.com/profile.php?id=1018130321389942"
+            data-tabs="timeline"
+            data-width="820"
+            data-height="500"
+            data-small-header="true"
+            data-adapt-container-width="true"
+            data-hide-cover="true"
+            data-show-facepile="false"
+            data-lazy="true">
+            <blockquote cite="https://www.facebook.com/profile.php?id=1018130321389942" class="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/profile.php?id=1018130321389942">Motion Plus Corporation Co.,Ltd. on Facebook</a>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="fb-strip-note">Scroll inside the feed to browse our posts &nbsp;&#183;&nbsp; Click any post to open on Facebook</p>
 
     <!-- Feed footer -->
     <div class="soc-feed-band-inner" style="padding-top:0;">
@@ -2696,192 +2714,122 @@ window.addEventListener('scroll', function() {
 }());
 </script>
 
-<!-- Facebook Live Feed — arrow nav, drag-to-scroll, Graph API loader -->
+<!-- Facebook SDK — powers the Page Plugin and future Graph API calls -->
+<script>
+window.fbAsyncInit = function() {
+  FB.init({ xfbml: true, version: 'v19.0' });
+};
+(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
+<!-- Facebook SDK — Graph API loader (activates custom carousel when token is configured) -->
 <script>
 /* ══════════════════════════════════════════════════════════════════════
-   FACEBOOK LIVE FEED — CONFIGURATION
+   FACEBOOK LIVE FEED CONFIGURATION
    ══════════════════════════════════════════════════════════════════════
-   HOW TO ACTIVATE REAL FACEBOOK POSTS:
+   Currently showing: Official Facebook Page Plugin (real posts, no token needed)
 
-   1. Get your numeric Facebook Page ID:
-      → Go to your Facebook Page → About → scroll down to "Page Transparency"
-      → Copy the "Page ID: XXXXXXXXXXXXXXX" number
-      → OR use https://lookup-id.com and paste your page URL
+   To upgrade to the full custom card carousel with post images pulled
+   directly via the Graph API, fill in both values below:
 
-   2. Get a Page Access Token:
-      → Go to https://developers.facebook.com/tools/explorer/
-      → Create/select an app, click "Generate Access Token"
-      → Grant: pages_read_engagement + pages_show_list
-      → Copy the token
+   pageId is already set: 1018130321389942
 
-   3. Paste both values below and push to GitHub.
-
-   For a never-expiring token, see facebook-setup-guide.html in this folder.
+   For the token:
+   1. Go to https://developers.facebook.com/tools/explorer/
+   2. Select/create an app → Generate Access Token
+   3. Grant: pages_read_engagement + pages_show_list
+   4. Paste the EAAxxxxxx... token below
    ══════════════════════════════════════════════════════════════════════ */
 var FB_CONFIG = {
   pageId  : '1018130321389942',        /* Motion Plus Corporation Co.,Ltd.   */
-  token   : 'YOUR_ACCESS_TOKEN',     /* <- e.g. 'EAAxxxxxxxxxxxxxxxx...'   */
+  token   : 'YOUR_ACCESS_TOKEN',       /* <- Paste token here to enable carousel */
   pageUrl : 'https://www.facebook.com/share/1ErTQWb5hF/',
-  limit   : 12,                       /* max posts to fetch (1-100)         */
-  refresh : 15 * 60 * 1000           /* auto-refresh every 15 min (ms)     */
+  limit   : 12,
+  refresh : 15 * 60 * 1000
 };
 
 (function () {
   'use strict';
+
+  /* Only activate the custom Graph API carousel when a real token is set.
+     Until then the Facebook Page Plugin (already in the HTML) shows live posts. */
+  if (!FB_CONFIG.token || FB_CONFIG.token === 'YOUR_ACCESS_TOKEN') {
+    /* Page Plugin is already rendering via the Facebook SDK — nothing to do. */
+    return;
+  }
+
+  /* ── Token is configured: swap Page Plugin for custom card carousel ── */
+  var contentArea = document.getElementById('fb-content-area');
+  var stripNote   = document.querySelector('.fb-strip-note');
+  if (!contentArea) return;
+
+  /* Build carousel HTML */
+  contentArea.innerHTML = [
+    '<div class="fb-scroll-wrap" id="fb-scroll-wrap">',
+    '  <button class="fb-arrow fb-arrow-prev" id="fb-prev" aria-label="Scroll left" data-at-edge="true">',
+    '    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>',
+    '  </button>',
+    '  <div class="fb-strip-track" id="fb-track" role="list" aria-label="Facebook posts">',
+    '    <div class="fb-skeleton"></div><div class="fb-skeleton"></div>',
+    '    <div class="fb-skeleton"></div><div class="fb-skeleton"></div>',
+    '    <div class="fb-skeleton"></div><div class="fb-skeleton"></div>',
+    '  </div>',
+    '  <button class="fb-arrow fb-arrow-next" id="fb-next" aria-label="Scroll right">',
+    '    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>',
+    '  </button>',
+    '</div>'
+  ].join('');
+  if (stripNote) stripNote.textContent = 'Swipe or use arrows \xb7 Tap any photo to open on Facebook';
 
   var track   = document.getElementById('fb-track');
   var wrap    = document.getElementById('fb-scroll-wrap');
   var btnPrev = document.getElementById('fb-prev');
   var btnNext = document.getElementById('fb-next');
   var SCROLL_STEP = 260;
-  var retryTimer  = null;
 
-  /* ── Arrow enable / disable ── */
   function updateArrows() {
     if (!track || !btnPrev || !btnNext) return;
     btnPrev.setAttribute('data-at-edge', track.scrollLeft <= 4 ? 'true' : 'false');
     btnNext.setAttribute('data-at-edge',
       track.scrollLeft >= track.scrollWidth - track.clientWidth - 4 ? 'true' : 'false');
   }
+  btnPrev.addEventListener('click', function () { track.scrollBy({ left: -SCROLL_STEP, behavior: 'smooth' }); });
+  btnNext.addEventListener('click', function () { track.scrollBy({ left:  SCROLL_STEP, behavior: 'smooth' }); });
+  track.addEventListener('scroll', updateArrows, { passive: true });
+  var isDrag = false, startX = 0, scrollStart = 0;
+  track.addEventListener('mousedown', function (e) { isDrag = true; startX = e.pageX; scrollStart = track.scrollLeft; track.style.userSelect = 'none'; });
+  document.addEventListener('mousemove', function (e) { if (!isDrag) return; track.scrollLeft = scrollStart - (e.pageX - startX); });
+  document.addEventListener('mouseup', function () { if (!isDrag) return; isDrag = false; track.style.userSelect = ''; updateArrows(); });
+  track.addEventListener('click', function (e) { if (Math.abs(track.scrollLeft - scrollStart) > 6) e.preventDefault(); }, true);
+  updateArrows();
 
-  if (track && btnPrev && btnNext) {
-    btnPrev.addEventListener('click', function () {
-      track.scrollBy({ left: -SCROLL_STEP, behavior: 'smooth' });
-    });
-    btnNext.addEventListener('click', function () {
-      track.scrollBy({ left:  SCROLL_STEP, behavior: 'smooth' });
-    });
-    track.addEventListener('scroll', updateArrows, { passive: true });
+  var ICO_SM = '<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>';
+  var ICO_LG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>';
 
-    /* ── Drag-to-scroll (mouse) ── */
-    var isDrag = false, startX = 0, scrollStart = 0;
-    track.addEventListener('mousedown', function (e) {
-      isDrag = true; startX = e.pageX; scrollStart = track.scrollLeft;
-      track.style.userSelect = 'none';
-    });
-    document.addEventListener('mousemove', function (e) {
-      if (!isDrag) return;
-      track.scrollLeft = scrollStart - (e.pageX - startX);
-    });
-    document.addEventListener('mouseup', function () {
-      if (!isDrag) return;
-      isDrag = false; track.style.userSelect = ''; updateArrows();
-    });
-    track.addEventListener('click', function (e) {
-      if (Math.abs(track.scrollLeft - scrollStart) > 6) e.preventDefault();
-    }, true);
-
-    updateArrows();
-  }
-
-  /* ── FB icon SVG ── */
-  var ICO_SM = '<svg width="14" height="14" viewBox="0 0 24 24" fill="white" aria-hidden="true">'
-             + '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>';
-  var ICO_LG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true">'
-             + '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>';
-
-  /* ── Build a Facebook post card ── */
   function buildCard(imgSrc, href, caption) {
     var a = document.createElement('a');
-    a.href = href || FB_CONFIG.pageUrl;
-    a.target = '_blank'; a.rel = 'noopener noreferrer';
-    a.className = 'fb-post-card'; a.setAttribute('role', 'listitem');
-    a.setAttribute('aria-label', 'View post on Facebook');
-
-    var imgEl = document.createElement('div');
-    imgEl.className = 'fb-post-img';
-    imgEl.style.backgroundImage = 'url(' + JSON.stringify(imgSrc) + ')';
-
+    a.href = href || FB_CONFIG.pageUrl; a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.className = 'fb-post-card'; a.setAttribute('role', 'listitem'); a.setAttribute('aria-label', 'View on Facebook');
+    var img = document.createElement('div'); img.className = 'fb-post-img'; img.style.backgroundImage = 'url(' + JSON.stringify(imgSrc) + ')';
     var scrim = document.createElement('div'); scrim.className = 'fb-post-scrim';
-    var badge = document.createElement('div'); badge.className = 'fb-post-badge';
-    badge.setAttribute('aria-hidden', 'true'); badge.innerHTML = ICO_SM;
-    var hover = document.createElement('div'); hover.className = 'fb-post-hover';
-    hover.setAttribute('aria-hidden', 'true');
-    hover.innerHTML = ICO_LG + '<span>View on Facebook</span>';
-
-    a.appendChild(imgEl); a.appendChild(scrim);
-    if (caption) {
-      var cap = document.createElement('div'); cap.className = 'fb-post-caption';
-      cap.textContent = caption; a.appendChild(cap);
-    }
+    var badge = document.createElement('div'); badge.className = 'fb-post-badge'; badge.setAttribute('aria-hidden','true'); badge.innerHTML = ICO_SM;
+    var hover = document.createElement('div'); hover.className = 'fb-post-hover'; hover.setAttribute('aria-hidden','true'); hover.innerHTML = ICO_LG + '<span>View on Facebook</span>';
+    a.appendChild(img); a.appendChild(scrim);
+    if (caption) { var cap = document.createElement('div'); cap.className = 'fb-post-caption'; cap.textContent = caption; a.appendChild(cap); }
     a.appendChild(badge); a.appendChild(hover);
     return a;
   }
 
-  /* ── Render card elements into the track ── */
-  function render(cards) {
-    if (!track) return;
-    /* Remove any error bar from previous failed attempt */
-    var bar = wrap ? wrap.querySelector('.fb-error-bar') : null;
-    if (bar) bar.remove();
-    track.innerHTML = '';
-    cards.forEach(function (el) { track.appendChild(el); });
-    updateArrows();
-  }
+  function render(cards) { track.innerHTML = ''; cards.forEach(function(el){ track.appendChild(el); }); updateArrows(); }
 
-  /* ── "Follow us on Facebook" placeholder — no portfolio images used ──
-     Shown when credentials are not yet configured.
-     Visitors see a polished invitation card linking directly to the FB page.  */
-  function renderPlaceholder() {
-    if (!track) return;
-    var skeletonCount = 6;
-    /* Clear track */
-    track.innerHTML = '';
-    /* Invite card */
-    var invite = document.createElement('a');
-    invite.href = FB_CONFIG.pageUrl;
-    invite.target = '_blank'; invite.rel = 'noopener noreferrer';
-    invite.className = 'fb-placeholder-wrap';
-    invite.setAttribute('aria-label', 'Follow Motion Plus Corporation on Facebook');
-    invite.innerHTML =
-      '<div class="fb-ph-icon">'
-      + '<svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true">'
-      + '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>'
-      + '</div>'
-      + '<p class="fb-ph-title">Motion Plus Corporation</p>'
-      + '<p class="fb-ph-sub">Follow our Facebook Page for live product updates, installation photos, and field highlights.</p>'
-      + '<span class="fb-ph-btn">'
-      + '<svg width="13" height="13" viewBox="0 0 24 24" fill="white" aria-hidden="true">'
-      + '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>'
-      + 'Visit our Page</span>';
-    track.appendChild(invite);
-    /* Skeleton shimmer cards alongside the invite */
-    for (var i = 0; i < skeletonCount; i++) {
-      var sk = document.createElement('div'); sk.className = 'fb-skeleton'; sk.setAttribute('aria-hidden', 'true');
-      track.appendChild(sk);
-    }
-    updateArrows();
-  }
-
-  /* ── Error state — skeletons kept, retry bar added at bottom ── */
-  function renderError(msg, canRetry) {
-    if (!track) return;
-    /* Show skeleton shimmer while "retrying" */
-    track.innerHTML = '';
-    for (var i = 0; i < 8; i++) {
-      var sk = document.createElement('div'); sk.className = 'fb-skeleton'; sk.setAttribute('aria-hidden', 'true');
-      track.appendChild(sk);
-    }
-    if (wrap) {
-      var bar = document.createElement('div'); bar.className = 'fb-error-bar';
-      bar.innerHTML = '<span>' + msg + '</span>'
-        + (canRetry ? '<button class="fb-error-retry" type="button">Retry now</button>' : '');
-      if (canRetry) {
-        bar.querySelector('.fb-error-retry').addEventListener('click', function () {
-          bar.remove(); loadPosts();
-        });
-      }
-      wrap.appendChild(bar);
-    }
-    updateArrows();
-  }
-
-  /* ── Extract best image URL from a Graph API post ── */
   function extractImage(post) {
-    /* Priority: attachments → full_picture → null */
     if (post.attachments && post.attachments.data && post.attachments.data.length) {
       var att = post.attachments.data[0];
-      /* Album: use first sub-attachment image */
       if (att.subattachments && att.subattachments.data && att.subattachments.data.length) {
         var sub = att.subattachments.data[0];
         if (sub.media && sub.media.image && sub.media.image.src) return sub.media.image.src;
@@ -2891,58 +2839,22 @@ var FB_CONFIG = {
     return post.full_picture || null;
   }
 
-  /* ── Fetch live posts from the Facebook Graph API ── */
   function loadPosts() {
-    /* Credentials not yet configured — show placeholder, not portfolio images */
-    if (!FB_CONFIG.pageId || FB_CONFIG.pageId === 'YOUR_PAGE_ID' ||
-        !FB_CONFIG.token  || FB_CONFIG.token  === 'YOUR_ACCESS_TOKEN') {
-      renderPlaceholder();
-      return;
-    }
-
-    var fields = 'id,message,full_picture,permalink_url,created_time,'
-               + 'attachments{media{image{src,width,height}},subattachments{data{media{image{src,width,height}}}},type}';
-
-    var url = 'https://graph.facebook.com/v19.0/'
-      + encodeURIComponent(FB_CONFIG.pageId)
+    var fields = 'id,message,full_picture,permalink_url,created_time,attachments{media{image{src,width,height}},subattachments{data{media{image{src,width,height}}}},type}';
+    var url = 'https://graph.facebook.com/v19.0/' + encodeURIComponent(FB_CONFIG.pageId)
       + '/posts?fields=' + encodeURIComponent(fields)
-      + '&limit=' + FB_CONFIG.limit
-      + '&access_token=' + encodeURIComponent(FB_CONFIG.token);
-
+      + '&limit=' + FB_CONFIG.limit + '&access_token=' + encodeURIComponent(FB_CONFIG.token);
     fetch(url)
-      .then(function (res) {
-        if (!res.ok) throw new Error('HTTP ' + res.status);
-        return res.json();
+      .then(function(r){ return r.json(); })
+      .then(function(data){
+        if (data.error || !data.data || !data.data.length) return;
+        var imgs = data.data.filter(function(p){ return extractImage(p); });
+        if (!imgs.length) return;
+        render(imgs.map(function(p){ return buildCard(extractImage(p), p.permalink_url, p.message||''); }));
       })
-      .then(function (data) {
-        if (data.error) {
-          var errMsg = data.error.message || 'Facebook API error';
-          /* Token expired or invalid */
-          if (data.error.code === 190 || data.error.code === 102) {
-            renderError('Access token expired — update the token in index.html to restore the live feed.', false);
-          } else {
-            renderError('Unable to load posts: ' + errMsg, true);
-          }
-          return;
-        }
-        if (!data.data || !data.data.length) {
-          renderPlaceholder(); return;
-        }
-        /* Filter to posts with at least one image */
-        var withImg = data.data.filter(function (p) { return extractImage(p); });
-        if (!withImg.length) { renderPlaceholder(); return; }
-        /* Build cards — real Facebook post images only */
-        render(withImg.map(function (p) {
-          return buildCard(extractImage(p), p.permalink_url, p.message || '');
-        }));
-      })
-      .catch(function (err) {
-        /* Network error, CORS block, ad-blocker, etc. */
-        renderError('Facebook feed temporarily unavailable — will retry automatically.', true);
-      });
+      .catch(function(){});
   }
 
-  /* Initial load + auto-refresh */
   loadPosts();
   if (FB_CONFIG.refresh > 0) setInterval(loadPosts, FB_CONFIG.refresh);
 
