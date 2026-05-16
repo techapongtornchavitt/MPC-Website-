@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Facebook Live Feed — Setup Guide | MPC Website</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: #f4f6fa; color: #1a2540; line-height: 1.7; font-size: 15px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; padding: 3rem 1.5rem 5rem; }
+
+  h1 { font-size: 2rem; font-weight: 800; color: #0d1c38; margin-bottom: .35rem; }
+  .subtitle { color: #555e7a; font-size: 1.05rem; margin-bottom: 2.5rem; }
+
+  .card {
+    background: #fff; border-radius: 14px; padding: 2rem 2.25rem;
+    box-shadow: 0 4px 24px rgba(0,36,90,.07), 0 1px 4px rgba(0,0,0,.04);
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #1877F2;
+  }
+  .card.warn { border-left-color: #f59e0b; }
+  .card.ok   { border-left-color: #10b981; }
+  .card.code { border-left-color: #6366f1; background: #fafbff; }
+
+  h2 {
+    font-size: 1.15rem; font-weight: 800; color: #0d1c38;
+    display: flex; align-items: center; gap: .6rem; margin-bottom: 1rem;
+  }
+  .step-num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #1877F2; color: #fff; font-size: .8rem; font-weight: 800;
+    flex-shrink: 0;
+  }
+  p { margin-bottom: .75rem; }
+  p:last-child { margin-bottom: 0; }
+  a { color: #1877F2; }
+  a:hover { text-decoration: underline; }
+  strong { color: #0d1c38; font-weight: 700; }
+
+  ol, ul { padding-left: 1.4rem; margin-bottom: .75rem; }
+  li { margin-bottom: .45rem; }
+
+  pre {
+    background: #0d1c38; color: #a8d0ff; border-radius: 10px;
+    padding: 1.25rem 1.5rem; font-size: .82rem; line-height: 1.7;
+    overflow-x: auto; margin: 1rem 0;
+  }
+  code {
+    background: #e8eef8; color: #1877F2; border-radius: 4px;
+    padding: .12em .45em; font-size: .88em; font-family: 'Courier New', monospace;
+  }
+  pre code { background: none; color: inherit; padding: 0; font-size: inherit; }
+
+  .highlight { background: #fff7e0; border-radius: 6px; padding: .2em .5em; }
+
+  .badge {
+    display: inline-flex; align-items: center; gap: .35rem;
+    font-size: .75rem; font-weight: 700; border-radius: 100px;
+    padding: .22rem .75rem; white-space: nowrap;
+  }
+  .badge-blue { background: #dbeafe; color: #1d4ed8; }
+  .badge-green { background: #d1fae5; color: #065f46; }
+  .badge-orange { background: #fef3c7; color: #92400e; }
+
+  table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .9rem; }
+  th { background: #eef2fb; padding: .6rem 1rem; text-align: left; font-weight: 700; border-radius: 6px 6px 0 0; }
+  td { padding: .55rem 1rem; border-bottom: 1px solid #e8eef8; vertical-align: top; }
+  tr:last-child td { border-bottom: none; }
+
+  .top-bar {
+    background: #1877F2; color: #fff; padding: 1rem 1.5rem;
+    display: flex; align-items: center; gap: .75rem;
+    font-weight: 700; font-size: 1rem;
+  }
+  .fb-logo {
+    width: 32px; height: 32px; background: rgba(255,255,255,.2); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+  }
+  .toc { background: #eef2fb; border-radius: 10px; padding: 1.25rem 1.5rem; margin-bottom: 2rem; }
+  .toc h3 { font-size: .9rem; font-weight: 700; color: #555e7a; margin-bottom: .6rem; text-transform: uppercase; letter-spacing: .06em; }
+  .toc a { font-size: .9rem; display: block; padding: .18rem 0; }
+</style>
+</head>
+<body>
+
+<div class="top-bar">
+  <div class="fb-logo">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+  </div>
+  Facebook Live Feed — Setup Guide &nbsp;|&nbsp; Motion Plus Corporation Website
+</div>
+
+<div class="wrap">
+
+  <h1 style="margin-top:2rem;">Facebook Live Feed Setup Guide</h1>
+  <p class="subtitle">Everything you need to connect your real Facebook Page posts to the homepage in under 20 minutes.</p>
+
+  <div class="toc">
+    <h3>Contents</h3>
+    <a href="#overview">Overview — how it works</a>
+    <a href="#step1">Step 1 — Find your Facebook Page ID</a>
+    <a href="#step2">Step 2 — Create a Facebook Developer App</a>
+    <a href="#step3">Step 3 — Generate a Page Access Token</a>
+    <a href="#step4">Step 4 — Paste credentials into index.html</a>
+    <a href="#step5">Step 5 — Make the token long-lived (60 days)</a>
+    <a href="#permanent">Step 6 — Never-expiring token (recommended)</a>
+    <a href="#permissions">Permissions required</a>
+    <a href="#refresh">Auto-refresh &amp; update behaviour</a>
+    <a href="#troubleshoot">Troubleshooting</a>
+  </div>
+
+  <!-- ── OVERVIEW ── -->
+  <div class="card ok" id="overview">
+    <h2>&#127881; Overview — how the feed works</h2>
+    <p>The homepage section calls the <strong>Facebook Graph API</strong> directly from the visitor's browser using your Page Access Token. It fetches your latest posts and renders them in the same card carousel design.</p>
+    <ul>
+      <li><strong>No server or backend needed</strong> — it's pure client-side JavaScript.</li>
+      <li>Posts with photos are shown in the carousel. Text-only posts are skipped.</li>
+      <li>The feed <strong>refreshes automatically every 15 minutes</strong> while the page is open.</li>
+      <li>If the API is unavailable (ad-blocker, token expired), portfolio images show as fallback so the layout never breaks.</li>
+      <li>Clicking a card opens the actual Facebook post in a new tab.</li>
+    </ul>
+  </div>
+
+  <!-- ── STEP 1 ── -->
+  <div class="card" id="step1">
+    <h2><span class="step-num">1</span> Find your Facebook Page ID</h2>
+    <p>Your Page ID is the numeric identifier Facebook uses for your Page (e.g. <code>123456789012345</code>).</p>
+    <ol>
+      <li>Go to your Facebook Page at <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank">facebook.com/share/1ErTQWb5hF</a></li>
+      <li>Click <strong>About</strong> in the left sidebar.</li>
+      <li>Scroll down to <strong>Page Transparency</strong> — you will see <em>"Page ID: XXXXXXXXXXXXXXX"</em>.</li>
+      <li>Copy that number — you'll use it in Step 4.</li>
+    </ol>
+    <p><strong>Alternative method:</strong> Go to <a href="https://lookup-id.com" target="_blank">lookup-id.com</a>, paste your Facebook Page URL, and it will show your numeric Page ID instantly.</p>
+  </div>
+
+  <!-- ── STEP 2 ── -->
+  <div class="card" id="step2">
+    <h2><span class="step-num">2</span> Create a Facebook Developer App</h2>
+    <p>You need a free Developer App to generate tokens. This takes about 5 minutes.</p>
+    <ol>
+      <li>Go to <a href="https://developers.facebook.com/apps/" target="_blank">developers.facebook.com/apps</a> and sign in with your Facebook account.</li>
+      <li>Click <strong>Create App</strong>.</li>
+      <li>Select <strong>"Business"</strong> as the app type, then click Next.</li>
+      <li>Fill in:
+        <ul>
+          <li><strong>App Name:</strong> e.g. <em>MPC Website Feed</em></li>
+          <li><strong>App Contact Email:</strong> your email</li>
+          <li><strong>Business Account:</strong> select your Business account if you have one, otherwise leave blank</li>
+        </ul>
+      </li>
+      <li>Click <strong>Create App</strong>. Facebook may ask you to complete identity verification.</li>
+      <li>Once created, you'll land on the App Dashboard. You don't need to add any products for basic page post reading.</li>
+    </ol>
+    <p><strong>Note:</strong> Your app will start in <em>Development mode</em>. That is perfectly fine for reading your own Page's public posts.</p>
+  </div>
+
+  <!-- ── STEP 3 ── -->
+  <div class="card" id="step3">
+    <h2><span class="step-num">3</span> Generate a Page Access Token</h2>
+    <p>Use the Graph API Explorer — the easiest tool for getting a token quickly.</p>
+    <ol>
+      <li>Go to <a href="https://developers.facebook.com/tools/explorer/" target="_blank">developers.facebook.com/tools/explorer</a></li>
+      <li>In the top-right dropdown, select the app you just created (<em>MPC Website Feed</em>).</li>
+      <li>Click <strong>Generate Access Token</strong>. A permission dialog appears.</li>
+      <li>Grant these permissions:
+        <ul>
+          <li><code>pages_read_engagement</code> — read post content &amp; photos</li>
+          <li><code>pages_show_list</code> — list your Pages</li>
+        </ul>
+      </li>
+      <li>After granting permissions, the <strong>Access Token</strong> field fills in. Copy this token.</li>
+      <li><strong>Important:</strong> This short-lived token expires in 1 hour. See Step 5 to convert it to a 60-day token, and Step 6 for a permanent token.</li>
+    </ol>
+  </div>
+
+  <!-- ── STEP 4 ── -->
+  <div class="card code" id="step4">
+    <h2><span class="step-num" style="background:#6366f1;">4</span> Paste credentials into index.html</h2>
+    <p>Open <code>index.html</code> in a code editor. Search for <code>FB_CONFIG</code> near the bottom of the file (just before <code>&lt;/body&gt;</code>). You'll see:</p>
+<pre><code>var FB_CONFIG = {
+  pageId  : 'YOUR_PAGE_ID',          /* &lt;- Replace this */
+  token   : 'YOUR_ACCESS_TOKEN',     /* &lt;- Replace this */
+  pageUrl : 'https://www.facebook.com/share/1ErTQWb5hF/',
+  limit   : 10,
+  refresh : 15 * 60 * 1000
+};</code></pre>
+    <p>Replace the two placeholder values:</p>
+<pre><code>var FB_CONFIG = {
+  pageId  : '123456789012345',       /* Your numeric Page ID   */
+  token   : 'EAAxxxxxxxxxx...',      /* Your Page Access Token */
+  pageUrl : 'https://www.facebook.com/share/1ErTQWb5hF/',
+  limit   : 10,
+  refresh : 15 * 60 * 1000
+};</code></pre>
+    <p>Save the file, then commit and push to GitHub. The live feed will appear immediately on the website.</p>
+  </div>
+
+  <!-- ── STEP 5 ── -->
+  <div class="card" id="step5">
+    <h2><span class="step-num">5</span> Make the token long-lived (60 days)</h2>
+    <p>The token from the Graph Explorer lasts only 1 hour. Exchange it for a 60-day token using this URL in your browser:</p>
+<pre><code>https://graph.facebook.com/v19.0/oauth/access_token
+  ?grant_type=fb_exchange_token
+  &client_id=YOUR_APP_ID
+  &client_secret=YOUR_APP_SECRET
+  &fb_exchange_token=YOUR_SHORT_LIVED_TOKEN</code></pre>
+    <p>Where to find your App ID and App Secret:</p>
+    <ol>
+      <li>Go to your app at <a href="https://developers.facebook.com/apps/" target="_blank">developers.facebook.com/apps</a></li>
+      <li>Click <strong>Settings → Basic</strong></li>
+      <li>Copy the <strong>App ID</strong> and click <strong>Show</strong> to reveal the <strong>App Secret</strong></li>
+    </ol>
+    <p>Paste the full URL (with your values filled in) into your browser's address bar and press Enter. The response will be JSON containing a <code>access_token</code> value — that's your 60-day token. Replace the value in <code>index.html</code> with this new token.</p>
+    <div class="card warn" style="margin-top:1rem; margin-bottom:0;">
+      <p><strong>&#9888; Remember:</strong> 60-day tokens still expire. Set a calendar reminder to refresh the token every 50 days, or use the permanent System User token method in Step 6.</p>
+    </div>
+  </div>
+
+  <!-- ── PERMANENT ── -->
+  <div class="card ok" id="permanent">
+    <h2><span class="step-num" style="background:#10b981;">6</span> Never-expiring token (recommended)</h2>
+    <p>A <strong>System User Access Token</strong> from Facebook Business Manager never expires — you set it once and forget it.</p>
+    <ol>
+      <li>Go to <a href="https://business.facebook.com/settings/system-users" target="_blank">business.facebook.com/settings/system-users</a></li>
+      <li>Click <strong>Add</strong> → create a System User named e.g. <em>Website API User</em> with role <strong>Admin</strong>.</li>
+      <li>Click the System User → <strong>Add Assets</strong> → select your Facebook Page → grant <strong>Manage Page</strong> permission.</li>
+      <li>Click <strong>Generate New Token</strong> → select your app (<em>MPC Website Feed</em>).</li>
+      <li>Check these permissions:
+        <ul>
+          <li><code>pages_read_engagement</code></li>
+          <li><code>pages_show_list</code></li>
+        </ul>
+      </li>
+      <li>Click <strong>Generate Token</strong>. Copy the token shown — <strong>this is the only time it is displayed</strong>, so save it securely.</li>
+      <li>Paste this token as <code>token</code> in <code>FB_CONFIG</code>. It will never expire.</li>
+    </ol>
+    <p><strong>If you don't have a Business Manager account:</strong> Use the 60-day token from Step 5 and refresh it every 50 days.</p>
+  </div>
+
+  <!-- ── PERMISSIONS ── -->
+  <div class="card" id="permissions">
+    <h2>Permissions required</h2>
+    <table>
+      <tr>
+        <th>Permission</th>
+        <th>Why it's needed</th>
+        <th>Sensitive?</th>
+      </tr>
+      <tr>
+        <td><code>pages_read_engagement</code></td>
+        <td>Read the posts, photos, and content on your Page</td>
+        <td><span class="badge badge-green">No</span></td>
+      </tr>
+      <tr>
+        <td><code>pages_show_list</code></td>
+        <td>Required to obtain a Page-scoped token</td>
+        <td><span class="badge badge-green">No</span></td>
+      </tr>
+    </table>
+    <p>You do <strong>not</strong> need <code>publish_pages</code>, <code>ads_management</code>, or any other elevated permissions. The feed is read-only.</p>
+    <p>Since your Facebook Page posts are already public, the data being accessed is not private. The token simply proves you authorise this app to read your public Page on your behalf.</p>
+  </div>
+
+  <!-- ── REFRESH ── -->
+  <div class="card" id="refresh">
+    <h2>Auto-refresh &amp; update behaviour</h2>
+    <ul>
+      <li>The feed loads posts <strong>as soon as the homepage opens</strong>.</li>
+      <li>It automatically re-fetches every <strong>15 minutes</strong> while the page stays open.</li>
+      <li>When you publish a new Facebook post, it appears on the website within 15 minutes — no manual update needed.</li>
+      <li>To change the refresh interval, edit <code>refresh: 15 * 60 * 1000</code> in <code>FB_CONFIG</code> (value is milliseconds).</li>
+      <li>To show more or fewer posts, change <code>limit: 10</code> (maximum Facebook allows is 100).</li>
+      <li>Posts without a photo (text-only) are automatically skipped since the carousel is image-based.</li>
+    </ul>
+  </div>
+
+  <!-- ── TROUBLESHOOT ── -->
+  <div class="card warn" id="troubleshoot">
+    <h2>Troubleshooting</h2>
+    <table>
+      <tr>
+        <th>Symptom</th>
+        <th>Likely cause</th>
+        <th>Fix</th>
+      </tr>
+      <tr>
+        <td>Portfolio images show instead of Facebook posts</td>
+        <td>Token or Page ID not yet set, or token expired</td>
+        <td>Check that <code>pageId</code> and <code>token</code> in <code>FB_CONFIG</code> are filled in correctly. Refresh the token if expired.</td>
+      </tr>
+      <tr>
+        <td>Skeleton shimmer cards never disappear</td>
+        <td>JavaScript error or ad-blocker blocking graph.facebook.com</td>
+        <td>Open browser DevTools → Console tab and look for errors. Disable ad-blocker to test.</td>
+      </tr>
+      <tr>
+        <td>Error "Invalid OAuth access token"</td>
+        <td>Token is expired or malformed</td>
+        <td>Generate a new token following Steps 3–5 above.</td>
+      </tr>
+      <tr>
+        <td>Error "Unsupported get request" or "Object does not exist"</td>
+        <td>Page ID is incorrect</td>
+        <td>Double-check the numeric Page ID from Step 1. Do not use the Page's vanity name — use the number.</td>
+      </tr>
+      <tr>
+        <td>Feed shows but images are broken</td>
+        <td>Facebook CDN images have CORS or privacy restrictions</td>
+        <td>Ensure posts are set to <strong>Public</strong> audience on Facebook. Private/Friends posts won't have publicly accessible images.</td>
+      </tr>
+      <tr>
+        <td>Token works today but breaks after 60 days</td>
+        <td>Using a short-lived or 60-day token</td>
+        <td>Switch to a System User token (Step 6) which never expires.</td>
+      </tr>
+    </table>
+
+    <p style="margin-top:1rem;"><strong>Facebook Graph API Explorer for testing:</strong><br>
+    You can test your token and Page ID directly at <a href="https://developers.facebook.com/tools/explorer/" target="_blank">developers.facebook.com/tools/explorer</a>. Run this query to verify:</p>
+<pre><code>GET /{YOUR_PAGE_ID}/posts?fields=id,message,full_picture,permalink_url&limit=5</code></pre>
+    <p>If you see posts returned, the setup is correct. If you see an error, the token or Page ID needs fixing.</p>
+  </div>
+
+  <p style="color:#888; font-size:.85rem; margin-top:2rem; text-align:center;">
+    This guide is for the Motion Plus Corporation website internal use.<br>
+    Facebook Graph API documentation: <a href="https://developers.facebook.com/docs/graph-api/" target="_blank">developers.facebook.com/docs/graph-api</a>
+  </p>
+
+</div>
+</body>
+</html>
