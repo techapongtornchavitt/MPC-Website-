@@ -63,7 +63,7 @@
     .map-section { padding: var(--space-xl) 0 var(--space-2xl); background: var(--color-dark-navy); }
     .map-placeholder-wrap { border-radius: var(--radius-md); overflow: hidden; }
 
-    /* ===== ENQUIRY FORM — contact-page scoped overrides =====
+    /* ===== ENQUIRY FORM &mdash; contact-page scoped overrides =====
        Root cause: styles.css defines .enquiry-form twice.
        The second definition (for the homepage CTA strip) overrides
        display/background/padding/border-radius with flex-row values.
@@ -668,7 +668,7 @@
     var product  = document.getElementById('product-interest').value;
     var message  = document.getElementById('enquiry-message').value.trim();
 
-    /* Basic validation — focus the first empty required field */
+    /* Basic validation &mdash; focus the first empty required field */
     if (!company || !name || !email || !message) {
       var reqFields = [
         { val: company,  el: document.getElementById('company-name') },
@@ -691,18 +691,18 @@
       return;
     }
 
-    var subject = 'Product Enquiry — ' + (product || 'General') + ' | ' + company;
+    var subject = 'Product Enquiry &mdash; ' + (product || 'General') + ' | ' + company;
     var body = [
       'Company:  ' + company,
       'Name:     ' + name,
       'Email:    ' + email,
-      'Phone:    ' + (phone || '—'),
+      'Phone:    ' + (phone || '&mdash;'),
       'Product:  ' + (product || 'Not specified'),
       '',
       'Message:',
       message,
       '',
-      '— Sent via motionpluscorp.com contact form'
+      '&mdash; Sent via motionpluscorp.com contact form'
     ].join('\n');
 
     window.location.href =

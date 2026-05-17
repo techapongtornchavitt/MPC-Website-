@@ -205,7 +205,7 @@
     /* Industry card base styles */
     .industry-card {
       display: flex; flex-direction: column;
-      overflow: visible;          /* let label panel sit below image — image clipping handled by .industry-card-img */
+      overflow: visible;          /* let label panel sit below image &mdash; image clipping handled by .industry-card-img */
       aspect-ratio: unset;        /* override styles.css 4/3 which clips the label panel */
       border-radius: var(--radius-md);
       background: #0e2245;
@@ -227,7 +227,7 @@
       backface-visibility: hidden;
       -webkit-backface-visibility: hidden;
     }
-    /* ── Label panel — always visible, no hover needed ── */
+    /* ── Label panel &mdash; always visible, no hover needed ── */
     .industry-card-body {
       padding: 1.1rem 1.25rem 1.4rem;
       display: flex; flex-direction: column;
@@ -1262,7 +1262,7 @@
     }
 
     /* ============================================================
-       SOCIAL SECTION — "Stay Connected"
+       SOCIAL SECTION &mdash; "Stay Connected"
        TOP: Follow Us hub (5 platform cards)
        BOTTOM: Full-width dark live Facebook feed band
     ============================================================ */
@@ -1305,7 +1305,7 @@
       margin: 0;
     }
 
-    /* ── Follow Us — 5 platform cards ── */
+    /* ── Follow Us &mdash; 5 platform cards ── */
     .soc-follow-row {
       display: flex;
       gap: 1rem;
@@ -1533,12 +1533,12 @@
        FACEBOOK FEED BAND OVERRIDES
     ============================================================ */
 
-    /* Glow — aligned with site primary blue #0056A4 */
+    /* Glow &mdash; aligned with site primary blue #0056A4 */
     .soc-feed-band::after {
       background: radial-gradient(ellipse, rgba(0,86,164,.16) 0%, rgba(24,119,242,.08) 45%, transparent 70%);
     }
 
-    /* Feed-intro divider dot — Facebook blue */
+    /* Feed-intro divider dot &mdash; Facebook blue */
     .soc-fi-dot { background: #1877F2; }
 
     /* Facebook branded icon in band header */
@@ -1555,7 +1555,7 @@
       transform: scale(1.06);
       box-shadow: 0 10px 32px rgba(24,119,242,.58), 0 4px 12px rgba(0,0,0,.32);
     }
-    /* Live dot — brighter */
+    /* Live dot &mdash; brighter */
     .sfb-live-dot {
       width: 7px; height: 7px;
       background: #60a5fa;
@@ -1564,7 +1564,7 @@
       flex-shrink: 0;
     }
 
-    /* "Follow" pill badge — refined premium */
+    /* "Follow" pill badge &mdash; refined premium */
     .sfb-follow-fb {
       display: inline-flex; align-items: center; gap: .44rem;
       background: rgba(24,119,242,.22);
@@ -1687,8 +1687,8 @@
       margin: 0; padding: 1.1rem 2rem 0; line-height: 1.6; letter-spacing: .01em;
     }
 
-    /* "View All Posts on Facebook" button — inherits premium .soc-view-btn styles */
-    .soc-view-fb-btn { /* no override needed — .soc-view-btn styles apply */ }
+    /* "View All Posts on Facebook" button &mdash; inherits premium .soc-view-btn styles */
+    .soc-view-fb-btn { /* no override needed &mdash; .soc-view-btn styles apply */ }
 
     @media (max-width: 600px) {
       .fb-post-card  { flex: 0 0 190px; height: 238px; }
@@ -1731,7 +1731,7 @@
       .fb-plugin-outer { padding: 0 .85rem; }
       .fb-plugin-frame { min-height: 380px; border-radius: 10px; }
     }
-    /* ── "Follow us on Facebook" placeholder — shown until credentials are set ── */
+    /* ── "Follow us on Facebook" placeholder &mdash; shown until credentials are set ── */
     .fb-placeholder-wrap {
       display: flex; flex-direction: column; align-items: center; justify-content: center;
       gap: .85rem; flex: 0 0 320px; height: 300px; border-radius: 16px;
@@ -1762,7 +1762,7 @@
     }
     .fb-ph-btn:hover { background: #1465d8; transform: translateY(-1px); }
 
-    /* Error state — small inline note, skeletons stay visible */
+    /* Error state &mdash; small inline note, skeletons stay visible */
     .fb-error-bar {
       position: absolute; bottom: 0; left: 0; right: 0; z-index: 10;
       background: rgba(0,0,0,.55); backdrop-filter: blur(4px);
@@ -1781,7 +1781,7 @@
     }
 
     /* ============================================================
-       FACEBOOK SHOWCASE — PREMIUM SPLIT LAYOUT
+       FACEBOOK SHOWCASE &mdash; PREMIUM SPLIT LAYOUT
     ============================================================ */
 
     /* ── Section intro (light area, above dark band) ── */
@@ -2108,7 +2108,7 @@
     .fb-feed-caption svg { opacity: .35; flex-shrink: 0; }
 
     /* ============================================================
-       CUSTOM CARD CAROUSEL — replaces Page Plugin iframe
+       CUSTOM CARD CAROUSEL &mdash; replaces Page Plugin iframe
     ============================================================ */
 
     /* Feed header row */
@@ -2348,7 +2348,7 @@
       line-height: 1.5;
     }
 
-    /* Page Plugin container (no-token fallback) —
+    /* Page Plugin container (no-token fallback) &mdash;
        constrain to 500px so the iframe content fills it fully with no whitespace */
     .fb-plugin-container {
       max-width: 500px;
@@ -3109,7 +3109,7 @@
           </a>
         </div>
 
-        <!-- Card carousel — JS populates this on load -->
+        <!-- Card carousel &mdash; JS populates this on load -->
         <div class="fb-carousel-outer" id="fb-content-area">
           <button class="fb-carr-btn fb-carr-prev" id="fb-prev" aria-label="Previous posts" data-at-edge="true">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
@@ -3138,7 +3138,7 @@
     </div><!-- /fb-showcase-grid -->
   </div><!-- /soc-feed-band -->
 
-  <!-- ── More Ways to Connect — Platform Cards ── -->
+  <!-- ── More Ways to Connect &mdash; Platform Cards ── -->
   <div class="container" style="padding-top: 4rem;">
 
     <div class="soc-connect-hdr reveal">
@@ -3503,7 +3503,7 @@ window.addEventListener('scroll', function() {
 }());
 </script>
 
-<!-- Facebook SDK — needed for Page Plugin (no-token fallback) -->
+<!-- Facebook SDK &mdash; needed for Page Plugin (no-token fallback) -->
 <div id="fb-root"></div>
 <script>
 window.fbAsyncInit = function () {
@@ -3517,7 +3517,7 @@ window.fbAsyncInit = function () {
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 </script>
-<!-- Facebook custom card carousel — driven by Graph API when token is set, premium skeleton state otherwise -->
+<!-- Facebook custom card carousel &mdash; driven by Graph API when token is set, premium skeleton state otherwise -->
 <script>
 /* ══════════════════════════════════════════════════════════════════════
    FACEBOOK LIVE FEED CONFIGURATION
@@ -3529,7 +3529,7 @@ window.fbAsyncInit = function () {
    2. Select/create an app → Generate Access Token
    3. Grant: pages_read_engagement + pages_show_list
    4. Paste the EAAxxxxxx... token in FB_CONFIG.token below
-   5. Save and push — cards update automatically every 15 min
+   5. Save and push &mdash; cards update automatically every 15 min
    ══════════════════════════════════════════════════════════════════════ */
 var FB_CONFIG = {
   pageId  : '1018130321389942',
