@@ -2107,6 +2107,273 @@
 
     .fb-feed-caption svg { opacity: .35; flex-shrink: 0; }
 
+    /* ============================================================
+       CUSTOM CARD CAROUSEL — replaces Page Plugin iframe
+    ============================================================ */
+
+    /* Feed header row */
+    .fb-feed-hdr-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding: 0 .15rem;
+    }
+
+    .fb-feed-hdr-left {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+
+    .fb-feed-hdr-title {
+      font-size: .8rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.60);
+      text-transform: uppercase;
+      letter-spacing: .1em;
+    }
+
+    .fb-feed-hdr-dot {
+      width: 7px; height: 7px;
+      background: #60a5fa;
+      border-radius: 50%;
+      animation: soc-pulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .fb-feed-viewall {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #7ab6ff;
+      text-decoration: none;
+      letter-spacing: .01em;
+      transition: color .2s, gap .2s;
+    }
+
+    .fb-feed-viewall:hover { color: #afd0ff; gap: .52rem; }
+
+    /* Carousel outer container */
+    .fb-carousel-outer {
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.07);
+    }
+
+    /* Gradient fade edges */
+    .fb-carousel-outer::before,
+    .fb-carousel-outer::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 52px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .fb-carousel-outer::before { left: 0; background: linear-gradient(to right, #0b1a30 0%, transparent 100%); }
+    .fb-carousel-outer::after  { right: 0; background: linear-gradient(to left, #0b1a30 0%, transparent 100%); }
+
+    /* Scrollable track */
+    .fb-carr-track {
+      display: flex;
+      gap: .85rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      padding: 1.1rem 52px 1.1rem;
+      cursor: grab;
+    }
+
+    .fb-carr-track:active { cursor: grabbing; }
+    .fb-carr-track::-webkit-scrollbar { display: none; }
+
+    /* Post card */
+    .fb-post-card {
+      flex: 0 0 200px;
+      height: 260px;
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      display: block;
+      text-decoration: none;
+      background: #0d1e35;
+      scroll-snap-align: start;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow: 0 4px 20px rgba(0,0,0,.42);
+      transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s ease, border-color .3s;
+      flex-shrink: 0;
+    }
+
+    .fb-post-card:hover {
+      transform: translateY(-5px) scale(1.018);
+      box-shadow: 0 16px 44px rgba(0,0,0,.58), 0 4px 14px rgba(24,119,242,.22);
+      border-color: rgba(24,119,242,.40);
+    }
+
+    .fb-post-img {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+    }
+
+    .fb-post-card:hover .fb-post-img { transform: scale(1.06); }
+
+    .fb-post-scrim {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.68) 0%, rgba(0,0,0,.14) 48%, transparent 100%);
+      z-index: 1; pointer-events: none;
+    }
+
+    .fb-post-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      padding: .55rem .75rem;
+      font-size: .69rem; line-height: 1.4;
+      color: rgba(255,255,255,.78); z-index: 2;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    .fb-post-badge {
+      position: absolute; bottom: 10px; right: 10px;
+      width: 26px; height: 26px;
+      background: rgba(0,0,0,.45); border-radius: 7px;
+      display: flex; align-items: center; justify-content: center;
+      z-index: 2; opacity: .7; transition: opacity .25s;
+    }
+
+    .fb-post-card:hover .fb-post-badge { opacity: 1; }
+
+    .fb-post-hover {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: .5rem;
+      background: rgba(0,0,0,.52); backdrop-filter: blur(2px);
+      opacity: 0; transition: opacity .28s ease; z-index: 3;
+    }
+
+    .fb-post-card:hover .fb-post-hover { opacity: 1; }
+
+    .fb-post-hover span {
+      font-size: .74rem; font-weight: 700;
+      color: rgba(255,255,255,.9);
+      letter-spacing: .05em; text-transform: uppercase;
+    }
+
+    /* Skeleton shimmer card */
+    .fb-skel-card {
+      flex: 0 0 200px;
+      height: 260px;
+      border-radius: 12px;
+      scroll-snap-align: start;
+      background: linear-gradient(90deg, #0d1e35 25%, #1a2d46 50%, #0d1e35 75%);
+      background-size: 200% 100%;
+      animation: fb-shimmer 1.4s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    /* Arrow buttons */
+    .fb-carr-btn {
+      position: absolute;
+      top: 50%; transform: translateY(-50%);
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.11);
+      border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(6px);
+      color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 4;
+      transition: background .2s, border-color .2s, opacity .2s;
+      padding: 0; line-height: 1; user-select: none;
+    }
+
+    .fb-carr-btn:hover {
+      background: rgba(24,119,242,.50);
+      border-color: rgba(24,119,242,.65);
+    }
+
+    .fb-carr-btn[data-at-edge="true"] { opacity: .2; pointer-events: none; }
+    .fb-carr-prev { left: 10px; }
+    .fb-carr-next { right: 10px; }
+
+    /* "Connect your feed" invite card */
+    .fb-invite-card {
+      flex: 0 0 200px;
+      height: 260px;
+      border-radius: 12px;
+      background: linear-gradient(140deg, #0d1e35 0%, #122449 100%);
+      border: 1.5px dashed rgba(24,119,242,.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      transition: border-color .25s, background .25s;
+    }
+
+    .fb-invite-card:hover {
+      border-color: rgba(24,119,242,.65);
+      background: linear-gradient(140deg, #0f2040 0%, #152c57 100%);
+    }
+
+    .fb-invite-ico {
+      width: 46px; height: 46px;
+      background: linear-gradient(140deg, #1877F2 0%, #0d5ecc 100%);
+      border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(24,119,242,.46);
+      flex-shrink: 0;
+    }
+
+    .fb-invite-title {
+      font-size: .84rem; font-weight: 700;
+      color: rgba(255,255,255,.80);
+      line-height: 1.3;
+    }
+
+    .fb-invite-sub {
+      font-size: .7rem;
+      color: rgba(255,255,255,.36);
+      line-height: 1.5;
+    }
+
+    /* Feed caption */
+    .fb-feed-caption {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+      font-size: .73rem;
+      color: rgba(255,255,255,.28);
+      letter-spacing: .01em;
+      text-align: center;
+      margin-top: .85rem;
+    }
+
+    .fb-feed-caption svg { opacity: .32; flex-shrink: 0; }
+
+    /* Carousel responsive */
+    @media (max-width: 640px) {
+      .fb-post-card, .fb-skel-card, .fb-invite-card {
+        flex: 0 0 170px; height: 224px;
+      }
+      .fb-carr-btn { display: none; }
+      .fb-carousel-outer::before,
+      .fb-carousel-outer::after { width: 32px; }
+      .fb-carr-track { padding: .9rem 32px .9rem; gap: .65rem; }
+    }
+
     /* ── "More Ways to Connect" sub-section header ── */
     .soc-connect-hdr {
       text-align: center;
@@ -2174,8 +2441,6 @@
 </head>
 <body>
 
-<!-- Facebook SDK root -->
-<div id="fb-root"></div>
 
 
 <!-- Scroll Progress Bar -->
@@ -2807,54 +3072,42 @@
       <!-- ─── Right: Live Feed Panel ─── -->
       <div class="fb-feed-panel">
 
-        <div class="fb-browser-frame">
-          <!-- Browser chrome -->
-          <div class="fb-chrome-bar" aria-hidden="true">
-            <div class="fb-chrome-dots">
-              <span class="fb-chrome-dot fb-chrome-dot-r"></span>
-              <span class="fb-chrome-dot fb-chrome-dot-y"></span>
-              <span class="fb-chrome-dot fb-chrome-dot-g"></span>
-            </div>
-            <div class="fb-chrome-address">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-              </svg>
-              facebook.com &nbsp;&middot;&nbsp; Motion Plus Corporation
-            </div>
-            <div class="fb-chrome-reload">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/>
-              </svg>
-            </div>
+        <!-- Feed header row -->
+        <div class="fb-feed-hdr-row">
+          <div class="fb-feed-hdr-left">
+            <span class="fb-feed-hdr-title">Latest Posts</span>
+            <span class="fb-feed-hdr-dot" aria-hidden="true"></span>
           </div>
+          <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-feed-viewall">
+            View All
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
 
-          <!-- Live Facebook Page Plugin -->
-          <div id="fb-content-area">
-            <div class="fb-plugin-inner">
-              <div class="fb-page"
-                data-href="https://www.facebook.com/profile.php?id=1018130321389942"
-                data-tabs="timeline"
-                data-width="840"
-                data-height="540"
-                data-small-header="true"
-                data-adapt-container-width="true"
-                data-hide-cover="true"
-                data-show-facepile="false"
-                data-lazy="true">
-                <blockquote cite="https://www.facebook.com/profile.php?id=1018130321389942" class="fb-xfbml-parse-ignore">
-                  <a href="https://www.facebook.com/profile.php?id=1018130321389942">Motion Plus Corporation Co.,Ltd. on Facebook</a>
-                </blockquote>
-              </div>
-            </div>
+        <!-- Card carousel — JS populates this on load -->
+        <div class="fb-carousel-outer" id="fb-content-area">
+          <button class="fb-carr-btn fb-carr-prev" id="fb-prev" aria-label="Previous posts" data-at-edge="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="fb-carr-track" id="fb-track" role="list" aria-label="Facebook posts">
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
           </div>
-
-        </div><!-- /fb-browser-frame -->
+          <button class="fb-carr-btn fb-carr-next" id="fb-next" aria-label="Next posts">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
 
         <p class="fb-feed-caption">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
           </svg>
-          Scroll inside the feed to browse posts &nbsp;&middot;&nbsp; Click any post to open on Facebook
+          Swipe or use arrows &nbsp;&middot;&nbsp; Tap any post to open on Facebook
         </p>
 
       </div><!-- /fb-feed-panel -->
@@ -3227,40 +3480,25 @@ window.addEventListener('scroll', function() {
 }());
 </script>
 
-<!-- Facebook SDK — powers the Page Plugin and future Graph API calls -->
-<script>
-window.fbAsyncInit = function() {
-  FB.init({ xfbml: true, version: 'v19.0' });
-};
-(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_US/sdk.js';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
-</script>
-<!-- Facebook SDK — Graph API loader (activates custom carousel when token is configured) -->
+<!-- Facebook SDK root (kept for potential future SDK features) -->
+<!-- The card carousel uses the Graph API directly — no SDK needed for current functionality -->
+<!-- Facebook custom card carousel — driven by Graph API when token is set, premium skeleton state otherwise -->
 <script>
 /* ══════════════════════════════════════════════════════════════════════
    FACEBOOK LIVE FEED CONFIGURATION
    ══════════════════════════════════════════════════════════════════════
-   Currently showing: Official Facebook Page Plugin (real posts, no token needed)
+   Page ID is already set: 1018130321389942
 
-   To upgrade to the full custom card carousel with post images pulled
-   directly via the Graph API, fill in both values below:
-
-   pageId is already set: 1018130321389942
-
-   For the token:
+   To show LIVE posts in the card carousel:
    1. Go to https://developers.facebook.com/tools/explorer/
    2. Select/create an app → Generate Access Token
    3. Grant: pages_read_engagement + pages_show_list
-   4. Paste the EAAxxxxxx... token below
+   4. Paste the EAAxxxxxx... token in FB_CONFIG.token below
+   5. Save and push — cards update automatically every 15 min
    ══════════════════════════════════════════════════════════════════════ */
 var FB_CONFIG = {
-  pageId  : '1018130321389942',        /* Motion Plus Corporation Co.,Ltd.   */
-  token   : 'YOUR_ACCESS_TOKEN',       /* <- Paste token here to enable carousel */
+  pageId  : '1018130321389942',
+  token   : 'YOUR_ACCESS_TOKEN',   /* ← paste your token here */
   pageUrl : 'https://www.facebook.com/share/1ErTQWb5hF/',
   limit   : 12,
   refresh : 15 * 60 * 1000
@@ -3269,77 +3507,110 @@ var FB_CONFIG = {
 (function () {
   'use strict';
 
-  /* Only activate the custom Graph API carousel when a real token is set.
-     Until then the Facebook Page Plugin (already in the HTML) shows live posts. */
-  if (!FB_CONFIG.token || FB_CONFIG.token === 'YOUR_ACCESS_TOKEN') {
-    /* Page Plugin is already rendering via the Facebook SDK — nothing to do. */
-    return;
-  }
-
-  /* ── Token is configured: swap Page Plugin for custom card carousel ── */
-  var contentArea = document.getElementById('fb-content-area');
-  var stripNote   = document.querySelector('.fb-strip-note');
-  if (!contentArea) return;
-
-  /* Build carousel HTML */
-  contentArea.innerHTML = [
-    '<div class="fb-scroll-wrap" id="fb-scroll-wrap">',
-    '  <button class="fb-arrow fb-arrow-prev" id="fb-prev" aria-label="Scroll left" data-at-edge="true">',
-    '    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>',
-    '  </button>',
-    '  <div class="fb-strip-track" id="fb-track" role="list" aria-label="Facebook posts">',
-    '    <div class="fb-skeleton"></div><div class="fb-skeleton"></div>',
-    '    <div class="fb-skeleton"></div><div class="fb-skeleton"></div>',
-    '    <div class="fb-skeleton"></div><div class="fb-skeleton"></div>',
-    '  </div>',
-    '  <button class="fb-arrow fb-arrow-next" id="fb-next" aria-label="Scroll right">',
-    '    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>',
-    '  </button>',
-    '</div>'
-  ].join('');
-  if (stripNote) stripNote.textContent = 'Swipe or use arrows \xb7 Tap any photo to open on Facebook';
-
   var track   = document.getElementById('fb-track');
-  var wrap    = document.getElementById('fb-scroll-wrap');
   var btnPrev = document.getElementById('fb-prev');
   var btnNext = document.getElementById('fb-next');
-  var SCROLL_STEP = 260;
+  if (!track) return;
 
+  var STEP = 226; /* card width (200) + gap (26) */
+
+  /* ── Arrow state ── */
   function updateArrows() {
-    if (!track || !btnPrev || !btnNext) return;
+    if (!btnPrev || !btnNext) return;
     btnPrev.setAttribute('data-at-edge', track.scrollLeft <= 4 ? 'true' : 'false');
     btnNext.setAttribute('data-at-edge',
       track.scrollLeft >= track.scrollWidth - track.clientWidth - 4 ? 'true' : 'false');
   }
-  btnPrev.addEventListener('click', function () { track.scrollBy({ left: -SCROLL_STEP, behavior: 'smooth' }); });
-  btnNext.addEventListener('click', function () { track.scrollBy({ left:  SCROLL_STEP, behavior: 'smooth' }); });
+  if (btnPrev) btnPrev.addEventListener('click', function () { track.scrollBy({ left: -STEP, behavior: 'smooth' }); });
+  if (btnNext) btnNext.addEventListener('click', function () { track.scrollBy({ left:  STEP, behavior: 'smooth' }); });
   track.addEventListener('scroll', updateArrows, { passive: true });
+
+  /* ── Drag-to-scroll ── */
   var isDrag = false, startX = 0, scrollStart = 0;
-  track.addEventListener('mousedown', function (e) { isDrag = true; startX = e.pageX; scrollStart = track.scrollLeft; track.style.userSelect = 'none'; });
-  document.addEventListener('mousemove', function (e) { if (!isDrag) return; track.scrollLeft = scrollStart - (e.pageX - startX); });
-  document.addEventListener('mouseup', function () { if (!isDrag) return; isDrag = false; track.style.userSelect = ''; updateArrows(); });
-  track.addEventListener('click', function (e) { if (Math.abs(track.scrollLeft - scrollStart) > 6) e.preventDefault(); }, true);
-  updateArrows();
+  track.addEventListener('mousedown', function (e) {
+    isDrag = true; startX = e.pageX; scrollStart = track.scrollLeft;
+    track.style.userSelect = 'none';
+  });
+  document.addEventListener('mousemove', function (e) {
+    if (!isDrag) return; track.scrollLeft = scrollStart - (e.pageX - startX);
+  });
+  document.addEventListener('mouseup', function () {
+    if (!isDrag) return; isDrag = false; track.style.userSelect = ''; updateArrows();
+  });
+  track.addEventListener('click', function (e) {
+    if (Math.abs(track.scrollLeft - scrollStart) > 6) e.preventDefault();
+  }, true);
 
   var ICO_SM = '<svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>';
   var ICO_LG = '<svg width="26" height="26" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>';
 
+  /* Build a real post card */
   function buildCard(imgSrc, href, caption) {
     var a = document.createElement('a');
-    a.href = href || FB_CONFIG.pageUrl; a.target = '_blank'; a.rel = 'noopener noreferrer';
-    a.className = 'fb-post-card'; a.setAttribute('role', 'listitem'); a.setAttribute('aria-label', 'View on Facebook');
-    var img = document.createElement('div'); img.className = 'fb-post-img'; img.style.backgroundImage = 'url(' + JSON.stringify(imgSrc) + ')';
+    a.href = href || FB_CONFIG.pageUrl;
+    a.target = '_blank'; a.rel = 'noopener noreferrer';
+    a.className = 'fb-post-card';
+    a.setAttribute('role', 'listitem');
+    a.setAttribute('aria-label', 'View post on Facebook');
+
+    var img = document.createElement('div');
+    img.className = 'fb-post-img';
+    img.style.backgroundImage = 'url(' + JSON.stringify(imgSrc) + ')';
+
     var scrim = document.createElement('div'); scrim.className = 'fb-post-scrim';
-    var badge = document.createElement('div'); badge.className = 'fb-post-badge'; badge.setAttribute('aria-hidden','true'); badge.innerHTML = ICO_SM;
-    var hover = document.createElement('div'); hover.className = 'fb-post-hover'; hover.setAttribute('aria-hidden','true'); hover.innerHTML = ICO_LG + '<span>View on Facebook</span>';
+
+    var badge = document.createElement('div');
+    badge.className = 'fb-post-badge'; badge.setAttribute('aria-hidden', 'true');
+    badge.innerHTML = ICO_SM;
+
+    var hover = document.createElement('div');
+    hover.className = 'fb-post-hover'; hover.setAttribute('aria-hidden', 'true');
+    hover.innerHTML = ICO_LG + '<span>View on Facebook</span>';
+
     a.appendChild(img); a.appendChild(scrim);
-    if (caption) { var cap = document.createElement('div'); cap.className = 'fb-post-caption'; cap.textContent = caption; a.appendChild(cap); }
+    if (caption) {
+      var cap = document.createElement('div');
+      cap.className = 'fb-post-caption'; cap.textContent = caption;
+      a.appendChild(cap);
+    }
     a.appendChild(badge); a.appendChild(hover);
     return a;
   }
 
-  function render(cards) { track.innerHTML = ''; cards.forEach(function(el){ track.appendChild(el); }); updateArrows(); }
+  /* Replace track contents with rendered cards */
+  function renderCards(cards) {
+    track.innerHTML = '';
+    cards.forEach(function (el) { track.appendChild(el); });
+    updateArrows();
+  }
 
+  /* Premium no-token / error state: shimmer cards + invite card */
+  function renderNoToken() {
+    track.innerHTML = '';
+    for (var i = 0; i < 4; i++) {
+      var sk = document.createElement('div');
+      sk.className = 'fb-skel-card';
+      track.appendChild(sk);
+    }
+    var inv = document.createElement('a');
+    inv.href = 'facebook-setup-guide.html';
+    inv.className = 'fb-invite-card';
+    inv.setAttribute('role', 'listitem');
+    inv.setAttribute('aria-label', 'Set up live Facebook feed');
+    inv.innerHTML = [
+      '<div class="fb-invite-ico" aria-hidden="true">',
+        '<svg width="20" height="20" viewBox="0 0 24 24" fill="white">',
+          '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
+        '</svg>',
+      '</div>',
+      '<div class="fb-invite-title">Connect Live Feed</div>',
+      '<div class="fb-invite-sub">Add your access token to load real posts automatically</div>'
+    ].join('');
+    track.appendChild(inv);
+    updateArrows();
+  }
+
+  /* Extract best image from a Graph API post object */
   function extractImage(post) {
     if (post.attachments && post.attachments.data && post.attachments.data.length) {
       var att = post.attachments.data[0];
@@ -3352,24 +3623,36 @@ var FB_CONFIG = {
     return post.full_picture || null;
   }
 
+  /* Fetch live posts from the Graph API */
   function loadPosts() {
     var fields = 'id,message,full_picture,permalink_url,created_time,attachments{media{image{src,width,height}},subattachments{data{media{image{src,width,height}}}},type}';
     var url = 'https://graph.facebook.com/v19.0/' + encodeURIComponent(FB_CONFIG.pageId)
       + '/posts?fields=' + encodeURIComponent(fields)
-      + '&limit=' + FB_CONFIG.limit + '&access_token=' + encodeURIComponent(FB_CONFIG.token);
+      + '&limit=' + FB_CONFIG.limit
+      + '&access_token=' + encodeURIComponent(FB_CONFIG.token);
     fetch(url)
-      .then(function(r){ return r.json(); })
-      .then(function(data){
-        if (data.error || !data.data || !data.data.length) return;
-        var imgs = data.data.filter(function(p){ return extractImage(p); });
-        if (!imgs.length) return;
-        render(imgs.map(function(p){ return buildCard(extractImage(p), p.permalink_url, p.message||''); }));
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        if (data.error || !data.data || !data.data.length) { renderNoToken(); return; }
+        var withImg = data.data.filter(function (p) { return extractImage(p); });
+        if (!withImg.length) { renderNoToken(); return; }
+        renderCards(withImg.map(function (p) {
+          return buildCard(extractImage(p), p.permalink_url, p.message || '');
+        }));
       })
-      .catch(function(){});
+      .catch(function () { renderNoToken(); });
   }
 
-  loadPosts();
-  if (FB_CONFIG.refresh > 0) setInterval(loadPosts, FB_CONFIG.refresh);
+  /* ── Decide initial state ── */
+  var hasToken = FB_CONFIG.token && FB_CONFIG.token !== 'YOUR_ACCESS_TOKEN';
+  if (hasToken) {
+    loadPosts();
+    if (FB_CONFIG.refresh > 0) setInterval(loadPosts, FB_CONFIG.refresh);
+  } else {
+    renderNoToken();
+  }
+
+  updateArrows();
 
 }());
 </script>
