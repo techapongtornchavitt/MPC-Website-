@@ -2348,6 +2348,29 @@
       line-height: 1.5;
     }
 
+    /* Page Plugin container (no-token fallback) —
+       constrain to 500px so the iframe content fills it fully with no whitespace */
+    .fb-plugin-container {
+      max-width: 500px;
+      margin: 0 auto;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow:
+        0 24px 64px rgba(0,0,0,.65),
+        0 8px 24px rgba(0,0,0,.38),
+        0 0 0 1px rgba(255,255,255,.10);
+      background: #fff;
+      min-height: 560px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fb-plugin-container .fb-page { display: block; width: 100%; }
+
+    @media (max-width: 640px) {
+      .fb-plugin-container { max-width: 100%; border-radius: 10px; min-height: 440px; }
+    }
+
     /* Feed caption */
     .fb-feed-caption {
       display: flex;
@@ -3480,8 +3503,20 @@ window.addEventListener('scroll', function() {
 }());
 </script>
 
-<!-- Facebook SDK root (kept for potential future SDK features) -->
-<!-- The card carousel uses the Graph API directly — no SDK needed for current functionality -->
+<!-- Facebook SDK — needed for Page Plugin (no-token fallback) -->
+<div id="fb-root"></div>
+<script>
+window.fbAsyncInit = function () {
+  FB.init({ xfbml: true, version: 'v19.0' });
+};
+(function (d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_US/sdk.js';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));
+</script>
 <!-- Facebook custom card carousel — driven by Graph API when token is set, premium skeleton state otherwise -->
 <script>
 /* ══════════════════════════════════════════════════════════════════════
@@ -3584,30 +3619,30 @@ var FB_CONFIG = {
     updateArrows();
   }
 
-  /* Premium no-token / error state: shimmer cards + invite card */
+  /* No-token fallback: swap carousel for the official Page Plugin.
+     Page Plugin shows real live posts without any access token.
+     When a token is later added to FB_CONFIG, the carousel activates instead. */
   function renderNoToken() {
-    track.innerHTML = '';
-    for (var i = 0; i < 4; i++) {
-      var sk = document.createElement('div');
-      sk.className = 'fb-skel-card';
-      track.appendChild(sk);
-    }
-    var inv = document.createElement('a');
-    inv.href = 'facebook-setup-guide.html';
-    inv.className = 'fb-invite-card';
-    inv.setAttribute('role', 'listitem');
-    inv.setAttribute('aria-label', 'Set up live Facebook feed');
-    inv.innerHTML = [
-      '<div class="fb-invite-ico" aria-hidden="true">',
-        '<svg width="20" height="20" viewBox="0 0 24 24" fill="white">',
-          '<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>',
-        '</svg>',
-      '</div>',
-      '<div class="fb-invite-title">Connect Live Feed</div>',
-      '<div class="fb-invite-sub">Add your access token to load real posts automatically</div>'
-    ].join('');
-    track.appendChild(inv);
-    updateArrows();
+    var area = document.getElementById('fb-content-area');
+    if (!area) return;
+    /* Switch outer container styling to suit a centred iframe */
+    area.className = 'fb-plugin-container';
+    area.innerHTML =
+      '<div class="fb-page"' +
+      ' data-href="https://www.facebook.com/profile.php?id=1018130321389942"' +
+      ' data-tabs="timeline"' +
+      ' data-width="500"' +
+      ' data-height="600"' +
+      ' data-small-header="true"' +
+      ' data-adapt-container-width="false"' +
+      ' data-hide-cover="true"' +
+      ' data-show-facepile="false">' +
+      '<blockquote cite="https://www.facebook.com/profile.php?id=1018130321389942"' +
+      ' class="fb-xfbml-parse-ignore">' +
+      '<a href="https://www.facebook.com/profile.php?id=1018130321389942">Motion Plus Corporation on Facebook</a>' +
+      '</blockquote></div>';
+    /* If the SDK is already loaded, parse now; otherwise fbAsyncInit handles it */
+    if (window.FB && window.FB.XFBML) window.FB.XFBML.parse();
   }
 
   /* Extract best image from a Graph API post object */
