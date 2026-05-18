@@ -771,6 +771,10 @@
 
       /* ---------- Footer &mdash; Industries column ---------- */
       'ind-footer-ind-h':  'Industries',
+      'ind-footer-steel':  'Steel Industry',
+      'ind-footer-cement': 'Cement Industry',
+      'ind-footer-palm':   'Palm Oil Industry',
+      'ind-footer-sugar':  'Sugar Industry',
 
       /* ---------- Social / Facebook section (index.html) ---------- */
       'soc-eyebrow':       'Stay Connected',
@@ -2950,6 +2954,11 @@
       'footer-badge-iso':  'ISO',
       'footer-badge-auth': 'ដែលមានការអនុញ្ញាត',
       'footer-badge-sea':  'SEA',
+      'ind-footer-ind-h':  'ឧស្សាហកម្ម',
+      'ind-footer-steel':  'ឧស្សាហកម្មដែក',
+      'ind-footer-cement': 'ឧស្សាហកម្មស៊ីម៉ង់',
+      'ind-footer-palm':   'ឧស្សាហកម្មប្រេងម្នាស់',
+      'ind-footer-sugar':  'ឧស្សាហកម្មស្ករ',
 
       /* ---------- Portfolio stats ---------- */
       'port-stat-ind':  'ឧស្សាហកម្មដែលបានបម្រើ',
@@ -3259,6 +3268,11 @@
       'footer-badge-iso':   'ISO',
       'footer-badge-auth':  'ອະນຸຍາດ',
       'footer-badge-sea':   'SEA',
+      'ind-footer-ind-h':  'ອຸດສາຫະກໍາ',
+      'ind-footer-steel':  'ອຸດສາຫະກໍາເຫຼັກກ້າ',
+      'ind-footer-cement': 'ອຸດສາຫະກໍາຊີມັງ',
+      'ind-footer-palm':   'ອຸດສາຫະກໍານໍ້າມັນປາມ',
+      'ind-footer-sugar':  'ອຸດສາຫະກໍານໍ້າຕານ',
 
       /* ---------- Index ---------- */
       'hero-eyebrow':   'ການແກ້ໄຂໂສ້ອຸດສາຫະກໍາ',
@@ -3717,6 +3731,11 @@
       'footer-badge-iso':   'ISO',
       'footer-badge-auth':  'ခွင့်ပြုချက်ရ',
       'footer-badge-sea':   'SEA',
+      'ind-footer-ind-h':  'စက်မှုလုပ်ငန်းများ',
+      'ind-footer-steel':  'သံမဏိစက်မှုလုပ်ငန်း',
+      'ind-footer-cement': 'ဘိလပ်မြေစက်မှုလုပ်ငန်း',
+      'ind-footer-palm':   'စားအုန်းဆီစက်မှုလုပ်ငန်း',
+      'ind-footer-sugar':  'သကြားစက်မှုလုပ်ငန်း',
 
       /* ---------- Index ---------- */
       'hero-eyebrow':   'စက်မှုကွင်းဆက် ဖြေရှင်းချက်များ',
