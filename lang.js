@@ -183,6 +183,7 @@
       'iwis-rl-overview-h2':'Iwis Roller Chains',
       'iwis-rl-brand-tag':   'IWIS · Germany',
       'iwis-rl-desc-sub':   'Roller chain – simplex and duplex',
+      'iwis-rl-desc-text':  '<p>Simplex and duplex roller chains with a 3/8&quot; pitch are used primarily in timing drives, oil pump drives and drives for auxiliary units, especially for petrol engines.</p><p>Owing to its smaller pitch, a roller chain with an 8 mm pitch cuts the weight and consequently reduces the centrifugal forces and impact speed. It is therefore ideal for downsizing to timing drives with moderate loads.</p>',
 
       /* ---------- IWIS Conveyor Chains page ---------- */
       'iwis-cv-pg-eyebrow':    'Conveyor &amp; Transport Chains',
@@ -1310,6 +1311,7 @@
       'iwis-rl-overview-h2':'โซ่ลูกกลิ้ง Iwis',
       'iwis-rl-brand-tag':   'IWIS · เยอรมนี',
       'iwis-rl-desc-sub':   'โซ่ลูกกลิ้ง – simplex และ duplex',
+      'iwis-rl-desc-text':  '<p><strong>โซ่ชั้นเดียว และโซ่สองชั้น</strong></p><p>โซ่ที่ได้รับการออกแบบให้มีช่องว่างระหว่างโรลเลอร์กับบุชเหมาะสมกับการหล่อลื่นเพื่อทนต่อการเสียดทานในการใช้งานที่มีรอบสูง ขณะที่โซ่ชั้นเดียวและโซ่สองชั้น ระยะพิท 3/8&quot; สำหรับโซ่ขับเครื่องยนต์ ลูกสูบ ปั้มน้ำมัน ตลอดจนโซ่ขับเคลื่อนยานยนต์ และอุตสาหกรรมขุดเจาะน้ำมัน</p><p>จุดเด่นของโซ่ IWIS ที่มีความเชี่ยวชาญสำหรับโซ่ระยะพิทเล็ก ขนาด 8 มม. ออกแบบเป็นพิเศษเพื่องานที่เน้นภาระน้ำหนักเบา แรงหนีศูนย์ต่ำ และแรงขับสูง</p>',
 
       /* ---------- IWIS Conveyor Chains page (TH) ---------- */
       'iwis-cv-pg-eyebrow':    'โซ่ลำเลียงและขนส่ง',
