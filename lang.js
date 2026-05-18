@@ -158,6 +158,7 @@
       'dbo-pg-h1':      'DONGBO <em>Chain</em>',
       'dbo-pg-sub':     'ANSI · KS B 1407 · ISO 606 &nbsp;|&nbsp; Single · Double · Triple Strand',
       'dbo-pg-overview-h2': 'Dong Bo Chain',
+      'dbo-brand-tag':       'DONGBO · Korea',
       'dbo-pg-desc-sub':    'Korean precision roller chains for heavy-duty industrial applications',
 
       /* ---------- IWIS Roller Chains page ---------- */
@@ -165,6 +166,7 @@
       'iwis-rl-h1':         '<em>IWIS</em> Roller Chains',
       'iwis-rl-sub':        'ISO 606 · British Standard &nbsp;|&nbsp; Simplex &amp; Duplex · Acoustically Optimised',
       'iwis-rl-overview-h2':'Iwis Roller Chains',
+      'iwis-rl-brand-tag':   'IWIS · Germany',
       'iwis-rl-desc-sub':   'Roller chain – simplex and duplex',
 
       /* ---------- IWIS Conveyor Chains page ---------- */
@@ -172,6 +174,7 @@
       'iwis-cv-pg-h1':         '<em>IWIS</em> Conveyor Chains',
       'iwis-cv-pg-sub':        'Custom Attachment Designs &nbsp;|&nbsp; Matched to Customer Applications',
       'iwis-cv-pg-overview-h2':'IWIS Conveyor Chains',
+      'iwis-cv-brand-tag':   'IWIS · Germany',
       'iwis-cv-pg-desc-sub':   'Specialised conveyor chains engineered to customer specifications',
 
       /* ---------- HS Conveyor Chains page ---------- */
@@ -179,6 +182,7 @@
       'hs-cv-h1':         '<em>HS</em> Conveyor Chains',
       'hs-cv-sub':        'Light-Load to Heavy-Load &nbsp;|&nbsp; Wide Range for Every Industrial Application',
       'hs-cv-overview-h2':'HS Conveyor Chains',
+      'hs-cv-brand-tag':     'HS Chain',
       'hs-cv-desc-sub':   'Complete range from light-load to heavy-load',
       'hs-cv-s2-eyebrow': 'Engineering Excellence',
       'hs-cv-s2-h2':      'Why HS Conveyor Chains?',
@@ -188,6 +192,7 @@
       'sgm-pg-h1':         '<em>Sugar Mill</em> Industry Chains',
       'sgm-pg-sub':        'Transmission · Hoisting · Conveying · Bagasse Feeder · O-Chain · Bush Chain',
       'sgm-pg-overview-h2':'Sugar Mill Industry',
+      'sgm-brand-tag':       'HS Chain · Sugar Mill Industry',
       'sgm-pg-desc-sub':   'Chains for every stage of the sugar making process',
       'sgm-pg-s2-eyebrow': 'Product Range',
       'sgm-pg-s2-h2':      'Sugar Mill Chain Types',
@@ -223,6 +228,8 @@
       'trio-h1':         'Forged Chain <em>TRIO</em>',
       'trio-sub':        'Pitch 102 mm &nbsp;|&nbsp; Steel Mill · Cement Plant · Animal Feed Mill',
       'trio-overview-h2':'Forged Chain TRIO',
+      'trio-brand-tag':      'TRIO · โซ่เหล็กหลอม',
+      'trio-brand-tag':      'TRIO · Forged Chain',
       'trio-desc-sub':   'Heavy-duty forged chain for steel mills, cement plants and animal feed mills',
 
       /* ---------- UNO Forged Chain page ---------- */
@@ -230,6 +237,8 @@
       'unof-h1':         'Forged Chain <em>UNO</em>',
       'unof-sub':        'Pitch 142 mm &nbsp;|&nbsp; Steel Mill · Cement Plant · Animal Feed Mill',
       'unof-overview-h2':'Forged Chain UNO',
+      'unof-brand-tag':      'UNO · โซ่เหล็กหลอม',
+      'unof-brand-tag':      'UNO · Forged Chain',
       'unof-desc-sub':   'Extra-heavy-duty forged chain for steel mills, cement plants and animal feed mills',
 
       /* ---------- Footer LINE label ---------- */
@@ -599,6 +608,7 @@
       'palm-bc-active':    'Palm Oil Industry',
       'palm-s1-eyebrow':   'Product Overview',
       'palm-s1-h2':        'Palm Oil Industry Chains',
+      'palm-brand-tag':      'HS Chain · Palm Oil Industry',
       'palm-s1-p1':        'The palm oil chain is developed based on our applied research, focusing on improving reliability and performance in palm oil processing. Our chains are engineered for the demanding requirements of palm oil squeezing production lines &mdash; precision-finished, heat-treated, and pre-oiled for immediate deployment.',
       'palm-s2-eyebrow':   'Product Range',
       'palm-s2-h2':        'Palm Oil Chain Products',
@@ -1260,6 +1270,7 @@
       'dbo-pg-h1':      'DONGBO <em>Chain</em>',
       'dbo-pg-sub':     'ANSI · KS B 1407 · ISO 606 &nbsp;|&nbsp; แบบเส้นเดี่ยว คู่ และสามเส้น',
       'dbo-pg-overview-h2': 'โซ่ Dong Bo',
+      'dbo-brand-tag':       'DONGBO · เกาหลี',
       'dbo-pg-desc-sub':    'โซ่ลูกกลิ้งความแม่นยำจากเกาหลีสำหรับการใช้งานอุตสาหกรรมหนัก',
 
       /* ---------- IWIS Roller Chains page (TH) ---------- */
@@ -1267,6 +1278,7 @@
       'iwis-rl-h1':         '<em>IWIS</em> โซ่ลูกกลิ้ง',
       'iwis-rl-sub':        'ISO 606 · มาตรฐานอังกฤษ &nbsp;|&nbsp; Simplex &amp; Duplex · ปรับให้เหมาะกับเสียง',
       'iwis-rl-overview-h2':'โซ่ลูกกลิ้ง Iwis',
+      'iwis-rl-brand-tag':   'IWIS · เยอรมนี',
       'iwis-rl-desc-sub':   'โซ่ลูกกลิ้ง – simplex และ duplex',
 
       /* ---------- IWIS Conveyor Chains page (TH) ---------- */
@@ -1274,6 +1286,7 @@
       'iwis-cv-pg-h1':         '<em>IWIS</em> โซ่ลำเลียง',
       'iwis-cv-pg-sub':        'การออกแบบ Attachment ที่กำหนดเอง &nbsp;|&nbsp; ตรงตามความต้องการของลูกค้า',
       'iwis-cv-pg-overview-h2':'โซ่ลำเลียง IWIS',
+      'iwis-cv-brand-tag':   'IWIS · เยอรมนี',
       'iwis-cv-pg-desc-sub':   'โซ่ลำเลียงเฉพาะทางที่ออกแบบตามข้อกำหนดของลูกค้า',
 
       /* ---------- HS Conveyor Chains page (TH) ---------- */
@@ -1281,6 +1294,7 @@
       'hs-cv-h1':         '<em>HS</em> โซ่ลำเลียง',
       'hs-cv-sub':        'ตั้งแต่รับโหลดเบาถึงหนัก &nbsp;|&nbsp; ครอบคลุมทุกการใช้งานอุตสาหกรรม',
       'hs-cv-overview-h2':'โซ่ลำเลียง HS',
+      'hs-cv-brand-tag':     'HS Chain',
       'hs-cv-desc-sub':   'ครอบคลุมตั้งแต่รับโหลดเบาถึงหนัก',
       'hs-cv-s2-eyebrow': 'ความเป็นเลิศทางวิศวกรรม',
       'hs-cv-s2-h2':      'ทำไมต้องเลือกโซ่ลำเลียง HS?',
@@ -1290,6 +1304,7 @@
       'sgm-pg-h1':         'โซ่อุตสาหกรรม<em>โรงสีน้ำตาล</em>',
       'sgm-pg-sub':        'โซ่ส่งกำลัง · ยก · ลำเลียง · Bagasse Feeder · O-Chain · Bush Chain',
       'sgm-pg-overview-h2':'อุตสาหกรรมโรงสีน้ำตาล',
+      'sgm-brand-tag':       'HS Chain · อุตสาหกรรมโรงสีน้ำตาล',
       'sgm-pg-desc-sub':   'โซ่สำหรับทุกขั้นตอนของกระบวนการทำน้ำตาล',
       'sgm-pg-s2-eyebrow': 'ช่วงผลิตภัณฑ์',
       'sgm-pg-s2-h2':      'ประเภทโซ่โรงสีน้ำตาล',
@@ -1325,6 +1340,8 @@
       'trio-h1':         'Forged Chain <em>TRIO</em>',
       'trio-sub':        'ระยะพิทช์ 102 มม. &nbsp;|&nbsp; โรงงานเหล็ก · โรงซีเมนต์ · โรงงานอาหารสัตว์',
       'trio-overview-h2':'Forged Chain TRIO',
+      'trio-brand-tag':      'TRIO · โซ่เหล็กหลอม',
+      'trio-brand-tag':      'TRIO · Forged Chain',
       'trio-desc-sub':   'โซ่เหล็กหลอมหนักสำหรับโรงงานเหล็ก โรงซีเมนต์ และโรงงานอาหารสัตว์',
 
       /* ---------- UNO Forged Chain page (TH) ---------- */
@@ -1332,6 +1349,8 @@
       'unof-h1':         'Forged Chain <em>UNO</em>',
       'unof-sub':        'ระยะพิทช์ 142 มม. &nbsp;|&nbsp; โรงงานเหล็ก · โรงซีเมนต์ · โรงงานอาหารสัตว์',
       'unof-overview-h2':'Forged Chain UNO',
+      'unof-brand-tag':      'UNO · โซ่เหล็กหลอม',
+      'unof-brand-tag':      'UNO · Forged Chain',
       'unof-desc-sub':   'โซ่เหล็กหลอมหนักพิเศษสำหรับโรงงานเหล็ก โรงซีเมนต์ และโรงงานอาหารสัตว์',
 
       /* ---------- Footer LINE label (TH) ---------- */
@@ -1679,6 +1698,7 @@
       'palm-bc-active':    'อุตสาหกรรมน้ำมันปาล์ม',
       'palm-s1-eyebrow':   'ภาพรวมสินค้า',
       'palm-s1-h2':        'โซ่อุตสาหกรรมน้ำมันปาล์ม',
+      'palm-brand-tag':      'HS Chain · อุตสาหกรรมน้ำมันปาล์ม',
       'palm-s1-p1':        'โซ่น้ำมันปาล์มได้รับการพัฒนาจากการวิจัยประยุกต์ของเรา โดยมุ่งเน้นการปรับปรุงความน่าเชื่อถือและประสิทธิภาพในกระบวนการแปรรูปน้ำมันปาล์ม โซ่ของเราออกแบบสำหรับสายการผลิตบีบน้ำมันปาล์มที่ต้องการ &mdash; ขัดแต่งอย่างแม่นยำ ผ่านการอบความร้อน และหล่อลื่นไว้ล่วงหน้าพร้อมใช้งานทันที',
       'palm-s2-eyebrow':   'ช่วงผลิตภัณฑ์',
       'palm-s2-h2':        'ผลิตภัณฑ์โซ่น้ำมันปาล์ม',
@@ -2728,6 +2748,7 @@
       'palm-bc-active':    'ឧស្សាហកម្មប្រេងចំការ',
       'palm-s1-eyebrow':   'ទិដ្ឋភាពទូទៅផលិតផល',
       'palm-s1-h2':        'ខ្សែច្រងឧស្សាហកម្មប្រេងចំការ',
+      'palm-brand-tag':      'HS Chain · ឧស្សាហកម្មប្រេងចំការ',
       'palm-s1-p1':        'ខ្សែច្រងប្រេងចំការ ​ ​ ​ ​ ​ ​',
       'palm-s2-eyebrow':   'ជួរផលិតផល',
       'palm-s2-h2':        'ផលិតផលខ្សែច្រងប្រេងចំការ',
