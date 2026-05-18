@@ -4006,13 +4006,15 @@
   };
 
   function apply(lang) {
-    /* 1. Translate all data-i18n elements */
+    /* 1. Translate all data-i18n elements (fallback to EN if key missing in selected lang) */
     var els = document.querySelectorAll('[data-i18n]');
     for (var i = 0; i < els.length; i++) {
       var el  = els[i];
       var key = el.getAttribute('data-i18n');
       if (T[lang] && T[lang][key] !== undefined) {
         el.innerHTML = T[lang][key];
+      } else if (lang !== 'en' && T['en'] && T['en'][key] !== undefined) {
+        el.innerHTML = T['en'][key];
       }
     }
     /* 2. Update lang-selector button: swap the fi-XX country class on the flag span */
