@@ -1037,7 +1037,7 @@
 
       /* ---------- Sugar Industry page ---------- */
       'sug-badge':        '๐ญ Sugar Mill Industrial Application',
-      'sug-h1':           'Solutions for <span>Sugar Industry</span>',
+      'sug-h1':           'Sugar Industry',
       'sug-hero-p':       'Heavy-duty conveyors, corrosion-resistant chains, precision-engineered for high-capacity operations โ€” designed for the demanding conditions of sugar cane crushing, boiling, and refining across Southeast Asia.',
       'sug-btn1':         'Request a Quote for Sugar Mills',
       'sug-bc-active':    'Sugar Industry',
@@ -1087,12 +1087,12 @@
 
       /* ---------- Cement Industry page ---------- */
       'cem-ind-badge':        '๐&mdash;๏ธ Cement Plant Industrial Application',
-      'cem-ind-h1':           'Solutions for <span>Cement Industry</span>',
+      'cem-ind-h1':           'Cement Industry',
       'cem-ind-hero-p':       'Drag chains, bucket elevators, apron conveyors, and clinker transport โ€” engineered for the extreme abrasion, high temperatures, and heavy loads of cement plant operations across Southeast Asia.',
       'cem-ind-btn1':         'Request a Quote for Cement Plants',
       'cem-ind-bc-active':    'Cement Industry',
       'cem-ind-ovr-eyebrow':  'Cement Plant Engineering Experts',
-      'cem-ind-ovr-h2':       'Proven performance in the kiln, raw mill, and conveying systems of cement production',
+      'cem-ind-ovr-h2':       'Cement Industry',
       'cem-ind-ovr-p1':       'With years of experience and persistent improvement, we can provide the reclaimer chain, hoister chain, apron conveyor chain, and slide fastener machine chain, specially designed for the severe conditions of cement industry.',
       'cem-ind-ovr-p2':       'Each link of the production process is under the close monitor of ISO9001 quality assurance system, and the high quality along with variety of products are used and praised by most of well-known cement manufacturers.',
       'cem-ind-spec-h3':      'Cement Industry โ€” Core Performance Standards',
@@ -1137,12 +1137,12 @@
 
       /* ---------- Palm Oil Industry page ---------- */
       'palm-ind-badge':        '๐ด Palm Oil Agricultural Industry',
-      'palm-ind-h1':           'Solutions for <span>Palm Oil Industry</span>',
+      'palm-ind-h1':           'Palm Oil Industry',
       'palm-ind-hero-p':       'Corrosion resistance, sterilisation-grade reliability, and high-load capacity for palm oil mill operations โ€” from fresh fruit bunch (FFB) reception through sterilisation, stripping, and oil extraction.',
       'palm-ind-btn1':         'Request a Quote for Palm Oil',
       'palm-ind-bc-active':    'Palm Oil Industry',
       'palm-ind-ovr-eyebrow':  'Palm Oil Plant Engineering Experts',
-      'palm-ind-ovr-h2':       'Purpose-built solutions for the high-corrosion, high-load demands of palm oil mills',
+      'palm-ind-ovr-h2':       'Palm Oil Industry',
       'palm-ind-ovr-p1':       'The palm oil chain is developed based on our applied research, focusing on improving reliability and performance in palm oil processing.',
       'palm-ind-ovr-p2':       'Our chains are engineered for the demanding requirements of palm oil squeezing production lines &mdash; precision-finished, heat-treated, and pre-oiled for immediate deployment.',
       'palm-ind-spec-h3':      'Palm Oil Industry โ€” Core Performance Standards',
@@ -1187,9 +1187,9 @@
 
       /* ---------- Industry Product Catalog section headings ---------- */
       'ind-cat-eyebrow':       'Product Catalog',
-      'cem-cat-h2':            'Cement Industry &mdash; Detailed Specifications',
-      'sug-cat-h2':            'Sugar Industry &mdash; Detailed Specifications',
-      'palm-cat-h2':           'Palm Oil Industry &mdash; Detailed Specifications',
+      'cem-cat-h2':            'Cement Industry',
+      'sug-cat-h2':            'Sugar Industry',
+      'palm-cat-h2':           'Palm Oil Industry',
     },
 
     /* ============================================================
@@ -2018,7 +2018,7 @@
 
       /* ===== SUGAR INDUSTRY ===== */
       'sug-badge':        '🍬 น้ำตาลและเกษตรอุตสาหกรรม',
-      'sug-h1':           'โซ่สำหรับ <span>อุตสาหกรรมน้ำตาล</span>',
+      'sug-h1':           'อุตสาหกรรมน้ำตาล',
       'sug-hero-p':       'โซ่ขนส่งอ้อยงานหนัก โซ่ลิฟต์ และโซ่ลำเลียงระดับกลาง ออกแบบสำหรับสภาพความชื้นสูง ภาระหนัก และการสึกหรอของกระบวนการบีบอ้อย สกัดน้ำ และกลั่นน้ำตาลทั่วประเทศไทยและเอเชียตะวันออกเฉียงใต้',
       'sug-btn1':         'ขอใบเสนอราคาโซ่โรงงานน้ำตาล',
       'sug-bc-active':    'อุตสาหกรรมน้ำตาล',
@@ -2068,12 +2068,12 @@
 
       /* ===== CEMENT INDUSTRY ===== */
       'cem-ind-badge':        '🏗️ ซีเมนต์และวัสดุก่อสร้าง',
-      'cem-ind-h1':           'โซ่สำหรับ <span>อุตสาหกรรมปูนซีเมนต์</span>',
+      'cem-ind-h1':           'อุตสาหกรรมปูนซีเมนต์',
       'cem-ind-hero-p':       'โซ่ลิฟต์ถัง โซ่ขับเคลื่อนเตาเผา โซ่ลำเลียงคลิงเกอร์ และโซ่ป้อนวัตถุดิบ &mdash; ออกแบบสำหรับฝุ่น ความร้อน และการสึกหรอสูงในโรงงานปูนซีเมนต์ทั่วประเทศไทยและเอเชียตะวันออกเฉียงใต้',
       'cem-ind-btn1':         'ขอใบเสนอราคาโซ่ปูนซีเมนต์',
       'cem-ind-bc-active':    'อุตสาหกรรมปูนซีเมนต์',
       'cem-ind-ovr-eyebrow':  'ผู้เชี่ยวชาญโซ่โรงงานปูนซีเมนต์',
-      'cem-ind-ovr-h2':       'โซ่ที่ทนทานกว่าในฝุ่น ความร้อน และการสึกหรอของการผลิตปูนซีเมนต์',
+      'cem-ind-ovr-h2':       'อุตสาหกรรมปูนซีเมนต์',
       'cem-ind-ovr-p1':       'ด้วยประสบการณ์และการพัฒนาอย่างต่อเนื่อง เราสามารถจัดหาโซ่รีเคลมเมอร์ โซ่ยก โซ่สายพาน Apron และโซ่เครื่องซิปฟาสเทนเนอร์ ออกแบบพิเศษสำหรับสภาพแวดล้อมรุนแรงของอุตสาหกรรมปูนซีเมนต์',
       'cem-ind-ovr-p2':       'ทุกข้อต่อของกระบวนการผลิตอยู่ภายใต้การควบคุมคุณภาพ ISO9001 อย่างใกล้ชิด และคุณภาพสูงพร้อมความหลากหลายของสินค้าได้รับการใช้งานและการยอมรับจากผู้ผลิตปูนซีเมนต์ชั้นนำส่วนใหญ่',
       'cem-ind-spec-h3':      'โซ่อุตสาหกรรมปูนซีเมนต์ &mdash; ข้อมูลประสิทธิภาพหลัก',
@@ -2118,12 +2118,12 @@
 
       /* ===== PALM OIL INDUSTRY ===== */
       'palm-ind-badge':        '🌴 ปาล์มน้ำมันและเกษตรแปรรูป',
-      'palm-ind-h1':           'โซ่สำหรับ <span>อุตสาหกรรมปาล์มน้ำมัน</span>',
+      'palm-ind-h1':           'อุตสาหกรรมปาล์มน้ำมัน',
       'palm-ind-hero-p':       'โซ่เกรดอาหาร ทนการกัดกร่อน สำหรับสภาพแวดล้อมเปียก เป็นกรด และอุณหภูมิสูงของโรงงานปาล์มน้ำมัน &mdash; ตั้งแต่การรับผลปาล์มสด (FFB) และหม้อนึ่งฆ่าเชื้อ จนถึงการแปรรูปและการส่งออกน้ำมัน',
       'palm-ind-btn1':         'ขอใบเสนอราคาโซ่ปาล์มน้ำมัน',
       'palm-ind-bc-active':    'อุตสาหกรรมปาล์มน้ำมัน',
       'palm-ind-ovr-eyebrow':  'ผู้เชี่ยวชาญโซ่โรงงานปาล์มน้ำมัน',
-      'palm-ind-ovr-h2':       'โซ่ที่ออกแบบสำหรับสภาพแวดล้อมเปียกและเป็นกรดของโรงงานปาล์มน้ำมัน',
+      'palm-ind-ovr-h2':       'อุตสาหกรรมปาล์มน้ำมัน',
       'palm-ind-ovr-p1':       'เราพัฒนาโซ่เฉพาะสำหรับอุตสาหกรรมปาล์มน้ำมัน ที่ต้องการคุณสมบัติพิเศษเพื่อทนต่อสภาพแวดล้อมเป็นกรดและเปียกของโรงงานปาล์มน้ำมัน ซึ่งเป็นสาเหตุของความเสียหายก่อนกำหนดและการหยุดชะงักของโซ่ทั่วไป',
       'palm-ind-ovr-p2':       'โซ่ต้านการกัดกร่อนได้รับการพัฒนาและทดสอบเป็นพิเศษสำหรับสภาพแวดล้อมรุนแรงของโรงงานปาล์มน้ำมัน ให้อายุการใช้งานยาวนานและลดเวลาหยุดชะงัก ส่งผลให้ประสิทธิภาพสูงขึ้นและต้นทุนการดำเนินงานลดลง',
       'palm-ind-spec-h3':      'โซ่โรงงานปาล์มน้ำมัน &mdash; พารามิเตอร์การใช้งานหลัก',
@@ -2168,9 +2168,9 @@
 
       /* ===== Industry Product Catalog section headings ===== */
       'ind-cat-eyebrow':       'แคตาล็อกสินค้า',
-      'cem-cat-h2':            'อุตสาหกรรมปูนซีเมนต์ &mdash; ข้อกำหนดทางเทคนิค',
-      'sug-cat-h2':            'อุตสาหกรรมน้ำตาล &mdash; ข้อกำหนดทางเทคนิค',
-      'palm-cat-h2':           'อุตสาหกรรมปาล์มน้ำมัน &mdash; ข้อกำหนดทางเทคนิค',
+      'cem-cat-h2':            'อุตสาหกรรมปูนซีเมนต์',
+      'sug-cat-h2':            'อุตสาหกรรมน้ำตาล',
+      'palm-cat-h2':           'อุตสาหกรรมปาล์มน้ำมัน',
 
       /* ===== CONTACT FORM ===== */
       'cont-line-eyebrow':      'ติดต่อด่วน',
@@ -3084,9 +3084,9 @@
 
       /* ---------- Industry Product Catalog section headings ---------- */
       'ind-cat-eyebrow':       'កាតាឡុកផលិតផល',
-      'cem-cat-h2':            'ឧស្សាហកម្មស៊ីម៉ង់ &mdash; លក្ខណៈបច្ចេកទេស',
-      'sug-cat-h2':            'ឧស្សាហកម្មស្ករ &mdash; លក្ខណៈបច្ចេកទេស',
-      'palm-cat-h2':           'ឧស្សាហកម្មប្រេងម្នាស់ &mdash; លក្ខណៈបច្ចេកទេស',
+      'cem-cat-h2':            'ឧស្សាហកម្មស៊ីម៉ង់',
+      'sug-cat-h2':            'ឧស្សាហកម្មស្ករ',
+      'palm-cat-h2':           'ឧស្សាហកម្មប្រេងម្នាស់',
 
       /* ---------- About page (company profile) ---------- */
       'abt-exp-li4':      'Competitive : Steel Mill, Sugar Mill, Cement Plant and Conveyor Fabrication &amp; Construction',
@@ -3240,11 +3240,19 @@
       'distrib-stat-years':  'ឆ្នាំនៃបទពិសោធន៍',
       'distrib-stat-reach':  'ការគ្របដណ្ដប់ក្នុងតំបន់',
 
+      /* ---------- Industry page headings (KM) ---------- */
+      'cem-ind-h1':            'ឧស្សាហកម្មស៊ីម៉ង់',
+      'cem-ind-ovr-h2':        'ឧស្សាហកម្មស៊ីម៉ង់',
+      'sug-h1':                'ឧស្សាហកម្មស្ករ',
+      'sug-ovr-h2':            'ឧស្សាហកម្មស្ករ',
+      'palm-ind-h1':           'ឧស្សាហកម្មប្រេងម្នាស់',
+      'palm-ind-ovr-h2':       'ឧស្សាហកម្មប្រេងម្នាស់',
+
       /* ---------- Industry Product Catalog section headings ---------- */
       'ind-cat-eyebrow':       'កាតាឡុកផលិតផល',
-      'cem-cat-h2':            'ឧស្សាហកម្មស៊ីម៉ង់ &mdash; លក្ខណៈបច្ចេកទេស',
-      'sug-cat-h2':            'ឧស្សាហកម្មស្ករ &mdash; លក្ខណៈបច្ចេកទេស',
-      'palm-cat-h2':           'ឧស្សាហកម្មប្រេងម្នាស់ &mdash; លក្ខណៈបច្ចេកទេស',
+      'cem-cat-h2':            'ឧស្សាហកម្មស៊ីម៉ង់',
+      'sug-cat-h2':            'ឧស្សាហកម្មស្ករ',
+      'palm-cat-h2':           'ឧស្សាហកម្មប្រេងម្នាស់',
     },
 
     /* ============================================================
@@ -3709,11 +3717,19 @@
       'distrib-stat-years':  'ປີຂອງປະສົບການ',
       'distrib-stat-reach':  'ການຄຸ້ມຄອງພາກພື້ນ',
 
+      /* ---------- Industry page headings (LO) ---------- */
+      'cem-ind-h1':            'ອຸດສາຫະກຳຊີເມັນ',
+      'cem-ind-ovr-h2':        'ອຸດສາຫະກຳຊີເມັນ',
+      'sug-h1':                'ອຸດສາຫະກຳນໍ້າຕານ',
+      'sug-ovr-h2':            'ອຸດສາຫະກຳນໍ້າຕານ',
+      'palm-ind-h1':           'ອຸດສາຫະກຳນໍ້າມັນໝາກໂອ',
+      'palm-ind-ovr-h2':       'ອຸດສາຫະກຳນໍ້າມັນໝາກໂອ',
+
       /* ---------- Industry Product Catalog section headings ---------- */
       'ind-cat-eyebrow':       'ລາຍການສິນຄ້າ',
-      'cem-cat-h2':            'ອຸດສາຫະກຳຊີເມັນ &mdash; ຂໍ້ກຳນົດດ້ານວິຊາການ',
-      'sug-cat-h2':            'ອຸດສາຫະກຳນໍ້າຕານ &mdash; ຂໍ້ກຳນົດດ້ານວິຊາການ',
-      'palm-cat-h2':           'ອຸດສາຫະກຳນໍ້າມັນໝາກໂອ &mdash; ຂໍ້ກຳນົດດ້ານວິຊາການ',
+      'cem-cat-h2':            'ອຸດສາຫະກຳຊີເມັນ',
+      'sug-cat-h2':            'ອຸດສາຫະກຳນໍ້າຕານ',
+      'palm-cat-h2':           'ອຸດສາຫະກຳນໍ້າມັນໝາກໂອ',
     },
 
     /* ============================================================
@@ -4176,11 +4192,19 @@
       'distrib-stat-years':  'တွေ့ကြုံမှုနှစ်ပေါင်း',
       'distrib-stat-reach':  'ဒေသဆိုင်ရာ ကျရောက်မှု',
 
+      /* ---------- Industry page headings (MM) ---------- */
+      'cem-ind-h1':            'ဘိလပ်မြေလုပ်ငန်း',
+      'cem-ind-ovr-h2':        'ဘိလပ်မြေလုပ်ငန်း',
+      'sug-h1':                'သကြားလုပ်ငန်း',
+      'sug-ovr-h2':            'သကြားလုပ်ငန်း',
+      'palm-ind-h1':           'ဖန်ဆီဆီလုပ်ငန်း',
+      'palm-ind-ovr-h2':       'ဖန်ဆီဆီလုပ်ငန်း',
+
       /* ---------- Industry Product Catalog section headings ---------- */
       'ind-cat-eyebrow':       'ကုန်ပစ္စည်းစာရင်း',
-      'cem-cat-h2':            'ဘိလပ်မြေလုပ်ငန်း &mdash; နည်းပညာဆိုင်ရာ သတ်မှတ်ချက်များ',
-      'sug-cat-h2':            'သကြားလုပ်ငန်း &mdash; နည်းပညာဆိုင်ရာ သတ်မှတ်ချက်များ',
-      'palm-cat-h2':           'ဖန်ဆီဆီလုပ်ငန်း &mdash; နည်းပညာဆိုင်ရာ သတ်မှတ်ချက်များ',
+      'cem-cat-h2':            'ဘိလပ်မြေလုပ်ငန်း',
+      'sug-cat-h2':            'သကြားလုပ်ငန်း',
+      'palm-cat-h2':           'ဖန်ဆီဆီလုပ်ငန်း',
     }
   };
 
