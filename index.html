@@ -2408,31 +2408,15 @@
     }
 
     .fb-plugin-container {
-      max-width: 500px;
-      margin: 0 auto;
-      background: #fff;
-      min-height: 560px;
-      display: flex;
-      flex-direction: column;
+      width: 100%;
+      display: block;
       position: relative;
-    }
-
-    /* Top fade — blends the white plugin into the dark section */
-    .fb-plugin-container::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 48px;
-      background: linear-gradient(to bottom, rgba(10,22,40,.55) 0%, transparent 100%);
-      z-index: 2;
-      pointer-events: none;
     }
 
     .fb-plugin-container .fb-page { display: block; width: 100%; }
 
     @media (max-width: 640px) {
       .fb-plugin-wrapper { border-radius: 14px; }
-      .fb-plugin-container { max-width: 100%; border-radius: 12px; min-height: 440px; }
     }
 
     /* Feed caption */
