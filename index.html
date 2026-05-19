@@ -1401,9 +1401,12 @@
 
     /* ── Full-width dark feed band ── */
     .soc-feed-band {
-      background: linear-gradient(175deg, #0b1a30 0%, #0d1e3a 60%, #0a1628 100%);
+      background:
+        radial-gradient(ellipse at 12% 60%, rgba(0,86,164,.14) 0%, transparent 52%),
+        radial-gradient(ellipse at 88% 15%, rgba(24,119,242,.09) 0%, transparent 48%),
+        linear-gradient(160deg, #060d18 0%, #0a1625 35%, #0d1e38 65%, #07101d 100%);
       margin-top: 0;
-      padding: 5rem 0 5.5rem;
+      padding: 5.5rem 0 6rem;
       position: relative;
       overflow: hidden;
     }
@@ -1413,13 +1416,13 @@
       position: absolute;
       inset: 0;
       background-image:
-        linear-gradient(90deg, transparent 0%, rgba(0,86,164,.75) 25%, rgba(24,119,242,.95) 50%, rgba(0,86,164,.75) 75%, transparent 100%),
+        linear-gradient(90deg, transparent 0%, rgba(0,86,164,.55) 20%, rgba(24,119,242,.90) 50%, rgba(0,86,164,.55) 80%, transparent 100%),
         repeating-linear-gradient(
-          -50deg,
-          rgba(255,255,255,.020) 0px,
-          rgba(255,255,255,.020) 1px,
+          -48deg,
+          rgba(255,255,255,.014) 0px,
+          rgba(255,255,255,.014) 1px,
           transparent 1px,
-          transparent 64px
+          transparent 72px
         );
       background-size: 100% 2px, 100% 100%;
       background-position: top center, center;
@@ -1427,14 +1430,14 @@
       pointer-events: none;
       z-index: 0;
     }
-    /* Brand glow centre */
+    /* Brand glow — wider, more atmospheric */
     .soc-feed-band::after {
       content: '';
       position: absolute;
-      top: -20%; left: 50%;
+      top: -30%; left: 50%;
       transform: translateX(-50%);
-      width: 940px; height: 540px;
-      background: radial-gradient(ellipse, rgba(0,86,164,.15) 0%, rgba(24,119,242,.07) 45%, transparent 70%);
+      width: 1200px; height: 700px;
+      background: radial-gradient(ellipse, rgba(0,86,164,.18) 0%, rgba(24,119,242,.09) 40%, transparent 68%);
       pointer-events: none;
       z-index: 0;
     }
@@ -1834,23 +1837,25 @@
     .fb-live-badge {
       display: inline-flex;
       align-items: center;
-      gap: .42rem;
-      background: rgba(24,119,242,.18);
-      border: 1px solid rgba(24,119,242,.40);
-      color: #93c4ff;
-      font-size: .68rem;
+      gap: .45rem;
+      background: rgba(24,119,242,.14);
+      border: 1px solid rgba(24,119,242,.50);
+      color: #a8d1ff;
+      font-size: .67rem;
       font-weight: 800;
-      padding: .28rem .72rem;
+      padding: .3rem .82rem;
       border-radius: 100px;
       text-transform: uppercase;
-      letter-spacing: .09em;
+      letter-spacing: .10em;
       line-height: 1;
+      box-shadow: 0 0 14px rgba(24,119,242,.18), inset 0 1px 0 rgba(255,255,255,.06);
     }
 
     .fb-live-badge-dot {
-      width: 6px; height: 6px;
+      width: 7px; height: 7px;
       background: #60a5fa; border-radius: 50%;
       animation: soc-pulse 1.8s ease-in-out infinite;
+      box-shadow: 0 0 6px rgba(96,165,250,.8);
       flex-shrink: 0;
     }
 
@@ -1869,12 +1874,25 @@
     }
 
     .fb-identity-ico {
-      width: 60px; height: 60px;
+      width: 64px; height: 64px;
       background: linear-gradient(140deg, #1877F2 0%, #0d5ecc 100%);
-      border-radius: 18px;
+      border-radius: 20px;
       display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 8px 28px rgba(24,119,242,.52), 0 3px 10px rgba(0,0,0,.28);
+      box-shadow:
+        0 10px 36px rgba(24,119,242,.58),
+        0 3px 10px rgba(0,0,0,.28),
+        0 0 0 1px rgba(255,255,255,.12),
+        inset 0 1px 0 rgba(255,255,255,.22);
       flex-shrink: 0;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .fb-identity-ico:hover {
+      transform: scale(1.06);
+      box-shadow:
+        0 16px 48px rgba(24,119,242,.70),
+        0 4px 14px rgba(0,0,0,.32),
+        0 0 0 1px rgba(255,255,255,.16),
+        inset 0 1px 0 rgba(255,255,255,.22);
     }
 
     .fb-identity-name {
@@ -1895,7 +1913,7 @@
     .fb-info-sep {
       width: 100%;
       height: 1px;
-      background: linear-gradient(90deg, rgba(255,255,255,.13) 0%, transparent 100%);
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.18) 30%, rgba(24,119,242,.35) 55%, rgba(255,255,255,.10) 80%, transparent 100%);
     }
 
     .fb-info-desc {
@@ -1917,61 +1935,123 @@
     .fb-feat-row {
       display: flex;
       align-items: flex-start;
-      gap: .88rem;
+      gap: .9rem;
+      background: rgba(255,255,255,.032);
+      border: 1px solid rgba(255,255,255,.065);
+      border-radius: 11px;
+      padding: .78rem .9rem;
+      transition: background .22s, border-color .22s, transform .22s;
+    }
+
+    .fb-feat-row:hover {
+      background: rgba(24,119,242,.08);
+      border-color: rgba(24,119,242,.22);
+      transform: translateX(3px);
     }
 
     .fb-feat-ico {
-      width: 34px; height: 34px;
-      border-radius: 9px;
-      background: rgba(0,86,164,.20);
-      border: 1px solid rgba(0,86,164,.33);
-      color: #6eb3ff;
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(0,86,164,.22);
+      border: 1px solid rgba(24,119,242,.28);
+      color: #7bbeff;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
       transition: background .22s, border-color .22s;
     }
 
     .fb-feat-row:hover .fb-feat-ico {
-      background: rgba(0,86,164,.34);
-      border-color: rgba(0,86,164,.55);
+      background: rgba(0,86,164,.38);
+      border-color: rgba(24,119,242,.55);
     }
 
     .fb-feat-label {
       font-size: .875rem;
       font-weight: 700;
-      color: rgba(255,255,255,.84);
+      color: rgba(255,255,255,.88);
       line-height: 1.3;
     }
 
     .fb-feat-caption {
-      font-size: .74rem;
-      color: rgba(255,255,255,.38);
-      margin-top: .14rem;
+      font-size: .73rem;
+      color: rgba(255,255,255,.40);
+      margin-top: .13rem;
       line-height: 1.45;
+    }
+
+    /* Social stats strip */
+    .fb-stats-strip {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: rgba(255,255,255,.035);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 12px;
+      padding: .8rem 1.1rem;
+      margin-top: -.2rem;
+    }
+
+    .fb-stat-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .18rem;
+      flex: 1;
+    }
+
+    .fb-stat-num {
+      font-size: 1.12rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -.01em;
+      line-height: 1.1;
+    }
+
+    .fb-stat-label {
+      font-size: .65rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.38);
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .fb-stat-divider {
+      width: 1px;
+      height: 30px;
+      background: rgba(255,255,255,.10);
+      flex-shrink: 0;
     }
 
     /* CTA button */
     .fb-info-cta {
-      display: inline-flex;
+      display: flex;
       align-items: center;
-      gap: .52rem;
-      background: linear-gradient(135deg, #1877F2 0%, #1262cc 100%);
+      justify-content: center;
+      gap: .55rem;
+      background: linear-gradient(135deg, #1877F2 0%, #1058d0 100%);
       color: #fff;
-      font-size: .9rem;
+      font-size: .93rem;
       font-weight: 700;
-      padding: .8rem 1.6rem;
-      border-radius: 10px;
+      padding: .92rem 1.6rem;
+      border-radius: 12px;
       text-decoration: none;
-      border: 1px solid rgba(255,255,255,.13);
-      box-shadow: 0 4px 20px rgba(24,119,242,.46), 0 1px 4px rgba(0,0,0,.18);
+      border: 1px solid rgba(255,255,255,.16);
+      box-shadow:
+        0 6px 24px rgba(24,119,242,.50),
+        0 1px 4px rgba(0,0,0,.22),
+        inset 0 1px 0 rgba(255,255,255,.15);
       transition: transform .22s ease, box-shadow .22s ease, background .22s;
-      width: fit-content;
+      width: 100%;
+      letter-spacing: .01em;
     }
 
     .fb-info-cta:hover {
-      background: linear-gradient(135deg, #1d82ff 0%, #1467d8 100%);
+      background: linear-gradient(135deg, #2085ff 0%, #1467d8 100%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 30px rgba(24,119,242,.58), 0 2px 8px rgba(0,0,0,.22);
+      box-shadow:
+        0 12px 36px rgba(24,119,242,.62),
+        0 3px 10px rgba(0,0,0,.26),
+        inset 0 1px 0 rgba(255,255,255,.18);
     }
 
     /* Hashtag tags */
@@ -1985,12 +2065,19 @@
     .fb-info-tag {
       font-size: .7rem;
       font-weight: 600;
-      color: rgba(255,255,255,.36);
-      background: rgba(255,255,255,.05);
-      border: 1px solid rgba(255,255,255,.09);
-      padding: .2rem .65rem;
+      color: rgba(255,255,255,.42);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: .22rem .7rem;
       border-radius: 100px;
-      letter-spacing: .02em;
+      letter-spacing: .03em;
+      transition: color .2s, background .2s, border-color .2s;
+      cursor: default;
+    }
+    .fb-info-tag:hover {
+      color: rgba(24,119,242,.90);
+      background: rgba(24,119,242,.10);
+      border-color: rgba(24,119,242,.30);
     }
 
     /* ─── Right: Feed Panel ─── */
@@ -2127,11 +2214,11 @@
     }
 
     .fb-feed-hdr-title {
-      font-size: .8rem;
-      font-weight: 700;
-      color: rgba(255,255,255,.60);
+      font-size: .78rem;
+      font-weight: 800;
+      color: rgba(255,255,255,.70);
       text-transform: uppercase;
-      letter-spacing: .1em;
+      letter-spacing: .12em;
     }
 
     .fb-feed-hdr-dot {
@@ -2159,10 +2246,14 @@
     /* Carousel outer container */
     .fb-carousel-outer {
       position: relative;
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
-      background: rgba(0,0,0,.18);
-      border: 1px solid rgba(255,255,255,.07);
+      background: rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow:
+        0 24px 64px rgba(0,0,0,.55),
+        0 0 0 1px rgba(24,119,242,.08),
+        inset 0 1px 0 rgba(255,255,255,.05);
     }
 
     /* Gradient fade edges */
@@ -2196,25 +2287,25 @@
 
     /* Post card */
     .fb-post-card {
-      flex: 0 0 200px;
-      height: 260px;
-      border-radius: 12px;
+      flex: 0 0 210px;
+      height: 280px;
+      border-radius: 14px;
       overflow: hidden;
       position: relative;
       display: block;
       text-decoration: none;
       background: #0d1e35;
       scroll-snap-align: start;
-      border: 1px solid rgba(255,255,255,.08);
-      box-shadow: 0 4px 20px rgba(0,0,0,.42);
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: 0 6px 24px rgba(0,0,0,.48), 0 0 0 1px rgba(0,0,0,.15);
       transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s ease, border-color .3s;
       flex-shrink: 0;
     }
 
     .fb-post-card:hover {
-      transform: translateY(-5px) scale(1.018);
-      box-shadow: 0 16px 44px rgba(0,0,0,.58), 0 4px 14px rgba(24,119,242,.22);
-      border-color: rgba(24,119,242,.40);
+      transform: translateY(-6px) scale(1.022);
+      box-shadow: 0 20px 52px rgba(0,0,0,.62), 0 6px 18px rgba(24,119,242,.28);
+      border-color: rgba(24,119,242,.45);
     }
 
     .fb-post-img {
@@ -2267,14 +2358,15 @@
 
     /* Skeleton shimmer card */
     .fb-skel-card {
-      flex: 0 0 200px;
-      height: 260px;
-      border-radius: 12px;
+      flex: 0 0 210px;
+      height: 280px;
+      border-radius: 14px;
       scroll-snap-align: start;
-      background: linear-gradient(90deg, #0d1e35 25%, #1a2d46 50%, #0d1e35 75%);
+      background: linear-gradient(90deg, #0b1a2e 25%, #172840 50%, #0b1a2e 75%);
       background-size: 200% 100%;
       animation: fb-shimmer 1.4s ease-in-out infinite;
       flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,.06);
     }
 
     /* Arrow buttons */
@@ -3033,6 +3125,24 @@
           <div>
             <div class="fb-identity-name">Motion Plus Corporation</div>
             <div class="fb-identity-sub" data-i18n="soc-identity-sub">Co.,Ltd. &nbsp;&middot;&nbsp; Industrial Chain Specialist</div>
+          </div>
+        </div>
+
+        <!-- Social stats strip -->
+        <div class="fb-stats-strip" aria-label="Social stats">
+          <div class="fb-stat-item">
+            <span class="fb-stat-num">10K+</span>
+            <span class="fb-stat-label" data-i18n="soc-stat-followers">Followers</span>
+          </div>
+          <div class="fb-stat-divider" aria-hidden="true"></div>
+          <div class="fb-stat-item">
+            <span class="fb-stat-num">500+</span>
+            <span class="fb-stat-label" data-i18n="soc-stat-posts">Posts</span>
+          </div>
+          <div class="fb-stat-divider" aria-hidden="true"></div>
+          <div class="fb-stat-item">
+            <span class="fb-stat-num">SEA</span>
+            <span class="fb-stat-label" data-i18n="soc-stat-region">Coverage</span>
           </div>
         </div>
 
