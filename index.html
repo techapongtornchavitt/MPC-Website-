@@ -2363,20 +2363,15 @@
       line-height: 1.5;
     }
 
-    /* Page Plugin container (no-token fallback) */
+    /* Page Plugin container (no-token fallback) — transparent clip shell only */
     .fb-plugin-wrapper {
-      position: relative;
       border-radius: 18px;
       overflow: hidden;
-      box-shadow:
-        0 32px 80px rgba(0,0,0,.70),
-        0 10px 28px rgba(0,0,0,.42);
     }
 
     .fb-plugin-container {
       width: 100%;
       display: block;
-      position: relative;
     }
 
     .fb-plugin-container .fb-page { display: block; width: 100%; }
@@ -3628,7 +3623,15 @@ var FB_CONFIG = {
   function renderNoToken() {
     var area = document.getElementById('fb-content-area');
     if (!area) return;
-    /* Wrap in premium gradient-border container */
+    /* Hide carousel-specific UI elements — Page Plugin is self-contained */
+    var panel = area.parentNode;
+    if (panel) {
+      var hdr = panel.querySelector('.fb-feed-hdr-row');
+      var cap = panel.querySelector('.fb-feed-caption');
+      if (hdr) hdr.style.display = 'none';
+      if (cap) cap.style.display = 'none';
+    }
+    /* Transparent clip shell — just applies border-radius to round the iframe corners */
     var wrapper = document.createElement('div');
     wrapper.className = 'fb-plugin-wrapper';
     var inner = document.createElement('div');
@@ -3640,7 +3643,7 @@ var FB_CONFIG = {
       ' data-width="500"' +
       ' data-height="600"' +
       ' data-small-header="true"' +
-      ' data-adapt-container-width="false"' +
+      ' data-adapt-container-width="true"' +
       ' data-hide-cover="true"' +
       ' data-show-facepile="false">' +
       '<blockquote cite="https://www.facebook.com/profile.php?id=1018130321389942"' +
