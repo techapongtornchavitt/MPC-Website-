@@ -1979,49 +1979,6 @@
       line-height: 1.45;
     }
 
-    /* Social stats strip */
-    .fb-stats-strip {
-      display: flex;
-      align-items: center;
-      gap: 0;
-      background: rgba(255,255,255,.035);
-      border: 1px solid rgba(255,255,255,.08);
-      border-radius: 12px;
-      padding: .8rem 1.1rem;
-      margin-top: -.2rem;
-    }
-
-    .fb-stat-item {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: .18rem;
-      flex: 1;
-    }
-
-    .fb-stat-num {
-      font-size: 1.12rem;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: -.01em;
-      line-height: 1.1;
-    }
-
-    .fb-stat-label {
-      font-size: .65rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.38);
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .fb-stat-divider {
-      width: 1px;
-      height: 30px;
-      background: rgba(255,255,255,.10);
-      flex-shrink: 0;
-    }
-
     /* CTA button */
     .fb-info-cta {
       display: flex;
@@ -2440,27 +2397,46 @@
       line-height: 1.5;
     }
 
-    /* Page Plugin container (no-token fallback) &mdash;
-       constrain to 500px so the iframe content fills it fully with no whitespace */
+    /* Page Plugin container (no-token fallback) */
+    .fb-plugin-wrapper {
+      position: relative;
+      border-radius: 18px;
+      padding: 2px; /* space for gradient border */
+      background: linear-gradient(135deg, rgba(24,119,242,.55) 0%, rgba(0,86,164,.30) 40%, rgba(255,255,255,.08) 100%);
+      box-shadow:
+        0 32px 80px rgba(0,0,0,.70),
+        0 10px 28px rgba(0,0,0,.42),
+        0 0 60px rgba(24,119,242,.12);
+    }
+
     .fb-plugin-container {
       max-width: 500px;
       margin: 0 auto;
-      border-radius: 14px;
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow:
-        0 24px 64px rgba(0,0,0,.65),
-        0 8px 24px rgba(0,0,0,.38),
-        0 0 0 1px rgba(255,255,255,.10);
       background: #fff;
       min-height: 560px;
       display: flex;
       flex-direction: column;
+      position: relative;
+    }
+
+    /* Top fade — blends the white plugin into the dark section */
+    .fb-plugin-container::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 48px;
+      background: linear-gradient(to bottom, rgba(10,22,40,.55) 0%, transparent 100%);
+      z-index: 2;
+      pointer-events: none;
     }
 
     .fb-plugin-container .fb-page { display: block; width: 100%; }
 
     @media (max-width: 640px) {
-      .fb-plugin-container { max-width: 100%; border-radius: 10px; min-height: 440px; }
+      .fb-plugin-wrapper { border-radius: 14px; }
+      .fb-plugin-container { max-width: 100%; border-radius: 12px; min-height: 440px; }
     }
 
     /* Feed caption */
@@ -3128,40 +3104,11 @@
           </div>
         </div>
 
-        <!-- Social stats strip -->
-        <div class="fb-stats-strip" aria-label="Social stats">
-          <div class="fb-stat-item">
-            <span class="fb-stat-num">10K+</span>
-            <span class="fb-stat-label" data-i18n="soc-stat-followers">Followers</span>
-          </div>
-          <div class="fb-stat-divider" aria-hidden="true"></div>
-          <div class="fb-stat-item">
-            <span class="fb-stat-num">500+</span>
-            <span class="fb-stat-label" data-i18n="soc-stat-posts">Posts</span>
-          </div>
-          <div class="fb-stat-divider" aria-hidden="true"></div>
-          <div class="fb-stat-item">
-            <span class="fb-stat-num">SEA</span>
-            <span class="fb-stat-label" data-i18n="soc-stat-region">Coverage</span>
-          </div>
-        </div>
-
         <div class="fb-info-sep" aria-hidden="true"></div>
 
         <p class="fb-info-desc" data-i18n="soc-desc">Stay connected for real-time updates on our industrial chain products, live job-site installations, and expert content from projects across Southeast Asia.</p>
 
         <ul class="fb-info-feats" aria-label="Content we share">
-          <li class="fb-feat-row">
-            <span class="fb-feat-ico" aria-hidden="true">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-              </svg>
-            </span>
-            <div>
-              <div class="fb-feat-label" data-i18n="soc-feat1-label">New Products &amp; Releases</div>
-              <div class="fb-feat-caption" data-i18n="soc-feat1-caption">Chain launches, specs &amp; technical comparisons</div>
-            </div>
-          </li>
           <li class="fb-feat-row">
             <span class="fb-feat-ico" aria-hidden="true">
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3735,9 +3682,12 @@ var FB_CONFIG = {
   function renderNoToken() {
     var area = document.getElementById('fb-content-area');
     if (!area) return;
-    /* Switch outer container styling to suit a centred iframe */
-    area.className = 'fb-plugin-container';
-    area.innerHTML =
+    /* Wrap in premium gradient-border container */
+    var wrapper = document.createElement('div');
+    wrapper.className = 'fb-plugin-wrapper';
+    var inner = document.createElement('div');
+    inner.className = 'fb-plugin-container';
+    inner.innerHTML =
       '<div class="fb-page"' +
       ' data-href="https://www.facebook.com/profile.php?id=1018130321389942"' +
       ' data-tabs="timeline"' +
@@ -3751,6 +3701,11 @@ var FB_CONFIG = {
       ' class="fb-xfbml-parse-ignore">' +
       '<a href="https://www.facebook.com/profile.php?id=1018130321389942">Motion Plus Corporation on Facebook</a>' +
       '</blockquote></div>';
+    wrapper.appendChild(inner);
+    area.className = '';
+    area.style.cssText = '';
+    area.innerHTML = '';
+    area.appendChild(wrapper);
     /* If the SDK is already loaded, parse now; otherwise fbAsyncInit handles it */
     if (window.FB && window.FB.XFBML) window.FB.XFBML.parse();
   }
