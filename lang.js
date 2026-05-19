@@ -1183,7 +1183,13 @@
       'palm-ind-faq-q4':       'Does MPC supply palm oil mills outside Bangkok?',
       'palm-ind-faq-a4':       'Yes โ€” we supply palm oil mills across Thailand and neighbouring countries including Cambodia, Indonesia, and Malaysia. Fast delivery is available from Bangkok with emergency dispatch during peak harvest and processing season. Contact us for regional stocking arrangements.',
       'palm-ind-cta-h2':       'Need Chains for Your Palm Oil Mill?',
-      'palm-ind-cta-p':        'Our specialist team understands palm oil processing. Contact us for product recommendations, pricing, and fast delivery throughout Southeast Asia.'
+      'palm-ind-cta-p':        'Our specialist team understands palm oil processing. Contact us for product recommendations, pricing, and fast delivery throughout Southeast Asia.',
+
+      /* ---------- Industry Product Catalog section headings ---------- */
+      'ind-cat-eyebrow':       'Product Catalog',
+      'cem-cat-h2':            'Cement Industry &mdash; Detailed Specifications',
+      'sug-cat-h2':            'Sugar Industry &mdash; Detailed Specifications',
+      'palm-cat-h2':           'Palm Oil Industry &mdash; Detailed Specifications',
     },
 
     /* ============================================================
@@ -2160,6 +2166,12 @@
       'palm-ind-cta-h2':       'ต้องการโซ่สำหรับโรงงานปาล์มน้ำมัน?',
       'palm-ind-cta-p':        'ผู้เชี่ยวชาญของเราเข้าใจการแปรรูปปาล์มน้ำมัน ติดต่อเราสำหรับการเลือกโซ่ ราคา และการส่งทั่วประเทศไทยและเอเชียตะวันออกเฉียงใต้',
 
+      /* ===== Industry Product Catalog section headings ===== */
+      'ind-cat-eyebrow':       'แคตาล็อกสินค้า',
+      'cem-cat-h2':            'อุตสาหกรรมปูนซีเมนต์ &mdash; ข้อกำหนดทางเทคนิค',
+      'sug-cat-h2':            'อุตสาหกรรมน้ำตาล &mdash; ข้อกำหนดทางเทคนิค',
+      'palm-cat-h2':           'อุตสาหกรรมปาล์มน้ำมัน &mdash; ข้อกำหนดทางเทคนิค',
+
       /* ===== CONTACT FORM ===== */
       'cont-line-eyebrow':      'ติดต่อด่วน',
       'cont-line-h2':           'แชทกับเราทาง LINE',
@@ -3070,6 +3082,12 @@
       'sgm-cta-h3':     'ស្វែងរក Sugar Mill Chain Solutions?',
       'sgm-cta-p':      'ទំនាក់ទំនង MPC សម្រាប់ការជ្រើស តម្លៃ និងការផ្ដល់ HS Sugar Mill Chains នៅអាស៊ីអាគ្នេយ៍',
 
+      /* ---------- Industry Product Catalog section headings ---------- */
+      'ind-cat-eyebrow':       'កាតាឡុកផលិតផល',
+      'cem-cat-h2':            'ឧស្សាហកម្មស៊ីម៉ង់ &mdash; លក្ខណៈបច្ចេកទេស',
+      'sug-cat-h2':            'ឧស្សាហកម្មស្ករ &mdash; លក្ខណៈបច្ចេកទេស',
+      'palm-cat-h2':           'ឧស្សាហកម្មប្រេងម្នាស់ &mdash; លក្ខណៈបច្ចេកទេស',
+
       /* ---------- About page (company profile) ---------- */
       'abt-exp-li4':      'Competitive : Steel Mill, Sugar Mill, Cement Plant and Conveyor Fabrication &amp; Construction',
       'abt-exp-li5':      'ចំណុចខ្លាំង : ភាពអាចជឿ Inventory, R&amp;D',
@@ -3220,7 +3238,13 @@
       /* ---------- Distributor section stats ---------- */
       'distrib-stat-brands': 'ម៉ាកដែលចែកចាយ',
       'distrib-stat-years':  'ឆ្នាំនៃបទពិសោធន៍',
-      'distrib-stat-reach':  'ការគ្របដណ្ដប់ក្នុងតំបន់'
+      'distrib-stat-reach':  'ការគ្របដណ្ដប់ក្នុងតំបន់',
+
+      /* ---------- Industry Product Catalog section headings ---------- */
+      'ind-cat-eyebrow':       'កាតាឡុកផលិតផល',
+      'cem-cat-h2':            'ឧស្សាហកម្មស៊ីម៉ង់ &mdash; លក្ខណៈបច្ចេកទេស',
+      'sug-cat-h2':            'ឧស្សាហកម្មស្ករ &mdash; លក្ខណៈបច្ចេកទេស',
+      'palm-cat-h2':           'ឧស្សាហកម្មប្រេងម្នាស់ &mdash; លក្ខណៈបច្ចេកទេស',
     },
 
     /* ============================================================
@@ -3683,7 +3707,13 @@
       /* ---------- Distributor section stats ---------- */
       'distrib-stat-brands': 'ຍີ່ຫໍ້ທີ່ຈຳໜ່າຍ',
       'distrib-stat-years':  'ປີຂອງປະສົບການ',
-      'distrib-stat-reach':  'ການຄຸ້ມຄອງພາກພື້ນ'
+      'distrib-stat-reach':  'ການຄຸ້ມຄອງພາກພື້ນ',
+
+      /* ---------- Industry Product Catalog section headings ---------- */
+      'ind-cat-eyebrow':       'ລາຍການສິນຄ້າ',
+      'cem-cat-h2':            'ອຸດສາຫະກຳຊີເມັນ &mdash; ຂໍ້ກຳນົດດ້ານວິຊາການ',
+      'sug-cat-h2':            'ອຸດສາຫະກຳນໍ້າຕານ &mdash; ຂໍ້ກຳນົດດ້ານວິຊາການ',
+      'palm-cat-h2':           'ອຸດສາຫະກຳນໍ້າມັນໝາກໂອ &mdash; ຂໍ້ກຳນົດດ້ານວິຊາການ',
     },
 
     /* ============================================================
@@ -4144,7 +4174,13 @@
       /* ---------- Distributor section stats ---------- */
       'distrib-stat-brands': 'ဖြန့်ချိသော ဘရန်းများ',
       'distrib-stat-years':  'တွေ့ကြုံမှုနှစ်ပေါင်း',
-      'distrib-stat-reach':  'ဒေသဆိုင်ရာ ကျရောက်မှု'
+      'distrib-stat-reach':  'ဒေသဆိုင်ရာ ကျရောက်မှု',
+
+      /* ---------- Industry Product Catalog section headings ---------- */
+      'ind-cat-eyebrow':       'ကုန်ပစ္စည်းစာရင်း',
+      'cem-cat-h2':            'ဘိလပ်မြေလုပ်ငန်း &mdash; နည်းပညာဆိုင်ရာ သတ်မှတ်ချက်များ',
+      'sug-cat-h2':            'သကြားလုပ်ငန်း &mdash; နည်းပညာဆိုင်ရာ သတ်မှတ်ချက်များ',
+      'palm-cat-h2':           'ဖန်ဆီဆီလုပ်ငန်း &mdash; နည်းပညာဆိုင်ရာ သတ်မှတ်ချက်များ',
     }
   };
 
