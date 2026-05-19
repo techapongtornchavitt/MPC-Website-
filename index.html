@@ -1429,43 +1429,358 @@
       background: radial-gradient(ellipse, rgba(24,119,242,.07) 0%, rgba(0,50,120,.03) 45%, transparent 70%);
       pointer-events: none;
     }
-    /* ── Responsive — platform cards ── */
+    .soc-feed-band-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Feed band header bar */
+    .soc-feed-band-hdr {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .sfb-name { font-size: 1.15rem; font-weight: 800; color: #fff; line-height: 1.2; letter-spacing: -.01em; }
+    .sfb-sub  { font-size: .78rem; color: rgba(255,255,255,.55); margin-top: .12rem; letter-spacing: .01em; }
+    .sfb-live-dot {
+      width: 6px; height: 6px;
+      background: #7ab6ff; border-radius: 50%;
+      animation: soc-pulse 1.8s ease-in-out infinite;
+    }
+
+    /* Feed band footer */
+    .soc-feed-band-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 1rem; flex-wrap: wrap;
+      margin-top: 1.75rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,.08);
+    }
+    .soc-hashtags {
+      display: flex; gap: .45rem; flex-wrap: wrap;
+    }
+    .soc-hash {
+      font-size: .73rem; font-weight: 600;
+      color: rgba(255,255,255,.52);
+      background: rgba(255,255,255,.065);
+      border: 1px solid rgba(255,255,255,.12);
+      padding: .26rem .78rem; border-radius: 100px;
+      letter-spacing: .02em;
+      transition: color .2s, background .2s, border-color .2s;
+      cursor: default;
+    }
+    .soc-view-btn {
+      display: inline-flex; align-items: center; gap: .5rem;
+      font-size: .86rem; font-weight: 700; color: #fff;
+      text-decoration: none; padding: .62rem 1.45rem;
+      background: linear-gradient(135deg, #1877F2 0%, #1262cc 100%);
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 4px 18px rgba(24,119,242,.42), 0 1px 4px rgba(0,0,0,.18);
+      transition: transform .22s ease, box-shadow .22s ease, background .22s;
+      white-space: nowrap; flex-shrink: 0;
+    }
+    .soc-view-btn:hover {
+      background: linear-gradient(135deg, #1d82ff 0%, #1467d8 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(24,119,242,.55), 0 2px 8px rgba(0,0,0,.20);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 1260px) {
+      .soc-feed-band-inner { max-width: 100%; }
+    }
     @media (max-width: 720px) {
       .soc-follow-row { gap: .7rem; }
       .soc-plat-card  { min-width: 100px; max-width: 124px; padding: 1.3rem .9rem 1.15rem; }
       .soc-plat-ico   { width: 46px; height: 46px; border-radius: 13px; }
+      .soc-feed-band  { padding: 3.5rem 0 4.5rem; }
+      .soc-feed-band-inner { padding: 0 1.5rem; }
     }
     @media (max-width: 540px) {
-      .soc-follow-row  { gap: .5rem; }
-      .soc-plat-card   { min-width: 90px; max-width: 110px; padding: 1.1rem .7rem 1rem; }
-      .soc-plat-ico    { width: 40px; height: 40px; border-radius: 11px; }
+      .soc-section    { padding: 0 0 3rem; }
+      .soc-hdr        { margin-bottom: 2.25rem; }
+      .soc-follow-row { gap: .5rem; }
+      .soc-plat-card  { min-width: 90px; max-width: 110px; padding: 1.1rem .7rem 1rem; }
+      .soc-plat-ico   { width: 40px; height: 40px; border-radius: 11px; }
       .soc-plat-handle { display: none; }
+      .soc-feed-band  { padding: 2.5rem 0 3.25rem; margin-top: 0; }
+      .soc-feed-band-inner { padding: 0 1.25rem; }
+      .soc-feed-band-hdr  { gap: .75rem; margin-bottom: 1.25rem; padding-bottom: 1rem; }
+      .sfb-fb-icon    { width: 44px; height: 44px; border-radius: 11px; }
+      .sfb-name       { font-size: .95rem; }
+      .sfb-sub        { font-size: .72rem; }
+      .soc-feed-band-footer { flex-direction: column; align-items: flex-start; gap: .85rem; }
+      .soc-view-btn   { align-self: flex-end; }
     }
 
     /* ============================================================
-       FACEBOOK — LIVE FEED SECTION
+       FACEBOOK FEED BAND OVERRIDES
     ============================================================ */
 
-    /* Divider dot — Facebook blue */
+    /* Feed-intro divider dot &mdash; Facebook blue */
     .soc-fi-dot { background: #1877F2; }
 
-    /* @keyframes for skeleton shimmer */
+    /* Facebook branded icon in band header */
+    .sfb-fb-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(140deg, #1877F2 0%, #0d5ecc 100%);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 24px rgba(24,119,242,.50), 0 2px 8px rgba(0,0,0,.28);
+      flex-shrink: 0;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .soc-feed-band-hdr:hover .sfb-fb-icon {
+      transform: scale(1.06);
+      box-shadow: 0 10px 32px rgba(24,119,242,.58), 0 4px 12px rgba(0,0,0,.32);
+    }
+    /* Live dot &mdash; brighter */
+    .sfb-live-dot {
+      width: 7px; height: 7px;
+      background: #60a5fa;
+      border-radius: 50%;
+      animation: soc-pulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    /* "Follow" pill badge &mdash; refined premium */
+    .sfb-follow-fb {
+      display: inline-flex; align-items: center; gap: .44rem;
+      background: rgba(24,119,242,.22);
+      border: 1.5px solid rgba(24,119,242,.52);
+      color: #a8ceff;
+      font-size: .76rem; font-weight: 700;
+      padding: .4rem 1.05rem; border-radius: 100px;
+      text-transform: uppercase; letter-spacing: .06em;
+      text-decoration: none;
+      margin-left: auto; flex-shrink: 0;
+      white-space: nowrap;
+      transition: background .22s, border-color .22s, color .22s, transform .22s;
+    }
+    .sfb-follow-fb:hover {
+      background: rgba(24,119,242,.38);
+      border-color: rgba(24,119,242,.75);
+      color: #d4e8ff;
+      transform: translateY(-1px);
+    }
+
+    /* ── Facebook horizontal scrolling strip ── */
+    .fb-scroll-wrap {
+      position: relative; width: 100%; margin: 0; padding: 0.25rem 0 1.4rem;
+    }
+    .fb-scroll-wrap::before,
+    .fb-scroll-wrap::after {
+      content: ''; position: absolute; top: 0; bottom: 0;
+      width: 80px; pointer-events: none; z-index: 3;
+    }
+    .fb-scroll-wrap::before { left:  0; background: linear-gradient(to right, #0b1a30 0%, transparent 100%); }
+    .fb-scroll-wrap::after  { right: 0; background: linear-gradient(to left,  #0b1a30 0%, transparent 100%); }
+
+    .fb-strip-track {
+      display: flex; gap: 0.85rem;
+      overflow-x: auto; scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch; scrollbar-width: none;
+      padding: 0.5rem 80px 0.5rem; cursor: grab;
+    }
+    .fb-strip-track:active { cursor: grabbing; }
+    .fb-strip-track::-webkit-scrollbar { display: none; }
+
+    /* Individual post card */
+    .fb-post-card {
+      flex: 0 0 240px; height: 300px; scroll-snap-align: start;
+      border-radius: 14px; overflow: hidden; position: relative;
+      display: block; text-decoration: none; background: #0c1525;
+      box-shadow: 0 8px 32px rgba(0,0,0,.45), 0 2px 8px rgba(0,0,0,.22);
+      border: 1px solid rgba(255,255,255,.07);
+      transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s ease;
+    }
+    .fb-post-card:hover {
+      transform: translateY(-5px) scale(1.025);
+      box-shadow: 0 18px 50px rgba(0,0,0,.6), 0 4px 14px rgba(24,119,242,.28);
+    }
+    .fb-post-img {
+      position: absolute; inset: 0; background-size: cover; background-position: center;
+      transition: transform .45s cubic-bezier(.4,0,.2,1);
+    }
+    .fb-post-card:hover .fb-post-img { transform: scale(1.06); }
+    .fb-post-scrim {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.62) 0%, rgba(0,0,0,.12) 45%, transparent 100%);
+      z-index: 1; pointer-events: none;
+    }
+    .fb-post-badge {
+      position: absolute; bottom: 10px; right: 10px;
+      width: 28px; height: 28px; background: rgba(0,0,0,.45);
+      border-radius: 7px; display: flex; align-items: center; justify-content: center;
+      z-index: 2; opacity: 0.72; transition: opacity .25s ease;
+    }
+    .fb-post-card:hover .fb-post-badge { opacity: 1; }
+    .fb-post-hover {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .5rem;
+      background: rgba(0,0,0,.52); backdrop-filter: blur(2px);
+      opacity: 0; transition: opacity .28s ease; z-index: 3;
+    }
+    .fb-post-card:hover .fb-post-hover { opacity: 1; }
+    .fb-post-hover span {
+      font-size: .76rem; font-weight: 700;
+      color: rgba(255,255,255,.92); letter-spacing: .05em; text-transform: uppercase;
+    }
+    /* Optional caption line at bottom of card */
+    .fb-post-caption {
+      position: absolute; bottom: 0; left: 0; right: 0; padding: .55rem .75rem;
+      font-size: .69rem; line-height: 1.4; color: rgba(255,255,255,.78); z-index: 2;
+      display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+    }
+
+    /* Skeleton shimmer for loading state */
+    .fb-skeleton {
+      flex: 0 0 240px; height: 300px; border-radius: 14px; scroll-snap-align: start;
+      background: linear-gradient(90deg, #0d1e35 25%, #182a48 50%, #0d1e35 75%);
+      background-size: 200% 100%; animation: fb-shimmer 1.4s ease-in-out infinite;
+    }
     @keyframes fb-shimmer {
       0%   { background-position: 200% 0; }
       100% { background-position: -200% 0; }
     }
 
-    /* Section intro (light area above dark band) */
+    /* Prev / Next arrows */
+    .fb-arrow {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 38px; height: 38px; border-radius: 50%;
+      background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.18);
+      backdrop-filter: blur(6px); color: #fff;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; z-index: 4; transition: background .2s, opacity .2s;
+      padding: 0; line-height: 1; user-select: none;
+    }
+    .fb-arrow:hover { background: rgba(24,119,242,.55); border-color: rgba(24,119,242,.65); }
+    .fb-arrow:disabled,
+    .fb-arrow[data-at-edge="true"] { opacity: 0.25; pointer-events: none; }
+    .fb-arrow-prev { left: 10px; }
+    .fb-arrow-next { right: 10px; }
+
+    /* Strip note */
+    .fb-strip-note {
+      font-size: .77rem; color: rgba(255,255,255,.35); text-align: center;
+      margin: 0; padding: 1.1rem 2rem 0; line-height: 1.6; letter-spacing: .01em;
+    }
+
+    /* "View All Posts on Facebook" button &mdash; inherits premium .soc-view-btn styles */
+    .soc-view-fb-btn { /* no override needed &mdash; .soc-view-btn styles apply */ }
+
+    @media (max-width: 600px) {
+      .fb-post-card  { flex: 0 0 190px; height: 238px; }
+      .fb-skeleton   { flex: 0 0 190px; height: 238px; }
+      .fb-arrow      { display: none; }
+      .fb-scroll-wrap::before,
+      .fb-scroll-wrap::after { width: 40px; }
+      .fb-strip-track { padding: 0.5rem 40px; }
+    }
+    /* ── Facebook Page Plugin container ── */
+    #fb-content-area { position: relative; z-index: 1; }
+    .fb-plugin-outer {
+      max-width: 880px; margin: 0 auto;
+      padding: 0 2rem; position: relative; z-index: 1;
+    }
+    .fb-plugin-frame {
+      border-radius: 16px; overflow: hidden;
+      box-shadow:
+        0 24px 64px rgba(0,0,0,.65),
+        0 8px 24px rgba(0,0,0,.38),
+        0 0 0 1px rgba(255,255,255,.11),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      border: none;
+      background: #fff; min-height: 520px;
+      transition: box-shadow .3s ease;
+    }
+    .fb-plugin-frame:hover {
+      box-shadow:
+        0 32px 80px rgba(0,0,0,.70),
+        0 12px 32px rgba(0,0,0,.42),
+        0 0 0 1px rgba(24,119,242,.28),
+        inset 0 1px 0 rgba(255,255,255,.06);
+    }
+    .fb-plugin-frame .fb-page { display: block; }
+    @media (max-width: 720px) {
+      .fb-plugin-outer { padding: 0 1.25rem; }
+      .fb-plugin-frame { min-height: 440px; border-radius: 12px; }
+    }
+    @media (max-width: 540px) {
+      .fb-plugin-outer { padding: 0 .85rem; }
+      .fb-plugin-frame { min-height: 380px; border-radius: 10px; }
+    }
+    /* ── "Follow us on Facebook" placeholder &mdash; shown until credentials are set ── */
+    .fb-placeholder-wrap {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      gap: .85rem; flex: 0 0 320px; height: 300px; border-radius: 16px;
+      background: linear-gradient(140deg, #0d1e35 0%, #122449 100%);
+      border: 1.5px solid rgba(24,119,242,.28); scroll-snap-align: start;
+      padding: 2rem; box-shadow: 0 12px 40px rgba(0,0,0,.50), 0 4px 16px rgba(0,0,0,.24);
+      text-align: center; text-decoration: none;
+      transition: border-color .25s, box-shadow .25s, transform .25s; flex-shrink: 0;
+    }
+    .fb-placeholder-wrap:hover {
+      border-color: rgba(24,119,242,.55);
+      box-shadow: 0 20px 56px rgba(0,0,0,.58), 0 6px 22px rgba(24,119,242,.20);
+      transform: translateY(-3px);
+    }
+    .fb-ph-icon {
+      width: 52px; height: 52px; background: #1877F2; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 18px rgba(24,119,242,.48); flex-shrink: 0;
+    }
+    .fb-ph-title  { font-size: .98rem; font-weight: 800; color: #fff; line-height: 1.3; }
+    .fb-ph-sub    { font-size: .74rem; color: rgba(255,255,255,.46); line-height: 1.55; margin-top:-.2rem; }
+    .fb-ph-btn {
+      display: inline-flex; align-items: center; gap: .4rem;
+      background: #1877F2; color: #fff; border-radius: 8px;
+      padding: .46rem 1.1rem; font-size: .78rem; font-weight: 700;
+      text-decoration: none; margin-top: .15rem;
+      transition: background .18s, transform .18s;
+    }
+    .fb-ph-btn:hover { background: #1465d8; transform: translateY(-1px); }
+
+    /* Error state &mdash; small inline note, skeletons stay visible */
+    .fb-error-bar {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 10;
+      background: rgba(0,0,0,.55); backdrop-filter: blur(4px);
+      padding: .5rem 1.5rem; display: flex; align-items: center;
+      justify-content: space-between; gap: 1rem;
+    }
+    .fb-error-bar span { font-size: .72rem; color: rgba(255,255,255,.55); }
+    .fb-error-retry {
+      font-size: .72rem; font-weight: 700; color: #7ab6ff;
+      background: none; border: none; cursor: pointer; padding: 0;
+      text-decoration: underline;
+    }
+    @media (max-width: 600px) {
+      .fb-placeholder-wrap { flex: 0 0 240px; height: 238px; padding: 1.4rem 1rem; }
+      .fb-ph-icon { width: 42px; height: 42px; border-radius: 11px; }
+    }
+
+    /* ============================================================
+       FACEBOOK SHOWCASE &mdash; PREMIUM SPLIT LAYOUT
+    ============================================================ */
+
+    /* ── Section intro (light area, above dark band) ── */
     .soc-section-intro {
       text-align: center;
-      max-width: 560px;
-      margin: 0 auto 2.75rem;
+      max-width: 580px;
+      margin: 0 auto 3rem;
       padding: 0 1.75rem;
       position: relative; z-index: 1;
     }
     .soc-section-intro h2 {
       color: var(--color-dark-navy);
-      margin-bottom: .5rem;
+      margin-bottom: .55rem;
       letter-spacing: -.02em;
     }
     .soc-section-intro p {
@@ -1475,116 +1790,257 @@
       margin: 0;
     }
 
-    /* ── Centered inner wrapper inside dark band ── */
-    .soc-fb-inner {
-      max-width: 860px;
+    /* ── Split grid inside dark band ── */
+    .fb-showcase-grid {
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 2.5rem;
-      position: relative;
-      z-index: 1;
+      display: grid;
+      grid-template-columns: 316px 1fr;
+      gap: 3.25rem;
+      align-items: start;
+      position: relative; z-index: 1;
     }
 
-    /* ── Brand identity bar ── */
-    .fb-brand-bar {
+    /* ─── Left: Brand Info Panel ─── */
+    .fb-info-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 2.1rem 1.85rem;
+      background: linear-gradient(155deg, #060f1e 0%, #0b1829 52%, #0e1f3a 100%);
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow:
+        0 16px 56px rgba(0,0,0,.50),
+        0 0 0 1px rgba(24,119,242,.12),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      position: relative;
+    }
+    .fb-info-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, transparent 0%, rgba(24,119,242,.70) 30%, rgba(24,119,242,.90) 55%, rgba(24,119,242,.50) 80%, transparent 100%);
+      border-radius: 0 2px 2px 0;
+      pointer-events: none;
+    }
+    .fb-info-panel::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(24,119,242,.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .fb-info-topline {
       display: flex;
       align-items: center;
-      gap: 1.1rem;
-      margin-bottom: 1.1rem;
-      padding-bottom: 1.2rem;
-      border-bottom: 1px solid rgba(255,255,255,.08);
+      gap: .72rem;
       flex-wrap: wrap;
     }
-    .fb-brand-bar-left {
-      display: flex;
-      align-items: center;
-      gap: .9rem;
-      flex: 1;
-      min-width: 0;
-    }
-    .fb-brand-ico {
-      width: 46px; height: 46px;
-      background: linear-gradient(140deg, #1877F2 0%, #0d5ecc 100%);
-      border-radius: 13px;
-      display: flex; align-items: center; justify-content: center;
-      box-shadow: 0 6px 20px rgba(24,119,242,.48), inset 0 1px 0 rgba(255,255,255,.18);
-      flex-shrink: 0;
-      transition: transform .25s ease, box-shadow .25s ease;
-    }
-    .fb-brand-ico:hover {
-      transform: scale(1.07);
-      box-shadow: 0 10px 28px rgba(24,119,242,.60);
-    }
-    .fb-brand-name {
-      font-size: 1rem;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.2;
-      letter-spacing: -.015em;
-      white-space: nowrap;
-    }
-    .fb-brand-sub-line {
-      font-size: .71rem;
-      color: rgba(255,255,255,.38);
-      margin-top: .1rem;
-    }
-    .fb-live-pill {
+
+    .fb-live-badge {
       display: inline-flex;
       align-items: center;
-      gap: .38rem;
-      background: rgba(24,119,242,.13);
-      border: 1px solid rgba(24,119,242,.46);
+      gap: .45rem;
+      background: rgba(24,119,242,.14);
+      border: 1px solid rgba(24,119,242,.50);
       color: #a8d1ff;
-      font-size: .64rem;
+      font-size: .67rem;
       font-weight: 800;
-      padding: .28rem .75rem;
+      padding: .3rem .82rem;
       border-radius: 100px;
       text-transform: uppercase;
       letter-spacing: .10em;
       line-height: 1;
-      white-space: nowrap;
-      flex-shrink: 0;
-      box-shadow: 0 0 12px rgba(24,119,242,.16);
+      box-shadow: 0 0 14px rgba(24,119,242,.18), inset 0 1px 0 rgba(255,255,255,.06);
     }
-    .fb-live-pill-dot {
-      width: 6px; height: 6px;
+
+    .fb-live-badge-dot {
+      width: 7px; height: 7px;
       background: #60a5fa; border-radius: 50%;
       animation: soc-pulse 1.8s ease-in-out infinite;
       box-shadow: 0 0 6px rgba(96,165,250,.8);
       flex-shrink: 0;
     }
-    .fb-follow-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: .44rem;
-      background: linear-gradient(135deg, #1877F2 0%, #1058d0 100%);
-      color: #fff;
-      font-size: .8rem;
+
+    .fb-platform-label {
+      font-size: .7rem;
       font-weight: 700;
-      padding: .55rem 1.15rem;
-      border-radius: 9px;
-      text-decoration: none;
-      border: 1px solid rgba(255,255,255,.14);
-      box-shadow: 0 4px 16px rgba(24,119,242,.42), inset 0 1px 0 rgba(255,255,255,.12);
-      transition: transform .22s ease, box-shadow .22s ease, background .22s;
-      white-space: nowrap;
+      color: rgba(255,255,255,.30);
+      text-transform: uppercase;
+      letter-spacing: .13em;
+    }
+
+    .fb-info-identity {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .fb-identity-ico {
+      width: 48px; height: 48px;
+      background: linear-gradient(140deg, #1877F2 0%, #0d5ecc 100%);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 6px 22px rgba(24,119,242,.52), inset 0 1px 0 rgba(255,255,255,.20);
       flex-shrink: 0;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .fb-identity-ico:hover {
+      transform: scale(1.06);
+      box-shadow: 0 10px 32px rgba(24,119,242,.68), inset 0 1px 0 rgba(255,255,255,.22);
+    }
+
+    .fb-identity-name {
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.2;
+      letter-spacing: -.015em;
+    }
+
+    .fb-identity-sub {
+      font-size: .70rem;
+      color: rgba(255,255,255,.38);
+      margin-top: .14rem;
       letter-spacing: .01em;
     }
-    .fb-follow-pill:hover {
+
+    .fb-info-sep {
+      width: 100%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.18) 30%, rgba(24,119,242,.35) 55%, rgba(255,255,255,.10) 80%, transparent 100%);
+    }
+
+    .fb-info-desc {
+      font-size: .82rem;
+      line-height: 1.72;
+      color: rgba(255,255,255,.50);
+      margin: 0;
+    }
+
+    /* Feature list */
+    .fb-info-feats {
+      list-style: none;
+      margin: 0; padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .fb-feat-row {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+      background: rgba(255,255,255,.032);
+      border: 1px solid rgba(255,255,255,.065);
+      border-radius: 11px;
+      padding: .78rem .9rem;
+      transition: background .22s, border-color .22s, transform .22s;
+    }
+
+    .fb-feat-row:hover {
+      background: rgba(24,119,242,.08);
+      border-color: rgba(24,119,242,.22);
+      transform: translateX(3px);
+    }
+
+    .fb-feat-ico {
+      width: 36px; height: 36px;
+      border-radius: 10px;
+      background: rgba(0,86,164,.22);
+      border: 1px solid rgba(24,119,242,.28);
+      color: #7bbeff;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: background .22s, border-color .22s;
+    }
+
+    .fb-feat-row:hover .fb-feat-ico {
+      background: rgba(0,86,164,.38);
+      border-color: rgba(24,119,242,.55);
+    }
+
+    .fb-feat-label {
+      font-size: .875rem;
+      font-weight: 700;
+      color: rgba(255,255,255,.88);
+      line-height: 1.3;
+    }
+
+    .fb-feat-caption {
+      font-size: .73rem;
+      color: rgba(255,255,255,.40);
+      margin-top: .13rem;
+      line-height: 1.45;
+    }
+
+    /* CTA button */
+    .fb-info-cta {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .48rem;
+      background: linear-gradient(135deg, #1877F2 0%, #1058d0 100%);
+      color: #fff;
+      font-size: .83rem;
+      font-weight: 700;
+      padding: .72rem 1.2rem;
+      border-radius: 10px;
+      text-decoration: none;
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 4px 18px rgba(24,119,242,.44), inset 0 1px 0 rgba(255,255,255,.14);
+      transition: transform .22s ease, box-shadow .22s ease, background .22s;
+      width: 100%;
+      letter-spacing: .01em;
+    }
+
+    .fb-info-cta:hover {
       background: linear-gradient(135deg, #2085ff 0%, #1467d8 100%);
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(24,119,242,.56), inset 0 1px 0 rgba(255,255,255,.16);
+      box-shadow: 0 8px 28px rgba(24,119,242,.58), inset 0 1px 0 rgba(255,255,255,.18);
     }
 
-    /* Description line */
-    .fb-band-desc {
-      font-size: .83rem;
-      color: rgba(255,255,255,.40);
-      line-height: 1.72;
-      margin: 0 0 1.5rem;
+    /* Hashtag tags */
+    .fb-info-tagline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .4rem;
+      padding-top: .1rem;
     }
 
-    /* Feed label row (hidden by JS when plugin is active) */
+    .fb-info-tag {
+      font-size: .7rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.42);
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(255,255,255,.10);
+      padding: .22rem .7rem;
+      border-radius: 100px;
+      letter-spacing: .03em;
+      transition: color .2s, background .2s, border-color .2s;
+      cursor: default;
+    }
+    .fb-info-tag:hover {
+      color: rgba(24,119,242,.90);
+      background: rgba(24,119,242,.10);
+      border-color: rgba(24,119,242,.30);
+    }
+
+    /* ─── Right: Feed Panel ─── */
+    .fb-feed-panel {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      min-width: 0;
+    }
+
+    /* Live label above embed — shown only when plugin is present */
     .fb-feed-label {
       display: flex;
       align-items: center;
@@ -1592,11 +2048,13 @@
       margin-bottom: .7rem;
       padding: 0 .1rem;
     }
+
     .fb-feed-label-left {
       display: flex;
       align-items: center;
       gap: .5rem;
     }
+
     .fb-feed-label-title {
       font-size: .7rem;
       font-weight: 800;
@@ -1604,12 +2062,15 @@
       text-transform: uppercase;
       letter-spacing: .12em;
     }
+
     .fb-feed-label-dot {
       width: 6px; height: 6px;
-      background: #60a5fa; border-radius: 50%;
+      background: #60a5fa;
+      border-radius: 50%;
       animation: soc-pulse 1.8s ease-in-out infinite;
       flex-shrink: 0;
     }
+
     .fb-feed-viewall-link {
       display: inline-flex;
       align-items: center;
@@ -1621,34 +2082,205 @@
       letter-spacing: .01em;
       transition: color .2s, gap .2s;
     }
+
     .fb-feed-viewall-link:hover { color: #7ab6ff; gap: .48rem; }
 
-    /* ── Carousel outer container ── */
+    /* Browser chrome wrapper */
+    .fb-browser-frame {
+      border-radius: 20px;
+      overflow: hidden;
+      /* GPU compositing — prevents iframe from bleeding past rounded corners */
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      isolation: isolate;
+      will-change: transform;
+      box-shadow:
+        0 40px 90px rgba(0,0,0,.72),
+        0 16px 40px rgba(0,0,0,.44),
+        0 0 0 1px rgba(255,255,255,.10),
+        0 0 0 1px rgba(24,119,242,.08),
+        inset 0 1px 0 rgba(255,255,255,.08);
+      transition: box-shadow .35s ease;
+    }
+
+    .fb-browser-frame:hover {
+      box-shadow:
+        0 48px 100px rgba(0,0,0,.76),
+        0 20px 48px rgba(0,0,0,.46),
+        0 0 0 1px rgba(24,119,242,.35),
+        inset 0 1px 0 rgba(255,255,255,.08);
+    }
+
+    /* Chrome top bar */
+    .fb-chrome-bar {
+      background: linear-gradient(180deg, #1e2f44 0%, #152135 100%);
+      padding: .72rem 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      user-select: none;
+      flex-shrink: 0;
+    }
+
+    .fb-chrome-dots {
+      display: flex;
+      gap: .4rem;
+      flex-shrink: 0;
+    }
+
+    .fb-chrome-dot {
+      width: 11px; height: 11px;
+      border-radius: 50%;
+      display: block;
+      flex-shrink: 0;
+    }
+
+    .fb-chrome-dot-r { background: #ff5f57; }
+    .fb-chrome-dot-y { background: #febc2e; }
+    .fb-chrome-dot-g { background: #28c840; }
+
+    .fb-chrome-address {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      background: rgba(0,0,0,.20);
+      border: 1px solid rgba(255,255,255,.08);
+      border-radius: 6px;
+      padding: .28rem .7rem;
+      font-size: .7rem;
+      color: rgba(255,255,255,.40);
+      letter-spacing: .01em;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      cursor: default;
+    }
+
+    .fb-chrome-address svg { flex-shrink: 0; color: rgba(72,200,90,.78); }
+
+    .fb-chrome-reload {
+      display: flex;
+      align-items: center;
+      color: rgba(255,255,255,.28);
+      cursor: default;
+      flex-shrink: 0;
+      transition: color .18s;
+    }
+
+    .fb-chrome-reload:hover { color: rgba(255,255,255,.52); }
+
+    /* Plugin area inside chrome */
+    #fb-content-area { position: relative; }
+
+    .fb-plugin-inner {
+      background: #fff;
+      min-height: 620px;
+      display: block;
+      overflow: hidden;
+      border-radius: 0 0 20px 20px; /* round bottom corners to match browser frame */
+    }
+
+    .fb-plugin-inner .fb-page { display: block; width: 100%; }
+    .fb-plugin-inner iframe {
+      border-radius: 0 0 20px 20px;
+      display: block;
+    }
+
+    /* Caption under feed */
+    .fb-feed-caption {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      font-size: .74rem;
+      color: rgba(255,255,255,.28);
+      letter-spacing: .01em;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    .fb-feed-caption svg { opacity: .35; flex-shrink: 0; }
+
+    /* ============================================================
+       CUSTOM CARD CAROUSEL &mdash; replaces Page Plugin iframe
+    ============================================================ */
+
+    /* Feed header row */
+    .fb-feed-hdr-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+      padding: 0 .15rem;
+    }
+
+    .fb-feed-hdr-left {
+      display: flex;
+      align-items: center;
+      gap: .55rem;
+    }
+
+    .fb-feed-hdr-title {
+      font-size: .78rem;
+      font-weight: 800;
+      color: rgba(255,255,255,.70);
+      text-transform: uppercase;
+      letter-spacing: .12em;
+    }
+
+    .fb-feed-hdr-dot {
+      width: 7px; height: 7px;
+      background: #60a5fa;
+      border-radius: 50%;
+      animation: soc-pulse 1.8s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+
+    .fb-feed-viewall {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .78rem;
+      font-weight: 700;
+      color: #7ab6ff;
+      text-decoration: none;
+      letter-spacing: .01em;
+      transition: color .2s, gap .2s;
+    }
+
+    .fb-feed-viewall:hover { color: #afd0ff; gap: .52rem; }
+
+    /* Carousel outer container */
     .fb-carousel-outer {
       position: relative;
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
       transform: translateZ(0);
       isolation: isolate;
       background: rgba(2,10,20,.55);
       border: 1px solid rgba(255,255,255,.10);
       box-shadow:
-        0 28px 64px rgba(0,0,0,.62),
-        0 10px 28px rgba(0,0,0,.36),
+        0 36px 80px rgba(0,0,0,.65),
+        0 12px 32px rgba(0,0,0,.38),
         0 0 0 1px rgba(24,119,242,.12),
         inset 0 1px 0 rgba(255,255,255,.06);
     }
+
+    /* Gradient fade edges */
     .fb-carousel-outer::before,
     .fb-carousel-outer::after {
       content: '';
       position: absolute;
       top: 0; bottom: 0;
-      width: 56px;
+      width: 64px;
       z-index: 3;
       pointer-events: none;
     }
+
     .fb-carousel-outer::before { left: 0; background: linear-gradient(to right, #030e1c 0%, transparent 100%); }
-    .fb-carousel-outer::after  { right: 0; background: linear-gradient(to left,  #030e1c 0%, transparent 100%); }
+    .fb-carousel-outer::after  { right: 0; background: linear-gradient(to left, #030e1c 0%, transparent 100%); }
 
     /* Scrollable track */
     .fb-carr-track {
@@ -1658,17 +2290,18 @@
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding: 1.35rem 56px 1.35rem;
+      padding: 1.35rem 64px 1.35rem;
       cursor: grab;
     }
+
     .fb-carr-track:active { cursor: grabbing; }
     .fb-carr-track::-webkit-scrollbar { display: none; }
 
     /* Post card */
     .fb-post-card {
-      flex: 0 0 220px;
-      height: 290px;
-      border-radius: 14px;
+      flex: 0 0 235px;
+      height: 310px;
+      border-radius: 16px;
       overflow: hidden;
       position: relative;
       display: block;
@@ -1680,22 +2313,27 @@
       transition: transform .3s cubic-bezier(.4,0,.2,1), box-shadow .3s ease, border-color .3s;
       flex-shrink: 0;
     }
+
     .fb-post-card:hover {
-      transform: translateY(-5px) scale(1.022);
-      box-shadow: 0 18px 48px rgba(0,0,0,.60), 0 6px 16px rgba(24,119,242,.26);
-      border-color: rgba(24,119,242,.40);
+      transform: translateY(-6px) scale(1.022);
+      box-shadow: 0 20px 52px rgba(0,0,0,.62), 0 6px 18px rgba(24,119,242,.28);
+      border-color: rgba(24,119,242,.45);
     }
+
     .fb-post-img {
       position: absolute; inset: 0;
       background-size: cover; background-position: center;
       transition: transform .45s cubic-bezier(.4,0,.2,1);
     }
+
     .fb-post-card:hover .fb-post-img { transform: scale(1.06); }
+
     .fb-post-scrim {
       position: absolute; inset: 0;
       background: linear-gradient(to top, rgba(0,0,0,.68) 0%, rgba(0,0,0,.14) 48%, transparent 100%);
       z-index: 1; pointer-events: none;
     }
+
     .fb-post-caption {
       position: absolute; bottom: 0; left: 0; right: 0;
       padding: .55rem .75rem;
@@ -1703,6 +2341,7 @@
       color: rgba(255,255,255,.78); z-index: 2;
       display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
     }
+
     .fb-post-badge {
       position: absolute; bottom: 10px; right: 10px;
       width: 26px; height: 26px;
@@ -1710,7 +2349,9 @@
       display: flex; align-items: center; justify-content: center;
       z-index: 2; opacity: .7; transition: opacity .25s;
     }
+
     .fb-post-card:hover .fb-post-badge { opacity: 1; }
+
     .fb-post-hover {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
@@ -1718,7 +2359,9 @@
       background: rgba(0,0,0,.52); backdrop-filter: blur(2px);
       opacity: 0; transition: opacity .28s ease; z-index: 3;
     }
+
     .fb-post-card:hover .fb-post-hover { opacity: 1; }
+
     .fb-post-hover span {
       font-size: .74rem; font-weight: 700;
       color: rgba(255,255,255,.9);
@@ -1727,9 +2370,9 @@
 
     /* Skeleton shimmer card */
     .fb-skel-card {
-      flex: 0 0 220px;
-      height: 290px;
-      border-radius: 14px;
+      flex: 0 0 235px;
+      height: 310px;
+      border-radius: 16px;
       scroll-snap-align: start;
       background: linear-gradient(90deg, #0b1a2e 25%, #172840 50%, #0b1a2e 75%);
       background-size: 200% 100%;
@@ -1742,7 +2385,7 @@
     .fb-carr-btn {
       position: absolute;
       top: 50%; transform: translateY(-50%);
-      width: 34px; height: 34px;
+      width: 36px; height: 36px;
       border-radius: 50%;
       background: rgba(255,255,255,.11);
       border: 1px solid rgba(255,255,255,.18);
@@ -1753,46 +2396,105 @@
       transition: background .2s, border-color .2s, opacity .2s;
       padding: 0; line-height: 1; user-select: none;
     }
+
     .fb-carr-btn:hover {
       background: rgba(24,119,242,.50);
       border-color: rgba(24,119,242,.65);
     }
-    .fb-carr-btn[data-at-edge="true"] { opacity: .2; pointer-events: none; }
-    .fb-carr-prev { left: 8px; }
-    .fb-carr-next { right: 8px; }
 
-    /* ── Page Plugin wrapper — centered, eliminates white bleed ── */
+    .fb-carr-btn[data-at-edge="true"] { opacity: .2; pointer-events: none; }
+    .fb-carr-prev { left: 10px; }
+    .fb-carr-next { right: 10px; }
+
+    /* "Connect your feed" invite card */
+    .fb-invite-card {
+      flex: 0 0 200px;
+      height: 260px;
+      border-radius: 12px;
+      background: linear-gradient(140deg, #0d1e35 0%, #122449 100%);
+      border: 1.5px dashed rgba(24,119,242,.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: .7rem;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      text-decoration: none;
+      scroll-snap-align: start;
+      flex-shrink: 0;
+      transition: border-color .25s, background .25s;
+    }
+
+    .fb-invite-card:hover {
+      border-color: rgba(24,119,242,.65);
+      background: linear-gradient(140deg, #0f2040 0%, #152c57 100%);
+    }
+
+    .fb-invite-ico {
+      width: 46px; height: 46px;
+      background: linear-gradient(140deg, #1877F2 0%, #0d5ecc 100%);
+      border-radius: 13px;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 16px rgba(24,119,242,.46);
+      flex-shrink: 0;
+    }
+
+    .fb-invite-title {
+      font-size: .84rem; font-weight: 700;
+      color: rgba(255,255,255,.80);
+      line-height: 1.3;
+    }
+
+    .fb-invite-sub {
+      font-size: .7rem;
+      color: rgba(255,255,255,.36);
+      line-height: 1.5;
+    }
+
+    /* Page Plugin container — clips iframe to rounded corners */
     .fb-plugin-wrapper {
-      max-width: 560px;
-      width: 100%;
-      margin: 0 auto;
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
+      /* Force GPU compositing so overflow:hidden actually clips the iframe on all browsers */
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
       isolation: isolate;
       will-change: transform;
       box-shadow:
-        0 28px 64px rgba(0,0,0,.66),
-        0 10px 28px rgba(0,0,0,.38),
-        0 0 0 1px rgba(255,255,255,.09),
+        0 40px 90px rgba(0,0,0,.70),
+        0 16px 40px rgba(0,0,0,.40),
+        0 0 0 1px rgba(255,255,255,.10),
         0 0 0 1px rgba(24,119,242,.10);
       background: #fff;
     }
+
     .fb-plugin-container {
       width: 100%;
       display: block;
       overflow: hidden;
-      border-radius: 18px;
+      border-radius: 20px;
     }
+
     .fb-plugin-container .fb-page { display: block; width: 100%; }
+
+    /* Ensure the rendered iframe itself also respects border-radius */
     .fb-plugin-container iframe,
-    .fb-plugin-wrapper iframe {
-      border-radius: 18px;
+    .fb-plugin-wrapper iframe,
+    .fb-plugin-inner iframe {
+      border-radius: 20px;
       display: block;
     }
 
-    /* Feed caption hint */
+    @media (max-width: 640px) {
+      .fb-plugin-wrapper { border-radius: 14px; }
+      .fb-plugin-container { border-radius: 14px; }
+      .fb-plugin-container iframe,
+      .fb-plugin-wrapper iframe,
+      .fb-plugin-inner iframe { border-radius: 14px; }
+    }
+
+    /* Feed caption */
     .fb-feed-caption {
       display: flex;
       align-items: center;
@@ -1803,57 +2505,20 @@
       letter-spacing: .01em;
       text-align: center;
       margin-top: .85rem;
-      line-height: 1.5;
     }
+
     .fb-feed-caption svg { opacity: .32; flex-shrink: 0; }
 
-    /* ── Band footer: hashtags + view-all ── */
-    .fb-band-foot {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-top: 1.5rem;
-      padding-top: 1.2rem;
-      border-top: 1px solid rgba(255,255,255,.07);
-      gap: 1rem;
-      flex-wrap: wrap;
+    /* Carousel responsive */
+    @media (max-width: 640px) {
+      .fb-post-card, .fb-skel-card, .fb-invite-card {
+        flex: 0 0 185px; height: 245px;
+      }
+      .fb-carr-btn { display: none; }
+      .fb-carousel-outer::before,
+      .fb-carousel-outer::after { width: 36px; }
+      .fb-carr-track { padding: .9rem 32px .9rem; gap: .65rem; }
     }
-    .fb-band-tags {
-      display: flex;
-      gap: .4rem;
-      flex-wrap: wrap;
-    }
-    .fb-band-tag {
-      font-size: .71rem;
-      font-weight: 600;
-      color: rgba(255,255,255,.38);
-      background: rgba(255,255,255,.046);
-      border: 1px solid rgba(255,255,255,.09);
-      padding: .22rem .7rem;
-      border-radius: 100px;
-      letter-spacing: .025em;
-      cursor: default;
-      transition: color .2s, background .2s, border-color .2s;
-    }
-    .fb-band-tag:hover {
-      color: rgba(96,165,250,.9);
-      background: rgba(24,119,242,.10);
-      border-color: rgba(24,119,242,.28);
-    }
-    .fb-band-viewall {
-      display: inline-flex;
-      align-items: center;
-      gap: .35rem;
-      font-size: .8rem;
-      font-weight: 700;
-      color: rgba(24,119,242,.80);
-      text-decoration: none;
-      letter-spacing: .01em;
-      transition: color .2s, gap .2s;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-    .fb-band-viewall:hover { color: #7ab6ff; gap: .5rem; }
 
     /* ── "More Ways to Connect" sub-section header ── */
     .soc-connect-hdr {
@@ -1861,6 +2526,7 @@
       margin-bottom: 2.25rem;
       position: relative; z-index: 1;
     }
+
     .soc-connect-hdr h3 {
       font-size: 1.28rem;
       font-weight: 800;
@@ -1868,6 +2534,7 @@
       margin: .45rem 0 .4rem;
       letter-spacing: -.015em;
     }
+
     .soc-connect-hdr p {
       font-size: .9rem;
       color: var(--color-grey);
@@ -1875,32 +2542,29 @@
       line-height: 1.68;
     }
 
-    /* ── Responsive ── */
-    @media (max-width: 900px) {
-      .soc-fb-inner { max-width: 100%; }
+    /* ── Showcase responsive ── */
+    @media (max-width: 1060px) {
+      .fb-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 2.25rem;
+        padding: 0 1.75rem;
+      }
+      .fb-info-panel {
+        max-width: 520px;
+        margin: 0 auto;
+      }
     }
-    @media (max-width: 720px) {
-      .soc-fb-inner   { padding: 0 1.5rem; }
-      .fb-brand-ico   { width: 42px; height: 42px; border-radius: 12px; }
-      .fb-brand-name  { font-size: .92rem; }
-      .fb-follow-pill { font-size: .76rem; padding: .5rem 1rem; }
-      .soc-feed-band  { padding: 3.5rem 0 4.5rem; }
+
+    @media (max-width: 640px) {
+      .soc-section        { padding-top: 4rem; }
+      .soc-section-intro  { margin-bottom: 2rem; }
+      .fb-showcase-grid   { padding: 0 1.25rem; gap: 1.75rem; }
     }
-    @media (max-width: 540px) {
-      .soc-section      { padding-top: 4rem; }
-      .soc-section-intro { margin-bottom: 2rem; }
-      .soc-fb-inner     { padding: 0 1.1rem; }
-      .fb-brand-ico     { width: 38px; height: 38px; border-radius: 10px; }
-      .fb-follow-pill   { font-size: .73rem; padding: .44rem .85rem; }
-      .fb-band-foot     { flex-direction: column; align-items: flex-start; gap: .75rem; }
-      .fb-band-viewall  { align-self: flex-end; }
-      .fb-post-card     { flex: 0 0 175px; height: 230px; }
-      .fb-skel-card     { flex: 0 0 175px; height: 230px; }
-      .fb-carr-btn      { display: none; }
-      .fb-carousel-outer::before,
-      .fb-carousel-outer::after { width: 28px; }
-      .fb-carr-track    { padding: .9rem 24px .9rem; gap: .6rem; }
-      .soc-feed-band    { padding: 2.5rem 0 3.25rem; }
+
+    @media (max-width: 480px) {
+      .fb-showcase-grid   { padding: 0 1rem; }
+      .fb-info-panel      { gap: 1.05rem; padding: 1.5rem 1.35rem; }
+      .fb-info-cta        { font-size: .81rem; padding: .7rem 1rem; }
     }
 
   </style>
@@ -2455,90 +3119,94 @@
 
   <!-- ── Dark Facebook showcase band ── -->
   <div class="soc-feed-band">
-    <div class="soc-fb-inner">
+    <div class="fb-showcase-grid">
 
-      <!-- Brand identity bar -->
-      <div class="fb-brand-bar">
-        <div class="fb-brand-bar-left">
-          <div class="fb-brand-ico" aria-hidden="true">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+      <!-- ─── Left: Brand Info Panel ─── -->
+      <div class="fb-info-panel">
+
+        <div class="fb-info-topline">
+          <span class="fb-live-badge">
+            <span class="fb-live-badge-dot" aria-hidden="true"></span>
+            <span data-i18n="soc-live-badge">Live Feed</span>
+          </span>
+          <span class="fb-platform-label">Facebook</span>
+        </div>
+
+        <div class="fb-info-identity">
+          <div class="fb-identity-ico" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white" aria-hidden="true">
               <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
             </svg>
           </div>
           <div>
-            <div class="fb-brand-name">Motion Plus Corporation</div>
-            <div class="fb-brand-sub-line" data-i18n="soc-identity-sub">Co.,Ltd. &nbsp;&middot;&nbsp; Industrial Chain Specialist</div>
+            <div class="fb-identity-name">Motion Plus Corporation</div>
+            <div class="fb-identity-sub" data-i18n="soc-identity-sub">Co.,Ltd. &nbsp;&middot;&nbsp; Industrial Chain Specialist</div>
           </div>
-          <span class="fb-live-pill">
-            <span class="fb-live-pill-dot" aria-hidden="true"></span>
-            <span data-i18n="soc-live-badge">Live Feed</span>
-          </span>
         </div>
-        <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-follow-pill" aria-label="Follow Motion Plus Corporation on Facebook">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+
+        <div class="fb-info-sep" aria-hidden="true"></div>
+
+        <p class="fb-info-desc" data-i18n="soc-desc">Real-time updates on industrial chain products, field installations, and expert content from projects across Southeast Asia.</p>
+
+        <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-info-cta" aria-label="Follow Motion Plus Corporation on Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
           </svg>
           <span data-i18n="soc-fb-btn">Follow on Facebook</span>
         </a>
-      </div>
 
-      <!-- Description -->
-      <p class="fb-band-desc" data-i18n="soc-desc">Real-time updates on industrial chain products, field installations, and expert content from projects across Southeast Asia.</p>
-
-      <!-- Feed label row (hidden by JS when plugin is active) -->
-      <div class="fb-feed-label" id="fb-feed-label">
-        <div class="fb-feed-label-left">
-          <span class="fb-feed-label-dot" aria-hidden="true"></span>
-          <span class="fb-feed-label-title" data-i18n="soc-feed-hdr">Latest Posts</span>
+        <div class="fb-info-tagline">
+          <span class="fb-info-tag">#MotionPlusCorporation</span>
+          <span class="fb-info-tag">#IndustrialChains</span>
+          <span class="fb-info-tag">#SoutheastAsia</span>
         </div>
-        <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-feed-viewall-link">
-          <span data-i18n="soc-view-all">View All</span>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+
+      </div><!-- /fb-info-panel -->
+
+      <!-- ─── Right: Live Feed Panel ─── -->
+      <div class="fb-feed-panel">
+
+        <!-- Label row above embed (hidden by JS when carousel is active) -->
+        <div class="fb-feed-label" id="fb-feed-label">
+          <div class="fb-feed-label-left">
+            <span class="fb-feed-label-dot" aria-hidden="true"></span>
+            <span class="fb-feed-label-title" data-i18n="soc-feed-hdr">Latest Posts</span>
+          </div>
+          <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-feed-viewall-link">
+            <span data-i18n="soc-view-all">View All</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+
+        <!-- Card carousel / Page Plugin — JS populates this on load -->
+        <div class="fb-carousel-outer" id="fb-content-area">
+          <button class="fb-carr-btn fb-carr-prev" id="fb-prev" aria-label="Previous posts" data-at-edge="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="fb-carr-track" id="fb-track" role="list" aria-label="Facebook posts">
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+          </div>
+          <button class="fb-carr-btn fb-carr-next" id="fb-next" aria-label="Next posts">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+
+        <p class="fb-feed-caption">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
           </svg>
-        </a>
-      </div>
+          <span data-i18n="soc-swipe-hint">Swipe or use arrows &nbsp;&middot;&nbsp; Tap any post to open on Facebook</span>
+        </p>
 
-      <!-- Card carousel / Page Plugin — JS populates this on load -->
-      <div class="fb-carousel-outer" id="fb-content-area">
-        <button class="fb-carr-btn fb-carr-prev" id="fb-prev" aria-label="Previous posts" data-at-edge="true">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <div class="fb-carr-track" id="fb-track" role="list" aria-label="Facebook posts">
-          <div class="fb-skel-card"></div>
-          <div class="fb-skel-card"></div>
-          <div class="fb-skel-card"></div>
-          <div class="fb-skel-card"></div>
-          <div class="fb-skel-card"></div>
-        </div>
-        <button class="fb-carr-btn fb-carr-next" id="fb-next" aria-label="Next posts">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-      </div>
+      </div><!-- /fb-feed-panel -->
 
-      <p class="fb-feed-caption">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
-        </svg>
-        <span data-i18n="soc-swipe-hint">Swipe or use arrows &nbsp;&middot;&nbsp; Tap any post to open on Facebook</span>
-      </p>
-
-      <!-- Band footer: hashtags + view all -->
-      <div class="fb-band-foot">
-        <div class="fb-band-tags">
-          <span class="fb-band-tag">#MotionPlusCorporation</span>
-          <span class="fb-band-tag">#IndustrialChains</span>
-          <span class="fb-band-tag">#SoutheastAsia</span>
-        </div>
-        <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-band-viewall">
-          <span data-i18n="soc-view-all">View All Posts</span>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-          </svg>
-        </a>
-      </div>
-
-    </div><!-- /soc-fb-inner -->
+    </div><!-- /fb-showcase-grid -->
   </div><!-- /soc-feed-band -->
 
   <!-- ── More Ways to Connect &mdash; Platform Cards ── -->
@@ -3045,8 +3713,8 @@ var FB_CONFIG = {
       '<div class="fb-page"' +
       ' data-href="https://www.facebook.com/profile.php?id=1018130321389942"' +
       ' data-tabs="timeline"' +
-      ' data-width="560"' +
-      ' data-height="580"' +
+      ' data-width="600"' +
+      ' data-height="560"' +
       ' data-small-header="true"' +
       ' data-adapt-container-width="true"' +
       ' data-hide-cover="true"' +
