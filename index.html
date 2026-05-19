@@ -1399,47 +1399,12 @@
       animation: soc-pulse 1.8s ease-in-out infinite;
     }
 
-    /* ── Full-width dark feed band ── */
+    /* ── Social feed section — no full-width background ── */
     .soc-feed-band {
-      background:
-        radial-gradient(ellipse at 12% 60%, rgba(0,86,164,.14) 0%, transparent 52%),
-        radial-gradient(ellipse at 88% 15%, rgba(24,119,242,.09) 0%, transparent 48%),
-        linear-gradient(160deg, #060d18 0%, #0a1625 35%, #0d1e38 65%, #07101d 100%);
+      background: transparent;
       margin-top: 0;
-      padding: 5.5rem 0 6rem;
+      padding: 1.5rem 0 5rem;
       position: relative;
-      overflow: hidden;
-    }
-    /* Top accent rule + diagonal texture */
-    .soc-feed-band::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(90deg, transparent 0%, rgba(0,86,164,.55) 20%, rgba(24,119,242,.90) 50%, rgba(0,86,164,.55) 80%, transparent 100%),
-        repeating-linear-gradient(
-          -48deg,
-          rgba(255,255,255,.014) 0px,
-          rgba(255,255,255,.014) 1px,
-          transparent 1px,
-          transparent 72px
-        );
-      background-size: 100% 2px, 100% 100%;
-      background-position: top center, center;
-      background-repeat: no-repeat, repeat;
-      pointer-events: none;
-      z-index: 0;
-    }
-    /* Brand glow — wider, more atmospheric */
-    .soc-feed-band::after {
-      content: '';
-      position: absolute;
-      top: -30%; left: 50%;
-      transform: translateX(-50%);
-      width: 1200px; height: 700px;
-      background: radial-gradient(ellipse, rgba(0,86,164,.18) 0%, rgba(24,119,242,.09) 40%, transparent 68%);
-      pointer-events: none;
-      z-index: 0;
     }
     .soc-feed-band-inner {
       max-width: 880px;
@@ -1535,11 +1500,6 @@
     /* ============================================================
        FACEBOOK FEED BAND OVERRIDES
     ============================================================ */
-
-    /* Glow &mdash; aligned with site primary blue #0056A4 */
-    .soc-feed-band::after {
-      background: radial-gradient(ellipse, rgba(0,86,164,.16) 0%, rgba(24,119,242,.08) 45%, transparent 70%);
-    }
 
     /* Feed-intro divider dot &mdash; Facebook blue */
     .soc-fi-dot { background: #1877F2; }
@@ -1819,12 +1779,18 @@
       position: relative; z-index: 1;
     }
 
-    /* ─── Left: Brand Info Panel ─── */
+    /* ─── Left: Brand Info Panel — dark card matching live feed ─── */
     .fb-info-panel {
       display: flex;
       flex-direction: column;
       gap: 1.6rem;
-      padding-top: .25rem;
+      padding: 2.25rem 2rem;
+      background: linear-gradient(145deg, #060d18 0%, #0c1a30 50%, #0d1e38 100%);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow:
+        0 32px 80px rgba(0,0,0,.55),
+        0 10px 28px rgba(0,0,0,.32);
     }
 
     .fb-info-topline {

@@ -38,20 +38,20 @@
       padding: var(--space-2xl) 0 calc(var(--space-2xl) + 1rem);
     }
 
-    /* 4-column symmetric grid &mdash; prominent, premium */
+    /* 3-column grid — larger, more prominent */
     .portfolio-dark .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      max-width: 1400px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      max-width: 1300px;
       margin-left: auto;
       margin-right: auto;
     }
 
-    /* All items: strict 4:3, cover crop, clickable */
+    /* All items: 4:3 ratio, cover crop, clickable */
     .portfolio-dark .gallery-item {
       aspect-ratio: 4 / 3;
-      border-radius: 10px;
+      border-radius: 12px;
       overflow: hidden;
       background: #0c1525;
       cursor: pointer;
