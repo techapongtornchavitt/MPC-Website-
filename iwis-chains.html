@@ -66,7 +66,7 @@
     }
     .page-hero-bg {
       position: absolute; inset: 0;
-      background: url('iwis-roller-chain-1.webp') center 40% / cover no-repeat;
+      background: url('IWIS%20Roller%20Chain%20cover%20png.jpg') center 40% / cover no-repeat;
       filter: brightness(.18) saturate(.5) hue-rotate(190deg);
       transform: scale(1.06);
     }
@@ -175,11 +175,15 @@
       box-shadow: 0 10px 36px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.06);
     }
     .gal-main img {
-      width: 100%; height: auto;
+      width: 100%; height: 340px;
       display: block;
+      object-fit: cover;
+      object-position: center center;
       transition: transform .6s ease;
     }
-    .gal-main:hover img { transform: scale(1.02); }
+    .gal-main:hover img { transform: scale(1.03); }
+    @media (max-width: 900px) { .gal-main img { height: 280px; } }
+    @media (max-width: 600px) { .gal-main img { height: 220px; } }
 
     .gal-thumb {
       border-radius: 8px;
@@ -746,9 +750,10 @@
 
         <div class="gal-main">
           <img
-            src="iwis-roller-chain-1.webp"
-            alt="IWIS Roller Chain — simplex single-strand, acoustically optimised"
-            loading="eager" fetchpriority="high" decoding="async">
+            src="IWIS%20Roller%20Chain%20cover%20png.jpg"
+            alt="IWIS Roller Chain — precision-engineered simplex chain close-up, acoustically optimised"
+            loading="eager" fetchpriority="high" decoding="async"
+            style="object-fit:cover; object-position:center center;">
         </div>
 
         <div class="gal-thumb">
