@@ -1275,18 +1275,26 @@
 
     /* ── Section wrapper ── */
     .soc-section {
-      background: linear-gradient(168deg, #f7f9fd 0%, #eef3fb 55%, #e8eef8 100%);
-      padding: 5.5rem 0 5rem;
+      background: linear-gradient(165deg, #eef3fc 0%, #e4ecf9 45%, #d8e4f5 100%);
+      padding: 6.5rem 0 0;
       position: relative;
       overflow: hidden;
     }
     .soc-section::before {
       content: '';
       position: absolute;
-      top: 0; left: 50%;
+      top: -60px; left: 50%;
       transform: translateX(-50%);
-      width: 1100px; height: 480px;
-      background: radial-gradient(ellipse at top, rgba(0,86,164,.065) 0%, transparent 65%);
+      width: 1500px; height: 640px;
+      background: radial-gradient(ellipse at top, rgba(24,119,242,.10) 0%, rgba(0,86,164,.04) 42%, transparent 68%);
+      pointer-events: none;
+    }
+    .soc-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(24,119,242,.18) 30%, rgba(24,119,242,.35) 50%, rgba(24,119,242,.18) 70%, transparent 100%);
       pointer-events: none;
     }
 
@@ -1401,13 +1409,28 @@
 
     /* ── Social feed section — subtle dark band ── */
     .soc-feed-band {
-      background: linear-gradient(180deg, transparent 0%, #04101e 7%, #040f1c 93%, transparent 100%);
+      background: linear-gradient(180deg,
+        transparent 0%,
+        #020b17 4%,
+        #030d1b 12%,
+        #030d1a 88%,
+        #020b17 96%,
+        transparent 100%);
       margin-top: 0;
-      padding: 3.5rem 0 5.5rem;
+      padding: 4.5rem 0 6.5rem;
       position: relative;
     }
+    .soc-feed-band::before {
+      content: '';
+      position: absolute;
+      top: 35%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 1000px; height: 560px;
+      background: radial-gradient(ellipse, rgba(24,119,242,.07) 0%, rgba(0,50,120,.03) 45%, transparent 70%);
+      pointer-events: none;
+    }
     .soc-feed-band-inner {
-      max-width: 1060px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 2.5rem;
       position: relative;
@@ -1470,14 +1493,14 @@
     }
 
     /* ── Responsive ── */
-    @media (max-width: 1100px) {
+    @media (max-width: 1260px) {
       .soc-feed-band-inner { max-width: 100%; }
     }
     @media (max-width: 720px) {
       .soc-follow-row { gap: .7rem; }
       .soc-plat-card  { min-width: 100px; max-width: 124px; padding: 1.3rem .9rem 1.15rem; }
       .soc-plat-ico   { width: 46px; height: 46px; border-radius: 13px; }
-      .soc-feed-band  { padding: 3rem 0 4rem; }
+      .soc-feed-band  { padding: 3.5rem 0 4.5rem; }
       .soc-feed-band-inner { padding: 0 1.5rem; }
     }
     @media (max-width: 540px) {
@@ -1769,12 +1792,12 @@
 
     /* ── Split grid inside dark band ── */
     .fb-showcase-grid {
-      max-width: 1060px;
+      max-width: 1200px;
       margin: 0 auto;
       padding: 0 2.5rem;
       display: grid;
-      grid-template-columns: 278px 1fr;
-      gap: 2.75rem;
+      grid-template-columns: 316px 1fr;
+      gap: 3.25rem;
       align-items: start;
       position: relative; z-index: 1;
     }
@@ -1783,13 +1806,34 @@
     .fb-info-panel {
       display: flex;
       flex-direction: column;
-      gap: 1.1rem;
-      padding: 1.8rem 1.65rem;
-      background: linear-gradient(155deg, #071020 0%, #0c1a30 55%, #0d1e38 100%);
-      border-radius: 16px;
+      gap: 1.2rem;
+      padding: 2.1rem 1.85rem;
+      background: linear-gradient(155deg, #060f1e 0%, #0b1829 52%, #0e1f3a 100%);
+      border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(255,255,255,.07);
-      box-shadow: 0 8px 40px rgba(0,0,0,.35);
+      border: 1px solid rgba(255,255,255,.08);
+      box-shadow:
+        0 16px 56px rgba(0,0,0,.50),
+        0 0 0 1px rgba(24,119,242,.12),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      position: relative;
+    }
+    .fb-info-panel::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px; height: 100%;
+      background: linear-gradient(180deg, transparent 0%, rgba(24,119,242,.70) 30%, rgba(24,119,242,.90) 55%, rgba(24,119,242,.50) 80%, transparent 100%);
+      border-radius: 0 2px 2px 0;
+      pointer-events: none;
+    }
+    .fb-info-panel::after {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(24,119,242,.10) 0%, transparent 60%);
+      pointer-events: none;
     }
 
     .fb-info-topline {
@@ -2043,32 +2087,34 @@
 
     /* Browser chrome wrapper */
     .fb-browser-frame {
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
       /* GPU compositing — prevents iframe from bleeding past rounded corners */
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
       isolation: isolate;
+      will-change: transform;
       box-shadow:
-        0 28px 72px rgba(0,0,0,.68),
-        0 10px 28px rgba(0,0,0,.38),
+        0 40px 90px rgba(0,0,0,.72),
+        0 16px 40px rgba(0,0,0,.44),
         0 0 0 1px rgba(255,255,255,.10),
-        inset 0 1px 0 rgba(255,255,255,.07);
+        0 0 0 1px rgba(24,119,242,.08),
+        inset 0 1px 0 rgba(255,255,255,.08);
       transition: box-shadow .35s ease;
     }
 
     .fb-browser-frame:hover {
       box-shadow:
-        0 36px 90px rgba(0,0,0,.72),
-        0 14px 36px rgba(0,0,0,.42),
-        0 0 0 1px rgba(24,119,242,.28),
-        inset 0 1px 0 rgba(255,255,255,.07);
+        0 48px 100px rgba(0,0,0,.76),
+        0 20px 48px rgba(0,0,0,.46),
+        0 0 0 1px rgba(24,119,242,.35),
+        inset 0 1px 0 rgba(255,255,255,.08);
     }
 
     /* Chrome top bar */
     .fb-chrome-bar {
-      background: linear-gradient(180deg, #1c2b3e 0%, #162236 100%);
-      padding: .65rem 1rem;
+      background: linear-gradient(180deg, #1e2f44 0%, #152135 100%);
+      padding: .72rem 1.1rem;
       display: flex;
       align-items: center;
       gap: .75rem;
@@ -2130,15 +2176,15 @@
 
     .fb-plugin-inner {
       background: #fff;
-      min-height: 580px;
+      min-height: 620px;
       display: block;
       overflow: hidden;
-      border-radius: 0 0 16px 16px; /* round bottom corners to match browser frame */
+      border-radius: 0 0 20px 20px; /* round bottom corners to match browser frame */
     }
 
     .fb-plugin-inner .fb-page { display: block; width: 100%; }
     .fb-plugin-inner iframe {
-      border-radius: 0 0 16px 16px;
+      border-radius: 0 0 20px 20px;
       display: block;
     }
 
@@ -2209,14 +2255,17 @@
     /* Carousel outer container */
     .fb-carousel-outer {
       position: relative;
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
-      background: rgba(0,0,0,.22);
+      transform: translateZ(0);
+      isolation: isolate;
+      background: rgba(2,10,20,.55);
       border: 1px solid rgba(255,255,255,.10);
       box-shadow:
-        0 24px 64px rgba(0,0,0,.55),
-        0 0 0 1px rgba(24,119,242,.08),
-        inset 0 1px 0 rgba(255,255,255,.05);
+        0 36px 80px rgba(0,0,0,.65),
+        0 12px 32px rgba(0,0,0,.38),
+        0 0 0 1px rgba(24,119,242,.12),
+        inset 0 1px 0 rgba(255,255,255,.06);
     }
 
     /* Gradient fade edges */
@@ -2225,23 +2274,23 @@
       content: '';
       position: absolute;
       top: 0; bottom: 0;
-      width: 52px;
+      width: 64px;
       z-index: 3;
       pointer-events: none;
     }
 
-    .fb-carousel-outer::before { left: 0; background: linear-gradient(to right, #0b1a30 0%, transparent 100%); }
-    .fb-carousel-outer::after  { right: 0; background: linear-gradient(to left, #0b1a30 0%, transparent 100%); }
+    .fb-carousel-outer::before { left: 0; background: linear-gradient(to right, #030e1c 0%, transparent 100%); }
+    .fb-carousel-outer::after  { right: 0; background: linear-gradient(to left, #030e1c 0%, transparent 100%); }
 
     /* Scrollable track */
     .fb-carr-track {
       display: flex;
-      gap: .85rem;
+      gap: 1rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
-      padding: 1.1rem 52px 1.1rem;
+      padding: 1.35rem 64px 1.35rem;
       cursor: grab;
     }
 
@@ -2250,9 +2299,9 @@
 
     /* Post card */
     .fb-post-card {
-      flex: 0 0 210px;
-      height: 280px;
-      border-radius: 14px;
+      flex: 0 0 235px;
+      height: 310px;
+      border-radius: 16px;
       overflow: hidden;
       position: relative;
       display: block;
@@ -2321,9 +2370,9 @@
 
     /* Skeleton shimmer card */
     .fb-skel-card {
-      flex: 0 0 210px;
-      height: 280px;
-      border-radius: 14px;
+      flex: 0 0 235px;
+      height: 310px;
+      border-radius: 16px;
       scroll-snap-align: start;
       background: linear-gradient(90deg, #0b1a2e 25%, #172840 50%, #0b1a2e 75%);
       background-size: 200% 100%;
@@ -2405,15 +2454,18 @@
 
     /* Page Plugin container — clips iframe to rounded corners */
     .fb-plugin-wrapper {
-      border-radius: 16px;
+      border-radius: 20px;
       overflow: hidden;
       /* Force GPU compositing so overflow:hidden actually clips the iframe on all browsers */
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
       isolation: isolate;
       will-change: transform;
-      box-shadow: 0 4px 28px rgba(0,0,0,.28), 0 1px 6px rgba(0,0,0,.14);
-      /* Ensure no white bleed-through at corners */
+      box-shadow:
+        0 40px 90px rgba(0,0,0,.70),
+        0 16px 40px rgba(0,0,0,.40),
+        0 0 0 1px rgba(255,255,255,.10),
+        0 0 0 1px rgba(24,119,242,.10);
       background: #fff;
     }
 
@@ -2421,7 +2473,7 @@
       width: 100%;
       display: block;
       overflow: hidden;
-      border-radius: 16px;
+      border-radius: 20px;
     }
 
     .fb-plugin-container .fb-page { display: block; width: 100%; }
@@ -2430,16 +2482,16 @@
     .fb-plugin-container iframe,
     .fb-plugin-wrapper iframe,
     .fb-plugin-inner iframe {
-      border-radius: 16px;
+      border-radius: 20px;
       display: block;
     }
 
     @media (max-width: 640px) {
-      .fb-plugin-wrapper { border-radius: 12px; }
-      .fb-plugin-container { border-radius: 12px; }
+      .fb-plugin-wrapper { border-radius: 14px; }
+      .fb-plugin-container { border-radius: 14px; }
       .fb-plugin-container iframe,
       .fb-plugin-wrapper iframe,
-      .fb-plugin-inner iframe { border-radius: 12px; }
+      .fb-plugin-inner iframe { border-radius: 14px; }
     }
 
     /* Feed caption */
@@ -2460,11 +2512,11 @@
     /* Carousel responsive */
     @media (max-width: 640px) {
       .fb-post-card, .fb-skel-card, .fb-invite-card {
-        flex: 0 0 170px; height: 224px;
+        flex: 0 0 185px; height: 245px;
       }
       .fb-carr-btn { display: none; }
       .fb-carousel-outer::before,
-      .fb-carousel-outer::after { width: 32px; }
+      .fb-carousel-outer::after { width: 36px; }
       .fb-carr-track { padding: .9rem 32px .9rem; gap: .65rem; }
     }
 
@@ -2491,28 +2543,28 @@
     }
 
     /* ── Showcase responsive ── */
-    @media (max-width: 980px) {
+    @media (max-width: 1060px) {
       .fb-showcase-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 2.25rem;
         padding: 0 1.75rem;
       }
       .fb-info-panel {
-        max-width: 480px;
+        max-width: 520px;
         margin: 0 auto;
       }
     }
 
     @media (max-width: 640px) {
-      .soc-section        { padding-top: 3.5rem; }
+      .soc-section        { padding-top: 4rem; }
       .soc-section-intro  { margin-bottom: 2rem; }
-      .fb-showcase-grid   { padding: 0 1.25rem; gap: 1.5rem; }
+      .fb-showcase-grid   { padding: 0 1.25rem; gap: 1.75rem; }
     }
 
     @media (max-width: 480px) {
       .fb-showcase-grid   { padding: 0 1rem; }
-      .fb-info-panel      { gap: 1rem; padding: 1.35rem 1.25rem; }
-      .fb-info-cta        { font-size: .80rem; padding: .65rem 1rem; }
+      .fb-info-panel      { gap: 1.05rem; padding: 1.5rem 1.35rem; }
+      .fb-info-cta        { font-size: .81rem; padding: .7rem 1rem; }
     }
 
   </style>
