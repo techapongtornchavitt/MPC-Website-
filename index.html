@@ -2454,6 +2454,8 @@
 
     /* Page Plugin container — clips iframe to rounded corners */
     .fb-plugin-wrapper {
+      max-width: 560px;   /* prevents white bleed beyond plugin render width */
+      width: 100%;
       border-radius: 20px;
       overflow: hidden;
       /* Force GPU compositing so overflow:hidden actually clips the iframe on all browsers */
