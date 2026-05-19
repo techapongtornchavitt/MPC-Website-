@@ -24,8 +24,8 @@
 
     /* ── Page background ── */
     .res-main {
-      background: #eef2f8;
-      padding: 2.5rem 0 7rem;
+      background: linear-gradient(180deg, #e8edf6 0%, #edf1f9 60%, #eaeff8 100%);
+      padding: 3rem 0 9rem;
     }
 
     /* ══ HERO STATS BAR ══ */
@@ -67,15 +67,16 @@
     .rl-note {
       display: flex;
       align-items: flex-start;
-      gap: .8rem;
+      gap: .85rem;
       color: #3a5070;
       font-size: .82rem;
       line-height: 1.65;
-      margin-bottom: 1.75rem;
-      padding: 1rem 1.3rem;
-      background: #e4edf8;
-      border-radius: 10px;
-      border: 1px solid rgba(0,86,164,.16);
+      margin-bottom: 3rem;
+      padding: 1.1rem 1.4rem;
+      background: rgba(255,255,255,.72);
+      border-radius: 12px;
+      border: 1px solid rgba(0,86,164,.13);
+      box-shadow: 0 2px 12px rgba(0,40,100,.06);
     }
     .rl-note svg { color: #0056a4; flex-shrink: 0; margin-top: .2rem; }
     .rl-note a { color: #0056a4; text-decoration: none; font-weight: 600; transition: color .15s; }
@@ -156,11 +157,11 @@
        INDUSTRY SECTION &mdash; accordion container
     ══════════════════════════════════════════════════ */
     .ind-section {
-      margin-bottom: 1.25rem;
-      border-radius: 18px;
+      margin-bottom: 2.5rem;
+      border-radius: 20px;
       overflow: hidden;
-      border: 1px solid rgba(0,60,120,.09);
-      box-shadow: 0 2px 18px rgba(0,40,100,.07);
+      border: 1px solid rgba(0,60,120,.10);
+      box-shadow: 0 4px 28px rgba(0,40,100,.09), 0 1px 4px rgba(0,40,100,.04);
       background: #fff;
       scroll-margin-top: 132px;
     }
@@ -169,16 +170,16 @@
     .ind-sec-hdr {
       display: flex;
       align-items: center;
-      gap: 1rem;
-      padding: 1.45rem 1.75rem;
+      gap: 1.1rem;
+      padding: 1.8rem 2rem;
       background: #fff;
       cursor: pointer;
       transition: background .18s;
       user-select: none;
       position: relative;
-      border-left: 4px solid transparent;
+      border-left: 5px solid transparent;
     }
-    .ind-sec-hdr:hover { background: #f8fafd; }
+    .ind-sec-hdr:hover { background: #f7fbff; }
 
     /* Color accent bar per industry */
     .ind-section[data-ind="cement"]   .ind-sec-hdr { border-left-color: #d97706; }
@@ -189,8 +190,8 @@
 
     /* Icon pill */
     .ind-sec-icon-wrap {
-      width: 46px; height: 46px;
-      border-radius: 11px;
+      width: 54px; height: 54px;
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
@@ -199,7 +200,7 @@
     .ind-section[data-ind="conveyor"] .ind-sec-icon-wrap { background: rgba(0,86,164,.10); }
     .ind-section[data-ind="brands"]   .ind-sec-icon-wrap { background: rgba(124,58,237,.10); }
     .ind-section[data-ind="company"]  .ind-sec-icon-wrap { background: rgba(55,65,81,.10); }
-    .ind-sec-icon-wrap svg { width: 21px; height: 21px; }
+    .ind-sec-icon-wrap svg { width: 24px; height: 24px; }
     .ind-section[data-ind="cement"]   .ind-sec-icon-wrap svg { color: #d97706; }
     .ind-section[data-ind="palmoil"]  .ind-sec-icon-wrap svg { color: #16a34a; }
     .ind-section[data-ind="conveyor"] .ind-sec-icon-wrap svg { color: #0056a4; }
@@ -222,11 +223,11 @@
     .ind-section[data-ind="brands"]   .ind-sec-eyebrow { color: #7c3aed; }
     .ind-section[data-ind="company"]  .ind-sec-eyebrow { color: #374151; }
     .ind-sec-title {
-      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
       font-weight: 800;
       color: #0a1a35;
-      margin: 0 0 .12rem;
-      letter-spacing: -.015em;
+      margin: 0 0 .14rem;
+      letter-spacing: -.02em;
       line-height: 1.2;
     }
     .ind-sec-subtitle {
@@ -322,19 +323,19 @@
     .ind-sec-body { overflow: hidden; min-height: 0; }
     .ind-sec-body-inner {
       border-top: 1px solid rgba(0,60,120,.07);
-      padding: 1.75rem 1.75rem 2rem;
+      padding: 2.25rem 2rem 2.75rem;
       background: #f7f9fc;
     }
-    .ind-section[data-ind="cement"]   .ind-sec-body-inner { border-top-color: rgba(217,119,6,.14); background: #fffbf5; }
-    .ind-section[data-ind="palmoil"]  .ind-sec-body-inner { border-top-color: rgba(22,163,74,.14); background: #f5fdf7; }
-    .ind-section[data-ind="conveyor"] .ind-sec-body-inner { border-top-color: rgba(0,86,164,.14); background: #f5f8fd; }
-    .ind-section[data-ind="brands"]   .ind-sec-body-inner { border-top-color: rgba(124,58,237,.14); background: #f9f7fe; }
-    .ind-section[data-ind="company"]  .ind-sec-body-inner { border-top-color: rgba(55,65,81,.14); background: #f7f8f9; }
+    .ind-section[data-ind="cement"]   .ind-sec-body-inner { border-top-color: rgba(217,119,6,.16); background: #fffcf5; }
+    .ind-section[data-ind="palmoil"]  .ind-sec-body-inner { border-top-color: rgba(22,163,74,.16); background: #f4fdf6; }
+    .ind-section[data-ind="conveyor"] .ind-sec-body-inner { border-top-color: rgba(0,86,164,.16); background: #f4f8fd; }
+    .ind-section[data-ind="brands"]   .ind-sec-body-inner { border-top-color: rgba(124,58,237,.16); background: #f8f6fe; }
+    .ind-section[data-ind="company"]  .ind-sec-body-inner { border-top-color: rgba(55,65,81,.16); background: #f6f7f9; }
 
     /* ══════════════════════════════════════════════════
        BRAND GROUP &mdash; subsection within each industry
     ══════════════════════════════════════════════════ */
-    .brand-group { margin-bottom: 2.1rem; }
+    .brand-group { margin-bottom: 2.75rem; }
     .brand-group:last-child { margin-bottom: 0; }
 
     .brand-grp-hdr {
@@ -381,19 +382,19 @@
     /* ══ RESOURCE CARD ══ */
     .rl-card {
       background: #fff;
-      border: 1px solid rgba(0,86,164,.13);
-      border-radius: 12px;
+      border: 1px solid rgba(0,86,164,.12);
+      border-radius: 14px;
       text-decoration: none;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0,50,120,.055);
+      box-shadow: 0 2px 12px rgba(0,50,120,.07), 0 1px 3px rgba(0,50,120,.04);
       transition: border-color .22s, box-shadow .22s, transform .22s;
     }
     .rl-card:hover {
-      border-color: rgba(0,86,164,.38);
-      box-shadow: 0 10px 36px rgba(0,50,120,.14);
-      transform: translateY(-4px);
+      border-color: rgba(0,86,164,.35);
+      box-shadow: 0 12px 40px rgba(0,50,120,.15), 0 3px 8px rgba(0,50,120,.07);
+      transform: translateY(-5px);
     }
     .rl-card-top {
       display: flex; align-items: center; justify-content: space-between;
@@ -437,11 +438,11 @@
       background: #0056a4; border-color: #0056a4; color: #fff;
     }
     .rl-card-body {
-      padding: .85rem 1.05rem 1.1rem;
-      flex: 1; display: flex; flex-direction: column; gap: .25rem;
+      padding: 1rem 1.15rem 1.25rem;
+      flex: 1; display: flex; flex-direction: column; gap: .28rem;
     }
-    .rl-title { font-size: .91rem; font-weight: 700; color: #0a1a35; line-height: 1.4; margin: 0; }
-    .rl-subtitle { font-size: .72rem; color: #6b7d90; line-height: 1.5; margin: 0; }
+    .rl-title { font-size: .93rem; font-weight: 700; color: #0a1a35; line-height: 1.4; margin: 0; }
+    .rl-subtitle { font-size: .73rem; color: #6b7d90; line-height: 1.5; margin: 0; }
 
     /* ══ BOTTOM CTA ══ */
     .res-cta {
@@ -463,13 +464,13 @@
       .rl-grid { grid-template-columns: repeat(2, 1fr); gap: .9rem; }
     }
     @media (max-width: 820px) {
-      .ind-sec-hdr { padding: 1.2rem 1.25rem; gap: .75rem; }
-      .ind-sec-icon-wrap { width: 40px; height: 40px; border-radius: 9px; }
-      .ind-sec-icon-wrap svg { width: 18px; height: 18px; }
-      .ind-sec-body-inner { padding: 1.25rem 1.2rem 1.5rem; }
+      .ind-sec-hdr { padding: 1.35rem 1.4rem; gap: .8rem; }
+      .ind-sec-icon-wrap { width: 44px; height: 44px; border-radius: 11px; }
+      .ind-sec-icon-wrap svg { width: 20px; height: 20px; }
+      .ind-sec-body-inner { padding: 1.5rem 1.4rem 1.75rem; }
       .ind-sec-doc-badge { display: none; }
       .rsn-label { display: none; }
-      .ind-section { border-radius: 14px; }
+      .ind-section { border-radius: 16px; margin-bottom: 1.75rem; }
     }
     @media (max-width: 768px) {
       .res-cta { flex-direction: column; text-align: center; }
@@ -479,12 +480,13 @@
       .res-stat { padding: .9rem 1.3rem; flex: 1 1 40%; }
     }
     @media (max-width: 540px) {
-      .rl-grid { grid-template-columns: 1fr; gap: .85rem; }
-      .ind-sec-hdr { padding: 1rem 1rem; gap: .65rem; }
-      .ind-sec-body-inner { padding: 1rem 1rem 1.25rem; }
-      .ind-sec-title { font-size: 1rem; }
+      .rl-grid { grid-template-columns: 1fr; gap: .9rem; }
+      .ind-sec-hdr { padding: 1.1rem 1.1rem; gap: .7rem; }
+      .ind-sec-body-inner { padding: 1.25rem 1.1rem 1.5rem; }
+      .ind-sec-title { font-size: 1.05rem; }
       .res-cta { padding: 1.75rem 1.5rem; }
       .res-stat-num { font-size: 1.5rem; }
+      .ind-section { margin-bottom: 1.5rem; }
     }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
