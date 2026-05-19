@@ -1792,12 +1792,12 @@
 
     /* ── Split grid inside dark band ── */
     .fb-showcase-grid {
-      max-width: 1200px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 0 2.5rem;
       display: grid;
-      grid-template-columns: 316px 1fr;
-      gap: 3.25rem;
+      grid-template-columns: 280px 1fr;
+      gap: 2.25rem;
       align-items: start;
       position: relative; z-index: 1;
     }
@@ -1806,8 +1806,8 @@
     .fb-info-panel {
       display: flex;
       flex-direction: column;
-      gap: 1.2rem;
-      padding: 2.1rem 1.85rem;
+      gap: 1rem;
+      padding: 1.85rem 1.6rem;
       background: linear-gradient(155deg, #060f1e 0%, #0b1829 52%, #0e1f3a 100%);
       border-radius: 20px;
       overflow: hidden;
@@ -2032,12 +2032,36 @@
       border-color: rgba(24,119,242,.30);
     }
 
-    /* ─── Right: Feed Panel ─── */
+    /* ─── Right: Feed Panel — acts as the styled embed container ─── */
     .fb-feed-panel {
       display: flex;
       flex-direction: column;
-      gap: 0;
       min-width: 0;
+      /* Lighter blue background — the actual visual shell for the embed */
+      background: linear-gradient(150deg, #0d2248 0%, #0f2a58 50%, #0c2044 100%);
+      border-radius: 20px;
+      border: 1px solid rgba(24,119,242,.28);
+      box-shadow:
+        0 24px 64px rgba(0,0,0,.52),
+        0 0 0 1px rgba(24,119,242,.15),
+        inset 0 1px 0 rgba(255,255,255,.06);
+      padding: 1.25rem 1.25rem 1rem;
+      /* GPU compositing — forces overflow:hidden to actually clip iframe corners */
+      overflow: hidden;
+      transform: translateZ(0);
+      -webkit-transform: translateZ(0);
+      isolation: isolate;
+      will-change: transform;
+      position: relative;
+    }
+    /* Subtle inner glow */
+    .fb-feed-panel::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(24,119,242,.12) 0%, transparent 65%);
+      pointer-events: none;
     }
 
     /* Live label above embed — shown only when plugin is present */
@@ -2452,22 +2476,17 @@
       line-height: 1.5;
     }
 
-    /* Page Plugin container — clips iframe to rounded corners */
+    /* Page Plugin container — fills the feed panel completely */
     .fb-plugin-wrapper {
-      max-width: 560px;   /* prevents white bleed beyond plugin render width */
       width: 100%;
-      border-radius: 20px;
+      /* No border-radius here — .fb-feed-panel clips the corners via overflow:hidden+GPU */
+      border-radius: 14px;
       overflow: hidden;
-      /* Force GPU compositing so overflow:hidden actually clips the iframe on all browsers */
       transform: translateZ(0);
       -webkit-transform: translateZ(0);
       isolation: isolate;
       will-change: transform;
-      box-shadow:
-        0 40px 90px rgba(0,0,0,.70),
-        0 16px 40px rgba(0,0,0,.40),
-        0 0 0 1px rgba(255,255,255,.10),
-        0 0 0 1px rgba(24,119,242,.10);
+      box-shadow: 0 4px 20px rgba(0,0,0,.28);
       background: #fff;
     }
 
@@ -2475,25 +2494,15 @@
       width: 100%;
       display: block;
       overflow: hidden;
-      border-radius: 20px;
+      border-radius: 14px;
     }
 
     .fb-plugin-container .fb-page { display: block; width: 100%; }
 
-    /* Ensure the rendered iframe itself also respects border-radius */
     .fb-plugin-container iframe,
-    .fb-plugin-wrapper iframe,
-    .fb-plugin-inner iframe {
-      border-radius: 20px;
+    .fb-plugin-wrapper iframe {
+      border-radius: 14px;
       display: block;
-    }
-
-    @media (max-width: 640px) {
-      .fb-plugin-wrapper { border-radius: 14px; }
-      .fb-plugin-container { border-radius: 14px; }
-      .fb-plugin-container iframe,
-      .fb-plugin-wrapper iframe,
-      .fb-plugin-inner iframe { border-radius: 14px; }
     }
 
     /* Feed caption */
@@ -2545,28 +2554,35 @@
     }
 
     /* ── Showcase responsive ── */
-    @media (max-width: 1060px) {
+    @media (max-width: 860px) {
       .fb-showcase-grid {
         grid-template-columns: 1fr;
-        gap: 2.25rem;
+        gap: 1.75rem;
         padding: 0 1.75rem;
       }
       .fb-info-panel {
         max-width: 520px;
         margin: 0 auto;
       }
+      .fb-feed-panel {
+        max-width: 560px;
+        margin: 0 auto;
+        width: 100%;
+      }
     }
 
     @media (max-width: 640px) {
       .soc-section        { padding-top: 4rem; }
       .soc-section-intro  { margin-bottom: 2rem; }
-      .fb-showcase-grid   { padding: 0 1.25rem; gap: 1.75rem; }
+      .fb-showcase-grid   { padding: 0 1.25rem; gap: 1.5rem; }
+      .fb-feed-panel      { padding: 1rem 1rem .85rem; border-radius: 16px; }
     }
 
     @media (max-width: 480px) {
       .fb-showcase-grid   { padding: 0 1rem; }
-      .fb-info-panel      { gap: 1.05rem; padding: 1.5rem 1.35rem; }
+      .fb-info-panel      { gap: .9rem; padding: 1.4rem 1.25rem; }
       .fb-info-cta        { font-size: .81rem; padding: .7rem 1rem; }
+      .fb-feed-panel      { padding: .85rem .85rem .75rem; border-radius: 14px; }
     }
 
   </style>
@@ -3715,8 +3731,8 @@ var FB_CONFIG = {
       '<div class="fb-page"' +
       ' data-href="https://www.facebook.com/profile.php?id=1018130321389942"' +
       ' data-tabs="timeline"' +
-      ' data-width="600"' +
-      ' data-height="560"' +
+      ' data-width="700"' +
+      ' data-height="600"' +
       ' data-small-header="true"' +
       ' data-adapt-container-width="true"' +
       ' data-hide-cover="true"' +
