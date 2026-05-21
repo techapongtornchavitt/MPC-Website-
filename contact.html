@@ -168,6 +168,211 @@
         gap: 0;
       }
     }
+
+    /* ============================================================
+       CONTACT PAGE — MOBILE RESPONSIVENESS
+       Covers: 320px iPhone SE → 768px tablet
+    ============================================================ */
+
+    /* ── Base: contact info grid (desktop 2-col) ── */
+    .contact-info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem 3rem;
+    }
+    /* Business Hours spans both columns on desktop */
+    .contact-hours-item { grid-column: 1 / -1; }
+
+    /* Business Hours inner grid */
+    .contact-hours-grid {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: .35rem .75rem;
+      max-width: 320px;
+    }
+
+    /* ── Base: map actions row ── */
+    .map-actions-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      align-items: center;
+      margin-top: 1.5rem;
+    }
+
+    /* ── Base: LINE ID text ── */
+    .line-id-text {
+      font-size: .78rem;
+      color: var(--color-grey);
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
+    }
+
+    /* ── Overflow protection: email & long values ── */
+    .contact-detail-value,
+    .contact-detail-value a {
+      overflow-wrap: break-word;
+      word-break: break-word;
+      max-width: 100%;
+      min-width: 0;
+    }
+
+    /* ── TABLET (≤ 860px) ── */
+    @media (max-width: 860px) {
+      .contact-info-grid { gap: 1.5rem 2rem; }
+    }
+
+    /* ── MOBILE (≤ 640px) ── */
+    @media (max-width: 640px) {
+
+      /* Stack contact info to single column */
+      .contact-info-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .contact-hours-item { grid-column: 1; }
+
+      /* Reduce section padding */
+      .contact-section { padding: 2.5rem 0; }
+
+      /* Contact section intro spacing */
+      .contact-section .container > div > p { margin-bottom: 2rem; }
+
+      /* Contact detail items — tighter on mobile */
+      .contact-detail-item {
+        gap: .75rem;
+        padding: .9rem 0;
+      }
+      .contact-detail-icon {
+        width: 38px !important;
+        height: 38px !important;
+        flex-shrink: 0;
+      }
+      .contact-detail-icon svg {
+        width: 17px !important;
+        height: 17px !important;
+      }
+
+      /* Business hours card — full-width on mobile */
+      .contact-hours-item {
+        padding: 1.25rem 1rem !important;
+        margin-top: .25rem;
+      }
+      .contact-hours-grid {
+        max-width: 100%;
+        gap: .3rem .6rem;
+      }
+
+      /* Email value — break long addresses */
+      .contact-detail-value { font-size: .88rem; }
+      .contact-detail-value a[href^="mailto"] {
+        font-size: .82rem;
+        word-break: break-all;
+      }
+
+      /* LINE section — stack vertically */
+      .line-qr-block {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      .line-qr-img-wrap {
+        min-width: 0 !important;
+        max-width: 180px !important;
+        width: 100%;
+      }
+      .line-qr-info {
+        min-width: 0 !important;
+        width: 100%;
+      }
+
+      /* LINE CTA button + ID row — stack on very small */
+      .line-qr-info > div:last-of-type {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: .6rem;
+      }
+      .line-qr-info > div:last-of-type > a {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px; /* comfortable tap target */
+      }
+      .line-id-text { font-size: .8rem; }
+
+      /* LINE section container */
+      section[style*="background:#f8fafb"] { padding: 2.5rem 0 !important; }
+
+      /* Map iframe — shorter on mobile */
+      .map-section iframe { height: 280px !important; }
+
+      /* Map section address text */
+      .map-section > .container > div > p {
+        font-size: .82rem;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+
+      /* Map action buttons — full-width stack */
+      .map-actions-row {
+        flex-direction: column;
+        gap: .75rem;
+      }
+      .map-actions-row .btn-primary,
+      .map-actions-row .btn-outline-white {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px; /* comfortable tap target */
+        text-align: center;
+      }
+
+      /* Social link buttons — slightly smaller on mobile */
+      .social-link-btn {
+        font-size: .8rem;
+        padding: .5rem .9rem;
+        min-height: 40px;
+      }
+
+      /* Enquiry form section */
+      .enquiry-form-section .enquiry-form {
+        padding: 1.5rem 1rem;
+        margin-top: 1.75rem;
+      }
+    }
+
+    /* ── SMALL MOBILE (≤ 480px) ── */
+    @media (max-width: 480px) {
+      /* Contact detail icon — compact */
+      .contact-detail-icon {
+        width: 34px !important;
+        height: 34px !important;
+      }
+      .contact-detail-icon svg {
+        width: 15px !important;
+        height: 15px !important;
+      }
+      .contact-detail-item { gap: .6rem; }
+
+      /* Email break on smallest screens */
+      .contact-detail-value a[href^="mailto"] { font-size: .79rem; }
+
+      /* LINE QR image smaller */
+      .line-qr-img-wrap { max-width: 150px !important; }
+
+      /* Map iframe shorter */
+      .map-section iframe { height: 240px !important; }
+
+      /* Map section padding */
+      .map-section { padding: 2rem 0 !important; }
+    }
+
+    /* ── VERY SMALL (≤ 360px — Galaxy S series, older iPhones) ── */
+    @media (max-width: 360px) {
+      .contact-detail-value { font-size: .83rem; }
+      .contact-detail-label { font-size: .7rem; }
+      .contact-detail-sub   { font-size: .77rem; }
+      .contact-hours-item   { padding: 1rem .75rem !important; }
+    }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 </head>
@@ -300,7 +505,7 @@
               <svg width="20" height="20" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg"><rect width="36" height="36" rx="8" fill="white" fill-opacity="0.15"/><path d="M18 6C11.373 6 6 10.71 6 16.5c0 4.32 2.88 8.082 7.182 10.08l-.882 3.3c-.09.33.27.6.558.42l3.96-2.52C17.19 27.87 17.592 27.9 18 27.9c6.627 0 12-4.71 12-10.5C30 10.71 24.627 6 18 6z" fill="white"/><path d="M14.4 14.1h-1.2a.3.3 0 0 0-.3.3v4.2a.3.3 0 0 0 .3.3h1.2a.3.3 0 0 0 .3-.3v-4.2a.3.3 0 0 0-.3-.3zm7.8 0h-1.2a.3.3 0 0 0-.3.3v2.49l-1.92-2.64A.3.3 0 0 0 18.54 14.1h-1.2a.3.3 0 0 0-.3.3v4.2a.3.3 0 0 0 .3.3h1.2a.3.3 0 0 0 .3-.3v-2.49l1.92 2.64a.3.3 0 0 0 .24.15h1.2a.3.3 0 0 0 .3-.3v-4.2a.3.3 0 0 0-.3-.3zm-5.4 0h-1.2a.3.3 0 0 0-.3.3v4.2a.3.3 0 0 0 .3.3h3a.3.3 0 0 0 .3-.3v-1.2a.3.3 0 0 0-.3-.3H18v-2.7a.3.3 0 0 0-.3-.3z" fill="#06C755"/></svg>
               <span data-i18n="cont-line-btn">Add Friend on LINE</span>
             </a>
-            <span style="font-size:.78rem;color:var(--color-grey);" data-i18n="cont-line-id">ID: @Salesco_motion, 092-279-6599</span>
+            <span class="line-id-text" data-i18n="cont-line-id">ID: @Salesco_motion, 092-279-6599</span>
           </div>
         </div>
       </div>
@@ -316,7 +521,7 @@
       <h2 style="color:var(--color-white); margin-bottom:.5rem;" data-i18n="cont-h2">Contact Information</h2>
       <p style="margin-bottom:3rem;" data-i18n="cont-intro">Reach us directly &mdash; our team is ready to assist with product enquiries, after-sales support, and general information.</p>
 
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:2rem 3rem;">
+      <div class="contact-info-grid">
 
         <!-- Email -->
         <div class="contact-detail-item">
@@ -367,13 +572,13 @@
         </div>
 
         <!-- Business Hours &mdash; full width -->
-        <div class="contact-detail-item" style="grid-column:1/-1; background:rgba(255,255,255,0.04); padding:1.5rem 1.75rem; border-radius:var(--radius-md); border-left:3px solid var(--color-light-blue);">
+        <div class="contact-detail-item contact-hours-item" style="background:rgba(255,255,255,0.04); padding:1.5rem 1.75rem; border-radius:var(--radius-md); border-left:3px solid var(--color-light-blue);">
           <div class="contact-detail-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
           </div>
-          <div style="flex:1;">
+          <div style="flex:1; min-width:0;">
             <p class="contact-detail-label" style="margin-bottom:.6rem;" data-i18n="cont-hours-lbl">Business Hours</p>
-            <div style="display:grid; grid-template-columns:auto 1fr; gap:.35rem .75rem; max-width:320px;">
+            <div class="contact-hours-grid">
               <span style="font-size:.82rem;color:rgba(255,255,255,.5);" data-i18n="footer-mon-fri">Mon &mdash; Fri</span><span style="font-size:.82rem;color:rgba(255,255,255,.85);" data-i18n="cont-hours-monfri-val">8:30 AM &mdash; 5:00 PM</span>
               <span style="font-size:.82rem;color:rgba(255,255,255,.5);" data-i18n="footer-sat">Saturday</span><span style="font-size:.82rem;color:rgba(255,255,255,.85);" data-i18n="cont-hours-sat-val">9:00 AM &mdash; 3:00 PM</span>
             </div>
@@ -450,7 +655,7 @@
     </div>
 
     <!-- Actions below map -->
-    <div style="display:flex; flex-wrap:wrap; gap:1rem; align-items:center; margin-top:1.5rem;">
+    <div class="map-actions-row">
       <a href="https://maps.app.goo.gl/T4nSYUB2ZS8gvffE8" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-flex;align-items:center;gap:.55rem;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
         <span data-i18n="cont-map-btn-gmaps">Open in Google Maps</span>
