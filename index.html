@@ -2491,12 +2491,15 @@
       line-height: 1.5;
     }
 
-    /* Page Plugin container — centred inside the flex row #fb-content-area */
+    /* Page Plugin container — centred inside the blue panel */
     .fb-plugin-wrapper {
-      /* width: 100% fills the flex container up to data-width cap */
-      width: 100%;
-      max-width: 700px;    /* matches data-width="700" on the fb-page element */
-      /* flex-shrink: 0 keeps the wrapper from collapsing narrower than its content */
+      /* Fixed width matches data-width="700" so the SDK measures exactly this much.
+         max-width:100% lets it shrink on narrow viewports.
+         margin:0 auto (block centering) + parent justify-content:center (flex centering)
+         both fire, guaranteeing equal left/right space at every viewport. */
+      width: 700px;
+      max-width: 100%;
+      margin: 0 auto;
       flex-shrink: 0;
       /* No border-radius here — .fb-feed-panel clips the corners via overflow:hidden+GPU */
       border-radius: 14px;
@@ -2524,8 +2527,9 @@
     .fb-plugin-wrapper iframe {
       border-radius: 14px;
       display: block;
-      /* Force iframe to fill full container width — FB SDK may set a narrower px value */
-      width: 100% !important;
+      /* Let the iframe fill the wrapper (which is already sized to data-width).
+         Do NOT force a wider px override — that would exceed the FB-rendered content
+         width and cause the post feed to appear left-shifted inside a wider iframe. */
       max-width: 100%;
     }
 
@@ -3767,9 +3771,9 @@ var FB_CONFIG = {
       '</blockquote></div>';
     wrapper.appendChild(inner);
     area.className = '';
-    /* flex row + justify-content:center guarantees the plugin is centred
-       regardless of browser margin:auto quirks in nested flex contexts */
-    area.style.cssText = 'display:flex;justify-content:center;width:100%;';
+    /* Block container — .fb-plugin-wrapper uses margin:0 auto + fixed width:700px
+       to centre itself with truly equal left/right spacing inside the panel */
+    area.style.cssText = 'display:block;width:100%;';
     area.innerHTML = '';
     area.appendChild(wrapper);
     /* If the SDK is already loaded, parse now; otherwise fbAsyncInit handles it */
