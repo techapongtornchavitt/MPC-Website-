@@ -2520,8 +2520,10 @@
       border-radius: 14px;
     }
 
-    /* !important overrides FB SDK inline width so embed fills the container */
-    .fb-plugin-container .fb-page { display: block; width: 100% !important; }
+    /* !important overrides FB SDK inline width so embed fills the container.
+       text-align:center centres the inline-block <span> the SDK injects inside
+       .fb-page — that span holds the iframe and defaults to left-aligned. */
+    .fb-plugin-container .fb-page { display: block; width: 100% !important; text-align: center; }
 
     .fb-plugin-container iframe,
     .fb-plugin-wrapper iframe {
