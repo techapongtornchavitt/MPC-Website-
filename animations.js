@@ -177,6 +177,7 @@
       '.stat-item-num',
       '.since2004-stat-num',
       '.since2004-num',
+      '.distrib-stat-num',     /* distributor section: 10+, 20+ */
     ].join(', '));
 
     if (!els.length) return;
@@ -240,10 +241,90 @@
     updateHeader();
   }
 
+  /* ──────────────────────────────────────────────────────
+     5. SCROLL PROGRESS BAR
+     Injects a thin <div id="mpc-scroll-bar"> at the top of
+     <body>, then scales it on the X axis as the user scrolls.
+     GPU-only (transform) — zero layout impact.
+  ────────────────────────────────────────────────────── */
+  function initScrollProgress() {
+    var bar = document.createElement('div');
+    bar.id = 'mpc-scroll-bar';
+    document.body.insertBefore(bar, document.body.firstChild);
+
+    var ticking = false;
+    function update() {
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      if (max <= 0) return;
+      bar.style.transform = 'scaleX(' + Math.min(window.scrollY / max, 1) + ')';
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  }
+
+  /* ──────────────────────────────────────────────────────
+     6. CARD CURSOR SPOTLIGHT
+     On mousemove inside a spotlight card, CSS custom props
+     --mx / --my are updated so the ::before radial gradient
+     follows the cursor inside the card.
+  ────────────────────────────────────────────────────── */
+  function initCardSpotlight() {
+    var selector = '.brand-card, .solution-card, .house-brand-card';
+    document.querySelectorAll(selector).forEach(function (card) {
+      card.addEventListener('mousemove', function (e) {
+        var r = card.getBoundingClientRect();
+        card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+        card.style.setProperty('--my', (e.clientY - r.top)  + 'px');
+      });
+    });
+  }
+
+  /* ──────────────────────────────────────────────────────
+     7. HERO FLOATING PARTICLES
+     Creates 8 small glowing dots inside the hero section.
+     Each has a randomised size, horizontal position, and
+     animation delay so they stagger naturally.
+  ────────────────────────────────────────────────────── */
+  function initHeroParticles() {
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    var config = [
+      /* left%,  size px, duration s, delay s */
+      [  8,  3,  9,  0.0 ],
+      [ 18,  2, 12,  2.1 ],
+      [ 32,  4,  8,  0.7 ],
+      [ 45,  2, 11,  3.4 ],
+      [ 58,  3, 10,  1.2 ],
+      [ 70,  2, 13,  4.8 ],
+      [ 82,  4,  9,  2.6 ],
+      [ 91,  2, 11,  0.4 ],
+    ];
+
+    config.forEach(function (c) {
+      var dot = document.createElement('span');
+      dot.className = 'mpc-particle';
+      dot.style.cssText =
+        'left:' + c[0] + '%;' +
+        'bottom:12%;' +
+        'width:'  + c[1] + 'px;' +
+        'height:' + c[1] + 'px;' +
+        'animation-duration:' + c[2] + 's;' +
+        'animation-delay:' + c[3] + 's;';
+      hero.appendChild(dot);
+    });
+  }
+
   function init() {
+    initScrollProgress();
     if (!prefersReduced) {
       initReveal();
       initEyebrows();
+      initCardSpotlight();
+      initHeroParticles();
     }
     initCounters(); /* numbers count up even in reduced-motion mode */
     initHeaderScroll();

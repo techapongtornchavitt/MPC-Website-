@@ -2864,3 +2864,81 @@ html:not(.lang-ready) body {
 body {
   transition: opacity 0.1s ease;
 }
+
+/* =================================================================
+   MOTION EFFECTS  —  scroll progress · card spotlight · hero particles
+================================================================= */
+
+/* ── Scroll Progress Bar ────────────────────────────────────────── */
+#mpc-scroll-bar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--color-primary, #1877f2) 0%,
+    #60a5fa 55%,
+    #93c5fd 100%
+  );
+  transform-origin: left center;
+  transform: scaleX(0);
+  z-index: 99999;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* ── Card Cursor Spotlight ──────────────────────────────────────── */
+/* A soft radial glow that follows the cursor inside each card.
+   Uses CSS custom props --mx / --my set by JS on mousemove.        */
+@media (hover: hover) and (pointer: fine) {
+  .brand-card,
+  .solution-card,
+  .house-brand-card {
+    --mx: 50%;
+    --my: 50%;
+  }
+
+  /* ::before is free on brand-card (::after holds the bottom bar) */
+  .brand-card::before,
+  .solution-card::before,
+  .house-brand-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: radial-gradient(
+      200px circle at var(--mx) var(--my),
+      rgba(24, 119, 242, 0.13) 0%,
+      transparent 70%
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .brand-card:hover::before,
+  .solution-card:hover::before,
+  .house-brand-card:hover::before { opacity: 1; }
+}
+
+/* ── Hero Floating Particles ────────────────────────────────────── */
+@keyframes mpc-particle-rise {
+  0%   { opacity: 0;   transform: translateY(0)   scale(1);   }
+  12%  { opacity: 0.7; }
+  80%  { opacity: 0.4; }
+  100% { opacity: 0;   transform: translateY(-110px) scale(0.6); }
+}
+
+.mpc-particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(96, 165, 250, 0.55);
+  pointer-events: none;
+  animation: mpc-particle-rise linear infinite;
+  will-change: transform, opacity;
+}
+
+/* ── Distrib stat numbers — count-up pop ───────────────────────── */
+.distrib-stat-num.stat-popped {
+  animation: statPop 0.38s var(--ease-expo) both;
+}
