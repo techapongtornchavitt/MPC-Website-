@@ -2491,9 +2491,12 @@
       line-height: 1.5;
     }
 
-    /* Page Plugin container — fills the feed panel completely */
+    /* Page Plugin container — centered within the feed panel */
     .fb-plugin-wrapper {
       width: 100%;
+      /* max-width matches data-width="700" — centers embed with equal space on both sides */
+      max-width: 700px;
+      margin: 0 auto;
       /* No border-radius here — .fb-feed-panel clips the corners via overflow:hidden+GPU */
       border-radius: 14px;
       overflow: hidden;
