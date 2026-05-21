@@ -2502,7 +2502,8 @@
       isolation: isolate;
       will-change: transform;
       box-shadow: 0 4px 20px rgba(0,0,0,.28);
-      background: #fff;
+      /* transparent: panel's blue background shows through any gap instead of white */
+      background: transparent;
     }
 
     .fb-plugin-container {
@@ -2512,12 +2513,16 @@
       border-radius: 14px;
     }
 
-    .fb-plugin-container .fb-page { display: block; width: 100%; }
+    /* !important overrides FB SDK inline width so embed fills the container */
+    .fb-plugin-container .fb-page { display: block; width: 100% !important; }
 
     .fb-plugin-container iframe,
     .fb-plugin-wrapper iframe {
       border-radius: 14px;
       display: block;
+      /* Force iframe to fill full container width — FB SDK may set a narrower px value */
+      width: 100% !important;
+      max-width: 100%;
     }
 
     /* Feed caption */
