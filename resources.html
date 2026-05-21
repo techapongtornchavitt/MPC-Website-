@@ -25,7 +25,8 @@
     /* ── Page background ── */
     .res-main {
       background: linear-gradient(180deg, #e8edf6 0%, #edf1f9 60%, #eaeff8 100%);
-      padding: 3rem 0 9rem;
+      /* Reduced from 3rem 0 9rem — tightens overall page height */
+      padding: 2.5rem 0 6.5rem;
     }
 
     /* ══ HERO STATS BAR ══ */
@@ -71,8 +72,9 @@
       color: #3a5070;
       font-size: .82rem;
       line-height: 1.65;
-      margin-bottom: 3rem;
-      padding: 1.1rem 1.4rem;
+      /* Reduced from 3rem — tighter lead-in before first section */
+      margin-bottom: 1.75rem;
+      padding: 1rem 1.4rem;
       background: rgba(255,255,255,.72);
       border-radius: 12px;
       border: 1px solid rgba(0,86,164,.13);
@@ -157,7 +159,8 @@
        INDUSTRY SECTION &mdash; accordion container
     ══════════════════════════════════════════════════ */
     .ind-section {
-      margin-bottom: 2.5rem;
+      /* Reduced from 2.5rem — tighter rhythm between sections */
+      margin-bottom: 1.75rem;
       border-radius: 20px;
       overflow: hidden;
       border: 1px solid rgba(0,60,120,.10);
@@ -171,7 +174,8 @@
       display: flex;
       align-items: center;
       gap: 1.1rem;
-      padding: 1.8rem 2rem;
+      /* Reduced ~15% from 1.8rem 2rem — tighter header, same proportions */
+      padding: 1.5rem 2rem;
       background: #fff;
       cursor: pointer;
       transition: background .18s;
@@ -323,7 +327,8 @@
     .ind-sec-body { overflow: hidden; min-height: 0; }
     .ind-sec-body-inner {
       border-top: 1px solid rgba(0,60,120,.07);
-      padding: 2.25rem 2rem 2.75rem;
+      /* Reduced ~15% from 2.25rem 2rem 2.75rem */
+      padding: 1.9rem 2rem 2.35rem;
       background: #f7f9fc;
     }
     .ind-section[data-ind="cement"]   .ind-sec-body-inner { border-top-color: rgba(217,119,6,.16); background: #fffcf5; }
@@ -335,12 +340,14 @@
     /* ══════════════════════════════════════════════════
        BRAND GROUP &mdash; subsection within each industry
     ══════════════════════════════════════════════════ */
-    .brand-group { margin-bottom: 2.75rem; }
+    /* Reduced from 2.75rem — tighter spacing between brand subsections */
+    .brand-group { margin-bottom: 2rem; }
     .brand-group:last-child { margin-bottom: 0; }
 
     .brand-grp-hdr {
       display: flex; align-items: center; gap: .75rem;
-      margin-bottom: 1.1rem;
+      /* Reduced from 1.1rem — header sits closer to its card grid */
+      margin-bottom: .75rem;
     }
     .brand-grp-badge {
       display: inline-flex; align-items: center; gap: .5rem;
@@ -375,25 +382,28 @@
     .rl-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
+      /* Slightly tighter gap for better visual density */
+      gap: .85rem;
       align-items: stretch;
     }
 
     /* ══ RESOURCE CARD ══ */
     .rl-card {
       background: #fff;
-      border: 1px solid rgba(0,86,164,.12);
+      /* Slightly stronger border for better card definition */
+      border: 1px solid rgba(0,86,164,.18);
       border-radius: 14px;
       text-decoration: none;
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      box-shadow: 0 2px 12px rgba(0,50,120,.07), 0 1px 3px rgba(0,50,120,.04);
+      /* Slightly deeper shadow for more defined, premium feel */
+      box-shadow: 0 2px 14px rgba(0,50,120,.10), 0 1px 4px rgba(0,50,120,.05);
       transition: border-color .22s, box-shadow .22s, transform .22s;
     }
     .rl-card:hover {
-      border-color: rgba(0,86,164,.35);
-      box-shadow: 0 12px 40px rgba(0,50,120,.15), 0 3px 8px rgba(0,50,120,.07);
+      border-color: rgba(0,86,164,.38);
+      box-shadow: 0 12px 40px rgba(0,50,120,.16), 0 3px 8px rgba(0,50,120,.08);
       transform: translateY(-5px);
     }
     .rl-card-top {
@@ -446,48 +456,55 @@
 
     /* ══ BOTTOM CTA ══ */
     .res-cta {
-      margin-top: 2rem;
-      padding: 2.5rem 3rem;
+      margin-top: 1.75rem;
+      /* Slightly reduced padding; centered layout for visual balance */
+      padding: 2.25rem 2.75rem;
       border-radius: 18px;
       background: linear-gradient(135deg, #00245a 0%, #0056a4 100%);
       border: none;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 1.5rem; flex-wrap: wrap;
+      display: flex; align-items: center; justify-content: center;
+      gap: 2.5rem; flex-wrap: wrap;
       box-shadow: 0 8px 40px rgba(0,36,90,.22);
     }
-    .res-cta-text h3 { color: #fff; margin: 0 0 .4rem; font-size: 1.2rem; font-weight: 800; }
+    .res-cta-text { text-align: center; }
+    .res-cta-text h3 { color: #fff; margin: 0 0 .35rem; font-size: 1.2rem; font-weight: 800; }
     .res-cta-text p { color: rgba(255,255,255,.62); font-size: .88rem; margin: 0; line-height: 1.55; }
-    .res-cta-btns { display: flex; gap: .85rem; flex-wrap: wrap; flex-shrink: 0; }
+    .res-cta-btns { display: flex; gap: .85rem; flex-wrap: wrap; flex-shrink: 0; justify-content: center; }
 
     /* ══ RESPONSIVE ══ */
     @media (max-width: 1060px) {
-      .rl-grid { grid-template-columns: repeat(2, 1fr); gap: .9rem; }
+      .rl-grid { grid-template-columns: repeat(2, 1fr); gap: .8rem; }
     }
     @media (max-width: 820px) {
-      .ind-sec-hdr { padding: 1.35rem 1.4rem; gap: .8rem; }
+      /* Proportionally reduced to match desktop reductions */
+      .ind-sec-hdr { padding: 1.15rem 1.4rem; gap: .8rem; }
       .ind-sec-icon-wrap { width: 44px; height: 44px; border-radius: 11px; }
       .ind-sec-icon-wrap svg { width: 20px; height: 20px; }
-      .ind-sec-body-inner { padding: 1.5rem 1.4rem 1.75rem; }
+      .ind-sec-body-inner { padding: 1.35rem 1.4rem 1.6rem; }
       .ind-sec-doc-badge { display: none; }
       .rsn-label { display: none; }
-      .ind-section { border-radius: 16px; margin-bottom: 1.75rem; }
+      .ind-section { border-radius: 16px; margin-bottom: 1.5rem; }
     }
     @media (max-width: 768px) {
-      .res-cta { flex-direction: column; text-align: center; }
+      .res-cta { flex-direction: column; text-align: center; gap: 1.25rem; }
       .res-cta-btns { justify-content: center; }
-      .res-main { padding: 2rem 0 5rem; }
+      /* Reduced from 2rem 0 5rem */
+      .res-main { padding: 1.75rem 0 4rem; }
       .res-stats-bar { display: flex; flex-wrap: wrap; }
       .res-stat { padding: .9rem 1.3rem; flex: 1 1 40%; }
     }
     @media (max-width: 540px) {
-      .rl-grid { grid-template-columns: 1fr; gap: .9rem; }
-      .ind-sec-hdr { padding: 1.1rem 1.1rem; gap: .7rem; }
-      .ind-sec-body-inner { padding: 1.25rem 1.1rem 1.5rem; }
+      .rl-grid { grid-template-columns: 1fr; gap: .75rem; }
+      .ind-sec-hdr { padding: .95rem 1.1rem; gap: .7rem; }
+      .ind-sec-body-inner { padding: 1.1rem 1.1rem 1.35rem; }
       .ind-sec-title { font-size: 1.05rem; }
       .res-cta { padding: 1.75rem 1.5rem; }
       .res-stat-num { font-size: 1.5rem; }
-      .ind-section { margin-bottom: 1.5rem; }
+      .ind-section { margin-bottom: 1.25rem; }
     }
+
+    /* ── Footer: slightly lighter vertical weight on this page only ── */
+    .site-footer { padding: 4.5rem 0 0; }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 </head>
