@@ -3735,6 +3735,21 @@
       'cem-cat-h2':            'ឧស្សាហកម្មស៊ីម៉ង់',
       'sug-cat-h2':            'ឧស្សាហកម្មស្ករ',
       'palm-cat-h2':           'ឧស្សាហកម្មប្រេងម្នាស់',
+
+      /* ---------- Missing keys (added for complete coverage) ---------- */
+      'cont-form-lbl-company':  'Company Name',
+      'cont-form-lbl-message':  'Message',
+      'cont-form-lbl-product':  'Product of Interest',
+      'hs-cv-overview-h2':      'HS Conveyor Chains',
+      'ind-bc-industries':      'ឧស្សាហកម្ម',
+      'ind-btn-view-all':       'មើលផលិតផលទាំងអស់',
+      'ind-cta-email':          'ផ្ញើអ៊ីមែលមកយើង →',
+      'ind-get-quote':          'ស្នើតម្លៃ',
+      'iwis-cv-pg-overview-h2': 'IWIS Conveyor Chains',
+      'iwis-rl-overview-h2':    'Iwis Roller Chains',
+      'sgm-pg-overview-h2':     'ឧស្សាហកម្មរោងម៉ាស៊ីនស្ករ',
+      'trio-overview-h2':       'Forged Chain TRIO',
+      'unof-overview-h2':       'Forged Chain UNO',
     },
 
     /* ============================================================
@@ -6177,6 +6192,33 @@
       'cem-cat-h2':            'ဘိလပ်မြေလုပ်ငန်း',
       'sug-cat-h2':            'သကြားလုပ်ငန်း',
       'palm-cat-h2':           'ဖန်ဆီဆီလုပ်ငန်း',
+
+      /* ---------- Missing keys (added for complete coverage) ---------- */
+      'cat-click-enlarge':      'Click to enlarge',
+      'cont-form-lbl-company':  'Company Name',
+      'cont-form-lbl-message':  'Message',
+      'cont-form-lbl-product':  'Product of Interest',
+      'hs-cv-overview-h2':      'HS Conveyor Chains',
+      'ind-bc-industries':      'လုပ်ငန်းများ',
+      'ind-btn-view-all':       'ထုတ်ကုန်အားလုံးကြည့်ရန်',
+      'ind-cta-email':          'အီးမေးပို့ပါ →',
+      'ind-cta-hours':          '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; တ.–စ. 8:30–17:00',
+      'ind-get-quote':          'ကိုးကားစျေးနှုန်းတောင်းရန်',
+      'iwis-cv-pg-overview-h2': 'IWIS Conveyor Chains',
+      'iwis-rl-overview-h2':    'Iwis Roller Chains',
+      'prod-cat-comp-count':    '6 product types',
+      'prod-cat-comp-title':    'Sprockets, Components &amp; Other',
+      'prod-cta-not-found-h':   'လိုအပ်သောပစ္စည်းရှာမတွေ့ပါသလား?',
+      'prod-cta-not-found-p':   'Custom solutions, specifications, သို့မဟုတ် pricing အတွက် နည်းပညာအဖွဲ့ကို ဆက်သွယ်ပါ။',
+      'prod-tab-all':           'ထုတ်ကုန်အားလုံး',
+      'prod-tab-components':    'Components &amp; Other',
+      'prod-tab-conveyor':      'Conveyor Chains',
+      'prod-tab-forged':        'Forged Chains',
+      'prod-tab-industry':      'Industry-Specific',
+      'prod-tab-roller':        'Roller Chains',
+      'sgm-pg-overview-h2':     'သကြားစက်လုပ်ငန်း',
+      'trio-overview-h2':       'Forged Chain TRIO',
+      'unof-overview-h2':       'Forged Chain UNO',
     }
   };
 
