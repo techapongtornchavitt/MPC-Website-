@@ -2491,12 +2491,13 @@
       line-height: 1.5;
     }
 
-    /* Page Plugin container — centered within the feed panel */
+    /* Page Plugin container — centred inside the flex row #fb-content-area */
     .fb-plugin-wrapper {
+      /* width: 100% fills the flex container up to data-width cap */
       width: 100%;
-      /* max-width matches data-width="700" — centers embed with equal space on both sides */
-      max-width: 700px;
-      margin: 0 auto;
+      max-width: 700px;    /* matches data-width="700" on the fb-page element */
+      /* flex-shrink: 0 keeps the wrapper from collapsing narrower than its content */
+      flex-shrink: 0;
       /* No border-radius here — .fb-feed-panel clips the corners via overflow:hidden+GPU */
       border-radius: 14px;
       overflow: hidden;
@@ -3766,7 +3767,9 @@ var FB_CONFIG = {
       '</blockquote></div>';
     wrapper.appendChild(inner);
     area.className = '';
-    area.style.cssText = '';
+    /* flex row + justify-content:center guarantees the plugin is centred
+       regardless of browser margin:auto quirks in nested flex contexts */
+    area.style.cssText = 'display:flex;justify-content:center;width:100%;';
     area.innerHTML = '';
     area.appendChild(wrapper);
     /* If the SDK is already loaded, parse now; otherwise fbAsyncInit handles it */
