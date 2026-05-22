@@ -1,13 +1,27 @@
 /* ================================================================
    interactions.js — Motion Plus Corporation
-   Page transitions + cursor glow
+   Scroll progress bar + page transitions + cursor glow
    No dependencies. Safe to defer.
 ================================================================ */
 (function () {
   'use strict';
 
   /* ──────────────────────────────────────────────────────────────
-     1. CURSOR GLOW  (desktop / fine-pointer devices only)
+     1. SCROLL PROGRESS BAR
+  ────────────────────────────────────────────────────────────── */
+  var bar = document.createElement('div');
+  bar.id = 'mpc-scroll-bar';
+  bar.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(bar);
+
+  window.addEventListener('scroll', function () {
+    var scrolled = window.scrollY;
+    var total    = document.documentElement.scrollHeight - window.innerHeight;
+    bar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+  }, { passive: true });
+
+  /* ──────────────────────────────────────────────────────────────
+     2. CURSOR GLOW  (desktop / fine-pointer devices only)
   ────────────────────────────────────────────────────────────── */
   if (window.matchMedia('(pointer: fine) and (hover: hover)').matches) {
     var glow = document.createElement('div');

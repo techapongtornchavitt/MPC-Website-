@@ -2887,6 +2887,22 @@ body {
 }
 
 /* ═══════════════════════════════════════════════════════════════
+   SCROLL PROGRESS BAR
+═══════════════════════════════════════════════════════════════ */
+#mpc-scroll-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg, var(--color-primary, #0056a4) 0%, #4a90e2 100%);
+  z-index: 9999;
+  pointer-events: none;
+  transition: width 0.08s linear;
+  will-change: width;
+}
+
+/* ═══════════════════════════════════════════════════════════════
    PAGE TRANSITION — fade-out on navigation
 ═══════════════════════════════════════════════════════════════ */
 body.mpc-fading {
