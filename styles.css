@@ -2883,7 +2883,33 @@ html:not(.lang-ready) body {
   user-select: none;
 }
 body {
-  transition: opacity 0.1s ease;
+  transition: opacity 0.38s ease;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   PAGE TRANSITION — fade-out on navigation
+═══════════════════════════════════════════════════════════════ */
+body.mpc-fading {
+  opacity: 0 !important;
+  transition: opacity 0.22s ease !important;
+  pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CURSOR GLOW — desktop only, injected by interactions.js
+═══════════════════════════════════════════════════════════════ */
+.mpc-cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 520px;
+  height: 520px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,86,164,0.08) 0%, rgba(0,86,164,0.03) 45%, transparent 68%);
+  pointer-events: none;
+  z-index: 9998;
+  will-change: transform;
+  transform: translate(-9999px, -9999px);
 }
 
 /* ---------- Section dividers — soft gradient shadow between sections ---------- */
