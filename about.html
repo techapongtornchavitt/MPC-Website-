@@ -98,6 +98,64 @@
     .about-hero .section-eyebrow {
       letter-spacing: 0.18em;
     }
+
+    /* ── Vision section — left-border card with decorative quote ── */
+    .abt-vision-section { background: var(--color-white); padding: var(--space-2xl) 0; }
+    .abt-vision-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      position: relative;
+      padding: 2.25rem 2.5rem 2.25rem 3.75rem;
+      border-left: 4px solid var(--color-primary);
+      background: rgba(0,86,164,0.035);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      text-align: left;
+    }
+    .abt-vision-inner::before {
+      content: '\201C';
+      position: absolute;
+      top: -0.6rem;
+      left: 1.1rem;
+      font-size: 7rem;
+      line-height: 1;
+      color: var(--color-primary);
+      opacity: 0.13;
+      font-family: Georgia, 'Times New Roman', serif;
+      pointer-events: none;
+      user-select: none;
+    }
+    .abt-vision-inner .section-eyebrow { justify-content: flex-start; margin-bottom: 0.75rem; }
+    .abt-vision-quote {
+      margin: 0;
+      font-size: 1.08rem;
+      line-height: 1.9;
+      color: var(--color-dark);
+      font-style: italic;
+      border: none;
+      padding: 0;
+      background: none;
+    }
+
+    /* ── Experiences section — light background to differentiate ── */
+    .abt-exp-section { background: var(--color-grey-lt); padding: var(--space-2xl) 0; }
+    .abt-exp-inner { max-width: 800px; margin: 0 auto; text-align: center; }
+    .abt-exp-text { font-size: 1.05rem; line-height: 1.88; color: var(--color-grey); }
+
+    /* ── Pillar card hover lift ── */
+    .abt-pillar-card {
+      transition: transform 0.32s cubic-bezier(0.25,0.46,0.45,0.94),
+                  box-shadow 0.32s ease,
+                  border-top-color 0.32s ease;
+      border-top: 3px solid transparent !important;
+    }
+    .abt-pillar-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 18px 52px rgba(0,86,164,0.14) !important;
+      border-top-color: var(--color-primary) !important;
+    }
+
+    /* ── Count-up numbers in since2004 band ── */
+    .countup-num { display: inline-block; }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 
@@ -219,19 +277,19 @@
       <div class="since2004-divider"></div>
       <div class="since2004-stats">
         <div class="since2004-stat">
-          <span class="since2004-stat-num">20<sup>+</sup></span>
+          <span class="since2004-stat-num"><span class="countup-num" data-count="20">20</span><sup>+</sup></span>
           <span class="since2004-stat-lbl" data-i18n="since-years-lbl">Years of Industry Excellence</span>
         </div>
         <div class="since2004-stat">
-          <span class="since2004-stat-num">35<sup>+</sup></span>
+          <span class="since2004-stat-num"><span class="countup-num" data-count="35">35</span><sup>+</sup></span>
           <span class="since2004-stat-lbl" data-i18n="since-eng-lbl">Engineers &amp; Professionals</span>
         </div>
         <div class="since2004-stat">
-          <span class="since2004-stat-num">500<sup>+</sup></span>
+          <span class="since2004-stat-num"><span class="countup-num" data-count="500">500</span><sup>+</sup></span>
           <span class="since2004-stat-lbl" data-i18n="since-clients-lbl">Clients Served</span>
         </div>
         <div class="since2004-stat">
-          <span class="since2004-stat-num">6<sup>+</sup></span>
+          <span class="since2004-stat-num"><span class="countup-num" data-count="6">6</span><sup>+</sup></span>
           <span class="since2004-stat-lbl" data-i18n="since-brands-lbl">Global Brand Partners</span>
         </div>
       </div>
@@ -319,7 +377,7 @@
 <!-- ============ SECTION 2: VISION ============ -->
 <section class="abt-vision-section">
   <div class="container">
-    <div class="reveal" style="text-align:center;">
+    <div class="reveal abt-vision-inner">
       <span class="section-eyebrow" data-i18n="abt-vision-label">Vision</span>
       <blockquote class="abt-vision-quote" data-i18n="abt-vision-p">Determine to be the best for conveyor systems business in the region, to provide one Stop service as turned key business, including, local and imported goods sales &amp; services, designed made to order, assembly parts and construction works.</blockquote>
     </div>
@@ -329,7 +387,7 @@
 <!-- ============ SECTION 3: EXPERIENCES ============ -->
 <section class="abt-exp-section">
   <div class="container">
-    <div class="reveal" style="text-align:center;">
+    <div class="reveal abt-exp-inner">
       <span class="section-eyebrow" data-i18n="abt-exp-label">Experiences</span>
       <p class="abt-exp-text" data-i18n="abt-exp-body">To build and design for fundamental structure of conveyor systems in several business industries such as steel mill, sugar mill, cement plant, food &amp; beverage industry.</p>
     </div>
@@ -348,7 +406,7 @@
     <div class="grid-3" style="gap:1.75rem;">
 
       <!-- Key to Success -->
-      <div class="reveal" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+      <div class="reveal abt-pillar-card" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
           <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
@@ -359,7 +417,7 @@
       </div>
 
       <!-- Company Philosophy -->
-      <div class="reveal reveal-delay-1" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+      <div class="reveal reveal-delay-1 abt-pillar-card" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
           <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg>
@@ -370,7 +428,7 @@
       </div>
 
       <!-- Commitment -->
-      <div class="reveal reveal-delay-2" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
+      <div class="reveal reveal-delay-2 abt-pillar-card" style="background:var(--color-grey-lt); border:1px solid var(--color-border); border-radius:var(--radius-md); padding:2rem 2.25rem; box-shadow:var(--shadow-card);">
         <div style="display:flex; align-items:center; gap:.75rem; margin-bottom:1rem;">
           <div style="width:40px; height:40px; background:var(--color-primary); border-radius:var(--radius-sm); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
@@ -383,30 +441,6 @@
     </div>
   </div>
 </section>
-
-<!-- ============ STATS BAR (blue) ============ -->
-<div class="stats-bar">
-  <div class="container">
-    <div class="stats-bar-grid">
-      <div class="text-center">
-        <div class="stat-item-num">20<span style="font-size:1.6rem;color:rgba(255,255,255,0.7)">+</span></div>
-        <div class="stat-item-label" data-i18n="sbar-years">Years of Experience</div>
-      </div>
-      <div class="text-center">
-        <div class="stat-item-num">6<span style="font-size:1.6rem;color:rgba(255,255,255,0.7)">+</span></div>
-        <div class="stat-item-label" data-i18n="sbar-brands">Authorised Brands</div>
-      </div>
-      <div class="text-center">
-        <div class="stat-item-num">500<span style="font-size:1.6rem;color:rgba(255,255,255,0.7)">+</span></div>
-        <div class="stat-item-label" data-i18n="sbar-clients">Clients Served</div>
-      </div>
-      <div class="text-center">
-        <div class="stat-item-num">10<span style="font-size:1.4rem;color:rgba(255,255,255,0.7)">+</span></div>
-        <div class="stat-item-label" data-i18n="sbar-ind">Industries Served</div>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- ============ CTA ============ -->
 <section class="cta-block">
@@ -555,6 +589,33 @@
   if (!btn) return;
   window.addEventListener('scroll', function(){ btn.classList.toggle('btt-visible', window.scrollY > 320); }, { passive: true });
   btn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script>
+<script>
+/* ── Count-up animation for since2004 stats ── */
+(function () {
+  var els = document.querySelectorAll('.countup-num');
+  if (!els.length || !('IntersectionObserver' in window)) return;
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      var el = entry.target;
+      var target = parseInt(el.getAttribute('data-count'), 10);
+      var duration = 1600;
+      var startTime = null;
+      function step(ts) {
+        if (!startTime) startTime = ts;
+        var progress = Math.min((ts - startTime) / duration, 1);
+        var eased = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(eased * target);
+        if (progress < 1) { requestAnimationFrame(step); }
+        else { el.textContent = target; }
+      }
+      requestAnimationFrame(step);
+    });
+  }, { threshold: 0.6 });
+  els.forEach(function (el) { observer.observe(el); });
 })();
 </script></body>
 </html>
