@@ -380,4 +380,17 @@
     <priority>0.6</priority>
   </url>
 
+  <url>
+    <loc>https://motionpluscorp.com/facebook-setup-guide.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/facebook-setup-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/facebook-setup-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/facebook-setup-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/facebook-setup-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/facebook-setup-guide.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/facebook-setup-guide.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
 </urlset>
