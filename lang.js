@@ -831,9 +831,11 @@
       'soc-plat-ig':       'Photos &amp; highlights',
       'soc-plat-tt':       'Videos &amp; demos',
       'soc-plat-sp':       'Shop products online',
+      'soc-plat-ln':       'Chat with us directly',
       'soc-btn-follow':    'Follow',
       'soc-btn-connect':   'Connect',
       'soc-btn-shop':      'Shop Now',
+      'soc-btn-add':       'Add Friend',
 
       /* ---------- Industry filter tabs (index.html) ---------- */
       'ind-tab-all':     'All Industries',
@@ -2465,9 +2467,11 @@
       'soc-plat-ig':       'ภาพถ่ายและไฮไลต์',
       'soc-plat-tt':       'วิดีโอและสาธิต',
       'soc-plat-sp':       'สั่งซื้อสินค้าออนไลน์',
+      'soc-plat-ln':       'แชทกับเราโดยตรง',
       'soc-btn-follow':    'ติดตาม',
       'soc-btn-connect':   'เชื่อมต่อ',
       'soc-btn-shop':      'ช้อปเลย',
+      'soc-btn-add':       'เพิ่มเพื่อน',
 
       /* ---------- IWIS Roller Chains — Why IWIS section (TH) ---------- */
       'iwis-why-h2':       'ทำไมต้องเลือก IWIS?',
@@ -3518,9 +3522,11 @@
       'soc-plat-ig':       'រូបភាព &amp; Highlights',
       'soc-plat-tt':       'Videos &amp; Demos',
       'soc-plat-sp':       'ទិញ online',
+      'soc-plat-ln':       'Chat ជាមួយយើងដោយផ្ទាល់',
       'soc-btn-follow':    'តាមដាន',
       'soc-btn-connect':   'ភ្ជាប់',
       'soc-btn-shop':      'ទិញ',
+      'soc-btn-add':       'បន្ថែមមិត្ត',
 
       /* ---------- IWIS Roller Chains — Why section (KM) ---------- */
       'iwis-why-h2':       'ហេតុអ្វីត្រូវជ្រើស IWIS?',
@@ -4645,9 +4651,11 @@
       'soc-plat-ig':       'ຮູບ &amp; Highlights',
       'soc-plat-tt':       'Videos &amp; Demos',
       'soc-plat-sp':       'ຊື້ສິນຄ້າ Online',
+      'soc-plat-ln':       'ສົນທະນາກັບເຮົາໂດຍກົງ',
       'soc-btn-follow':    'ຕິດຕາມ',
       'soc-btn-connect':   'ເຊື່ອມຕໍ່',
       'soc-btn-shop':      'ຊື້ດຽວນີ້',
+      'soc-btn-add':       'ເພີ່ມໝູ່',
 
       /* ---------- IWIS Roller Chains — Why & Catalog (LO) ---------- */
       'iwis-why-h2':            'ເປັນຫຍັງຕ້ອງ IWIS?',
@@ -5941,9 +5949,11 @@
       'soc-plat-ig':       'ဓာတ်ပုံ &amp; highlights',
       'soc-plat-tt':       'Videos &amp; demos',
       'soc-plat-sp':       'Online ဝယ်ရန်',
+      'soc-plat-ln':       'ကျွန်ုပ်တို့နှင့် တိုက်ရိုက် Chat',
       'soc-btn-follow':    'Follow',
       'soc-btn-connect':   'ချိတ်ဆက်',
       'soc-btn-shop':      'ယခုဝယ်',
+      'soc-btn-add':       'မိတ်ဆက်ပေါင်း',
 
       /* ---------- Catalog reference section (MM) ---------- */
       'cat-ref-eyebrow':  'Reference Data',
