@@ -1,23 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
   <!-- =============================================
        Motion Plus Corporation — sitemap.xml
        Base URL: https://motionpluscorp.com
-       Languages: en, th, km, lo, my
-       Last updated: 2026-05-08
+       Languages: th (default), en, km, lo, my
+       Last updated: 2026-05-22
   ============================================= -->
 
   <!-- Homepage -->
   <url>
     <loc>https://motionpluscorp.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://motionpluscorp.com/"/>
-    <xhtml:link rel="alternate" hreflang="th" href="https://motionpluscorp.com/"/>
-    <xhtml:link rel="alternate" hreflang="km" href="https://motionpluscorp.com/"/>
-    <xhtml:link rel="alternate" hreflang="lo" href="https://motionpluscorp.com/"/>
-    <xhtml:link rel="alternate" hreflang="my" href="https://motionpluscorp.com/"/>
-    <lastmod>2026-05-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/"/>
+    <image:image>
+      <image:loc>https://motionpluscorp.com/mpc-logo.jpg</image:loc>
+      <image:title>Motion Plus Corporation Logo</image:title>
+    </image:image>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -25,7 +31,17 @@
   <!-- About -->
   <url>
     <loc>https://motionpluscorp.com/about.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/about.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/about.html"/>
+    <image:image>
+      <image:loc>https://motionpluscorp.com/mpc-logo.jpg</image:loc>
+      <image:title>Motion Plus Corporation</image:title>
+    </image:image>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -33,7 +49,27 @@
   <!-- Portfolio -->
   <url>
     <loc>https://motionpluscorp.com/portfolio.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/portfolio.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/portfolio.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Resources & Catalogs -->
+  <url>
+    <loc>https://motionpluscorp.com/resources.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/resources.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/resources.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/resources.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/resources.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/resources.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/resources.html"/>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -41,7 +77,13 @@
   <!-- Contact -->
   <url>
     <loc>https://motionpluscorp.com/contact.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/contact.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/contact.html"/>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -49,139 +91,293 @@
   <!-- Products Hub -->
   <url>
     <loc>https://motionpluscorp.com/products.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/products.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/products.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/products.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/products.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/products.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/products.html"/>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
 
-  <!-- ── Brand / Product Pages ── -->
-  <url>
-    <loc>https://motionpluscorp.com/iwis-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/hs-conveyor-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/dongbo-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/kmh-conveyor-pipe.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/uno-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/trio-forged-chain.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/cement-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/palm-oil-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/sugar-mill-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/forged-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/sprockets-pulley.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/bearing.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/belt.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/coupling.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/oil-seal.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/pe-1000.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://motionpluscorp.com/iwis-conveyor-chains.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
   <!-- ── Industry Pages ── -->
   <url>
-    <loc>https://motionpluscorp.com/steel-industry.html</loc>
-    <lastmod>2026-05-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://motionpluscorp.com/cement-industry.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/cement-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/cement-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/cement-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/cement-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/cement-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/cement-industry.html"/>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://motionpluscorp.com/palm-oil-industry.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/palm-oil-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/palm-oil-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/palm-oil-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/palm-oil-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/palm-oil-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/palm-oil-industry.html"/>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://motionpluscorp.com/sugar-industry.html</loc>
-    <lastmod>2026-05-08</lastmod>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/sugar-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/sugar-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/sugar-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/sugar-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/sugar-industry.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/sugar-industry.html"/>
+    <lastmod>2026-05-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+
+  <!-- ── Brand / Authorised Product Pages ── -->
+  <url>
+    <loc>https://motionpluscorp.com/iwis-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/iwis-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/iwis-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/iwis-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/iwis-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/iwis-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/iwis-chains.html"/>
+    <image:image>
+      <image:loc>https://motionpluscorp.com/brand-logo-iwis.png</image:loc>
+      <image:title>IWIS Roller Chains — Motion Plus Corporation</image:title>
+    </image:image>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/iwis-conveyor-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/iwis-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/iwis-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/iwis-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/iwis-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/iwis-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/iwis-conveyor-chains.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/hs-conveyor-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/hs-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/hs-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/hs-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/hs-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/hs-conveyor-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/hs-conveyor-chains.html"/>
+    <image:image>
+      <image:loc>https://motionpluscorp.com/brand-logo-hs.jpg</image:loc>
+      <image:title>HS Chain — Motion Plus Corporation</image:title>
+    </image:image>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/dongbo-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/dongbo-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/dongbo-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/dongbo-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/dongbo-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/dongbo-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/dongbo-chains.html"/>
+    <image:image>
+      <image:loc>https://motionpluscorp.com/brand-logo-dongbo.jpg</image:loc>
+      <image:title>Dongbo Chain — Motion Plus Corporation</image:title>
+    </image:image>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/kmh-conveyor-pipe.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/kmh-conveyor-pipe.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/kmh-conveyor-pipe.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/kmh-conveyor-pipe.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/kmh-conveyor-pipe.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/kmh-conveyor-pipe.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/kmh-conveyor-pipe.html"/>
+    <image:image>
+      <image:loc>https://motionpluscorp.com/brand-logo-kmh.svg</image:loc>
+      <image:title>KMH Pipe Conveyor — Motion Plus Corporation</image:title>
+    </image:image>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ── MPC House Brand Chains ── -->
+  <url>
+    <loc>https://motionpluscorp.com/uno-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/uno-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/uno-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/uno-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/uno-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/uno-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/uno-chains.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/uno-forged-chain.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/uno-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/uno-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/uno-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/uno-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/uno-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/uno-forged-chain.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/trio-forged-chain.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/trio-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/trio-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/trio-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/trio-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/trio-forged-chain.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/trio-forged-chain.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Industry-Specific Chain Pages ── -->
+  <url>
+    <loc>https://motionpluscorp.com/forged-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/forged-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/forged-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/forged-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/forged-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/forged-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/forged-chains.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/cement-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/cement-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/cement-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/cement-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/cement-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/cement-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/cement-chains.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/palm-oil-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/palm-oil-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/palm-oil-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/palm-oil-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/palm-oil-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/palm-oil-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/palm-oil-chains.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/sugar-mill-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/sugar-mill-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/sugar-mill-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/sugar-mill-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/sugar-mill-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/sugar-mill-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/sugar-mill-chains.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ── Component / Accessory Pages ── -->
+  <url>
+    <loc>https://motionpluscorp.com/sprockets-pulley.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/sprockets-pulley.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/sprockets-pulley.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/sprockets-pulley.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/sprockets-pulley.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/sprockets-pulley.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/sprockets-pulley.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/bearing.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/bearing.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/bearing.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/bearing.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/bearing.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/bearing.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/bearing.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/belt.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/belt.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/belt.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/belt.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/belt.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/belt.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/belt.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/coupling.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/coupling.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/coupling.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/coupling.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/coupling.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/coupling.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/coupling.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/oil-seal.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/oil-seal.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/oil-seal.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/oil-seal.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/oil-seal.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/oil-seal.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/oil-seal.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/pe-1000.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/pe-1000.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/pe-1000.html"/>
+    <xhtml:link rel="alternate" hreflang="km"        href="https://motionpluscorp.com/pe-1000.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/pe-1000.html"/>
+    <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/pe-1000.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/pe-1000.html"/>
+    <lastmod>2026-05-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>
