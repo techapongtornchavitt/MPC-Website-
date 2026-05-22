@@ -774,5 +774,22 @@
     });
   }
 </script>
-</body>
+
+<!-- ── Floating LINE button ── -->
+<a href="https://line.me/ti/p/~Salesco_motion" class="float-line" target="_blank" rel="noopener noreferrer" aria-label="Chat with us on LINE">
+  <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 2C6.48 2 2 5.92 2 10.74c0 2.93 1.62 5.53 4.13 7.22-.18.65-.67 2.36-.77 2.73-.12.46.17.45.36.33.15-.1 2.37-1.56 3.33-2.19.62.09 1.27.14 1.95.14 5.52 0 10-3.92 10-8.74C22 5.92 17.52 2 12 2z"/></svg>
+</a>
+
+<!-- ── Back to top button ── -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', function(){ btn.classList.toggle('btt-visible', window.scrollY > 320); }, { passive: true });
+  btn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+})();
+</script></body>
 </html>
