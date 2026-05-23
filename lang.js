@@ -431,9 +431,11 @@
       'port-cta-btn2': 'Learn About MPC',
       'port-cert-eyebrow':   'Recognition &amp; Trust',
       'port-cert-h2':        'Certifications',
+      'port-cert-1-alt':     'Certificate of Authorization — H.S. Chains Sole &amp; Exclusive Distributor in Thailand',
       'port-cert-1-h3':      'Certificate of Authorization',
       'port-cert-1-p':       'Issued by AnHui HuangShan HengJiu Chain Transmission Co., Ltd — certifying Motion Plus Corporation Co., Ltd as the Sole &amp; Exclusive Distributor and services agent in Thailand for all product types of H.S. Chains.',
       'port-cert-1-badge':   'Certificate No. HSC/COAA/1501',
+      'port-cert-2-alt':     'MPC Award Trophy — Runner-up recognition for outstanding chain product representation',
       'port-cert-2-h3':      'Award of Excellence',
       'port-cert-2-p':       'Runner-up award presented to Motion Plus Corporation Co., Ltd (MPC) in recognition of outstanding performance and dedication in industrial chain products and services in Thailand.',
       'port-cert-2-badge':   'MPC vs SAS — 17 Oct 2015',
@@ -1627,9 +1629,11 @@
       'port-cta-btn2': 'รู้จัก MPC เพิ่มเติม',
       'port-cert-eyebrow':   'การรับรองและความน่าเชื่อถือ',
       'port-cert-h2':        'ใบรับรองและรางวัล',
+      'port-cert-1-alt':     'ใบรับรองการเป็นตัวแทนจำหน่ายแต่เพียงผู้เดียว — โซ่ H.S. ในประเทศไทย',
       'port-cert-1-h3':      'ใบรับรองการเป็นตัวแทนจำหน่าย',
       'port-cert-1-p':       'ออกโดย AnHui HuangShan HengJiu Chain Transmission Co., Ltd — รับรองให้ บริษัท โมชั่น พลัส คอร์ปอเรชั่น จำกัด เป็นตัวแทนจำหน่ายและให้บริการแต่เพียงผู้เดียวในประเทศไทยสำหรับโซ่ H.S. ทุกประเภท',
       'port-cert-1-badge':   'เลขที่ใบรับรอง HSC/COAA/1501',
+      'port-cert-2-alt':     'ถ้วยรางวัล MPC — รางวัลรองชนะเลิศด้านผลิตภัณฑ์โซ่อุตสาหกรรม',
       'port-cert-2-h3':      'รางวัลความเป็นเลิศ',
       'port-cert-2-p':       'รางวัลรองชนะเลิศมอบให้แก่ บริษัท โมชั่น พลัส คอร์ปอเรชั่น จำกัด (MPC) เพื่อยกย่องผลงานและความทุ่มเทด้านสินค้าโซ่อุตสาหกรรมและบริการในประเทศไทย',
       'port-cert-2-badge':   'MPC vs SAS — 17 ต.ค. 2558',
@@ -2737,9 +2741,11 @@
       'port-cta-btn2': 'ស្វែងយល់ About MPC',
       'port-cert-eyebrow':   'ការទទួលស្គាល់ និង ការទុកចិត្ត',
       'port-cert-h2':        'វិញ្ញាបនបត្រ',
+      'port-cert-1-alt':     'វិញ្ញាបនបត្រការអនុញ្ញាត — H.S. Chains នៅប្រទេសថៃ',
       'port-cert-1-h3':      'វិញ្ញាបនបត្រការអនុញ្ញាត',
       'port-cert-1-p':       'ចេញដោយ AnHui HuangShan HengJiu Chain Transmission Co., Ltd — បញ្ជាក់ថា Motion Plus Corporation Co., Ltd ជាអ្នកចែកចាយ និងភ្នាក់ងារសេវាកម្មមានសិទ្ធិ និង ផ្តាច់មុខ នៅប្រទេសថៃ សម្រាប់ H.S. Chains គ្រប់ប្រភេទ',
       'port-cert-1-badge':   'វិញ្ញាបនបត្រលេខ HSC/COAA/1501',
+      'port-cert-2-alt':     'ពានរង្វាន់ MPC — ការទទួលស្គាល់ H.S. Chains',
       'port-cert-2-h3':      'រង្វាន់탁លេច',
       'port-cert-2-p':       'រង្វាន់អ្នកប្រកួតចម្រើន ប្រគល់ជូន Motion Plus Corporation Co., Ltd (MPC) ដើម្បីទទួលស្គាល់ការប្រតិបត្តិ និង ការប្តេជ្ញាចិត្តលើផលិតផល និងសេវាកម្ម ខ្សែច្រង',
       'port-cert-2-badge':   'MPC ទល់ SAS — 17 តុលា 2015',
@@ -3993,9 +3999,11 @@
       'port-cta-eyebrow':   'ຮ່ວມງານກັນ',
       'port-cert-eyebrow':   'ການຮັບຮູ້ ແລະ ຄວາມໜ້າເຊື່ອຖື',
       'port-cert-h2':        'ໃບຢັ້ງຢືນ ແລະ ລາງວັນ',
+      'port-cert-1-alt':     'ໃບຢັ້ງຢືນສິດທິຈຳໜ່າຍ — H.S. Chains ໃນປະເທດໄທ',
       'port-cert-1-h3':      'ໃບຢັ້ງຢືນສິດທິການຈຳໜ່າຍ',
       'port-cert-1-p':       'ອອກໂດຍ AnHui HuangShan HengJiu Chain Transmission Co., Ltd — ຢັ້ງຢືນໃຫ້ Motion Plus Corporation Co., Ltd ເປັນຜູ້ຈຳໜ່າຍ ແລະ ຕົວແທນບໍລິການ ແຕ່ຜູ້ດຽວ ໃນປະເທດໄທ ສຳລັບ H.S. Chains ທຸກປະເພດ',
       'port-cert-1-badge':   'ໃບຢັ້ງຢືນເລກ HSC/COAA/1501',
+      'port-cert-2-alt':     'ຖ້ວຍລາງວັນ MPC — ການຍ້ອງຍໍດ້ານໂສ້ອຸດສາຫະກຳ',
       'port-cert-2-h3':      'ລາງວັນຄວາມເປັນເລີດ',
       'port-cert-2-p':       'ລາງວັນຮອງຊະນະເລີດ ມອບໃຫ້ Motion Plus Corporation Co., Ltd (MPC) ເພື່ອຍ້ອງຍໍຜົນງານ ແລະ ຄວາມທຸ່ມເທດ້ານສິນຄ້າໂສ້ອຸດສາຫະກຳ ແລະ ການບໍລິການ',
       'port-cert-2-badge':   'MPC vs SAS — 17 ຕຸລາ 2015',
@@ -5276,9 +5284,11 @@
       'port-cta-eyebrow':   'ပူးပေါင်းဆောင်ရွက်ရန်',
       'port-cert-eyebrow':   'အသိအမှတ်ပြုခြင်း နှင့် ယုံကြည်မှု',
       'port-cert-h2':        'လက်မှတ်များ နှင့် ဆုများ',
+      'port-cert-1-alt':     'ခွင့်ပြုချက်လက်မှတ် — ထိုင်းနိုင်ငံ H.S. Chains တစ်ဦးတည်းဖြန့်ချိသူ',
       'port-cert-1-h3':      'ခွင့်ပြုချက်လက်မှတ်',
       'port-cert-1-p':       'AnHui HuangShan HengJiu Chain Transmission Co., Ltd မှ ထုတ်ပေး — Motion Plus Corporation Co., Ltd ကို ထိုင်းနိုင်ငံတွင် H.S. Chains အမျိုးအစားအားလုံးအတွက် တစ်ဦးတည်း ဖြန့်ချိသူ နှင့် ဝန်ဆောင်မှုကိုယ်စားလှယ်အဖြစ် အသိအမှတ်ပြု',
       'port-cert-1-badge':   'လက်မှတ်အမှတ် HSC/COAA/1501',
+      'port-cert-2-alt':     'MPC ဆုခွက် — စက်မှုကွင်းဆက်ထုတ်ကုန် ဂုဏ်ပြုဆု',
       'port-cert-2-h3':      'ထူးချွန်သောဆု',
       'port-cert-2-p':       'Motion Plus Corporation Co., Ltd (MPC) ၏ စက်မှုကွင်းဆက်ထုတ်ကုန် နှင့် ဝန်ဆောင်မှုတွင် ထူးချွန်သောကြိုးစားအားထုတ်မှုကို ဂုဏ်ပြုသောဒုတိယဆု',
       'port-cert-2-badge':   'MPC vs SAS — ၂၀၁၅ ဒုတိယ',
@@ -6291,6 +6301,17 @@
         el.innerHTML = T[lang][key];
       } else if (lang !== 'en' && T['en'] && T['en'][key] !== undefined) {
         el.innerHTML = T['en'][key];
+      }
+    }
+    /* 1b. Translate data-i18n-alt attributes (image alt text) */
+    var altEls = document.querySelectorAll('[data-i18n-alt]');
+    for (var j = 0; j < altEls.length; j++) {
+      var altEl  = altEls[j];
+      var altKey = altEl.getAttribute('data-i18n-alt');
+      if (T[lang] && T[lang][altKey] !== undefined) {
+        altEl.setAttribute('alt', T[lang][altKey]);
+      } else if (lang !== 'en' && T['en'] && T['en'][altKey] !== undefined) {
+        altEl.setAttribute('alt', T['en'][altKey]);
       }
     }
     /* 2. Update lang-selector button: swap the fi-XX country class on the flag span */
