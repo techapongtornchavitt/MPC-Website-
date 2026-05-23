@@ -1297,12 +1297,12 @@
     ============================================================ */
     .port-strip-section {
       background: var(--color-dark);
-      padding: 5rem 0;
+      padding: 3rem 0 2.5rem;
       overflow: hidden;
     }
     .port-strip-hdr {
       text-align: center;
-      margin-bottom: 2.75rem;
+      margin-bottom: 1.75rem;
       padding: 0 1.5rem;
     }
     .port-strip-hdr .section-eyebrow {
@@ -1311,9 +1311,9 @@
     }
     .port-strip-hdr h2 {
       color: #fff;
-      font-size: clamp(1.65rem, 3.5vw, 2.6rem);
+      font-size: clamp(1.3rem, 2.8vw, 2rem);
       font-weight: 800;
-      margin: .5rem 0 0;
+      margin: .4rem 0 0;
       letter-spacing: -.02em;
     }
     .port-strip-hdr h2 span {
@@ -1325,7 +1325,7 @@
     }
     .port-strip-track {
       display: flex;
-      gap: 1rem;
+      gap: .75rem;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
       -webkit-overflow-scrolling: touch;
@@ -1337,7 +1337,7 @@
     .port-strip-track.dragging { cursor: grabbing; }
     .port-strip-item {
       flex: 0 0 auto;
-      width: clamp(260px, 30vw, 420px);
+      width: clamp(200px, 22vw, 300px);
       aspect-ratio: 4/3;
       border-radius: var(--radius-md, 12px);
       overflow: hidden;
@@ -1363,7 +1363,7 @@
       display: flex;
       justify-content: center;
       gap: .75rem;
-      margin-top: 2rem;
+      margin-top: 1.25rem;
       padding: 0 1.5rem;
     }
     .port-strip-btn {
@@ -1390,7 +1390,7 @@
     /* cta link */
     .port-strip-cta {
       text-align: center;
-      margin-top: 2.5rem;
+      margin-top: 1.5rem;
     }
     .port-strip-cta a {
       display: inline-flex;
@@ -3299,6 +3299,15 @@
 
   <div class="port-strip-track-wrap">
     <div class="port-strip-track" id="portStripTrack">
+      <div class="port-strip-item">
+        <img src="Portfolio experience.jpg"  alt="MPC Field Service — Chain Inspection"   loading="eager" decoding="async">
+      </div>
+      <div class="port-strip-item">
+        <img src="Portfolio experience 1.jpg" alt="MPC Field Service — Precision Measurement" loading="eager" decoding="async">
+      </div>
+      <div class="port-strip-item">
+        <img src="Portfolio experience 2.jpg" alt="MPC Field Service — Conveyor Installation" loading="eager" decoding="async">
+      </div>
       <div class="port-strip-item">
         <img src="mpc-portfolio-3.jpg"   alt="Palm Oil Industry Chain Installation"  loading="lazy" decoding="async">
       </div>
