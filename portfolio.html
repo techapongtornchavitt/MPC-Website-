@@ -302,6 +302,83 @@
       }
       .pglb-stage { padding: 3rem 2.75rem; }
     }
+
+    /* =====================================================
+       CERTIFICATIONS SECTION
+    ===================================================== */
+    .cert-section {
+      background: #f8f9fb;
+      padding: var(--space-2xl, 5rem) 0;
+    }
+    .cert-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .cert-card {
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,.08);
+      transition: transform .3s ease, box-shadow .3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .cert-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,61,122,.12);
+    }
+    .cert-img-wrap {
+      background: #f0f2f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.75rem;
+    }
+    .cert-img-wrap img {
+      max-height: 340px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 4px 16px rgba(0,0,0,.15);
+    }
+    .cert-info {
+      padding: 1.5rem 1.75rem 2rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .cert-info h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--color-dark-navy, #001f4d);
+      margin: 0;
+    }
+    .cert-info p {
+      font-size: .9rem;
+      color: #555;
+      line-height: 1.65;
+      margin: 0;
+    }
+    .cert-badge {
+      display: inline-block;
+      margin-top: .5rem;
+      padding: .3rem .75rem;
+      background: var(--color-primary, #0056a4);
+      color: #fff;
+      font-size: .75rem;
+      font-weight: 600;
+      border-radius: 20px;
+      letter-spacing: .04em;
+      align-self: flex-start;
+    }
+    @media (max-width: 700px) {
+      .cert-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 
@@ -611,6 +688,38 @@
         </button>
         <span class="pglb-counter" id="pglb-counter">1 / 29</span>
         <div class="pglb-dots pglb-dots-hidden" id="pglb-dots"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CERTIFICATIONS ============ -->
+<section class="cert-section reveal">
+  <div class="container">
+    <div class="section-header" style="margin-bottom:var(--space-lg);">
+      <span class="section-eyebrow">Recognition &amp; Trust</span>
+      <h2>Certifications</h2>
+    </div>
+    <div class="cert-grid">
+      <div class="cert-card">
+        <div class="cert-img-wrap">
+          <img src="cert-1.jpg" alt="Certificate of Authorization — H.S. Chains Sole &amp; Exclusive Distributor in Thailand" loading="lazy" decoding="async">
+        </div>
+        <div class="cert-info">
+          <h3>Certificate of Authorization</h3>
+          <p>Issued by AnHui HuangShan HengJiu Chain Transmission Co., Ltd — certifying Motion Plus Corporation Co., Ltd as the Sole &amp; Exclusive Distributor and services agent in Thailand for all product types of H.S. Chains.</p>
+          <span class="cert-badge">Certificate No. HSC/COAA/1501</span>
+        </div>
+      </div>
+      <div class="cert-card">
+        <div class="cert-img-wrap">
+          <img src="cert-2.jpg" alt="MPC Award Trophy — Runner-up recognition for outstanding chain product representation" loading="lazy" decoding="async">
+        </div>
+        <div class="cert-info">
+          <h3>Award of Excellence</h3>
+          <p>Runner-up award presented to Motion Plus Corporation Co., Ltd (MPC) in recognition of outstanding performance and dedication in industrial chain products and services in Thailand.</p>
+          <span class="cert-badge">MPC vs SAS — 17 Oct 2015</span>
+        </div>
       </div>
     </div>
   </div>
