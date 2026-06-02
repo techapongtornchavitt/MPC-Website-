@@ -281,7 +281,6 @@
       'trio-h1':         'Forged Chain <em>TRIO</em>',
       'trio-sub':        'Pitch 102 mm &nbsp;|&nbsp; Steel Mill · Cement Plant · Animal Feed Mill',
       'trio-overview-h2':'Forged Chain TRIO',
-      'trio-brand-tag':      'TRIO · โซ่เหล็กหลอม',
       'trio-brand-tag':      'TRIO · Forged Chain',
       'trio-desc-sub':   'Heavy-duty forged chain for steel mills, cement plants and animal feed mills',
 
@@ -290,7 +289,6 @@
       'unof-h1':         'Forged Chain <em>UNO</em>',
       'unof-sub':        'Pitch 142 mm &nbsp;|&nbsp; Steel Mill · Cement Plant · Animal Feed Mill',
       'unof-overview-h2':'Forged Chain UNO',
-      'unof-brand-tag':      'UNO · โซ่เหล็กหลอม',
       'unof-brand-tag':      'UNO · Forged Chain',
       'unof-desc-sub':   'Extra-heavy-duty forged chain for steel mills, cement plants and animal feed mills',
 
@@ -1229,6 +1227,30 @@
       'cem-cat-h2':            'Cement Industry',
       'sug-cat-h2':            'Sugar Industry',
       'palm-cat-h2':           'Palm Oil Industry',
+
+      /* ---------- Products page filter tabs ---------- */
+      'prod-tab-all':          'All Products',
+      'prod-tab-roller':       'Roller Chains',
+      'prod-tab-conveyor':     'Conveyor Chains',
+      'prod-tab-forged':       'Forged Chains',
+      'prod-tab-industry':     'Industry-Specific',
+      'prod-tab-components':   'Components &amp; Others',
+      'prod-cat-comp-title':   'Sprockets, Components &amp; Others',
+      'prod-cat-comp-count':   '7 product types',
+      'prod-cta-not-found-h':  'Can\'t find what you need?',
+      'prod-cta-not-found-p':  'Contact our engineers for custom products, specifications, or a quotation.',
+
+      /* ---------- Industry pages shared ---------- */
+      'ind-bc-industries':     'Industries',
+      'ind-btn-view-all':      'View All Products',
+      'ind-get-quote':         'Get a Quote',
+      'ind-cta-email':         'Email Us &rarr;',
+      'ind-cta-hours':         '&#128222; <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; Mon–Sat 8:30–17:00',
+
+      /* ---------- Homepage portfolio strip ---------- */
+      'port-strip-eyebrow':    'Our Work in the Field',
+      'port-strip-h2':         'More than <span>20 years</span> of experience',
+      'port-strip-cta':        'View full portfolio',
     },
 
     /* ============================================================
@@ -1247,13 +1269,13 @@
       'nav-ind-palm':       'อุตสาหกรรมปาล์มน้ำมัน',
       'nav-portfolio':      'ผลงาน',
       'nav-products':       'สินค้าของเรา',
-      'nav-resources':      'ดาวน์โหลด',
+      'nav-resources':      'แหล่งข้อมูล',
       'nav-contact':        'ติดต่อเรา',
       'nav-quote':          'ขอใบเสนอราคา',
       'btn-email':          'ส่งอีเมลหาเรา',
       'back-to-products':   'กลับไปยังสินค้า',
       'footer-about-text':  'ตัวแทนจำหน่ายอย่างเป็นทางการพร้อมบริการหลังการขายสำหรับโซ่อุตสาหกรรมทั่วเอเชียตะวันออกเฉียงใต้ มาตรฐานวิศวกรรมระดับโลก',
-      'footer-solutions-h': 'ผลิตภัณฑ์',
+      'footer-solutions-h': 'โซลูชันของเรา',
       'footer-roller':      'โซ่ลูกกลิ้ง',
       'footer-conveyor':    'โซ่ลำเลียง',
       'footer-escalator':   'โซ่บันไดเลื่อน',
@@ -1326,7 +1348,7 @@
       'promise-p':      'เราคัดสรรสินค้าอย่างเข้มงวดและดูแลบริการหลังการขายอย่างใกล้ชิด ประสานงานกับผู้ผลิตโดยตรงเพื่อแก้ปัญหาได้รวดเร็ว โดยไม่ต้องรอวิศวกรจากต่างประเทศ',
       'promise-btn':    'รู้จัก MPC เพิ่มเติม',
       'enq-eyebrow':    'ติดต่อเรา',
-      'enq-h2':         'ต้องการอัพเกรดระบบโซ่ของโรงงาน?',
+      'enq-h2':         'พร้อมยกระดับระบบโซ่อุตสาหกรรมของท่านแล้วหรือยัง?',
       'enq-p':          'ส่งอีเมลหรือโทรหาเราได้เลย &mdash; ทีมงานตอบกลับภายในหนึ่งวันทำการ',
       'enq-email':      'ส่งอีเมลหาเรา →',
       'enq-call':       'โทร 02 286-5656',
@@ -1384,7 +1406,7 @@
       'dbo-hbadge2':        'ประสบการณ์กว่า 45 ปีจากเกาหลี',
       'dbo-hbadge3':        'เดี่ยว / คู่ / สาม',
       'dbo-hbadge4':        'ครอบคลุมหลายอุตสาหกรรม',
-      'dbo-prod-h2':        'โซ่ลำเลียงระยะพิทช์เล็ก',
+      'dbo-prod-h2':        'โซ่ลูกกลิ้งมาตรฐาน ANSI',
       'dbo-cbadge1':        'ANSI',
       'dbo-cbadge2':        'KS B 1407',
       'dbo-cbadge3':        'ISO 606',
@@ -1502,7 +1524,6 @@
       'trio-sub':        'ระยะพิทช์ 102 มม. &nbsp;|&nbsp; โรงงานเหล็ก · โรงซีเมนต์ · โรงงานอาหารสัตว์',
       'trio-overview-h2':'Forged Chain TRIO',
       'trio-brand-tag':      'TRIO · โซ่เหล็กหล่อ',
-      'trio-brand-tag':      'TRIO · Forged Chain',
       'trio-desc-sub':   'โซ่เหล็กหล่องานหนัก สำหรับโรงงานเหล็ก โรงซีเมนต์ และโรงงานอาหารสัตว์',
 
       /* ---------- UNO Forged Chain page (TH) ---------- */
@@ -1511,7 +1532,6 @@
       'unof-sub':        'ระยะพิทช์ 142 มม. &nbsp;|&nbsp; โรงงานเหล็ก · โรงซีเมนต์ · โรงงานอาหารสัตว์',
       'unof-overview-h2':'Forged Chain UNO',
       'unof-brand-tag':      'UNO · โซ่เหล็กหล่อ',
-      'unof-brand-tag':      'UNO · Forged Chain',
       'unof-desc-sub':   'โซ่เหล็กหล่องานหนักพิเศษ สำหรับโรงงานเหล็ก โรงซีเมนต์ และโรงงานอาหารสัตว์',
 
       /* ---------- Footer LINE label (TH) ---------- */
@@ -1533,7 +1553,7 @@
       'abt-phil-h3':        'ปรัชญาบริษัท',
       'abt-phil-p':         'เรารับประกันคุณภาพสินค้าด้วยความมุ่งมั่นระยะยาวและบริการที่เชื่อถือได้ในรูปแบบ TEAMWORKS ทั้งบุคลากรในประเทศและต่างประเทศ เพื่อให้ลูกค้าพึงพอใจสูงสุด (TOTAL CUSTOMER SATISFACTIONS)',
       'abt-commit-h3':      'ความมุ่งมั่นของเรา',
-      'abt-commit-p':       'เพื่อให้มั่นใจในคุณภาพสินค้าและบริการ เราพร้อมนำวิศวกรทั้งในและต่างประเทศเข้าให้คำปรึกษา แก้ปัญหา และเยี่ยมสถานที่ลูกค้าเป็นระยะ โดยไม่มีค่าใช้จ่ายเพิ่มเติม ตามนโยบาย Value Added ของบริษัท',
+      'abt-commit-p':       'เพื่อให้มั่นใจในคุณภาพสินค้าและบริการ เราดูแลลูกค้าอย่างใกล้ชิดโดยประสานงานโดยตรงกับผู้ผลิตและซัพพลายเออร์ เพื่อให้ปัญหาทุกข้อได้รับการแก้ไขอย่างรวดเร็วและมีประสิทธิภาพ ลูกค้าไม่จำเป็นต้องติดต่อกับผู้ผลิตในต่างประเทศโดยตรง — เราดำเนินการทั้งหมดแทนท่าน',
       'abt-exp-h3':         'ประสบการณ์ &amp; ข้อมูลบริษัท',
       'abt-as-eyebrow':     'บริการหลังการขาย',
       'abt-as-h2':          'บริการหลังการขายที่ไว้วางใจได้',
@@ -1987,7 +2007,7 @@
 
       /* Footer badges */
       'footer-badge-iso':  'ISO',
-      'footer-badge-auth': 'ได้รับอนุญาต',
+      'footer-badge-auth': 'ตัวแทนอย่างเป็นทางการ',
       'footer-badge-sea':  'SEA',
 
       /* ===== SHARED INDUSTRY PAGE KEYS ===== */
@@ -2220,6 +2240,30 @@
       'cem-cat-h2':            'อุตสาหกรรมปูนซีเมนต์',
       'sug-cat-h2':            'อุตสาหกรรมน้ำตาล',
       'palm-cat-h2':           'อุตสาหกรรมปาล์มน้ำมัน',
+
+      /* ---------- Products page filter tabs (TH) ---------- */
+      'prod-tab-all':          'สินค้าทั้งหมด',
+      'prod-tab-roller':       'โซ่ลูกกลิ้ง',
+      'prod-tab-conveyor':     'โซ่ลำเลียง',
+      'prod-tab-forged':       'โซ่หล่อ',
+      'prod-tab-industry':     'เฉพาะอุตสาหกรรม',
+      'prod-tab-components':   'ชิ้นส่วน &amp; อื่นๆ',
+      'prod-cat-comp-title':   'สเปรกเกต, ชิ้นส่วน &amp; อื่นๆ',
+      'prod-cat-comp-count':   '7 ประเภทสินค้า',
+      'prod-cta-not-found-h':  'หาสินค้าที่ต้องการไม่เจอ?',
+      'prod-cta-not-found-p':  'ติดต่อทีมวิศวกรของเราสำหรับสินค้าตามสั่ง ข้อมูลจำเพาะ หรือใบเสนอราคา',
+
+      /* ---------- Industry pages shared (TH) ---------- */
+      'ind-bc-industries':     'อุตสาหกรรม',
+      'ind-btn-view-all':      'ดูสินค้าทั้งหมด',
+      'ind-get-quote':         'ขอใบเสนอราคา',
+      'ind-cta-email':         'อีเมลหาเรา &rarr;',
+      'ind-cta-hours':         '&#128222; <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; จ.–ส. 8:30–17:00',
+
+      /* ---------- Homepage portfolio strip (TH) ---------- */
+      'port-strip-eyebrow':    'ผลงานของเราในสนาม',
+      'port-strip-h2':         'ประสบการณ์กว่า <span>20 ปี</span>',
+      'port-strip-cta':        'ดูผลงานทั้งหมด',
 
       /* ===== CONTACT FORM ===== */
       'cont-line-eyebrow':      'ติดต่อด่วน',
@@ -2739,6 +2783,9 @@
       'port-cta-p':    'ប្រាប់យើងអំពីការប្រើប្រាស់ ហើយក្រុមការងាររបស់យើងនឹងណែនាំដំណោះស្រាយខ្សែច្រងត្រឹមត្រូវ',
       'port-cta-btn1': 'ចាប់ផ្ដើមការសន្ទនា',
       'port-cta-btn2': 'ស្វែងយល់ About MPC',
+      'port-strip-eyebrow':  'ការងាររបស់យើងនៅតំបន់',
+      'port-strip-h2':       'បទពិសោធន៍ជាង <span>20 ឆ្នាំ</span>',
+      'port-strip-cta':      'មើលផលងានទាំងអស់',
       'port-cert-eyebrow':   'ការទទួលស្គាល់ និង ការទុកចិត្ត',
       'port-cert-h2':        'វិញ្ញាបនបត្រ',
       'port-cert-1-alt':     'វិញ្ញាបនបត្រការអនុញ្ញាត — H.S. Chains នៅប្រទេសថៃ',
@@ -3997,6 +4044,9 @@
       'port-cta-btn1': 'ເລີ່ມການສົນທະນາ',
       'port-cta-btn2': 'ຮຽນຮູ້ກ່ຽວກັບ MPC',
       'port-cta-eyebrow':   'ຮ່ວມງານກັນ',
+      'port-strip-eyebrow':  'ຜົນງານຂອງເຮົາໃນສະໜາມ',
+      'port-strip-h2':       'ປະສົບການກວ່າ <span>20 ປີ</span>',
+      'port-strip-cta':      'ເບິ່ງຜົນງານທັງໝົດ',
       'port-cert-eyebrow':   'ການຮັບຮູ້ ແລະ ຄວາມໜ້າເຊື່ອຖື',
       'port-cert-h2':        'ໃບຢັ້ງຢືນ ແລະ ລາງວັນ',
       'port-cert-1-alt':     'ໃບຢັ້ງຢືນສິດທິຈຳໜ່າຍ — H.S. Chains ໃນປະເທດໄທ',
@@ -5282,6 +5332,9 @@
       'port-cta-btn1': 'ဆွေးနွေးမှု စတင်ရန်',
       'port-cta-btn2': 'MPC နှင့်ပတ်သတ်၍',
       'port-cta-eyebrow':   'ပူးပေါင်းဆောင်ရွက်ရန်',
+      'port-strip-eyebrow':  'လုပ်ငန်းခွင်မှ ကျွန်ုပ်တို့၏ လုပ်ငန်းများ',
+      'port-strip-h2':       'အတွေ့အကြုံ နှစ် <span>၂၀</span> ကျော်',
+      'port-strip-cta':      'လုပ်ငန်းမှတ်တမ်း အားလုံးကြည့်ရန်',
       'port-cert-eyebrow':   'အသိအမှတ်ပြုခြင်း နှင့် ယုံကြည်မှု',
       'port-cert-h2':        'လက်မှတ်များ နှင့် ဆုများ',
       'port-cert-1-alt':     'ခွင့်ပြုချက်လက်မှတ် — ထိုင်းနိုင်ငံ H.S. Chains တစ်ဦးတည်းဖြန့်ချိသူ',
