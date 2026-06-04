@@ -54,7 +54,7 @@
       'footer-sat':         'Saturday',
       'footer-hours-wkday': '8:30 AM – 5:00 PM',
       'footer-hours-sat':   '9:00 AM – 3:00 PM',
-      'footer-copyright':   '&copy; 2026 Motion Plus Corporation. All rights reserved.',
+      'footer-copyright':   '&copy; 2026 Motion Plus Corporation Co., Ltd. All rights reserved.',
       'footer-copy':        '&copy; 2026 Motion Plus Corporation Co., Ltd. All rights reserved.',
       'footer-privacy':     'Privacy Policy',
       'footer-terms':       'Terms of Service',
@@ -1330,7 +1330,7 @@
       'ind-btn-view-all':      'View All Products',
       'ind-get-quote':         'Get a Quote',
       'ind-cta-email':         'Email Us &rarr;',
-      'ind-cta-hours':         '&#128222; <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; Mon–Sat 8:30–17:00',
+      'ind-cta-hours':         '&#128222; <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; Mon–Fri 8:30–17:00 &nbsp;·&nbsp; Sat 9:00–15:00',
 
       /* ---------- Homepage portfolio strip ---------- */
       'port-strip-eyebrow':    'Our Work in the Field',
@@ -2114,7 +2114,7 @@
       'ind-enquire-now':     'สอบถามราคา',
       'ind-get-quote':       'ขอใบเสนอราคา',
       'ind-cta-email':       'อีเมลหาเรา →',
-      'ind-cta-hours':       '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; จ.–เสาร์ 8:30–17:00',
+      'ind-cta-hours':       '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; จ.–ศ. 8:30–17:00 &nbsp;·&nbsp; ส. 9:00–15:00',
       'ind-view-hs':         'ดู HS Chain',
       'ind-view-iwis':       'ดูสินค้า IWIS',
 
@@ -2343,7 +2343,7 @@
       'ind-btn-view-all':      'ดูสินค้าทั้งหมด',
       'ind-get-quote':         'ขอใบเสนอราคา',
       'ind-cta-email':         'อีเมลหาเรา &rarr;',
-      'ind-cta-hours':         '&#128222; <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; จ.–ส. 8:30–17:00',
+      'ind-cta-hours':         '&#128222; <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; จ.–ศ. 8:30–17:00 &nbsp;·&nbsp; ส. 9:00–15:00',
 
       /* ---------- Homepage portfolio strip (TH) ---------- */
       'port-strip-eyebrow':    'ผลงานของเราในสนาม',
@@ -2799,7 +2799,7 @@
       'footer-sat':         'សៅរ៍',
       'footer-hours-wkday': '8:30 – 17:00',
       'footer-hours-sat':   '9:00 – 15:00',
-      'footer-copyright':   '&copy; 2026 Motion Plus Corporation. រក្សាសិទ្ធិគ្រប់យ៉ាង',
+      'footer-copyright':   '&copy; 2026 Motion Plus Corporation Co., Ltd. រក្សាសិទ្ធិគ្រប់យ៉ាង',
       'footer-copy':        '&copy; 2026 Motion Plus Corporation Co., Ltd. រក្សាសិទ្ធិគ្រប់យ៉ាង',
       'footer-privacy':     'គោលការណ៍ភាពឯកជន',
       'footer-terms':       'លក្ខខណ្ឌសេវា',
@@ -3513,7 +3513,7 @@
 
       /* ---------- enquiry quote button ---------- */
       'enq-quote': 'សុំតម្លៃ',
-      'ind-cta-hours': '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; ច.–សៅរ៍ 8:30am–5pm',
+      'ind-cta-hours': '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; ច.–សុ. 8:30–17:00 &nbsp;·&nbsp; សៅរ៍ 9:00–15:00',
 
       /* ---------- Products page filter tabs & CTA ---------- */
       'prod-tab-all':        'ផលិតផលទាំងអស់',
@@ -4135,7 +4135,7 @@
       'footer-sat':         'ເສົາ',
       'footer-hours-wkday': '8:30 – 17:00',
       'footer-hours-sat':   '9:00 – 15:00',
-      'footer-copyright':   '&copy; 2026 Motion Plus Corporation. ສະຫງວນລິຂະສິດ',
+      'footer-copyright':   '&copy; 2026 Motion Plus Corporation Co., Ltd. ສະຫງວນລິຂະສິດ',
       'footer-copy':        '&copy; 2026 Motion Plus Corporation Co., Ltd. ສະຫງວນລິຂະສິດ',
       'footer-privacy':     'ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ',
       'footer-terms':       'ເງື່ອນໄຂການບໍລິການ',
@@ -5030,7 +5030,7 @@
       'prod-cta-not-found-p':'ຕິດຕໍ່ທີມ Technical ສຳລັບ Custom Solutions, Spec ຫຼື ລາຄາ.',
       'ind-btn-view-all':    'ເບິ່ງສິນຄ້າທັງໝົດ',
       'ind-bc-industries':   'ອຸດສາຫະກຳ',
-      'ind-cta-hours':       '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; ຈ.–ສ. 8:30–17:00',
+      'ind-cta-hours':       '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; ຈ.–ສ. 8:30–17:00 &nbsp;·&nbsp; ເສົາ 9:00–15:00',
       'ind-get-quote':       'ຂໍລາຄາ',
       'ind-cta-email':       'ສົ່ງອີເມວ →',
 
@@ -5503,7 +5503,7 @@
       'footer-sat':         'စနေ',
       'footer-hours-wkday': '8:30 – 17:00',
       'footer-hours-sat':   '9:00 – 15:00',
-      'footer-copyright':   '&copy; 2026 Motion Plus Corporation. မူပိုင်ခွင့်များ ရယူထားသည်',
+      'footer-copyright':   '&copy; 2026 Motion Plus Corporation Co., Ltd. မူပိုင်ခွင့်များ ရယူထားသည်',
       'footer-copy':        '&copy; 2026 Motion Plus Corporation Co., Ltd. မူပိုင်ခွင့်များ ရယူထားသည်',
       'footer-privacy':     'ကိုယ်ရေးကိုယ်တာမူဝါဒ',
       'footer-terms':       'ဝန်ဆောင်မှုသတ်မှတ်ချက်များ',
@@ -6737,7 +6737,7 @@
       'ind-bc-industries':      'လုပ်ငန်းများ',
       'ind-btn-view-all':       'ထုတ်ကုန်အားလုံးကြည့်ရန်',
       'ind-cta-email':          'အီးမေးပို့ပါ →',
-      'ind-cta-hours':          '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; တ.–စ. 8:30–17:00',
+      'ind-cta-hours':          '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; တ.–သ. 8:30–17:00 &nbsp;·&nbsp; စနေ 9:00–15:00',
       'ind-get-quote':          'ကိုးကားစျေးနှုန်းတောင်းရန်',
       'iwis-cv-pg-overview-h2': 'IWIS Conveyor Chains',
       'iwis-rl-overview-h2':    'Iwis Roller Chains',
