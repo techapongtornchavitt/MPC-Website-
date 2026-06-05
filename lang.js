@@ -884,7 +884,7 @@
       'faq-a4': 'We deliver across <strong>all of Thailand</strong>, with express logistics from our Bangkok warehouse. We also serve customers throughout Southeast Asia including Myanmar, Laos, Cambodia, Vietnam, and the broader ASEAN region. Contact us for export pricing and lead times.',
       'faq-a5': 'Our technical team selects the right chain based on your application parameters: load capacity, operating speed, temperature range, chemical exposure, and lubrication conditions. Share your existing chain number, equipment model, or operating conditions with us and we\'ll recommend the optimal solution &mdash; free of charge.',
       'faq-a6': 'MPC supplies chains to international standards including ANSI B29.1, ISO 606, DIN 8187/8188, and JIS B1801. Our range covers pitches from 6.35mm (1/4") up to 102mm heavy forged chains, in single, double, and triple strand configurations. We also supply metric and non-standard chains on request.',
-      'faq-a7': 'For standard supply items, we typically respond within <strong>one business day</strong>. For custom or imported products, allow 2–3 business days for a detailed quotation including lead time. Contact us by email at contact@motionpluscorp.com or call <a href="tel:022865656">02 286-5656</a>.',
+      'faq-a7': 'For standard supply items, we typically respond within <strong>one business day</strong>. For custom or imported products, allow 2–3 business days for a detailed quotation including lead time. Contact us by email at contact@motionpluscorp.com or call <a href="tel:+6622865656">02 286-5656</a>.',
       'faq-a8': 'Yes. We supply food-grade compliant chains for palm oil processing, sugar refining, and other food industry applications. These chains use food-safe lubricants, stainless steel pins and plates, and materials that meet hygienic handling requirements. Ask our team for food-grade specification sheets.',
 
       /* ---------- Shared catalog / CTA keys (all product pages) ---------- */
@@ -1332,7 +1332,7 @@
       'ind-btn-view-all':      'View All Products',
       'ind-get-quote':         'Get a Quote',
       'ind-cta-email':         'Email Us &rarr;',
-      'ind-cta-hours':         '&#128222; <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; Mon–Fri 8:30–17:00 &nbsp;·&nbsp; Sat 9:00–15:00',
+      'ind-cta-hours':         '&#128222; <a href="tel:+6622865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; Mon–Fri 8:30–17:00 &nbsp;·&nbsp; Sat 9:00–15:00',
 
       /* ---------- Homepage portfolio strip ---------- */
       'port-strip-eyebrow':    'Our Work in the Field',
@@ -2116,7 +2116,7 @@
       'ind-enquire-now':     'สอบถามราคา',
       'ind-get-quote':       'ขอใบเสนอราคา',
       'ind-cta-email':       'อีเมลหาเรา →',
-      'ind-cta-hours':       '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; จ.–ศ. 8:30–17:00 &nbsp;·&nbsp; ส. 9:00–15:00',
+      'ind-cta-hours':       '📞 <a href="tel:+6622865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; จ.–ศ. 8:30–17:00 &nbsp;·&nbsp; ส. 9:00–15:00',
       'ind-view-hs':         'ดู HS Chain',
       'ind-view-iwis':       'ดูสินค้า IWIS',
 
@@ -2345,7 +2345,7 @@
       'ind-btn-view-all':      'ดูสินค้าทั้งหมด',
       'ind-get-quote':         'ขอใบเสนอราคา',
       'ind-cta-email':         'อีเมลหาเรา &rarr;',
-      'ind-cta-hours':         '&#128222; <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; จ.–ศ. 8:30–17:00 &nbsp;·&nbsp; ส. 9:00–15:00',
+      'ind-cta-hours':         '&#128222; <a href="tel:+6622865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;&middot;&nbsp; จ.–ศ. 8:30–17:00 &nbsp;·&nbsp; ส. 9:00–15:00',
 
       /* ---------- Homepage portfolio strip (TH) ---------- */
       'port-strip-eyebrow':    'ผลงานของเราในสนาม',
@@ -2422,7 +2422,7 @@
       'faq-a4': 'เราจัดส่งทั่ว<strong>ประเทศไทย</strong> จากคลังสินค้ากรุงเทพฯ และยังให้บริการลูกค้าทั่วเอเชียตะวันออกเฉียงใต้ ทั้งเมียนมา ลาว กัมพูชา เวียดนาม และภูมิภาค ASEAN ติดต่อเราสำหรับราคาส่งออกและระยะเวลาจัดส่ง',
       'faq-a5': 'ทีมเทคนิคของเราคัดเลือกโซ่ตามพารามิเตอร์จริงของงาน: โหลดรับน้ำหนัก ความเร็วใช้งาน ช่วงอุณหภูมิ การสัมผัสสารเคมี และสภาพการหล่อลื่น เพียงแจ้งหมายเลขโซ่เดิม รุ่นอุปกรณ์ หรือเงื่อนไขการทำงาน เราจะแนะนำที่เหมาะสมที่สุด &mdash; ไม่มีค่าใช้จ่าย',
       'faq-a6': 'MPC จัดหาโซ่ตามมาตรฐานสากล ได้แก่ ANSI B29.1, ISO 606, DIN 8187/8188 และ JIS B1801 ครอบคลุมพิตช์ตั้งแต่ 6.35 มม. (1/4") ถึงโซ่เหล็กหล่อหนัก 102 มม. ทั้งแบบเส้นเดียว คู่ และสามเส้น รวมถึงโซ่มาตรฐานเมตริกและโซ่พิเศษตามสั่ง',
-      'faq-a7': 'สำหรับสินค้ามาตรฐาน เราตอบกลับภายใน<strong>หนึ่งวันทำการ</strong> สำหรับสินค้าพิเศษหรือนำเข้า ใช้เวลา 2–3 วันทำการสำหรับใบเสนอราคาโดยละเอียดรวมถึงระยะเวลานำ ติดต่อทางอีเมล contact@motionpluscorp.com หรือโทร <a href="tel:022865656">02 286-5656</a>',
+      'faq-a7': 'สำหรับสินค้ามาตรฐาน เราตอบกลับภายใน<strong>หนึ่งวันทำการ</strong> สำหรับสินค้าพิเศษหรือนำเข้า ใช้เวลา 2–3 วันทำการสำหรับใบเสนอราคาโดยละเอียดรวมถึงระยะเวลานำ ติดต่อทางอีเมล contact@motionpluscorp.com หรือโทร <a href="tel:+6622865656">02 286-5656</a>',
       'faq-a8': 'มีครับ เราจัดหาโซ่เกรดอาหารสำหรับการแปรรูปปาล์มน้ำมัน การกลั่นน้ำตาล และงานอุตสาหกรรมอาหารอื่นๆ โซ่เหล่านี้ใช้สารหล่อลื่นปลอดภัยสำหรับอาหาร หมุดและแผ่นสแตนเลส และวัสดุที่รองรับมาตรฐานสุขอนามัย ขอแผ่นข้อมูลจำเพาะเกรดอาหารได้จากทีมของเรา',
 
       /* ---------- Shared catalog / CTA keys (product pages) ---------- */
@@ -3355,7 +3355,7 @@
       'faq-a4': 'យើងដឹកជញ្ជូនទូទាំង <strong>ប្រទេសថៃ</strong> ហើយក៏បម្រើអតិថិជននៅទូទាំងអាស៊ីអាគ្នេយ៍ ដូចជា ម្យ៉ាន់ម៉ា ឡាវ កម្ពុជា វៀតណាម និង ASEAN',
       'faq-a5': 'ក្រុមបច្ចេកទេសរបស់យើងជ្រើសខ្សែច្រងត្រឹមត្រូវ ដោយផ្អែកលើ: Load Capacity, Operating Speed, Temperature Range, Chemical Exposure &mdash; ដោយឥតគិតថ្លៃ',
       'faq-a6': 'MPC ផ្ដល់ខ្សែច្រងតាមមាតចំណាត់ ANSI B29.1, ISO 606, DIN 8187/8188 និង JIS B1801',
-      'faq-a7': 'សម្រាប់ Standard Items យើងឆ្លើយតបក្នុង <strong>ថ្ងៃធ្វើការមួយ</strong>។ ទំនាក់ទំនង contact@motionpluscorp.com ឬ <a href="tel:022865656">02 286-5656</a>',
+      'faq-a7': 'សម្រាប់ Standard Items យើងឆ្លើយតបក្នុង <strong>ថ្ងៃធ្វើការមួយ</strong>។ ទំនាក់ទំនង contact@motionpluscorp.com ឬ <a href="tel:+6622865656">02 286-5656</a>',
       'faq-a8': 'បាទ/ចាស យើងផ្ដល់ Food-Grade ខ្សែច្រងសម្រាប់ការផលិតប្រេងចំការ ការបន្ថុំស្ករ និង Food Industry ផ្សេងៗ ដោយប្រើ Food-Safe Lubricants, Stainless Steel Pins',
 
       /* ---------- Shared catalog / CTA keys ---------- */
@@ -3517,7 +3517,7 @@
 
       /* ---------- enquiry quote button ---------- */
       'enq-quote': 'សុំតម្លៃ',
-      'ind-cta-hours': '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; ច.–សុ. 8:30–17:00 &nbsp;·&nbsp; សៅរ៍ 9:00–15:00',
+      'ind-cta-hours': '📞 <a href="tel:+6622865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; ច.–សុ. 8:30–17:00 &nbsp;·&nbsp; សៅរ៍ 9:00–15:00',
 
       /* ---------- Products page filter tabs & CTA ---------- */
       'prod-tab-all':        'ផលិតផលទាំងអស់',
@@ -5038,7 +5038,7 @@
       'prod-cta-not-found-p':'ຕິດຕໍ່ທີມ Technical ສຳລັບ Custom Solutions, Spec ຫຼື ລາຄາ.',
       'ind-btn-view-all':    'ເບິ່ງສິນຄ້າທັງໝົດ',
       'ind-bc-industries':   'ອຸດສາຫະກຳ',
-      'ind-cta-hours':       '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; ຈ.–ສ. 8:30–17:00 &nbsp;·&nbsp; ເສົາ 9:00–15:00',
+      'ind-cta-hours':       '📞 <a href="tel:+6622865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; ຈ.–ສ. 8:30–17:00 &nbsp;·&nbsp; ເສົາ 9:00–15:00',
       'ind-get-quote':       'ຂໍລາຄາ',
       'ind-cta-email':       'ສົ່ງອີເມວ →',
 
@@ -6747,7 +6747,7 @@
       'ind-bc-industries':      'လုပ်ငန်းများ',
       'ind-btn-view-all':       'ထုတ်ကုန်အားလုံးကြည့်ရန်',
       'ind-cta-email':          'အီးမေးပို့ပါ →',
-      'ind-cta-hours':          '📞 <a href="tel:022865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; တ.–သ. 8:30–17:00 &nbsp;·&nbsp; စနေ 9:00–15:00',
+      'ind-cta-hours':          '📞 <a href="tel:+6622865656" style="color:rgba(255,255,255,.4);">02 286-5656</a> &nbsp;·&nbsp; တ.–သ. 8:30–17:00 &nbsp;·&nbsp; စနေ 9:00–15:00',
       'ind-get-quote':          'ကိုးကားစျေးနှုန်းတောင်းရန်',
       'iwis-cv-pg-overview-h2': 'IWIS Conveyor Chains',
       'iwis-rl-overview-h2':    'Iwis Roller Chains',
