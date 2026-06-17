@@ -1149,6 +1149,45 @@
       }
     }
 
+    /* Customers section */
+    .customers-section { background: #fff !important; }
+    .customers-section .section-eyebrow { color: var(--color-primary) !important; }
+    .customers-section .section-eyebrow::before,
+    .customers-section .section-eyebrow::after { background: var(--color-primary) !important; }
+    .customers-section .section-header h2 { color: var(--color-black) !important; }
+    .customers-logo-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 2rem 3.5rem;
+      margin-top: 2.5rem;
+    }
+    .customers-logo-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.4rem 2.4rem;
+      border: 1px solid rgba(0,86,164,.12);
+      border-radius: 14px;
+      background: #fff;
+      box-shadow: 0 2px 12px rgba(0,50,120,.06);
+      transition: box-shadow .22s, transform .22s;
+    }
+    .customers-logo-item:hover {
+      box-shadow: 0 8px 32px rgba(0,86,164,.13);
+      transform: translateY(-3px);
+    }
+    .customers-logo-item img {
+      height: 64px;
+      width: auto;
+      max-width: 200px;
+      object-fit: contain;
+    }
+    @media (max-width: 640px) {
+      .customers-logo-item img { height: 48px; }
+    }
+
     /* Commitment: dark */
     .commitment-dark {
       background: var(--color-dark-navy) !important;
@@ -3188,6 +3227,27 @@
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============ CUSTOMERS ============ -->
+<section class="section reveal customers-section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow" data-i18n="customers-eyebrow">Our Customers</span>
+      <h2 data-i18n="customers-h2">We love our customers</h2>
+    </div>
+    <div class="customers-logo-strip">
+      <div class="customers-logo-item">
+        <img src="scg-logo.webp" alt="SCG — Siam Cement Group" loading="lazy" decoding="async">
+      </div>
+      <div class="customers-logo-item">
+        <img src="trr-logo.webp" alt="TRR — Thai Roong Ruang Sugar Group" loading="lazy" decoding="async">
+      </div>
+      <div class="customers-logo-item">
+        <img src="asian-palm-oil-logo.webp" alt="Asian Palm Oil Public Company Limited" loading="lazy" decoding="async">
+      </div>
     </div>
   </div>
 </section>
