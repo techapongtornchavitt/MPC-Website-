@@ -1155,23 +1155,35 @@
     .customers-section .section-eyebrow::before,
     .customers-section .section-eyebrow::after { background: var(--color-primary) !important; }
     .customers-section .section-header h2 { color: var(--color-black) !important; }
-    .customers-logo-strip {
+    .customers-ticker {
+      overflow: hidden;
+      margin-top: 2.5rem;
+      /* fade edges */
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .customers-track {
       display: flex;
       align-items: center;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 2rem 3.5rem;
-      margin-top: 2.5rem;
+      gap: 2.5rem;
+      width: max-content;
+      animation: customers-scroll 28s linear infinite;
+    }
+    .customers-track:hover { animation-play-state: paused; }
+    @keyframes customers-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
     }
     .customers-logo-item {
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.4rem 2.4rem;
+      padding: 1.6rem 2.8rem;
       border: 1px solid rgba(0,86,164,.12);
       border-radius: 14px;
       background: #fff;
       box-shadow: 0 2px 12px rgba(0,50,120,.06);
+      flex-shrink: 0;
       transition: box-shadow .22s, transform .22s;
     }
     .customers-logo-item:hover {
@@ -1179,13 +1191,14 @@
       transform: translateY(-3px);
     }
     .customers-logo-item img {
-      height: 100px;
+      height: 120px;
       width: auto;
-      max-width: 260px;
+      max-width: 300px;
       object-fit: contain;
     }
     @media (max-width: 640px) {
-      .customers-logo-item img { height: 72px; }
+      .customers-logo-item img { height: 80px; }
+      .customers-logo-item { padding: 1.2rem 2rem; }
     }
 
     /* Commitment: dark */
@@ -3238,18 +3251,18 @@
       <span class="section-eyebrow" data-i18n="customers-eyebrow">Our Customers</span>
       <h2 data-i18n="customers-h2">We love our customers</h2>
     </div>
-    <div class="customers-logo-strip">
-      <div class="customers-logo-item">
-        <img src="scg-logo.webp" alt="SCG — Siam Cement Group" loading="lazy" decoding="async">
-      </div>
-      <div class="customers-logo-item">
-        <img src="trr-logo.webp" alt="TRR — Thai Roong Ruang Sugar Group" loading="lazy" decoding="async">
-      </div>
-      <div class="customers-logo-item">
-        <img src="asian-palm-oil-logo.webp" alt="Asian Palm Oil Public Company Limited" loading="lazy" decoding="async" style="height:140px;max-width:320px;">
-      </div>
-      <div class="customers-logo-item">
-        <img src="noodle-logo.webp" alt="Thai Preserved Food Factory Company Limited" loading="lazy" decoding="async">
+    <div class="customers-ticker">
+      <div class="customers-track">
+        <!-- set 1 -->
+        <div class="customers-logo-item"><img src="scg-logo.webp" alt="SCG — Siam Cement Group" loading="lazy" decoding="async"></div>
+        <div class="customers-logo-item"><img src="trr-logo.webp" alt="TRR — Thai Roong Ruang Sugar Group" loading="lazy" decoding="async"></div>
+        <div class="customers-logo-item"><img src="asian-palm-oil-logo.webp" alt="Asian Palm Oil Public Company Limited" loading="lazy" decoding="async"></div>
+        <div class="customers-logo-item"><img src="noodle-logo.webp" alt="Thai Preserved Food Factory Company Limited" loading="lazy" decoding="async"></div>
+        <!-- set 2 (duplicate for seamless loop) -->
+        <div class="customers-logo-item"><img src="scg-logo.webp" alt="SCG — Siam Cement Group" loading="lazy" decoding="async"></div>
+        <div class="customers-logo-item"><img src="trr-logo.webp" alt="TRR — Thai Roong Ruang Sugar Group" loading="lazy" decoding="async"></div>
+        <div class="customers-logo-item"><img src="asian-palm-oil-logo.webp" alt="Asian Palm Oil Public Company Limited" loading="lazy" decoding="async"></div>
+        <div class="customers-logo-item"><img src="noodle-logo.webp" alt="Thai Preserved Food Factory Company Limited" loading="lazy" decoding="async"></div>
       </div>
     </div>
   </div>
