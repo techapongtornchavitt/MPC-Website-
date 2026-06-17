@@ -1158,24 +1158,25 @@
     .customers-ticker {
       overflow: hidden;
       margin-top: 2.5rem;
-      /* fade edges */
-      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
-      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
     }
     .customers-track {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 2.5rem;
-      width: max-content;
-      animation: customers-scroll 28s linear infinite;
+      white-space: nowrap;
+      animation: customers-scroll 22s linear infinite;
+      will-change: transform;
     }
-    .customers-track:hover { animation-play-state: paused; }
+    .customers-ticker:hover .customers-track { animation-play-state: paused; }
     @keyframes customers-scroll {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
     }
     .customers-logo-item {
-      display: flex;
+      display: inline-flex;
       align-items: center;
       justify-content: center;
       padding: 1.6rem 2.8rem;
@@ -1184,17 +1185,13 @@
       background: #fff;
       box-shadow: 0 2px 12px rgba(0,50,120,.06);
       flex-shrink: 0;
-      transition: box-shadow .22s, transform .22s;
-    }
-    .customers-logo-item:hover {
-      box-shadow: 0 8px 32px rgba(0,86,164,.13);
-      transform: translateY(-3px);
     }
     .customers-logo-item img {
       height: 120px;
       width: auto;
       max-width: 300px;
       object-fit: contain;
+      display: block;
     }
     @media (max-width: 640px) {
       .customers-logo-item img { height: 80px; }
