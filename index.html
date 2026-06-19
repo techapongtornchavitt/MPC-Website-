@@ -3375,7 +3375,11 @@
         </div>
         <div class="brand-showcase-info">
           <div class="brand-showcase-name">KMH</div>
-          <div class="brand-showcase-tag" data-i18n="brand-tag-kmh">Germany ? Pipe Conveyor Systems</div>
+          <div class="brand-showcase-tag" data-i18n="brand-tag-kmh">Germany · Pipe Conveyor Systems</div>
+          <button class="iwis-card-btn" onclick="document.getElementById('kmhBrandModal').classList.add('open')">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none"><circle cx="6.5" cy="6.5" r="6" stroke="#0056a4" stroke-width="1.4"/><rect x="6" y="5.5" width="1" height="4" rx=".5" fill="#0056a4"/><rect x="6" y="3.5" width="1" height="1.2" rx=".5" fill="#0056a4"/></svg>
+            About KMH
+          </button>
         </div>
       </div>
 
@@ -4351,6 +4355,80 @@ var FB_CONFIG = {
 })();
 </script>
 
+<!-- ============ KMH BRAND MODAL ============ -->
+<div class="iwis-modal-overlay" id="kmhBrandModal" role="dialog" aria-modal="true" aria-label="About KMH">
+  <div class="iwis-modal">
+
+    <div class="iwis-modal-header">
+      <img src="brand-logo-kmh.svg" alt="KMH" class="iwis-modal-logo" style="height:32px;">
+      <button class="iwis-modal-close" onclick="document.getElementById('kmhBrandModal').classList.remove('open')" aria-label="Close">&#10005;</button>
+    </div>
+
+    <div class="iwis-modal-body">
+
+      <p class="iwis-modal-intro">KMH convinces with actions. With over 35 years of experience in pipe system production, KMH concentrates on the essentials — the modular products customers need from one day to the next. Delivery ex-works. Full speed. KMH has (almost) the whole range in stock. Individual production is part of KMH's philosophy: even the most complicated special products are built within the shortest time after technical clarification. Custom-made special products of all kinds are KMH's speciality. <strong>KMH is the No. 1 in special construction.</strong></p>
+
+      <!-- Stats -->
+      <p class="iwis-section-title">KMH in Figures</p>
+      <div class="iwis-divisions-grid" style="grid-template-columns:repeat(auto-fit,minmax(140px,1fr));margin-bottom:1.8rem;">
+        <div class="iwis-division-card" style="text-align:center;">
+          <h4 style="font-size:1.7rem;letter-spacing:0;text-transform:none;color:#1a2a40;margin-bottom:.25rem;">5,000+</h4>
+          <p style="font-size:.85rem;color:#666;">Standard Products</p>
+        </div>
+        <div class="iwis-division-card" style="text-align:center;">
+          <h4 style="font-size:1.7rem;letter-spacing:0;text-transform:none;color:#1a2a40;margin-bottom:.25rem;">24</h4>
+          <p style="font-size:.85rem;color:#666;">International Agencies</p>
+        </div>
+        <div class="iwis-division-card" style="text-align:center;">
+          <h4 style="font-size:1.7rem;letter-spacing:0;text-transform:none;color:#1a2a40;margin-bottom:.25rem;">35+</h4>
+          <p style="font-size:.85rem;color:#666;">Years of Experience</p>
+        </div>
+        <div class="iwis-division-card" style="text-align:center;">
+          <h4 style="font-size:1.7rem;letter-spacing:0;text-transform:none;color:#1a2a40;margin-bottom:.25rem;">230+</h4>
+          <p style="font-size:.85rem;color:#666;">Employees</p>
+        </div>
+      </div>
+
+      <!-- Industries -->
+      <p class="iwis-section-title">Industries Served</p>
+      <div class="iwis-industries-grid" style="margin-bottom:1.8rem;">
+        <span class="iwis-industry-tag">Ventilation &amp; Environmental Technology</span>
+        <span class="iwis-industry-tag">Feed Industry</span>
+        <span class="iwis-industry-tag">Mill Construction</span>
+        <span class="iwis-industry-tag">Plant Engineering</span>
+        <span class="iwis-industry-tag">Food Industry</span>
+        <span class="iwis-industry-tag">Luxury Food Industry</span>
+        <span class="iwis-industry-tag">Chemical Industry</span>
+        <span class="iwis-industry-tag">Pharmaceutical Industry</span>
+        <span class="iwis-industry-tag">Plastics Industry</span>
+        <span class="iwis-industry-tag">Paper Industry</span>
+        <span class="iwis-industry-tag">Recycling</span>
+        <span class="iwis-industry-tag">Semi-Conductor Industry</span>
+        <span class="iwis-industry-tag">and many more</span>
+      </div>
+
+      <!-- Products / materials conveyed -->
+      <p class="iwis-section-title">Materials Conveyed</p>
+      <div class="iwis-industries-grid">
+        <span class="iwis-industry-tag">Seeds</span>
+        <span class="iwis-industry-tag">Spices</span>
+        <span class="iwis-industry-tag">Animal Feed</span>
+        <span class="iwis-industry-tag">Grains</span>
+        <span class="iwis-industry-tag">Building Materials</span>
+        <span class="iwis-industry-tag">Granules &amp; Powder</span>
+        <span class="iwis-industry-tag">Tobacco</span>
+        <span class="iwis-industry-tag">Welding Fumes</span>
+        <span class="iwis-industry-tag">Oil Mist</span>
+        <span class="iwis-industry-tag">Solvents</span>
+        <span class="iwis-industry-tag">Grinding Dust</span>
+        <span class="iwis-industry-tag">Low Pressure Supply</span>
+        <span class="iwis-industry-tag">and many more</span>
+      </div>
+
+    </div><!-- /modal-body -->
+  </div><!-- /kmh-modal -->
+</div><!-- /overlay -->
+
 <!-- ============ IWIS BRAND MODAL ============ -->
 <div class="iwis-modal-overlay" id="iwisBrandModal" role="dialog" aria-modal="true" aria-label="About IWIS">
   <div class="iwis-modal">
@@ -4440,6 +4518,14 @@ var FB_CONFIG = {
 </div><!-- /overlay -->
 
 <script>
+/* Close KMH modal on overlay click */
+document.getElementById('kmhBrandModal').addEventListener('click', function(e){
+  if (e.target === this) this.classList.remove('open');
+});
+/* Close KMH modal on Escape */
+document.addEventListener('keydown', function(e){
+  if (e.key === 'Escape') document.getElementById('kmhBrandModal').classList.remove('open');
+});
 /* Close IWIS modal on overlay click */
 document.getElementById('iwisBrandModal').addEventListener('click', function(e){
   if (e.target === this) this.classList.remove('open');
