@@ -4135,7 +4135,12 @@ var FB_CONFIG = {
   var track   = document.getElementById('fb-track');
   var btnPrev = document.getElementById('fb-prev');
   var btnNext = document.getElementById('fb-next');
-  if (!track) return;
+  /* If carousel elements don't exist, skip straight to plugin rendering */
+  if (!track) {
+    var hasTokenEarly = FB_CONFIG.token && FB_CONFIG.token !== 'YOUR_ACCESS_TOKEN';
+    if (!hasTokenEarly) renderNoToken();
+    return;
+  }
 
   var STEP = 226; /* card width (200) + gap (26) */
 
