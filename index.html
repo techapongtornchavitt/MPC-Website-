@@ -3686,34 +3686,69 @@
     </div>
   </div>
 
-  <!-- ── Facebook photo grid (KMH-style) ── -->
-  <div class="container">
-    <div class="fb-grid-wrap">
-
-      <!-- Profile header row -->
-      <div class="fb-grid-profile">
-        <img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="fb-grid-avatar">
-        <div class="fb-grid-identity">
-          <div class="fb-grid-name">motionpluscorporation</div>
-          <div class="fb-grid-bio" data-i18n="soc-identity-sub">Co.,Ltd. &nbsp;&middot;&nbsp; Industrial Chain Specialist</div>
+  <!-- ── Dark Facebook showcase band ── -->
+  <div class="soc-feed-band">
+    <div class="fb-showcase-grid">
+      <!-- Left: Brand Info Panel -->
+      <div class="fb-info-panel">
+        <div class="fb-info-topline">
+          <span class="fb-live-badge"><span class="fb-live-badge-dot" aria-hidden="true"></span><span data-i18n="soc-live-badge">Live Feed</span></span>
+          <span class="fb-platform-label">Facebook</span>
         </div>
-      </div>
-
-      <!-- Page Plugin — JS replaces this with photos grid -->
-      <div id="fb-content-area" class="fb-grid-plugin-area"></div>
-
-      <!-- Buttons -->
-      <div class="fb-grid-btns">
-        <a href="https://www.facebook.com/profile.php?id=1018130321389942&sk=photos" target="_blank" rel="noopener noreferrer" class="fb-grid-btn-load">
-          <span data-i18n="soc-view-all">View All</span>
-        </a>
-        <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-grid-btn-follow">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        <div class="fb-info-identity">
+          <div class="fb-identity-ico" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </div>
+          <div>
+            <div class="fb-identity-name">Motion Plus Corporation</div>
+            <div class="fb-identity-sub" data-i18n="soc-identity-sub">Co.,Ltd. &nbsp;&middot;&nbsp; Industrial Chain Specialist</div>
+          </div>
+        </div>
+        <div class="fb-info-sep" aria-hidden="true"></div>
+        <p class="fb-info-desc" data-i18n="soc-desc">Real-time updates on industrial chain products, field installations, and expert content from projects across Southeast Asia.</p>
+        <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-info-cta" aria-label="Follow Motion Plus Corporation on Facebook">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           <span data-i18n="soc-fb-btn">Follow on Facebook</span>
         </a>
+        <div class="fb-info-tagline">
+          <span class="fb-info-tag">#MotionPlusCorporation</span>
+          <span class="fb-info-tag">#IndustrialChains</span>
+          <span class="fb-info-tag">#SoutheastAsia</span>
+        </div>
       </div>
-
-    </div><!-- /fb-grid-wrap -->
+      <!-- Right: Live Feed Panel -->
+      <div class="fb-feed-panel">
+        <div class="fb-feed-label" id="fb-feed-label">
+          <div class="fb-feed-label-left">
+            <span class="fb-feed-label-dot" aria-hidden="true"></span>
+            <span class="fb-feed-label-title" data-i18n="soc-feed-hdr">Latest Posts</span>
+          </div>
+          <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-feed-viewall-link">
+            <span data-i18n="soc-view-all">View All</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+        <div class="fb-carousel-outer" id="fb-content-area">
+          <button class="fb-carr-btn fb-carr-prev" id="fb-prev" aria-label="Previous posts" data-at-edge="true">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="fb-carr-track" id="fb-track" role="list" aria-label="Facebook posts">
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+            <div class="fb-skel-card"></div>
+          </div>
+          <button class="fb-carr-btn fb-carr-next" id="fb-next" aria-label="Next posts">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
+        <p class="fb-feed-caption">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <span data-i18n="soc-swipe-hint">Swipe or use arrows &nbsp;&middot;&nbsp; Tap any post to open on Facebook</span>
+        </p>
+      </div>
+    </div>
   </div>
 
   <!-- ── More Ways to Connect &mdash; Platform Cards ── -->
@@ -4135,12 +4170,7 @@ var FB_CONFIG = {
   var track   = document.getElementById('fb-track');
   var btnPrev = document.getElementById('fb-prev');
   var btnNext = document.getElementById('fb-next');
-  /* If carousel elements don't exist, skip straight to plugin rendering */
-  if (!track) {
-    var hasTokenEarly = FB_CONFIG.token && FB_CONFIG.token !== 'YOUR_ACCESS_TOKEN';
-    if (!hasTokenEarly) renderNoToken();
-    return;
-  }
+  if (!track) return;
 
   var STEP = 226; /* card width (200) + gap (26) */
 
@@ -4220,22 +4250,32 @@ var FB_CONFIG = {
   function renderNoToken() {
     var area = document.getElementById('fb-content-area');
     if (!area) return;
-    /* Photos tab — renders Facebook's native photo grid (auto-updating, no token needed) */
-    area.innerHTML =
+    var lbl = document.getElementById('fb-feed-label');
+    if (lbl) lbl.style.display = 'none';
+    var panel = area.parentNode;
+    if (panel) { var cap = panel.querySelector('.fb-feed-caption'); if (cap) cap.style.display = 'none'; }
+    var wrapper = document.createElement('div');
+    wrapper.className = 'fb-plugin-wrapper';
+    var inner = document.createElement('div');
+    inner.className = 'fb-plugin-container';
+    inner.innerHTML =
       '<div class="fb-page"' +
       ' data-href="https://www.facebook.com/profile.php?id=1018130321389942"' +
       ' data-tabs="timeline"' +
-      ' data-width="900"' +
+      ' data-width="700"' +
       ' data-height="600"' +
       ' data-small-header="true"' +
       ' data-adapt-container-width="true"' +
       ' data-hide-cover="true"' +
       ' data-show-facepile="false">' +
-      '<blockquote cite="https://www.facebook.com/profile.php?id=1018130321389942"' +
-      ' class="fb-xfbml-parse-ignore">' +
+      '<blockquote cite="https://www.facebook.com/profile.php?id=1018130321389942" class="fb-xfbml-parse-ignore">' +
       '<a href="https://www.facebook.com/profile.php?id=1018130321389942">Motion Plus Corporation on Facebook</a>' +
       '</blockquote></div>';
-    /* If the SDK is already loaded, parse now; otherwise fbAsyncInit handles it */
+    wrapper.appendChild(inner);
+    area.className = '';
+    area.style.cssText = 'display:block;width:100%;';
+    area.innerHTML = '';
+    area.appendChild(wrapper);
     if (window.FB && window.FB.XFBML) window.FB.XFBML.parse();
   }
 
