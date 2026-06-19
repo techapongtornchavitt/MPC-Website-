@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#003d7a">
+  <meta name="description" content="Industrial chain knowledge hub — technical articles on chain selection, types, construction, maintenance, and conveyor chain standards. From Motion Plus Corporation.">
+  <link rel="shortcut icon"    href="favicon.ico?v=8"       type="image/x-icon">
+  <link rel="icon"             href="favicon-32.png?v=8"    type="image/png"      sizes="32x32">
+  <link rel="icon"             href="favicon-192.png?v=8"   type="image/png"      sizes="192x192">
+  <link rel="icon"             href="favicon.svg?v=8"       type="image/svg+xml">
+  <link rel="apple-touch-icon" sizes="180x180"              href="apple-touch-icon.png?v=8">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Industry Insights | Industrial Chain Articles | Motion Plus Corporation">
+  <meta property="og:description" content="Technical articles on industrial chain selection, types, construction, and maintenance — from Motion Plus Corporation, Thailand's trusted chain specialist.">
+  <meta property="og:image" content="https://motionpluscorp.com/mpc-logo.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://motionpluscorp.com/articles.html">
+  <link rel="canonical" href="https://motionpluscorp.com/articles.html">
+  <link rel="alternate" hreflang="th" href="https://motionpluscorp.com/articles.html">
+  <link rel="alternate" hreflang="en" href="https://motionpluscorp.com/articles.html">
+  <link rel="alternate" hreflang="km" href="https://motionpluscorp.com/articles.html">
+  <link rel="alternate" hreflang="lo" href="https://motionpluscorp.com/articles.html">
+  <link rel="alternate" hreflang="my" href="https://motionpluscorp.com/articles.html">
+  <link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/articles.html">
+  <meta property="og:locale" content="th_TH">
+  <meta http-equiv="content-language" content="th">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://motionpluscorp.com/mpc-logo.jpg">
+  <meta name="twitter:title" content="Industry Insights | Industrial Chain Articles | Motion Plus Corporation">
+  <meta name="twitter:description" content="Technical articles on industrial chain selection, types, construction, and maintenance — from Motion Plus Corporation.">
+  <title>Industry Insights | Industrial Chain Articles | Motion Plus Corporation</title>
+  <meta name="keywords" content="industrial chain thailand, industrial chain selection guide, roller chain types, conveyor chain standards, chain replacement guide, chain construction, british standard chain, ANSI chain, IWIS chain thailand, HS chain thailand, motion plus corporation articles">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="industrial-chain-thailand.jpg" as="image" fetchpriority="high">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
+  <style>
+    /* =====================================================
+       ARTICLES PAGE — SPECIFIC STYLES
+    ===================================================== */
+
+    /* Article index grid */
+    .articles-index {
+      background: #f7f9fc;
+      padding: var(--space-2xl, 5rem) 0 var(--space-xl, 3.5rem);
+    }
+    .articles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .article-card {
+      background: #fff;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 16px rgba(0,61,122,.07);
+      display: flex;
+      flex-direction: column;
+      transition: transform .28s ease, box-shadow .28s ease;
+      border: 1px solid rgba(0,61,122,.07);
+      text-decoration: none;
+    }
+    .article-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 14px 40px rgba(0,61,122,.13);
+    }
+    .article-card-accent {
+      height: 5px;
+      background: linear-gradient(90deg, var(--color-blue, #0056a4), var(--color-light-blue, #3a8fd6));
+    }
+    .article-card.featured .article-card-accent {
+      background: linear-gradient(90deg, #003d7a, #0056a4, #e86c1a);
+      height: 6px;
+    }
+    .article-card-body {
+      padding: 1.6rem 1.75rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .article-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+      color: var(--color-blue, #0056a4);
+      background: rgba(0,86,164,.08);
+      padding: .25rem .7rem;
+      border-radius: 100px;
+      margin-bottom: .9rem;
+      width: fit-content;
+    }
+    .article-card.featured .article-tag {
+      background: rgba(232,108,26,.1);
+      color: #c05a10;
+    }
+    .article-card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      line-height: 1.38;
+      color: var(--color-dark-navy, #001638);
+      margin-bottom: .65rem;
+    }
+    .article-card-excerpt {
+      font-size: .88rem;
+      line-height: 1.65;
+      color: #5a6a7e;
+      flex: 1;
+      margin-bottom: 1.1rem;
+    }
+    .article-card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: .85rem;
+      border-top: 1px solid rgba(0,0,0,.06);
+    }
+    .article-read-btn {
+      font-size: .82rem;
+      font-weight: 700;
+      color: var(--color-blue, #0056a4);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      letter-spacing: .02em;
+    }
+    .article-read-btn svg {
+      transition: transform .22s ease;
+    }
+    .article-card:hover .article-read-btn svg {
+      transform: translateX(4px);
+    }
+    .article-num {
+      font-size: .75rem;
+      font-weight: 600;
+      color: #a0aab8;
+      letter-spacing: .04em;
+    }
+
+    /* Featured card spans 2 columns */
+    .article-card.featured {
+      grid-column: span 2;
+    }
+    .article-card.featured .article-card-title {
+      font-size: 1.22rem;
+    }
+    .article-card.featured .article-card-excerpt {
+      font-size: .93rem;
+    }
+
+    /* =====================================================
+       FULL ARTICLE SECTIONS
+    ===================================================== */
+    .articles-content {
+      padding: var(--space-2xl, 5rem) 0;
+    }
+    .article-divider {
+      border: none;
+      border-top: 1px solid rgba(0,61,122,.1);
+      margin: 4rem 0 0;
+    }
+
+    .article-full {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 4rem 0 2rem;
+    }
+    .article-full + .article-full {
+      border-top: 1px solid rgba(0,61,122,.09);
+    }
+
+    .article-full-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--color-blue, #0056a4);
+      background: rgba(0,86,164,.08);
+      padding: .28rem .75rem;
+      border-radius: 100px;
+      margin-bottom: 1rem;
+    }
+    .article-full h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      line-height: 1.25;
+      color: var(--color-dark-navy, #001638);
+      margin-bottom: 1.6rem;
+    }
+    .article-full h3 {
+      font-size: 1.18rem;
+      font-weight: 700;
+      color: var(--color-dark-navy, #001638);
+      margin: 2rem 0 .7rem;
+      padding-left: 1rem;
+      border-left: 3px solid var(--color-blue, #0056a4);
+    }
+    .article-full h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a2d4a;
+      margin: 1.4rem 0 .5rem;
+    }
+    .article-full p {
+      font-size: .97rem;
+      line-height: 1.82;
+      color: #3a4a5c;
+      margin-bottom: 1.1rem;
+    }
+    .article-full ul, .article-full ol {
+      margin: .6rem 0 1.1rem 1.3rem;
+    }
+    .article-full li {
+      font-size: .96rem;
+      line-height: 1.75;
+      color: #3a4a5c;
+      margin-bottom: .35rem;
+    }
+    .article-full li strong {
+      color: var(--color-dark-navy, #001638);
+    }
+
+    /* Pull quote */
+    .article-pull {
+      background: linear-gradient(135deg, #f0f6ff 0%, #e8f0fa 100%);
+      border-left: 4px solid var(--color-blue, #0056a4);
+      border-radius: 0 10px 10px 0;
+      padding: 1.4rem 1.75rem;
+      margin: 1.8rem 0;
+      font-size: 1.02rem;
+      font-weight: 600;
+      line-height: 1.65;
+      color: #0a1e3a;
+      font-style: italic;
+    }
+
+    /* Info box */
+    .article-infobox {
+      background: #fff7f0;
+      border: 1px solid rgba(232,108,26,.2);
+      border-radius: 10px;
+      padding: 1.2rem 1.5rem;
+      margin: 1.5rem 0;
+    }
+    .article-infobox strong {
+      display: block;
+      color: #c05a10;
+      font-size: .85rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: .5rem;
+    }
+
+    /* Table */
+    .article-table-wrap {
+      overflow-x: auto;
+      margin: 1.5rem 0 1.8rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    }
+    .article-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .88rem;
+    }
+    .article-table th {
+      background: var(--color-dark-navy, #001638);
+      color: #fff;
+      padding: .75rem 1rem;
+      text-align: left;
+      font-weight: 700;
+      font-size: .82rem;
+      letter-spacing: .03em;
+    }
+    .article-table td {
+      padding: .65rem 1rem;
+      border-bottom: 1px solid #eef0f5;
+      color: #3a4a5c;
+    }
+    .article-table tr:last-child td { border-bottom: none; }
+    .article-table tr:nth-child(even) td { background: #f8fafd; }
+
+    /* Source attribution */
+    .article-source {
+      font-size: .78rem;
+      color: #8a9ab0;
+      font-style: italic;
+      margin-top: 1.8rem;
+      padding-top: .8rem;
+      border-top: 1px solid rgba(0,0,0,.07);
+    }
+
+    /* References block */
+    .article-refs {
+      background: #f5f7fb;
+      border-radius: 10px;
+      padding: 1.4rem 1.75rem;
+      margin-top: 2rem;
+    }
+    .article-refs h4 {
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      color: #7a8899;
+      margin-bottom: .75rem;
+    }
+    .article-refs ul {
+      margin: 0;
+      padding-left: 1.2rem;
+    }
+    .article-refs li {
+      font-size: .83rem;
+      line-height: 1.65;
+      color: #5a6a7e;
+      margin-bottom: .3rem;
+    }
+
+    /* CTA box inside articles */
+    .article-cta-box {
+      background: linear-gradient(135deg, var(--color-dark-navy, #001638) 0%, #0a2a5a 100%);
+      border-radius: 14px;
+      padding: 2rem 2.25rem;
+      margin-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .article-cta-box p {
+      color: rgba(255,255,255,.85);
+      font-size: .95rem;
+      margin: 0;
+    }
+    .article-cta-box strong {
+      display: block;
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: .35rem;
+    }
+    .article-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--color-orange, #e86c1a);
+      color: #fff;
+      font-weight: 700;
+      font-size: .9rem;
+      padding: .75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background .2s, transform .15s;
+      flex-shrink: 0;
+    }
+    .article-cta-btn:hover {
+      background: #c95c10;
+      transform: translateY(-2px);
+    }
+
+    /* Back-to-top link */
+    .article-top-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      font-weight: 600;
+      color: var(--color-blue, #0056a4);
+      text-decoration: none;
+      margin-top: 2.5rem;
+      opacity: .7;
+      transition: opacity .2s;
+    }
+    .article-top-link:hover { opacity: 1; }
+
+    /* Responsive */
+    @media (max-width: 1100px) {
+      .articles-grid { grid-template-columns: repeat(2, 1fr); }
+      .article-card.featured { grid-column: span 2; }
+    }
+    @media (max-width: 720px) {
+      .articles-grid { grid-template-columns: 1fr; }
+      .article-card.featured { grid-column: span 1; }
+      .article-full h2 { font-size: 1.45rem; }
+      .article-full { padding: 3rem 0 1.5rem; }
+      .article-cta-box { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+  <script src="interactions.js" defer></script>
+</head>
+<body>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="index.html" class="logo-link">
+        <img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="logo-img">
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="index.html"     class="nav-link" data-i18n="nav-home">Home</a>
+        <a href="about.html"     class="nav-link" data-i18n="nav-about">About</a>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav-industries">Industries</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="cement-industry.html"   class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-cement">Cement Industry</a>
+            <a href="sugar-industry.html"    class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-sugar">Sugar Industry</a>
+            <a href="palm-oil-industry.html" class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-palm">Palm Oil Industry</a>
+          </div>
+        </div>
+        <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
+        <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
+        <a href="resources.html" class="nav-link" data-i18n="nav-resources">Resources</a>
+        <a href="articles.html"  class="nav-link active" data-i18n="nav-articles">Articles</a>
+        <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
+      </nav>
+      <div class="lang-selector" id="lang-selector">
+        <button class="lang-selector-btn" id="lang-selector-btn" aria-haspopup="listbox" aria-expanded="false" title="Select language">
+          <span class="lang-sel-flag fi fi-th" id="lang-active-flag"></span>
+          <span class="lang-sel-code" id="lang-active-code">TH</span>
+          <svg class="lang-sel-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden="true"><path d="M1 1l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <div class="lang-selector-menu" id="lang-selector-menu" role="listbox" aria-label="Select language">
+          <button class="lang-opt active" data-lang="th" role="option" aria-selected="true">
+            <span class="lang-opt-flag fi fi-th"></span>
+            <span class="lang-opt-name">&#3652;&#3607;&#3618;</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+          <button class="lang-opt" data-lang="en" role="option" aria-selected="false">
+            <span class="lang-opt-flag fi fi-gb"></span>
+            <span class="lang-opt-name">English</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+          <button class="lang-opt" data-lang="km" role="option" aria-selected="false">
+            <span class="lang-opt-flag fi fi-kh"></span>
+            <span class="lang-opt-name">&#6017;&#6098;&#6040;&#6082;&#6042;</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+          <button class="lang-opt" data-lang="lo" role="option" aria-selected="false">
+            <span class="lang-opt-flag fi fi-la"></span>
+            <span class="lang-opt-name">&#3749;&#3762;&#3751;</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+          <button class="lang-opt" data-lang="mm" role="option" aria-selected="false">
+            <span class="lang-opt-flag fi fi-mm"></span>
+            <span class="lang-opt-name">&#4121;&#4156;&#4116;&#4154;&#4121;&#4140;</span>
+            <span class="lang-opt-check" aria-hidden="true">&#10003;</span>
+          </button>
+        </div>
+      </div>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html"     class="nav-link" data-i18n="nav-home">Home</a>
+    <a href="about.html"     class="nav-link" data-i18n="nav-about">About</a>
+    <div class="mobile-nav-group">
+      <button class="nav-link mobile-nav-trigger" id="mob-ind-trigger" aria-expanded="false">
+        <span data-i18n="nav-industries">Industries</span>
+        <span class="m-chevron" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-nav-sub" id="mob-ind-sub">
+        <a href="cement-industry.html"   class="nav-link" data-i18n="nav-ind-cement">Cement Industry</a>
+        <a href="sugar-industry.html"    class="nav-link" data-i18n="nav-ind-sugar">Sugar Industry</a>
+        <a href="palm-oil-industry.html" class="nav-link" data-i18n="nav-ind-palm">Palm Oil Industry</a>
+      </div>
+    </div>
+    <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
+    <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
+    <a href="resources.html" class="nav-link" data-i18n="nav-resources">Resources</a>
+    <a href="articles.html"  class="nav-link active" data-i18n="nav-articles">Articles</a>
+    <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
+  </nav>
+</header>
+
+<!-- Inner Hero -->
+<section class="inner-hero">
+  <div class="inner-hero-bg"></div>
+  <div class="inner-hero-overlay"></div>
+  <div class="container inner-hero-content">
+    <span class="section-eyebrow">Industry Insights</span>
+    <h1>Technical Articles</h1>
+    <p class="hero-sub-text">Expert knowledge on industrial chains — selection, construction, maintenance, and standards.</p>
+  </div>
+</section>
+
+<!-- ============ ARTICLE INDEX GRID ============ -->
+<section class="articles-index" id="articles-top">
+  <div class="container">
+    <div class="section-header" style="text-align:left; margin-bottom:0;">
+      <span class="section-eyebrow">Knowledge Hub</span>
+      <h2>7 Articles on Industrial Chain Engineering</h2>
+      <p class="section-intro" style="max-width:640px; margin-top:.75rem;">From chain selection guides to technical standards — practical knowledge for plant engineers, procurement managers, and maintenance teams.</p>
+    </div>
+    <div class="articles-grid">
+
+      <!-- Article 1 — Featured -->
+      <a href="#article-1" class="article-card featured" aria-label="Read article 1">
+        <div class="article-card-accent"></div>
+        <div class="article-card-body">
+          <span class="article-tag">&#9733; Featured Guide</span>
+          <h3 class="article-card-title">The Engineering Guide: How to Choose the Right Industrial Chain for High-Stakes Applications</h3>
+          <p class="article-card-excerpt">A sector-by-sector blueprint covering load types, environmental factors, speed, and lubrication — with specific recommendations for sugar, palm oil, cement, and steel operations.</p>
+          <div class="article-card-footer">
+            <span class="article-read-btn">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="article-num">01 / 07</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 2 -->
+      <a href="#article-2" class="article-card" aria-label="Read article 2">
+        <div class="article-card-accent"></div>
+        <div class="article-card-body">
+          <span class="article-tag">Chain Types</span>
+          <h3 class="article-card-title">Types of Chain</h3>
+          <p class="article-card-excerpt">An in-depth look at the two principal chain types — roller chains and inverted tooth (silent) chains — covering construction, operation, and wear behaviour.</p>
+          <div class="article-card-footer">
+            <span class="article-read-btn">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="article-num">02 / 07</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 3 -->
+      <a href="#article-3" class="article-card" aria-label="Read article 3">
+        <div class="article-card-accent"></div>
+        <div class="article-card-body">
+          <span class="article-tag">Construction</span>
+          <h3 class="article-card-title">Construction of Chain</h3>
+          <p class="article-card-excerpt">How a roller chain is built — inner and outer plates, pins, bushes, and rollers — and how load-transmitting capacity scales with pitch and strand count.</p>
+          <div class="article-card-footer">
+            <span class="article-read-btn">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="article-num">03 / 07</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 4 -->
+      <a href="#article-4" class="article-card" aria-label="Read article 4">
+        <div class="article-card-accent"></div>
+        <div class="article-card-body">
+          <span class="article-tag">Technical Reference</span>
+          <h3 class="article-card-title">Chains — Drive Mechanics, Leaf Chains &amp; Selection Charts</h3>
+          <p class="article-card-excerpt">A technical reference on bushed roller chains, drive selection charts, leaf chains, and the industry selection factors for steady, medium impulsive, and highly impulsive applications.</p>
+          <div class="article-card-footer">
+            <span class="article-read-btn">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="article-num">04 / 07</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 5 -->
+      <a href="#article-5" class="article-card" aria-label="Read article 5">
+        <div class="article-card-accent"></div>
+        <div class="article-card-body">
+          <span class="article-tag">Maintenance</span>
+          <h3 class="article-card-title">When to Replace the Chain</h3>
+          <p class="article-card-excerpt">The definitive guide to chain wear — why chains "grow" longer, how to measure elongation, and the accepted thresholds for replacement on adjustable and fixed-centre drives.</p>
+          <div class="article-card-footer">
+            <span class="article-read-btn">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="article-num">05 / 07</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 6 -->
+      <a href="#article-6" class="article-card" aria-label="Read article 6">
+        <div class="article-card-accent"></div>
+        <div class="article-card-body">
+          <span class="article-tag">Conveyor Chains</span>
+          <h3 class="article-card-title">How Do Conveyor Chains Work?</h3>
+          <p class="article-card-excerpt">An essential primer on conveyor chain mechanics — inner links, outer links, sprocket engagement, and the four main types: roller, hollow pin, double pitch, and sharp top chains.</p>
+          <div class="article-card-footer">
+            <span class="article-read-btn">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="article-num">06 / 07</span>
+          </div>
+        </div>
+      </a>
+
+      <!-- Article 7 -->
+      <a href="#article-7" class="article-card" aria-label="Read article 7">
+        <div class="article-card-accent"></div>
+        <div class="article-card-body">
+          <span class="article-tag">Standards</span>
+          <h3 class="article-card-title">Understanding Conveyor Chain Standards: British vs. American</h3>
+          <p class="article-card-excerpt">The critical difference between BS/ISO and ANSI/ASME conveyor chain standards — dimensions, pitch units, bush construction, and how to choose the right standard for your equipment.</p>
+          <div class="article-card-footer">
+            <span class="article-read-btn">Read Article <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
+            <span class="article-num">07 / 07</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ FULL ARTICLE CONTENT ============ -->
+<section class="articles-content">
+  <div class="container">
+
+    <!-- ===== ARTICLE 1 ===== -->
+    <article class="article-full" id="article-1">
+      <span class="article-full-eyebrow">&#9733; Featured Guide &nbsp;·&nbsp; 01 / 07</span>
+      <h2>The Engineering Guide: How to Choose the Right Industrial Chain for High-Stakes Applications</h2>
+
+      <p>In heavy industries like sugar processing, palm oil milling, cement production, and steel manufacturing, mechanical chains are the literal backbone of production. When a chain operates under continuous load, unexpected downtime does not just slow things down — it stops revenue entirely.</p>
+      <p>Choosing the right industrial chain is a balancing act between tensile strength, wear resistance, environmental tolerance, and long-term cost efficiency. Standard options rarely suffice when facing high abrasive dust, corrosive materials, or extreme shock loads.</p>
+      <p>Here is an engineering blueprint on how to select the optimal industrial chain for your specific sector's toughest applications.</p>
+
+      <h3>1. The Core Variables of Chain Selection</h3>
+      <p>Before focusing on industry-specific demands, every procurement manager and plant engineer must evaluate four core parameters:</p>
+      <ul>
+        <li><strong>The Nature of the Load:</strong> Is it steady transmission, or are there frequent start-stop shocks and heavy structural impacts?</li>
+        <li><strong>Environmental Exposure:</strong> Will the chain face highly abrasive particulates (like cement clinker or slag), chemical corrosives (such as palm oil fatty acids), or extreme temperatures (such as steel mill cooling beds and reheat furnaces)?</li>
+        <li><strong>Operating Speed and Geometry:</strong> High-speed drive applications require precision roller chains, whereas low-speed, high-mass material transport calls for engineered conveyor or forged chains.</li>
+        <li><strong>Lubrication Accessibility:</strong> Can the chain be manually lubricated consistently, or does the application require specialized or self-lubricating configurations to prevent premature wear?</li>
+      </ul>
+
+      <h3>2. Industry-Specific Deep Dives</h3>
+
+      <h4>The Sugar Industry: Combating Moisture and Corrosive Acids</h4>
+      <p>Sugar cane processing is notorious for its harsh, highly seasonal operational periods. Chains used in bagasse conveyors, cane harvesters, and main mill drives must endure intense moisture and corrosive organic acids without seizing.</p>
+      <ul>
+        <li><strong>The Right Choice:</strong> Heavy-duty, high-tensile Cane Carrier and Bagasse Conveyor Chains engineered with optimized pin and bushing clearances.</li>
+        <li><strong>Material Spotlight:</strong> Heat-treated alloy steels or premium series like HS Chain and IWIS, which utilize precise metallurgical engineering to ensure pins and bushes resist both the abrasive nature of cane fibers and chemical corrosion.</li>
+      </ul>
+
+      <h4>The Palm Oil Industry: Resisting Shock Loads and Sticky Acids</h4>
+      <p>From fresh fruit bunch (FFB) scraper conveyors to sterilization cages and kernel extraction units, palm oil mills experience high shock loads alongside constant exposure to acidic fruit juices and steam.</p>
+      <ul>
+        <li><strong>The Right Choice:</strong> Specialized Palm Oil Conveyor Chains featuring solid rollers and extended pin options.</li>
+        <li><strong>Material Spotlight:</strong> High-grade stainless steel components or specialized plating to prevent premature elongation caused by acidic wear. Ensuring the chain is food-grade or built to resist sticky oil buildup keeps maintenance cycles manageable.</li>
+      </ul>
+
+      <h4>The Cement Industry: Winning the Battle Against Abrasive Dust</h4>
+      <p>Cement plants present one of the most punishing environments on Earth for rotating equipment. Bucket elevators, clinker deep-bucket conveyors, and reclaimer systems are continuously bombarded by highly abrasive limestone and clinker dust.</p>
+      <ul>
+        <li><strong>The Right Choice:</strong> Hardened, heavy-duty Bucket Elevator Chains and Cranked Link Bushed Chains (such as the TRIO Forged Chain series).</li>
+        <li><strong>Engineering Focus:</strong> For these environments, look for chains featuring high surface-hardened pins and bushings (carburized or induction-hardened) to resist abrasive wear, along with optimized seal configurations to lock out destructive dust particles.</li>
+      </ul>
+
+      <h4>The Steel Industry: Surviving Extreme Heat and Massive Masses</h4>
+      <p>Steel manufacturing requires moving raw materials, hot slabs, and finished coils under immense weight and extreme radiant heat.</p>
+      <ul>
+        <li><strong>The Right Choice:</strong> High-capacity Forged Scrap Conveyor Chains and high-precision, heavy-duty Double-Strand Roller Chains.</li>
+        <li><strong>Engineering Focus:</strong> Chains operating near blast furnaces or cooling beds require unique heat-treatment processes to prevent the steel from softening under high operating temperatures, ensuring the chain maintains its high breaking load and structural integrity.</li>
+      </ul>
+
+      <h3>3. Premium vs. Cost-Effective Chains: Finding the Right Balance</h3>
+      <p>Maximizing your Return on Investment (ROI) means matching the chain's specification to the exact criticality and operating conditions of the machine.</p>
+      <ul>
+        <li><strong>When to Choose Premium, High-Specification Brands:</strong> For critical, high-speed drives or processes where absolute synchronization is non-negotiable, investing in premium engineering is essential. Brands like IWIS Precision Roller Chains (Germany) are built to withstand extreme fatigue limits. They drastically reduce early elongation (stretching), minimizing the need for constant manual tensioning adjustments and protecting your secondary machinery from expensive breakdowns.</li>
+        <li><strong>When to Choose Cost-Effective, Heavy-Duty Brands:</strong> For massive bulk material handling networks, long conveyor paths, or high-wear environments where chains are replaced on a predictable maintenance schedule due to raw material abrasion, cost-effective alternatives offer the best return. Brands like HS Chain deliver rugged, heavily reinforced industrial conveyor chains built specifically to handle abrasive raw materials. For standard drives, UNO Roller Chains offer heavy-duty, ISO-certified reliability, while TRIO Forged Chains provide the massive load capacity required for heavy raw material transport without over-inflating your procurement budget.</li>
+      </ul>
+
+      <div class="article-pull">
+        Selecting the right industrial chain is more than matching a part number — it is about optimizing your entire conveyor or drive system to lower your overall operating costs.
+      </div>
+
+      <div class="article-refs">
+        <h4>Technical References</h4>
+        <ul>
+          <li>American Chain Association (ACA). <em>Standard Handbook of Chains: Chains for Power Transmission and Material Handling</em>, CRC Press.</li>
+          <li>Decker, K. <em>Bulk Material Handling by Conveyor Belt and Chain: Design, Maintenance, and Optimization</em>, Industrial Press.</li>
+          <li>International Organization for Standardization. <em>Short-pitch transmission precision roller and bush chains</em>, ISO Standard No. 606:2015.</li>
+          <li>iwis Antriebssysteme GmbH. <em>The Chain Engineering Handbook: Calculation, Design, and Practice of Chain Drives.</em></li>
+          <li>Srivastava, A. K., &amp; Robinson, J. M. "Corrosion and Wear Performance of Heat-Treated Alloy Steels in Organic Acid Environments." <em>Journal of Materials Engineering and Performance.</em></li>
+        </ul>
+      </div>
+
+      <div class="article-cta-box">
+        <div>
+          <strong>Ready to optimise your plant's reliability?</strong>
+          <p>Contact our sales engineering team to discuss your application requirements. Over 20 years of experience across Southeast Asia.</p>
+        </div>
+        <a href="contact.html" class="article-cta-btn">Contact Our Team <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+      <a href="#articles-top" class="article-top-link">&#8593; Back to article index</a>
+    </article>
+
+    <!-- ===== ARTICLE 2 ===== -->
+    <article class="article-full" id="article-2">
+      <span class="article-full-eyebrow">Chain Types &nbsp;·&nbsp; 02 / 07</span>
+      <h2>Types of Chain</h2>
+
+      <p>There are two types of chain in common use for transmitting power:</p>
+      <ul>
+        <li>The roller chain</li>
+        <li>The inverted tooth or silent chain</li>
+      </ul>
+
+      <h3>The Roller Chain</h3>
+      <p>The inner plates are held together by steel bushes, through which pass the pins riveted to the outer links. A roller surrounds each bush and the teeth of the sprockets bear on the roller. The rollers turn freely on the bushes and the bushes turn freely on the pins. All the contact surfaces are hardened so as to resist wear and are lubricated so as to reduce friction.</p>
+      <p>A simple roller chain consists of one strand only, but duplex and triplex chains, consisting of two or three strands, may be built up — each pin passing right through the bushes in the two or three strands simultaneously.</p>
+
+      <h3>The Inverted Tooth (Silent) Chain</h3>
+      <p>The silent chain is built up from a series of flat plates, each of which has two projections or teeth. The outer faces of the teeth are ground to give an included angle of 60° or, in some cases, 75°, and they bear against the working faces of the sprocket teeth. The inner faces of the link teeth take no part in the drive and are shaped to clear the sprocket teeth.</p>
+      <p>The required width of chain is built up from a number of these plates arranged alternately and connected together by hardened steel pins which pass through hardened steel bushes inserted in the ends of the links. The pins are riveted over the outside plates.</p>
+      <p>The chain may be prevented from sliding axially across the face of the sprocket teeth by outside guide plates without teeth, or by a centre guide plate without teeth which fits into a recess turned in the sprocket.</p>
+
+      <h4>How the Silent Chain Engages the Sprocket</h4>
+      <p>When the chain is new, each link, as it enters the sprocket, pivots about the pin on the adjacent link which is in contact with the sprocket. The working faces of the link are thus brought gradually into contact with the corresponding faces of the sprocket teeth. A similar action takes place as each link leaves the sprocket. Hence there is no relative sliding between the faces of the links and the faces of the sprocket teeth.</p>
+      <p>As wear takes place on the pins and bushes, the smooth action of the chain is not impaired, but the chain rides higher up the sprocket teeth and the effective pitch circle diameter of the sprocket is increased.</p>
+
+      <div class="article-infobox">
+        <strong>Key Advantage of Silent Chains</strong>
+        Unlike roller chains which impact the sprocket, the silent chain's gradual engagement eliminates sliding contact between link faces and sprocket teeth — resulting in quieter operation and reduced shock at the mesh point. This makes them ideal for high-speed, precision drive applications.
+      </div>
+
+      <a href="#articles-top" class="article-top-link">&#8593; Back to article index</a>
+    </article>
+
+    <!-- ===== ARTICLE 3 ===== -->
+    <article class="article-full" id="article-3">
+      <span class="article-full-eyebrow">Construction &nbsp;·&nbsp; 03 / 07</span>
+      <h2>Construction of Chain</h2>
+
+      <p>A chain consists of two rows of inner and outer plates. The outer row of plates is known as the <strong>pin link</strong> or <strong>coupling-link</strong>, whereas the inner row of plates is called the <strong>roller link</strong>.</p>
+      <p>Pins are fitted in the pin link and pass through a bush which is press-fitted into the rollers, joining the inner and outer plates together. The chain rollers are mounted on the bushings and then roll over the sprocket during motion. The pins are free inside the bush, allowing articulation at each joint.</p>
+
+      <h3>Load-Transmitting Capacity</h3>
+      <p>The load-transmitting capacity of a chain drive depends on the pitch size and the sprocket tooth count. Larger pitch chains and larger sprockets increase the load capacity — however, to avoid excessively long sprockets on high-torque applications, chains are commonly configured in double and triple-strand widths rather than increasing pitch alone.</p>
+
+      <div class="article-pull">
+        Each roller link consists of two inner plates, two bushes, two rollers, and the pins of the adjacent pin links — every component hardened and precisely dimensioned to ensure consistent engagement and long service life.
+      </div>
+
+      <h3>Why This Construction Matters</h3>
+      <p>The press-fit of the bush into the inner plate creates a tightly constrained pivot bearing at each joint. This design allows the chain to articulate smoothly around the sprocket while maintaining high tensile strength and resisting the rotational forces transmitted by the drive. The free-rolling roller reduces the contact stress on the sprocket tooth face, distributing load over a larger area and significantly extending both chain and sprocket life.</p>
+
+      <a href="#articles-top" class="article-top-link">&#8593; Back to article index</a>
+    </article>
+
+    <!-- ===== ARTICLE 4 ===== -->
+    <article class="article-full" id="article-4">
+      <span class="article-full-eyebrow">Technical Reference &nbsp;·&nbsp; 04 / 07</span>
+      <h2>Chains — Drive Mechanics, Leaf Chains &amp; Selection Guidance</h2>
+
+      <p>Through the industrial ages, chains have provided a positive means of transferring power from one shaft to another parallel shaft. Today, bushed roller chains provide a simple, robust drive with the minimum of friction, their manufacture being laid down in BS 228:1984 (ISO 60–1982).</p>
+      <p>Until the introduction of flexible toothed belts, chain drives were almost universally used in automobile engines to drive the camshaft. A noted disadvantage of the chain drive is that the centre distance for sprockets must be either adjustable or calculated based on standard chain pitches. Alternatively, a jockey wheel may be used on the slack side — though this generally precludes the drive from being reversed.</p>
+
+      <div class="article-infobox">
+        <strong>Lubrication and Environment</strong>
+        Chains must be adequately lubricated and work in a clean environment. Dust and dirt will rapidly accelerate wear, causing the chain to become noisy and elongate prematurely. Sealed environments and automatic lubrication systems significantly extend service intervals.
+      </div>
+
+      <h3>Leaf Chains</h3>
+      <p>Leaf chains act as balancers between a moveable part and counterweight (i.e. to balance movement of a part), or where low-speed pulling is required (tension linkage) — for example, for balancing rail movement in textile speedframes or ring rails. This type of chain is also called a <strong>balance chain</strong>.</p>
+      <p>Two types are commonly provided: <strong>AL type</strong> and <strong>BL type</strong>, designated by the number of plates, thickness of plates, and pitch of chain.</p>
+
+      <h4>Key Properties of Leaf Chains</h4>
+      <ul>
+        <li>In roller chains, all link plates have higher fatigue resistance due to the compressive stress of press fits. In leaf chains, only two outer plates are press-fit — therefore the tensile strength of leaf chains is high, but the maximum allowable tension is lower.</li>
+        <li>The more plates used in the lacing, the higher the tensile strength.</li>
+        <li>The pins articulate directly on the plates, and the bearing pressure is very high. Regular lubrication with SAE 30 or SAE 40 machine oil is recommended for most applications.</li>
+        <li>When chain speed exceeds 30 m/min, or if the chain is cycled more than 1,000 times per day, it will wear very quickly even with lubrication. In either case, RS roller chains should be used instead.</li>
+      </ul>
+
+      <h4>AL-type Usage Conditions</h4>
+      <p>AL-type leaf chain should only be used under the following conditions: (I) there are no shock loads; (II) wear is not a significant concern; (III) the number of cycles is less than 100 per day. Under other conditions, BL-type should be considered.</p>
+
+      <h3>Drive Selection Guidance — Sprocket Size &amp; Load Type</h3>
+      <p>For a 15,000-hour chain life target, chain selection is based on steady load applications with reference to sprocket tooth count. For different numbers of teeth, the relevant selection factor must be applied. Where impulsive loads are encountered, the selection factor must also be applied irrespective of sprocket size.</p>
+
+      <div class="article-table-wrap">
+        <table class="article-table">
+          <thead>
+            <tr>
+              <th>Load Characteristic</th>
+              <th>17 Teeth</th>
+              <th>19 Teeth</th>
+              <th>21 Teeth</th>
+              <th>23 Teeth</th>
+              <th>25 Teeth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Steady</td><td>1.1</td><td>1.0</td><td>0.9</td><td>0.85</td><td>0.75</td></tr>
+            <tr><td>Medium Impulsive</td><td>1.7</td><td>1.5</td><td>1.4</td><td>1.3</td><td>1.2</td></tr>
+            <tr><td>Highly Impulsive</td><td>2.2</td><td>2.0</td><td>1.8</td><td>1.7</td><td>1.6</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="article-table-wrap">
+        <table class="article-table">
+          <thead>
+            <tr>
+              <th>Steady Load</th>
+              <th>Medium Impulsive</th>
+              <th>Highly Impulsive</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Alternators</td><td>Reciprocating pumps &amp; compressors</td><td>Welding generators</td></tr>
+            <tr><td>Generators (excl. welding)</td><td>Cable reels</td><td>Excavators</td></tr>
+            <tr><td>Drilling machines</td><td>Cranes and hoists</td><td>Trenchers</td></tr>
+            <tr><td>Rotary pumps &amp; compressors</td><td>Ball mills</td><td>Hammer mills</td></tr>
+            <tr><td>Conveyors &amp; elevators (uniform feed)</td><td>Propeller drives</td><td>Oilwell machinery</td></tr>
+            <tr><td></td><td>Screens</td><td>Pulverizers</td></tr>
+            <tr><td></td><td>Winches</td><td>Rubber machinery</td></tr>
+            <tr><td></td><td>Wire drawing</td><td></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="article-pull">
+        In general, the smallest pitch should be used — even if it means going to duplex or triplex chains. The centre distance should normally be kept to within 30–80 times the chain pitch. For large ratio drives, the angle of lap on the sprocket should not be less than 120°.
+      </div>
+
+      <a href="#articles-top" class="article-top-link">&#8593; Back to article index</a>
+    </article>
+
+    <!-- ===== ARTICLE 5 ===== -->
+    <article class="article-full" id="article-5">
+      <span class="article-full-eyebrow">Maintenance &nbsp;·&nbsp; 05 / 07</span>
+      <h2>When to Replace the Chain</h2>
+
+      <p>The effect of wear on a roller chain is to increase the spacing of the links, causing the chain to grow longer. Importantly, this is <strong>not</strong> from any actual stretching of the metal — as too many engineers and mechanics intuitively believe — but is due to the effect of wear at the pivoting parts. It could more accurately be said that the roller chain <em>loosens</em> with wear rather than stretches.</p>
+      <p>After a long period of running time, the pitch of the chain increases uniformly which results in an overall increase in chain length. As the pitch grows, the chain no longer seats correctly at the base of the sprocket teeth — instead, it rides higher and higher up the tooth flanks, accelerating wear on both chain and sprocket.</p>
+
+      <h3>The Replacement Rule of Thumb</h3>
+      <p>It is advisable to monitor the exact length of a drive chain. The generally accepted industry rule is:</p>
+
+      <div class="article-pull">
+        Replace a roller chain which has elongated <strong>3%</strong> on an adjustable-centre drive, or <strong>1.5%</strong> on a fixed-centre drive.
+      </div>
+
+      <p>When the chain length increases to such an extent that the chain can be raised to half the height of the sprocket teeth — i.e. when the meshing is reduced to half — the chain must be replaced immediately to prevent catastrophic failure.</p>
+
+      <h3>How to Measure Chain Elongation</h3>
+      <p>The most accurate method is to count a known number of pitches (typically 12 or 24 links) on an unstressed, clean chain and measure the total length with a steel ruler or vernier caliper. Compare this measured length to the theoretical new-chain length for the same number of links. The percentage difference is the elongation.</p>
+      <p>For example, a 24-link section of a ½" pitch chain has a new length of 12 inches. If it now measures 12.36 inches, that is a 3% elongation — time to replace on an adjustable-centre drive.</p>
+
+      <div class="article-infobox">
+        <strong>Practical Tip</strong>
+        Always replace the chain and sprocket together where possible. A worn sprocket has a tooth profile that has adapted to a worn chain — installing a new chain on a worn sprocket will accelerate wear on the new chain within a short time, negating the value of the replacement.
+      </div>
+
+      <p class="article-source">Source: ScienceDirect (n.d.) — Roller chain wear and elongation measurement methodology.</p>
+
+      <a href="#articles-top" class="article-top-link">&#8593; Back to article index</a>
+    </article>
+
+    <!-- ===== ARTICLE 6 ===== -->
+    <article class="article-full" id="article-6">
+      <span class="article-full-eyebrow">Conveyor Chains &nbsp;·&nbsp; 06 / 07</span>
+      <h2>How Do Conveyor Chains Work?</h2>
+
+      <p>Conveyor chains are an essential component of materials-handling industries. You might call them the unsung heroes of industrial operations, facilitating smooth and efficient operation in a wide range of applications. To understand the true importance of conveyor chains and systems, it is essential to understand the mechanics behind them.</p>
+
+      <h3>Understanding Conveyor Chains</h3>
+      <p>In simple terms, a conveyor chain is a series of interconnected links that form a continuous loop. Each of these links has two key components: the <strong>inner link</strong> and the <strong>outer link</strong>. The inner links connect the chain with pins or shafts, while the outer links typically feature plates or rollers that support materials during transportation.</p>
+      <p>The extreme versatility of conveyor chains has seen them become an essential component in handling a huge range of materials — from grain, timber, and cement to sugar, asphalt, and water treatment.</p>
+
+      <h3>How Conveyor Chains Move Materials</h3>
+      <p>Conveyor chains contribute to the mechanical motion transmission of conveyor systems. Sprockets or gears propel the chains along a particular path. As chains and sprockets work together in a conveyor system, materials placed on or in the conveyor are transported from one point to another. Different chain and sprocket configurations are better suited to different applications — the combination determines speed, load capacity, and material compatibility.</p>
+
+      <h3>Types of Conveyor Chains</h3>
+
+      <h4>Roller Chains</h4>
+      <p>These are perhaps the most common type of industrial chain. The first patent for a roller chain was applied in 1800 when the design was used to help transport canal boats; some believe the concept can even be traced to Leonardo da Vinci. Roller chains feature cylindrical rollers that engage with the sprockets and are used in conveyor systems for the smooth transportation of materials in a wide range of settings.</p>
+
+      <h4>Hollow Pin Chains</h4>
+      <p>Unlike roller chains, these chains feature hollow pins which allow for the insertion of cross rods or other attachments. This makes hollow pin chains a versatile option suitable for handling irregular or fragile materials — making them a popular choice in food processing and packaging industries.</p>
+
+      <h4>Double Pitch Chains</h4>
+      <p>Compared to standard roller chains, double pitch chains have elongated pitch lengths, providing greater clearance between links. This design makes them ideal for transporting larger or bulky items, and they are commonly used in conveyor applications where the load is carried between the chain links rather than on rollers.</p>
+
+      <h4>Sharp Top Chains</h4>
+      <p>This type of chain features serrated areas on the top of the links — hence the name "sharp top." This creates a gripping surface that allows the chain to transport materials with more stability. Sharp top chains are widely used in the timber processing industry where cut lumber must be transported without slipping.</p>
+
+      <p class="article-source">Source: John King Chains Limited (2024). <em>How Do Conveyor Chains Work? What you need to know.</em></p>
+
+      <a href="#articles-top" class="article-top-link">&#8593; Back to article index</a>
+    </article>
+
+    <!-- ===== ARTICLE 7 ===== -->
+    <article class="article-full" id="article-7">
+      <span class="article-full-eyebrow">Standards &nbsp;·&nbsp; 07 / 07</span>
+      <h2>Understanding Conveyor Chain Standards: British vs. American</h2>
+
+      <p>There is a huge variety of conveyor chains available, each one suitable for different applications and industries. Yet one of the most important — and often overlooked — factors when selecting the right chain is the difference between British and American conveyor chain standards.</p>
+
+      <h3>Why Do Different Standards Matter?</h3>
+      <p>Conveyor chain standards relate to a wide range of factors, including dimensions, pitch, pin diameter, roller diameter, and tensile strength. These features ensure that chains, sprockets, and other related components function reliably within a system, regardless of where they are sourced.</p>
+      <p>Selecting the wrong standard of product can lead to compatibility issues and other problems, including accelerated wear and even system breakdowns. When this happens, businesses can be affected by costly downtime and loss of productivity. It is therefore essential to understand the key differences between conveyor chain standards before specifying a replacement or upgrade.</p>
+
+      <h3>British Standard Chains (BS / ISO)</h3>
+      <p>British Standard chains, often designated under BS or ISO standards (such as BS 4116 or ISO 1977), are widely used in the UK, Europe, Asia, Africa, and other regions. In comparison to their American standard counterparts, British standard chains are typically manufactured with a larger pitch and often feature a solid bush construction to increase strength and wear resistance.</p>
+
+      <h4>Key Features of British Standard Conveyor Chains</h4>
+      <ul>
+        <li>Pitch sizes in <strong>metric units</strong></li>
+        <li><strong>Solid bushes</strong> for better lubrication retention and longer service life</li>
+        <li>Commonly used in industries such as cement, mining, timber, and bulk material handling</li>
+        <li>Designed to suit British Standard sprockets for a precise fit</li>
+      </ul>
+
+      <h3>American Standard Chains (ANSI / ASME)</h3>
+      <p>American Standard chains, often referred to as ANSI or ASME (such as ANSI B29.1), are more commonly used in North America and in industries and equipment built to US specifications.</p>
+
+      <h4>Key Features of American Standard Chains</h4>
+      <ul>
+        <li>Pitch and dimensions follow <strong>imperial measurements</strong></li>
+        <li>Typically lighter in construction compared to British standard chains</li>
+        <li>Widely used in sawmills, timber processing, food production, and recycling operations</li>
+        <li>Compatible with ANSI-standard sprockets</li>
+      </ul>
+
+      <h3>Choosing the Right Standard</h3>
+      <p>The right standard for your requirements can depend on a number of factors:</p>
+      <ul>
+        <li><strong>The equipment you use:</strong> Always check the manufacturer's specifications and match the standard to your existing sprockets.</li>
+        <li><strong>Regional preferences:</strong> In Southeast Asia, British standard (BS/ISO) chains are predominantly used in cement, mining, and bulk handling applications, while ANSI chains are common in general industrial and food processing environments.</li>
+        <li><strong>Availability of matching sprockets and replacement parts:</strong> Mixing standards mid-drive is not possible — ensure your full system is specified to the same standard.</li>
+        <li><strong>Application demands:</strong> Certain standards may be better suited to managing heavy loads or abrasive conditions due to their bush construction and material grades.</li>
+      </ul>
+
+      <div class="article-pull">
+        When in doubt — always cross-reference your existing chain's part number against both BS/ISO and ANSI tables. MPC's technical team can assist with cross-referencing any chain to the correct specification for your equipment.
+      </div>
+
+      <div class="article-cta-box">
+        <div>
+          <strong>Need help specifying the right chain standard?</strong>
+          <p>Contact the MPC technical team — we cross-reference, specify, and supply chains to both BS/ISO and ANSI standards from our Bangkok warehouse.</p>
+        </div>
+        <a href="contact.html" class="article-cta-btn">Get Technical Support <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+      </div>
+
+      <p class="article-source">Source: John King Chains, <em>Conveyor Chain Standards</em> (2025).</p>
+      <a href="#articles-top" class="article-top-link">&#8593; Back to article index</a>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid-5">
+      <div>
+        <img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="footer-logo-img">
+        <p class="footer-tagline">Motion Plus Corporation</p>
+        <p class="footer-about-text" data-i18n="footer-about-text">Authorised Distributor &amp; After-Sales Service Provider for Industrial Chain Solutions across Southeast Asia. Precision engineering, world-class brands.</p>
+        <div class="footer-socials">
+          <a href="https://www.linkedin.com/company/motion-plus-corporation-co-ltd/" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          </a>
+          <a href="https://www.facebook.com/share/17FWDKmfBN/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="https://shopee.co.th/MotionPlusCorporation" class="footer-social" aria-label="Shopee" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </a>
+          <a href="https://www.tiktok.com/@motion_plus_corporation?_r=1&_t=ZS-95bOYoXH7sT" class="footer-social" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+          <a href="mailto:contact@motionpluscorp.com" class="footer-social" aria-label="Email">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-solutions-h">Solutions</h4>
+        <ul class="footer-links">
+          <li><a href="products.html" data-i18n="footer-roller">Roller Chains</a></li>
+          <li><a href="hs-conveyor-chains.html" data-i18n="footer-conveyor">Conveyor Chains</a></li>
+          <li><a href="products.html" data-i18n="footer-drive">Drive Chains</a></li>
+          <li><a href="contact.html" data-i18n="footer-support">After-Sales Support</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-brands-h">Our Brands</h4>
+        <ul class="footer-links">
+          <li><a href="hs-conveyor-chains.html">HS Chain</a></li>
+          <li><a href="iwis-chains.html">IWIS</a></li>
+          <li><a href="kmh-conveyor-pipe.html">KMH</a></li>
+          <li><a href="dongbo-chains.html">Dongbo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-company-h">Company</h4>
+        <ul class="footer-links">
+          <li><a href="about.html" data-i18n="footer-about-mpc">About MPC</a></li>
+          <li><a href="portfolio.html" data-i18n="footer-portfolio">Portfolio</a></li>
+          <li><a href="articles.html" data-i18n="nav-articles">Articles</a></li>
+          <li><a href="contact.html" data-i18n="footer-contact-us">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer-contact-h">Contact</h4>
+        <div class="footer-contact-block">
+          <div class="footer-contact-item">
+            <span class="footer-contact-label" data-i18n="footer-addr-lbl">Address</span>
+            <span class="footer-contact-value">199/29 Soi Chuaplerng (Amorn),<br>Nanglinchee Rd., Chongnonsee,<br>Yannawa, Bangkok 10120</span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label" data-i18n="footer-tel-lbl">Telephone</span>
+            <span class="footer-contact-value"><a href="tel:+6622865656">02 286-5656</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label" data-i18n="footer-email-lbl">Email</span>
+            <span class="footer-contact-value"><a href="mailto:contact@motionpluscorp.com">contact@motionpluscorp.com</a></span>
+          </div>
+          <div class="footer-contact-item">
+            <span class="footer-contact-label" data-i18n="footer-hours-lbl">Business Hours</span>
+            <div class="footer-hours-grid">
+              <span data-i18n="footer-mon-fri">Mon — Fri</span><span data-i18n="footer-hours-wkday">8:30 AM — 5:00 PM</span>
+              <span data-i18n="footer-sat">Saturday</span><span data-i18n="footer-hours-sat">9:00 AM — 3:00 PM</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copyright" data-i18n="footer-copyright">&copy; 2026 Motion Plus Corporation Co., Ltd. All rights reserved.</p>
+      <div class="footer-badges">
+        <span class="footer-badge" data-i18n="footer-badge-iso">ISO</span>
+        <span class="footer-badge" data-i18n="footer-badge-auth">Authorised</span>
+        <span class="footer-badge" data-i18n="footer-badge-sea">SEA</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- Hamburger ---- */
+(function() {
+  var btn = document.getElementById('hamburger');
+  var nav = document.getElementById('mobile-nav');
+  if (btn && nav) {
+    btn.addEventListener('click', function() {
+      var open = nav.classList.toggle('open');
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  }
+  /* Mobile industries sub-menu */
+  var mobTrig = document.getElementById('mob-ind-trigger');
+  var mobSub  = document.getElementById('mob-ind-sub');
+  if (mobTrig && mobSub) {
+    mobTrig.addEventListener('click', function() {
+      var expanded = mobTrig.getAttribute('aria-expanded') === 'true';
+      mobTrig.setAttribute('aria-expanded', String(!expanded));
+      mobSub.style.display = expanded ? 'none' : 'block';
+    });
+  }
+})();
+</script>
+<script src="lang.js" defer></script>
+</body>
+</html>
