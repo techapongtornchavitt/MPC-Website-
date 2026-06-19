@@ -29,135 +29,77 @@
   <script src="interactions.js" defer></script>
   <link rel="stylesheet" href="styles.css">
   <style>
-    body { background: #0e1d30; }
-
-    /* breadcrumb */
-    .bc-bar { padding:.65rem 0; border-bottom:1px solid rgba(255,255,255,.05); background:rgba(0,4,14,.9); }
-    .bc-list { display:flex;align-items:center;gap:.4rem;list-style:none;margin:0;padding:0;font-size:.73rem;flex-wrap:wrap;color:rgba(255,255,255,.32); }
-    .bc-list a { color:rgba(255,255,255,.50);text-decoration:none; }
-    .bc-list a:hover { color:#7ec8e3; }
-    .bc-list .active { color:rgba(255,255,255,.75);font-weight:600; }
-
-    /* back link */
-    .back-link { display:inline-flex;align-items:center;gap:.42rem;font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);text-decoration:none;transition:color .2s;margin-bottom:2.5rem; }
-    .back-link:hover { color:#7ec8e3; }
-    .back-link svg { width:14px;height:14px; }
-
-    /* ---- HERO ---- */
-    .brand-hero {
-      position: relative;
-      padding: 5rem 0 4rem;
-      background: linear-gradient(135deg, #041428 0%, #0b2240 60%, #0d1f3a 100%);
-      overflow: hidden;
-    }
-    .brand-hero::before {
-      content:'';
-      position:absolute;
-      inset:0;
-      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(0,86,164,.18) 0%, transparent 70%);
-    }
-    .brand-hero-inner {
-      position:relative;
-      display:flex;
-      align-items:center;
-      gap:3rem;
-      flex-wrap:wrap;
-    }
-    .brand-hero-logo-wrap {
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
-      border-radius:20px;
-      padding:2rem 2.5rem;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-width:200px;
-      flex-shrink:0;
-    }
-    .brand-hero-logo-wrap img { height:60px; object-fit:contain; filter:brightness(1.1); }
-    .brand-hero-text { flex:1; min-width:260px; }
-    .brand-hero-eyebrow { font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7ec8e3;margin:0 0 .7rem; }
+    body { background: #f8f9fb; color: #4a5568; }
+    .bc-bar { background:#fff; border-bottom:1px solid #e2e8f0; padding:.65rem 0; }
+    .bc-list { display:flex;align-items:center;gap:.4rem;list-style:none;margin:0;padding:0;font-size:.73rem;color:#94a3b8; }
+    .bc-list a { color:#64748b;text-decoration:none; }
+    .bc-list a:hover { color:#0056a4; }
+    .bc-list .active { color:#1a2332;font-weight:600; }
+    /* Hero stays dark */
+    .brand-hero { background:linear-gradient(135deg,#012a5c 0%,#0056a4 100%); padding:5rem 0 4rem; position:relative; overflow:hidden; }
+    /* hero text all white */
+    .brand-hero-eyebrow { color:rgba(255,255,255,.7); font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin:0 0 .7rem; }
     .brand-hero-h1 { font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;margin:0 0 .9rem;line-height:1.15; }
     .brand-hero-h1 em { font-style:normal;color:#7ec8e3; }
-    .brand-hero-sub { font-size:1rem;color:rgba(255,255,255,.6);line-height:1.65;margin:0 0 1.5rem;max-width:560px; }
+    .brand-hero-sub { font-size:1rem;color:rgba(255,255,255,.8);line-height:1.65;margin:0 0 1.5rem;max-width:560px; }
+    .brand-htag { background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.3);border-radius:100px;padding:.32rem .85rem;font-size:.78rem;color:#fff;font-weight:500; }
     .brand-hero-tags { display:flex;flex-wrap:wrap;gap:.5rem; }
-    .brand-htag { background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:.32rem .85rem;font-size:.78rem;color:rgba(255,255,255,.75);font-weight:500; }
-
-    /* ---- IMAGE PLACEHOLDER ---- */
-    .img-placeholder {
-      width:100%;
-      aspect-ratio:16/7;
-      background:rgba(255,255,255,.04);
-      border:2px dashed rgba(255,255,255,.12);
-      border-radius:16px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:.6rem;
-      color:rgba(255,255,255,.3);
-      font-size:.85rem;
-    }
-    .img-placeholder svg { opacity:.4; }
-    .img-placeholder-sm { aspect-ratio:4/3; border-radius:12px; }
-
-    /* ---- SECTION GENERIC ---- */
-    .brand-section { padding:4.5rem 0; }
-    .brand-section-alt { background:rgba(255,255,255,.025); }
-    .section-eyebrow-sm { font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7ec8e3;margin:0 0 .6rem; }
-    .section-h2-light { font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff;margin:0 0 1rem;line-height:1.2; }
-    .section-body-light { font-size:.97rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0 0 1rem;max-width:680px; }
-
-    /* ---- DIVISIONS GRID ---- */
-    .divisions-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:2.5rem; }
-    .division-card {
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:18px;
-      padding:2rem 1.75rem;
-      transition:background .2s,border-color .2s;
-    }
-    .division-card:hover { background:rgba(0,86,164,.1);border-color:rgba(0,86,164,.3); }
-    .division-icon { width:44px;height:44px;background:rgba(0,86,164,.18);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem; }
-    .division-icon svg { width:22px;height:22px;stroke:#7ec8e3; }
-    .division-h3 { font-size:1.05rem;font-weight:700;color:#fff;margin:0 0 .6rem; }
-    .division-p { font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.65;margin:0; }
-
-    /* ---- BRANDS GRID ---- */
-    .sub-brands-grid { display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;margin-top:2rem; }
-    .sub-brand-card {
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:14px;
-      padding:1.25rem 1.2rem;
-    }
-    .sub-brand-name { font-size:1rem;font-weight:800;color:#fff;margin:0 0 .35rem; }
-    .sub-brand-name span { font-size:.7rem;font-weight:500;color:#7ec8e3;margin-left:.4rem;vertical-align:middle; }
-    .sub-brand-desc { font-size:.83rem;color:rgba(255,255,255,.55);line-height:1.55;margin:0; }
-
-    /* ---- STATS BAR ---- */
-    .stats-bar { display:flex;flex-wrap:wrap;gap:1px;background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden;margin-top:2.5rem; }
-    .stat-block { flex:1;min-width:140px;padding:1.75rem 1.5rem;background:#0b1928;text-align:center; }
-    .stat-block-num { font-size:2.2rem;font-weight:900;color:#fff;line-height:1;margin-bottom:.3rem; }
-    .stat-block-lbl { font-size:.78rem;color:rgba(255,255,255,.5);font-weight:500;letter-spacing:.04em; }
-
-    /* ---- TAGS ---- */
-    .tags-wrap { display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.5rem; }
-    .brand-tag { background:rgba(0,86,164,.18);border:1px solid rgba(0,86,164,.35);color:#7ec8e3;font-size:.8rem;font-weight:500;padding:.35rem .85rem;border-radius:100px; }
-
-    /* ---- TWO COL ---- */
-    .two-col { display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center; }
-    @media(max-width:720px){ .two-col { grid-template-columns:1fr; } .brand-hero-inner { flex-direction:column; } }
-
-    /* ---- CTA ---- */
-    .brand-cta { background:linear-gradient(135deg,#003d7a,#0056a4);padding:4rem 0;text-align:center; }
+    .brand-hero-logo-wrap { background:rgba(255,255,255,.92);border-radius:16px;padding:1.5rem 2rem;display:flex;align-items:center;justify-content:center;min-width:180px;flex-shrink:0; }
+    .brand-hero-logo-wrap img { height:56px;object-fit:contain; }
+    .brand-hero-inner { display:flex;align-items:center;gap:3rem;flex-wrap:wrap;position:relative;z-index:1; }
+    .brand-hero-text { flex:1;min-width:260px; }
+    /* Content sections */
+    .brand-section { padding:4.5rem 0; background:#fff; }
+    .brand-section-alt { background:#f8f9fb; }
+    .section-eyebrow { font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0056a4;margin:0 0 .5rem; }
+    .section-h2 { font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#1a2332;margin:0 0 1rem;line-height:1.2; }
+    .section-body { font-size:.97rem;color:#4a5568;line-height:1.75;margin:0 0 1rem;max-width:720px; }
+    /* Division subsections */
+    .division-block { margin-bottom:3rem; padding-bottom:3rem; border-bottom:1px solid #e2e8f0; }
+    .division-block:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+    .division-h3 { font-size:1.2rem;font-weight:700;color:#0056a4;margin:0 0 .7rem; display:flex;align-items:center;gap:.6rem; }
+    .division-h3::before { content:''; display:inline-block;width:4px;height:1.2em;background:#0056a4;border-radius:2px;flex-shrink:0; }
+    .division-p { font-size:.95rem;color:#4a5568;line-height:1.75;margin:0 0 .85rem;max-width:760px; }
+    .division-ul { margin:0;padding-left:1.4rem;color:#4a5568;font-size:.93rem;line-height:1.8; }
+    .division-ul li { margin-bottom:.25rem; }
+    /* Product lines */
+    .brand-dl { margin:1.5rem 0 0; }
+    .brand-dl-item { display:flex;gap:.75rem;align-items:baseline;padding:.75rem 0;border-bottom:1px solid #e9edf2; }
+    .brand-dl-item:last-child { border-bottom:none; }
+    .brand-dl-term { font-weight:700;color:#1a2332;min-width:200px;flex-shrink:0;font-size:.95rem; }
+    .brand-dl-def { font-size:.93rem;color:#4a5568;line-height:1.65;margin:0; }
+    @media(max-width:600px) { .brand-dl-item { flex-direction:column;gap:.2rem; } .brand-dl-term { min-width:auto; } }
+    /* Industry tags */
+    .tags-wrap { display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem; }
+    .brand-tag { background:#e8f0fb;border:1px solid #c3d8f5;color:#0056a4;font-size:.8rem;font-weight:500;padding:.32rem .85rem;border-radius:100px; }
+    /* Carousel */
+    .img-carousel-wrap { position:relative;overflow:hidden;border-radius:14px;border:1px solid #e2e8f0;background:#f1f5f9; }
+    .img-carousel-track { display:flex;transition:transform .5s ease; }
+    .img-carousel-slide { flex-shrink:0;width:100%;height:380px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;color:#94a3b8;font-size:.9rem;background:#f1f5f9; }
+    .img-carousel-slide img { width:100%;height:100%;object-fit:cover; }
+    .carousel-dots { display:flex;justify-content:center;gap:.5rem;margin-top:1rem; }
+    .carousel-dot { width:8px;height:8px;border-radius:50%;background:#c3d8f5;border:none;cursor:pointer;padding:0;transition:background .2s; }
+    .carousel-dot.active { background:#0056a4; }
+    /* Product link buttons */
+    .prod-links { display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem; }
+    .prod-link-btn { display:inline-flex;align-items:center;gap:.6rem;background:#fff;border:1.5px solid #0056a4;color:#0056a4;padding:.75rem 1.4rem;border-radius:10px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s,color .2s; }
+    .prod-link-btn:hover { background:#0056a4;color:#fff; }
+    /* CTA */
+    .brand-cta { background:linear-gradient(135deg,#012a5c,#0056a4);padding:4.5rem 0;text-align:center; }
     .brand-cta h2 { font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:#fff;margin:0 0 .8rem; }
-    .brand-cta p { font-size:.97rem;color:rgba(255,255,255,.72);margin:0 0 2rem; }
+    .brand-cta p { font-size:.97rem;color:rgba(255,255,255,.8);margin:0 0 2rem; }
     .brand-cta-btns { display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center; }
     .btn-cta-primary { background:#fff;color:#0056a4;font-weight:700;padding:.85rem 1.9rem;border-radius:100px;text-decoration:none;font-size:.92rem;transition:box-shadow .2s; }
     .btn-cta-primary:hover { box-shadow:0 8px 24px rgba(0,0,0,.25); }
-    .btn-cta-outline { border:2px solid rgba(255,255,255,.4);color:#fff;font-weight:700;padding:.85rem 1.9rem;border-radius:100px;text-decoration:none;font-size:.92rem;transition:border-color .2s; }
+    .btn-cta-outline { border:2px solid rgba(255,255,255,.5);color:#fff;font-weight:700;padding:.85rem 1.9rem;border-radius:100px;text-decoration:none;font-size:.92rem;transition:border-color .2s; }
     .btn-cta-outline:hover { border-color:#fff; }
+    @media(max-width:720px) { .brand-hero-inner { flex-direction:column; } }
+    /* Stats bar light */
+    .stats-bar { display:flex;flex-wrap:wrap;gap:0;border:1px solid #e2e8f0;border-radius:14px;overflow:hidden;margin-top:2.5rem; }
+    .stat-block { flex:1;min-width:140px;padding:1.75rem 1.5rem;background:#fff;text-align:center;border-right:1px solid #e2e8f0; }
+    .stat-block:last-child { border-right:none; }
+    .stat-block-num { font-size:2.2rem;font-weight:900;color:#0056a4;line-height:1;margin-bottom:.3rem; }
+    .stat-block-lbl { font-size:.78rem;color:#64748b;font-weight:500;letter-spacing:.04em; }
   </style>
 </head>
 <body>
@@ -272,8 +214,8 @@
       </div>
       <div class="brand-hero-text">
         <p class="brand-hero-eyebrow">Authorised Distributor · Germany</p>
-        <h1 class="brand-hero-h1">IWIS <em>Drive Systems</em></h1>
-        <p class="brand-hero-sub">German precision chain engineering — from standard roller chains to highly specialised custom designs. Covering every requirement including maintenance-free and corrosion-resistant solutions.</p>
+        <h1 class="brand-hero-h1">IWIS <em>German Precision Chain Engineering</em></h1>
+        <p class="brand-hero-sub">Over a century of precision engineering from Munich — driving industries across six continents with roller chains, conveyor chains, timing drive systems, and smart connection technology.</p>
         <div class="brand-hero-tags">
           <span class="brand-htag">ISO 606 Certified</span>
           <span class="brand-htag">German Manufacturing</span>
@@ -286,114 +228,127 @@
   </div>
 </section>
 
-<!-- IMAGE SECTION (placeholder — images to be added) -->
-<section class="brand-section" style="padding:2.5rem 0;">
+<!-- ABOUT IWIS -->
+<section class="brand-section">
   <div class="container">
-    <div class="img-placeholder">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span>Brand image coming soon</span>
+    <p class="section-eyebrow">About the Brand</p>
+    <h2 class="section-h2">About IWIS</h2>
+    <p class="section-body">IWIS (Internationale Wiesel) was founded in Munich in 1916. Over more than 100 years, the company has developed into one of the world's leading manufacturers of precision roller chains, conveyor chains, and timing drive systems. Headquartered in Germany with an international manufacturing and distribution network, IWIS serves industries across six continents.</p>
+    <p class="section-body">IWIS holds ISO 606 certification across its product lines and maintains rigorous quality standards from raw material selection through to finished chain assembly and testing. Motion Plus Corporation is the authorised distributor of IWIS in Thailand and Southeast Asia, providing direct access to the full product range with local technical support and after-sales service.</p>
+
+    <div class="stats-bar">
+      <div class="stat-block">
+        <div class="stat-block-num">1916</div>
+        <div class="stat-block-lbl">Founded in Munich</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-block-num">100+</div>
+        <div class="stat-block-lbl">Years of Engineering</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-block-num">6</div>
+        <div class="stat-block-lbl">Continents Served</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-block-num">3</div>
+        <div class="stat-block-lbl">Business Divisions</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- DIVISIONS -->
+<!-- THREE DIVISIONS -->
 <section class="brand-section brand-section-alt">
   <div class="container">
-    <p class="section-eyebrow-sm">Our Divisions</p>
-    <h2 class="section-h2-light">Three Pillars of IWIS Innovation</h2>
-    <p class="section-body-light">IWIS drive systems offers the right performance class for every requirement. With multiple strong brands, IWIS covers the entire spectrum of modern drive technology — from premium solutions with maximum precision to robust systems for versatile applications.</p>
+    <p class="section-eyebrow">Our Divisions</p>
+    <h2 class="section-h2">Three Business Divisions</h2>
+    <p class="section-body">IWIS is organised around three focused divisions, each delivering specialist engineering capability for its target market segment.</p>
 
-    <div class="divisions-grid">
+    <div style="margin-top:2.5rem;">
 
-      <div class="division-card">
-        <div class="division-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
-        </div>
+      <div class="division-block">
         <h3 class="division-h3">Drive Systems</h3>
-        <p class="division-p">An exceptionally wide range of roller chains with attachments — outstanding quality and proven reliability. From standard roller chains to highly specialised custom chains, covering every requirement including maintenance-free and corrosion-resistant designs. Innovative solutions such as the Chain Condition Monitoring System (CCM-S) and the VARIACTO Push-Pull Drive help customers make production processes efficient, safe and free from unexpected downtime.</p>
+        <p class="division-p">An exceptionally wide range of roller chains with attachments — outstanding quality and proven reliability across industrial applications worldwide. From standard roller chains to highly specialised custom designs, the Drive Systems division covers every requirement including maintenance-free and corrosion-resistant solutions. Innovative platforms such as the Chain Condition Monitoring System (CCM-S) and the VARIACTO Push-Pull Drive help customers make production processes efficient, safe, and free from unexpected downtime.</p>
+        <ul class="division-ul">
+          <li>Standard and custom roller chains to ISO 606 and ANSI standards</li>
+          <li>Maintenance-free chains: MEGAlife, b.dry, and b.triton series</li>
+          <li>FLEXON specialist chains for complex conveying geometries</li>
+          <li>CCM-S Chain Condition Monitoring System for real-time wear detection</li>
+          <li>VARIACTO Push-Pull Drive for variable-ratio drive applications</li>
+          <li>Stainless steel and food-grade chain variants</li>
+        </ul>
       </div>
 
-      <div class="division-card">
-        <div class="division-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v3"/><rect x="9" y="11" width="14" height="10" rx="1"/><line x1="12" y1="11" x2="12" y2="21"/><line x1="9" y1="16" x2="23" y2="16"/></svg>
-        </div>
+      <div class="division-block">
         <h3 class="division-h3">Mobility Systems</h3>
-        <p class="division-p">With decades of expertise in timing drive systems for the automotive industry, IWIS delivers forward-thinking solutions for both conventional powertrains and the rapidly growing field of e-mobility. Strong engineering and manufacturing capabilities make IWIS a reliable partner for customised system solutions and high-volume series production in the automotive sector.</p>
+        <p class="division-p">With decades of expertise in timing drive systems for the automotive industry, IWIS Mobility Systems delivers forward-thinking solutions for both conventional powertrains and the rapidly growing field of e-mobility. Strong engineering and manufacturing capabilities make IWIS a reliable partner for customised system solutions and high-volume series production — from internal combustion engines through to full electric drivetrains.</p>
+        <ul class="division-ul">
+          <li>Timing chain systems for passenger cars and commercial vehicles</li>
+          <li>E-mobility drive solutions for electric vehicles and e-bikes</li>
+          <li>OEM-specification engineering and validation</li>
+          <li>High-volume series production capability</li>
+          <li>Full coverage from ICE through to full EV drivetrains</li>
+        </ul>
       </div>
 
-      <div class="division-card">
-        <div class="division-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-        </div>
+      <div class="division-block">
         <h3 class="division-h3">Smart Connect</h3>
-        <p class="division-p">As a specialist in high-precision stamping and bending technology, IWIS Smart Connect develops sophisticated connection solutions for a wide range of industries — from battery connections for e-mobility and plug connectors for autonomous vehicle sensors to high-current contacts for alternative energy systems. Manufactured with state-of-the-art tools developed in-house.</p>
+        <p class="division-p">As a specialist in high-precision stamping and bending technology, IWIS Smart Connect develops sophisticated connection solutions for a wide range of industries — from battery connections for e-mobility and plug connectors for autonomous vehicle sensors to high-current contacts for alternative energy systems. All tooling is developed in-house, enabling tight quality control and rapid customisation.</p>
+        <ul class="division-ul">
+          <li>Battery connections for e-mobility applications</li>
+          <li>Plug connectors for autonomous vehicle sensor systems</li>
+          <li>High-current contacts for alternative energy systems</li>
+          <li>In-house tooling development for full quality control</li>
+          <li>Harsh environment rated — designed for demanding conditions</li>
+        </ul>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- IMAGE ROW (placeholder) -->
-<section class="brand-section" style="padding:2.5rem 0;">
+<!-- PRODUCT LINES -->
+<section class="brand-section">
   <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;">
-      <div class="img-placeholder img-placeholder-sm">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Image coming soon</span>
-      </div>
-      <div class="img-placeholder img-placeholder-sm">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Image coming soon</span>
-      </div>
-      <div class="img-placeholder img-placeholder-sm">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Image coming soon</span>
-      </div>
-    </div>
-  </div>
-</section>
+    <p class="section-eyebrow">Product Lines</p>
+    <h2 class="section-h2">Performance for Every Requirement</h2>
+    <p class="section-body">Specifically designated product lines ensure that technical requirements are met at every level — from ultra-premium precision for the most critical applications, to robust versatile performance for general industrial use. Each sub-brand carries its own engineering focus and quality commitment.</p>
 
-<!-- SUB-BRANDS -->
-<section class="brand-section brand-section-alt">
-  <div class="container">
-    <p class="section-eyebrow-sm">Product Brands</p>
-    <h2 class="section-h2-light">Performance for Every Requirement</h2>
-    <p class="section-body-light">Specifically designated product lines ensure that specific technical requirements are met — from ultra-premium precision to robust versatile performance.</p>
-
-    <div class="sub-brands-grid">
-      <div class="sub-brand-card">
-        <p class="sub-brand-name">JWIS <span>Premium</span></p>
-        <p class="sub-brand-desc">Maximum precision, accuracy and length stability. Designed for demanding applications with tight tolerances and very high requirements for fatigue strength, performance and breaking load.</p>
+    <div class="brand-dl">
+      <div class="brand-dl-item">
+        <span class="brand-dl-term">JWIS Premium</span>
+        <p class="brand-dl-def">Maximum precision and length stability for the most demanding applications with tightest tolerances. Designed for high fatigue strength, peak performance, and maximum breaking load requirements.</p>
       </div>
-      <div class="sub-brand-card">
-        <p class="sub-brand-name">ELITE <span>High Quality</span></p>
-        <p class="sub-brand-desc">High-quality, versatile drive solutions for almost any application. Reliability, high availability, flexibility and a comprehensive product portfolio for general industrial use.</p>
+      <div class="brand-dl-item">
+        <span class="brand-dl-term">ELITE High Quality</span>
+        <p class="brand-dl-def">Versatile, reliable drive solutions for general industrial applications. High availability, flexibility, and a comprehensive product portfolio for dependable everyday performance.</p>
       </div>
-      <div class="sub-brand-card">
-        <p class="sub-brand-name">FLEXON <span>Specialist</span></p>
-        <p class="sub-brand-desc">Hinge chains, multiflex chains, cast steel chains and magnetic curves — engineered for complex conveying geometries and specialty handling applications.</p>
+      <div class="brand-dl-item">
+        <span class="brand-dl-term">FLEXON Specialist</span>
+        <p class="brand-dl-def">Hinge chains, multiflex chains, and cast steel chains for complex conveying geometries. Engineered for applications that cannot be served by standard roller chain configurations.</p>
       </div>
-      <div class="sub-brand-card">
-        <p class="sub-brand-name">MEGAlife</p>
-        <p class="sub-brand-desc">Long-life, maintenance-reduced chain solutions designed for extended service intervals and lower total cost of ownership in demanding environments.</p>
+      <div class="brand-dl-item">
+        <span class="brand-dl-term">MEGAlife</span>
+        <p class="brand-dl-def">Long-life, maintenance-reduced chains for extended service intervals and lower total cost of ownership. Ideal for demanding environments where frequent maintenance is impractical.</p>
       </div>
-      <div class="sub-brand-card">
-        <p class="sub-brand-name">b.dry &amp; b.triton</p>
-        <p class="sub-brand-desc">Dry-running and corrosion-resistant chain systems for food, pharmaceutical, and clean-environment conveying applications where lubrication is not possible.</p>
+      <div class="brand-dl-item">
+        <span class="brand-dl-term">b.dry &amp; b.triton</span>
+        <p class="brand-dl-def">Dry-running and corrosion-resistant systems for food, pharmaceutical, and clean environments. No lubrication required — designed for hygiene-critical conveying applications.</p>
       </div>
-      <div class="sub-brand-card">
-        <p class="sub-brand-name">CCM-S <span>Smart</span></p>
-        <p class="sub-brand-desc">Chain Condition Monitoring System — real-time wear detection for predictive maintenance, reducing unplanned downtime and maximising chain service life.</p>
+      <div class="brand-dl-item">
+        <span class="brand-dl-term">CCM-S Smart</span>
+        <p class="brand-dl-def">Chain Condition Monitoring System for real-time wear detection and predictive maintenance. Reduces unplanned downtime and maximises chain service life through data-driven insight.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- INDUSTRIES -->
-<section class="brand-section">
+<section class="brand-section brand-section-alt">
   <div class="container">
-    <p class="section-eyebrow-sm">Industries Served</p>
-    <h2 class="section-h2-light">Built for the World's Most Demanding Industries</h2>
+    <p class="section-eyebrow">Industries Served</p>
+    <h2 class="section-h2">Industries We Serve</h2>
+    <p class="section-body">IWIS chain technology is deployed across a broad range of industries — wherever precision, reliability, and engineering quality matter.</p>
     <div class="tags-wrap">
       <span class="brand-tag">Food &amp; Confectionery</span>
       <span class="brand-tag">Bakery</span>
@@ -423,18 +378,50 @@
   </div>
 </section>
 
+<!-- IMAGE CAROUSEL -->
+<section class="brand-section">
+  <div class="container">
+    <p class="section-eyebrow">Gallery</p>
+    <h2 class="section-h2">IWIS in Action</h2>
+    <p class="section-body">Images coming soon — this section will feature product and application photography.</p>
+
+    <div class="img-carousel-wrap" id="iwis-carousel">
+      <div class="img-carousel-track">
+        <div class="img-carousel-slide">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Image coming soon</span>
+        </div>
+        <div class="img-carousel-slide">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Image coming soon</span>
+        </div>
+        <div class="img-carousel-slide">
+          <svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+          <span>Image coming soon</span>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-dots" id="iwis-dots">
+      <button class="carousel-dot active" aria-label="Slide 1"></button>
+      <button class="carousel-dot" aria-label="Slide 2"></button>
+      <button class="carousel-dot" aria-label="Slide 3"></button>
+    </div>
+  </div>
+</section>
+
 <!-- PRODUCT LINKS -->
 <section class="brand-section brand-section-alt">
   <div class="container">
-    <p class="section-eyebrow-sm">IWIS Products at MPC</p>
-    <h2 class="section-h2-light">Explore IWIS Chains We Supply</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem;">
-      <a href="iwis-chains.html" style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,86,164,.2);border:1.5px solid rgba(0,86,164,.45);color:#7ec8e3;padding:.85rem 1.5rem;border-radius:12px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-7-7"/></svg>
+    <p class="section-eyebrow">IWIS Products at MPC</p>
+    <h2 class="section-h2">Explore IWIS Chains We Supply</h2>
+    <p class="section-body">Browse the full range of IWIS roller chains and conveyor chains available through Motion Plus Corporation in Thailand and Southeast Asia.</p>
+    <div class="prod-links">
+      <a href="iwis-chains.html" class="prod-link-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 1 1-7-7"/></svg>
         IWIS Roller Chains
       </a>
-      <a href="iwis-conveyor-chains.html" style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,86,164,.2);border:1.5px solid rgba(0,86,164,.45);color:#7ec8e3;padding:.85rem 1.5rem;border-radius:12px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M17 7V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2"/></svg>
+      <a href="iwis-conveyor-chains.html" class="prod-link-btn">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M17 7V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v2"/></svg>
         IWIS Conveyor Chains
       </a>
     </div>
@@ -555,5 +542,21 @@
 </script>
 <script defer src="animations.js"></script>
 <script defer src="lang.js"></script>
+<script>
+(function() {
+  var slides = document.querySelectorAll('#iwis-carousel .img-carousel-slide');
+  var track = document.querySelector('#iwis-carousel .img-carousel-track');
+  var dots = document.querySelectorAll('#iwis-dots .carousel-dot');
+  if (!slides.length) return;
+  var current = 0;
+  function go(n) {
+    current = (n + slides.length) % slides.length;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach(function(d,i){ d.classList.toggle('active', i===current); });
+  }
+  dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
+  setInterval(function(){ go(current+1); }, 5000);
+})();
+</script>
 </body>
 </html>

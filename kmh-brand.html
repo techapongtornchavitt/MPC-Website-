@@ -29,27 +29,28 @@
   <script src="interactions.js" defer></script>
   <link rel="stylesheet" href="styles.css">
   <style>
-    body { background: #0e1d30; }
+    /* ===== LIGHT THEME BASE ===== */
+    body { background:#f8f9fb; color:#4a5568; }
 
-    /* breadcrumb */
-    .bc-bar { padding:.65rem 0; border-bottom:1px solid rgba(255,255,255,.05); background:rgba(0,4,14,.9); }
-    .bc-list { display:flex;align-items:center;gap:.4rem;list-style:none;margin:0;padding:0;font-size:.73rem;flex-wrap:wrap;color:rgba(255,255,255,.32); }
-    .bc-list a { color:rgba(255,255,255,.50);text-decoration:none; }
-    .bc-list a:hover { color:#7ec8e3; }
-    .bc-list .active { color:rgba(255,255,255,.75);font-weight:600; }
+    /* ===== BREADCRUMB — light bar ===== */
+    .bc-bar { padding:.65rem 0; border-bottom:1px solid #e2e8f0; background:#fff; }
+    .bc-list { display:flex;align-items:center;gap:.4rem;list-style:none;margin:0;padding:0;font-size:.73rem;flex-wrap:wrap;color:#a0aec0; }
+    .bc-list a { color:#4a5568;text-decoration:none; }
+    .bc-list a:hover { color:#0056a4; }
+    .bc-list .active { color:#1a2332;font-weight:600; }
 
-    /* ---- HERO ---- */
+    /* ===== HERO — dark blue gradient, white text only ===== */
     .brand-hero {
-      position: relative;
-      padding: 5rem 0 4rem;
-      background: linear-gradient(135deg, #041428 0%, #0b2240 60%, #0d1f3a 100%);
-      overflow: hidden;
+      position:relative;
+      padding:5rem 0 4rem;
+      background:linear-gradient(135deg,#012a5c 0%,#0056a4 100%);
+      overflow:hidden;
     }
     .brand-hero::before {
       content:'';
       position:absolute;
       inset:0;
-      background: radial-gradient(ellipse 70% 80% at 80% 50%, rgba(0,86,164,.18) 0%, transparent 70%);
+      background:radial-gradient(ellipse 70% 80% at 80% 50%,rgba(255,255,255,.06) 0%,transparent 70%);
     }
     .brand-hero-inner {
       position:relative;
@@ -59,8 +60,8 @@
       flex-wrap:wrap;
     }
     .brand-hero-logo-wrap {
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.1);
+      background:rgba(255,255,255,.10);
+      border:1px solid rgba(255,255,255,.18);
       border-radius:20px;
       padding:2rem 2.5rem;
       display:flex;
@@ -69,88 +70,115 @@
       min-width:200px;
       flex-shrink:0;
     }
-    .brand-hero-logo-wrap img { height:60px; object-fit:contain; filter:brightness(1.2) invert(1); }
-    .brand-hero-text { flex:1; min-width:260px; }
-    .brand-hero-eyebrow { font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7ec8e3;margin:0 0 .7rem; }
+    .brand-hero-logo-wrap img { height:60px;object-fit:contain;filter:brightness(1.2) invert(1); }
+    .brand-hero-text { flex:1;min-width:260px; }
+    .brand-hero-eyebrow { font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.75);margin:0 0 .7rem; }
     .brand-hero-h1 { font-size:clamp(2rem,4vw,3rem);font-weight:800;color:#fff;margin:0 0 .9rem;line-height:1.15; }
-    .brand-hero-h1 em { font-style:normal;color:#7ec8e3; }
-    .brand-hero-sub { font-size:1rem;color:rgba(255,255,255,.6);line-height:1.65;margin:0 0 1.5rem;max-width:560px; }
+    .brand-hero-sub { font-size:1rem;color:rgba(255,255,255,.78);line-height:1.65;margin:0 0 1.5rem;max-width:560px; }
     .brand-hero-tags { display:flex;flex-wrap:wrap;gap:.5rem; }
-    .brand-htag { background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:100px;padding:.32rem .85rem;font-size:.78rem;color:rgba(255,255,255,.75);font-weight:500; }
+    .brand-htag { background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.22);border-radius:100px;padding:.32rem .85rem;font-size:.78rem;color:#fff;font-weight:500; }
 
-    /* ---- IMAGE PLACEHOLDER ---- */
-    .img-placeholder {
-      width:100%;
-      aspect-ratio:16/7;
-      background:rgba(255,255,255,.04);
-      border:2px dashed rgba(255,255,255,.12);
-      border-radius:16px;
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap:.6rem;
-      color:rgba(255,255,255,.3);
-      font-size:.85rem;
-    }
-    .img-placeholder svg { opacity:.4; }
-    .img-placeholder-sm { aspect-ratio:4/3; border-radius:12px; }
+    /* ===== STATS BAR — white bg ===== */
+    .stats-bar { display:flex;flex-wrap:wrap;gap:1px;background:#e2e8f0;border-radius:18px;overflow:hidden;margin-top:0; }
+    .stat-block { flex:1;min-width:140px;padding:2rem 1.5rem;background:#fff;text-align:center; }
+    .stat-block-num { font-size:2.5rem;font-weight:900;color:#012a5c;line-height:1;margin-bottom:.4rem; }
+    .stat-block-lbl { font-size:.8rem;color:#718096;font-weight:500;letter-spacing:.04em;text-transform:uppercase; }
 
-    /* ---- SECTION GENERIC ---- */
+    /* ===== SECTION GENERIC ===== */
     .brand-section { padding:4.5rem 0; }
-    .brand-section-alt { background:rgba(255,255,255,.025); }
-    .section-eyebrow-sm { font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#7ec8e3;margin:0 0 .6rem; }
-    .section-h2-light { font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#fff;margin:0 0 1rem;line-height:1.2; }
-    .section-body-light { font-size:.97rem;color:rgba(255,255,255,.65);line-height:1.7;margin:0 0 1rem;max-width:680px; }
+    .brand-section-white { background:#fff; }
+    .brand-section-grey { background:#f8f9fb; }
+    .section-eyebrow { font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#0056a4;margin:0 0 .6rem; }
+    .section-h2 { font-size:clamp(1.6rem,3vw,2.4rem);font-weight:800;color:#1a2332;margin:0 0 1rem;line-height:1.2; }
+    .section-body { font-size:.97rem;color:#4a5568;line-height:1.7;margin:0 0 1rem;max-width:680px; }
 
-    /* ---- STATS BAR ---- */
-    .stats-bar { display:flex;flex-wrap:wrap;gap:1px;background:rgba(255,255,255,.06);border-radius:18px;overflow:hidden;margin-top:2.5rem; }
-    .stat-block { flex:1;min-width:140px;padding:2rem 1.5rem;background:#0b1928;text-align:center; }
-    .stat-block-num { font-size:2.5rem;font-weight:900;color:#fff;line-height:1;margin-bottom:.4rem; }
-    .stat-block-lbl { font-size:.8rem;color:rgba(255,255,255,.5);font-weight:500;letter-spacing:.04em;text-transform:uppercase; }
+    /* ===== DIVISION BLOCKS — blue left-bar, no cards ===== */
+    .division-block { border-left:4px solid #0056a4;padding:.9rem 0 .9rem 1.5rem;margin-bottom:2.5rem; }
+    .division-block:last-child { margin-bottom:0; }
+    .division-block h3 { font-size:1.08rem;font-weight:700;color:#1a2332;margin:0 0 .55rem; }
+    .division-block p { font-size:.93rem;color:#4a5568;line-height:1.7;margin:0 0 .7rem; }
+    .division-block ul { margin:.6rem 0 0 1rem;padding:0;list-style:disc; }
+    .division-block ul li { font-size:.9rem;color:#4a5568;line-height:1.65;margin-bottom:.3rem; }
 
-    /* ---- PILLARS ---- */
-    .pillars-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.5rem;margin-top:2.5rem; }
-    .pillar-card {
-      background:rgba(255,255,255,.04);
-      border:1px solid rgba(255,255,255,.09);
-      border-radius:18px;
-      padding:2rem 1.75rem;
-      transition:background .2s,border-color .2s;
-    }
-    .pillar-card:hover { background:rgba(0,86,164,.1);border-color:rgba(0,86,164,.3); }
-    .pillar-icon { width:44px;height:44px;background:rgba(0,86,164,.18);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:1.1rem; }
-    .pillar-icon svg { width:22px;height:22px;stroke:#7ec8e3; }
-    .pillar-h3 { font-size:1.05rem;font-weight:700;color:#fff;margin:0 0 .6rem; }
-    .pillar-p { font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.65;margin:0; }
+    /* ===== BRAND-DL product line list ===== */
+    .brand-dl { margin:1.5rem 0 0;padding:0;list-style:none; }
+    .brand-dl li { display:flex;align-items:flex-start;gap:.7rem;padding:.55rem 0;border-bottom:1px solid #e2e8f0;font-size:.92rem;color:#4a5568;line-height:1.5; }
+    .brand-dl li:last-child { border-bottom:none; }
+    .brand-dl li::before { content:'';display:inline-block;width:6px;height:6px;background:#0056a4;border-radius:50%;margin-top:.4rem;flex-shrink:0; }
 
-    /* ---- TAGS ---- */
-    .tags-wrap { display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.5rem; }
-    .brand-tag { background:rgba(0,86,164,.18);border:1px solid rgba(0,86,164,.35);color:#7ec8e3;font-size:.8rem;font-weight:500;padding:.35rem .85rem;border-radius:100px; }
+    /* ===== TAGS ===== */
+    .tags-wrap { display:flex;flex-wrap:wrap;gap:.45rem;margin-top:1.2rem; }
+    .brand-tag { background:#e8f0fb;border:1px solid #c3d8f5;color:#0056a4;font-size:.8rem;font-weight:500;padding:.35rem .85rem;border-radius:100px; }
 
-    /* ---- TWO COL ---- */
-    .two-col { display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start; }
+    /* ===== TWO COL ===== */
+    .two-col { display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start; }
     @media(max-width:720px){ .two-col { grid-template-columns:1fr; } .brand-hero-inner { flex-direction:column; } }
 
-    /* ---- CTA ---- */
-    .brand-cta { background:linear-gradient(135deg,#003d7a,#0056a4);padding:4rem 0;text-align:center; }
+    /* ===== PHILOSOPHY / PULL QUOTE ===== */
+    .pull-quote {
+      border-left:4px solid #0056a4;
+      padding:.9rem 1.4rem;
+      margin:1.5rem 0;
+      background:#eef4fd;
+      border-radius:0 12px 12px 0;
+    }
+    .pull-quote p { font-size:1.05rem;font-style:italic;color:#012a5c;margin:0;line-height:1.6;font-weight:600; }
+
+    /* ===== IMAGE CAROUSEL ===== */
+    .img-carousel-wrap {
+      position:relative;
+      width:100%;
+      aspect-ratio:16/7;
+      border-radius:16px;
+      overflow:hidden;
+      background:#e2e8f0;
+    }
+    .img-carousel-track {
+      display:flex;
+      width:400%;
+      height:100%;
+      transition:transform .6s cubic-bezier(.4,0,.2,1);
+    }
+    .img-carousel-slide {
+      width:25%;
+      height:100%;
+      flex-shrink:0;
+    }
+    .img-carousel-slide img { width:100%;height:100%;object-fit:cover; }
+    .carousel-dots {
+      display:flex;
+      justify-content:center;
+      gap:.55rem;
+      margin-top:1rem;
+    }
+    .carousel-dot {
+      width:10px;height:10px;
+      border-radius:50%;
+      background:#c3d8f5;
+      border:none;cursor:pointer;
+      transition:background .2s,transform .2s;
+      padding:0;
+    }
+    .carousel-dot.active { background:#0056a4;transform:scale(1.25); }
+
+    /* ===== PRODUCT LINK BUTTON ===== */
+    .product-link-btn {
+      display:inline-flex;align-items:center;gap:.6rem;
+      background:#eef4fd;border:1.5px solid #c3d8f5;color:#0056a4;
+      padding:.85rem 1.5rem;border-radius:12px;text-decoration:none;
+      font-weight:600;font-size:.9rem;transition:background .2s,border-color .2s;
+    }
+    .product-link-btn:hover { background:#dce9fb;border-color:#0056a4; }
+
+    /* ===== CTA — dark blue gradient ===== */
+    .brand-cta { background:linear-gradient(135deg,#012a5c 0%,#0056a4 100%);padding:4rem 0;text-align:center; }
     .brand-cta h2 { font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;color:#fff;margin:0 0 .8rem; }
-    .brand-cta p { font-size:.97rem;color:rgba(255,255,255,.72);margin:0 0 2rem; }
+    .brand-cta p { font-size:.97rem;color:rgba(255,255,255,.78);margin:0 0 2rem; }
     .brand-cta-btns { display:flex;flex-wrap:wrap;gap:.9rem;justify-content:center; }
     .btn-cta-primary { background:#fff;color:#0056a4;font-weight:700;padding:.85rem 1.9rem;border-radius:100px;text-decoration:none;font-size:.92rem;transition:box-shadow .2s; }
     .btn-cta-primary:hover { box-shadow:0 8px 24px rgba(0,0,0,.25); }
     .btn-cta-outline { border:2px solid rgba(255,255,255,.4);color:#fff;font-weight:700;padding:.85rem 1.9rem;border-radius:100px;text-decoration:none;font-size:.92rem;transition:border-color .2s; }
     .btn-cta-outline:hover { border-color:#fff; }
-
-    /* pull quote */
-    .pull-quote {
-      border-left:3px solid #0056a4;
-      padding:.8rem 1.2rem;
-      margin:1.5rem 0;
-      background:rgba(0,86,164,.08);
-      border-radius:0 10px 10px 0;
-    }
-    .pull-quote p { font-size:1.02rem;font-style:italic;color:rgba(255,255,255,.8);margin:0;line-height:1.6; }
   </style>
 </head>
 <body>
@@ -243,7 +271,7 @@
   </nav>
 </header>
 
-<!-- Breadcrumb -->
+<!-- 1. BREADCRUMB -->
 <nav class="bc-bar" aria-label="Breadcrumb">
   <div class="container">
     <ol class="bc-list">
@@ -256,7 +284,7 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- 2. HERO -->
 <section class="brand-hero">
   <div class="container">
     <div class="brand-hero-inner">
@@ -265,47 +293,35 @@
       </div>
       <div class="brand-hero-text">
         <p class="brand-hero-eyebrow">Authorised Distributor · Germany · 35+ Years</p>
-        <h1 class="brand-hero-h1">KMH <em>Pipe Systems</em></h1>
-        <p class="brand-hero-sub">KMH convinces with actions. Over 35 years of German engineering excellence in modular and custom pipe conveyor systems — built for the industries that move the world's bulk materials.</p>
+        <h1 class="brand-hero-h1">German Pipe Conveyor Systems</h1>
+        <p class="brand-hero-sub">Precision-engineered pipe conveyor systems from Germany. Serving bulk material handling industries across Southeast Asia.</p>
         <div class="brand-hero-tags">
-          <span class="brand-htag">Made in Germany</span>
-          <span class="brand-htag">5,000+ Standard Products</span>
-          <span class="brand-htag">Custom-Made Specialist</span>
-          <span class="brand-htag">24 International Agencies</span>
-          <span class="brand-htag">230+ Employees</span>
+          <span class="brand-htag">35+ Years Experience</span>
+          <span class="brand-htag">German Manufacturing</span>
+          <span class="brand-htag">Modular System</span>
+          <span class="brand-htag">Custom Engineering</span>
+          <span class="brand-htag">Bulk Material Handling</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- IMAGE PLACEHOLDER -->
-<section class="brand-section" style="padding:2.5rem 0;">
+<!-- 3. STATS BAR -->
+<section class="brand-section brand-section-white" style="padding:2.5rem 0;">
   <div class="container">
-    <div class="img-placeholder">
-      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-      <span>Brand image coming soon</span>
-    </div>
-  </div>
-</section>
-
-<!-- STATS -->
-<section class="brand-section brand-section-alt">
-  <div class="container">
-    <p class="section-eyebrow-sm">KMH in Figures</p>
-    <h2 class="section-h2-light">35 Years of Proven Performance</h2>
     <div class="stats-bar">
       <div class="stat-block">
         <div class="stat-block-num">5,000+</div>
-        <div class="stat-block-lbl">Standard Products</div>
+        <div class="stat-block-lbl">Products</div>
       </div>
       <div class="stat-block">
         <div class="stat-block-num">24</div>
-        <div class="stat-block-lbl">International Agencies</div>
+        <div class="stat-block-lbl">Agency Network</div>
       </div>
       <div class="stat-block">
         <div class="stat-block-num">35+</div>
-        <div class="stat-block-lbl">Years of Experience</div>
+        <div class="stat-block-lbl">Years Experience</div>
       </div>
       <div class="stat-block">
         <div class="stat-block-num">230+</div>
@@ -315,153 +331,165 @@
   </div>
 </section>
 
-<!-- ABOUT / PHILOSOPHY -->
-<section class="brand-section">
+<!-- 4. ABOUT KMH -->
+<section class="brand-section brand-section-white">
+  <div class="container">
+    <p class="section-eyebrow">About KMH</p>
+    <h2 class="section-h2">Precision Pipe Systems from Germany</h2>
+    <p class="section-body">KMH (Kunststoff- und Metallverarbeitung Heinsberg GmbH) is a German manufacturer of pipe conveyor systems, founded over 35 years ago. The company specialises in the engineering and production of both standard modular and fully custom-designed pipe conveyor systems for bulk material handling across a wide range of industries.</p>
+    <p class="section-body">KMH's product range combines a large standard modular system with the capability to engineer bespoke solutions to exact customer specifications. With over 5,000 product variants, an international agency network, and a team of experienced engineers, KMH delivers the certainty of the optimal pipe system for each application.</p>
+  </div>
+</section>
+
+<!-- 5. THREE PILLARS -->
+<section class="brand-section brand-section-grey">
+  <div class="container">
+    <p class="section-eyebrow">Our Engineering Approach</p>
+    <h2 class="section-h2">Our Engineering Approach</h2>
+
+    <div class="division-block">
+      <h3>Modular Standard Range</h3>
+      <p>KMH's modular standard range covers an extensive variety of pipe systems, components, and accessories. The standardised design allows for rapid selection, short lead times, and easy integration into existing conveyor infrastructure.</p>
+      <ul>
+        <li>Wide variety of standard pipe sizes and wall thicknesses</li>
+        <li>Pre-engineered connector systems and accessories</li>
+        <li>Broad compatibility with existing conveyor systems</li>
+        <li>Fast delivery from stock</li>
+        <li>Comprehensive technical documentation and selection guides</li>
+      </ul>
+    </div>
+
+    <div class="division-block">
+      <h3>Custom-Made Production</h3>
+      <p>For applications requiring non-standard specifications, KMH engineers and manufactures fully bespoke pipe systems to customer requirements.</p>
+      <ul>
+        <li>Customer-specific dimensions, materials, and surface treatments</li>
+        <li>Full engineering support from specification to delivery</li>
+        <li>Manufactured to tight tolerances for precise fit</li>
+        <li>Suitable for high-pressure, corrosive, or extreme-temperature environments</li>
+        <li>CE-marked and compliant with relevant industry standards</li>
+      </ul>
+    </div>
+
+    <div class="division-block">
+      <h3>Speed &amp; Flexibility</h3>
+      <p>KMH's production infrastructure and experienced team allow for both rapid standard deliveries and flexible accommodation of special engineering requests.</p>
+      <ul>
+        <li>Short lead times for standard products</li>
+        <li>Dedicated project management for custom orders</li>
+        <li>Scalable production for low and high volumes</li>
+        <li>Direct technical liaison with engineering team</li>
+        <li>After-sales support and replacement part availability</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PHILOSOPHY -->
+<section class="brand-section brand-section-white">
+  <div class="container">
+    <p class="section-eyebrow">Our Philosophy</p>
+    <h2 class="section-h2">Engineered for Certainty</h2>
+    <blockquote class="pull-quote">
+      <p>"With certainty — the optimal pipe system for your application."</p>
+    </blockquote>
+    <p class="section-body">KMH's engineering philosophy centres on providing complete confidence in the solution delivered. Every pipe system — whether selected from the standard range or engineered to bespoke specifications — is designed to meet exact application requirements and perform reliably throughout its service life.</p>
+  </div>
+</section>
+
+<!-- 7. INDUSTRIES & MATERIALS -->
+<section class="brand-section brand-section-grey">
   <div class="container">
     <div class="two-col">
       <div>
-        <p class="section-eyebrow-sm">The KMH Philosophy</p>
-        <h2 class="section-h2-light">Speed. Stock. Speciality.</h2>
-        <p class="section-body-light">KMH concentrates on the essentials — the modular products customers need from one day to the next. Delivery ex-works. Full speed. KMH has (almost) the whole range in stock at all times. All that needs to be decided is the surface finish: powder-coated, pickled, blasted, galvanised, and more.</p>
-        <div class="pull-quote">
-          <p>"With certainty — the optimal pipe system for your application."</p>
-        </div>
-        <p class="section-body-light">Individual production is part of the KMH philosophy. Even the most complicated special products are built within the shortest time after technical clarification. Custom-made special products of all kinds are KMH's speciality. <strong style="color:#fff;">KMH is the No. 1 in special construction.</strong></p>
-      </div>
-      <div>
-        <div class="img-placeholder" style="aspect-ratio:3/4;border-radius:16px;">
-          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-          <span>Image coming soon</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- THREE PILLARS -->
-<section class="brand-section brand-section-alt">
-  <div class="container">
-    <p class="section-eyebrow-sm">What Sets KMH Apart</p>
-    <h2 class="section-h2-light">Three Strengths, One System</h2>
-    <div class="pillars-grid">
-
-      <div class="pillar-card">
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-4 0v2"/><line x1="12" y1="12" x2="12" y2="16"/></svg>
-        </div>
-        <h3 class="pillar-h3">Modular Standard Range</h3>
-        <p class="pillar-p">KMH's modular system includes thousands of perfectly coordinated standard products. It is flexible and easy to manage — select the required components, interconnect them, and complex installations can be implemented quickly and easily. The entire standard range is held in stock for immediate ex-works delivery.</p>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
-        </div>
-        <h3 class="pillar-h3">Custom Special Production</h3>
-        <p class="pillar-p">Where the standard system is not enough, KMH has "SPECIALIZED" in individual solutions. Modified standard products from the catalogue, or entirely new developments — KMH special productions are manufactured according to your exact specifications and requirements, and are compatible with the standard system.</p>
-      </div>
-
-      <div class="pillar-card">
-        <div class="pillar-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-        <h3 class="pillar-h3">Speed &amp; Flexibility</h3>
-        <p class="pillar-p">KMH is fast, innovative and competent in implementation. For over 35 years, KMH has delivered worldwide — whether standard range, series, or individual production. KMH responds quickly and flexibly to special requirements, with all manufacturing entirely in-house. Made in Germany.</p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- IMAGE ROW PLACEHOLDER -->
-<section class="brand-section" style="padding:2.5rem 0;">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.2rem;">
-      <div class="img-placeholder img-placeholder-sm">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Image coming soon</span>
-      </div>
-      <div class="img-placeholder img-placeholder-sm">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Image coming soon</span>
-      </div>
-      <div class="img-placeholder img-placeholder-sm">
-        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        <span>Image coming soon</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- INDUSTRIES -->
-<section class="brand-section brand-section-alt">
-  <div class="container">
-    <div class="two-col">
-      <div>
-        <p class="section-eyebrow-sm">Industries Served</p>
-        <h2 class="section-h2-light">Built for Every Bulk Material Industry</h2>
+        <p class="section-eyebrow">Industries Served</p>
+        <h2 class="section-h2" style="font-size:clamp(1.2rem,2.5vw,1.75rem);">Industries Served</h2>
         <div class="tags-wrap">
-          <span class="brand-tag">Ventilation &amp; Environmental Technology</span>
-          <span class="brand-tag">Feed Industry</span>
-          <span class="brand-tag">Mill Construction</span>
-          <span class="brand-tag">Plant Engineering</span>
-          <span class="brand-tag">Food Industry</span>
-          <span class="brand-tag">Luxury Food Industry</span>
-          <span class="brand-tag">Chemical Industry</span>
-          <span class="brand-tag">Pharmaceutical Industry</span>
-          <span class="brand-tag">Plastics Industry</span>
-          <span class="brand-tag">Paper Industry</span>
-          <span class="brand-tag">Recycling</span>
-          <span class="brand-tag">Semi-Conductor Industry</span>
-          <span class="brand-tag">And Many More</span>
-        </div>
-      </div>
-      <div>
-        <p class="section-eyebrow-sm">Materials Conveyed</p>
-        <h2 class="section-h2-light">From Grains to Grinding Dust</h2>
-        <div class="tags-wrap">
-          <span class="brand-tag">Seeds</span>
-          <span class="brand-tag">Spices</span>
-          <span class="brand-tag">Animal Feed</span>
-          <span class="brand-tag">Grains</span>
+          <span class="brand-tag">Cement &amp; Lime</span>
+          <span class="brand-tag">Mining &amp; Quarrying</span>
+          <span class="brand-tag">Steel &amp; Metallurgy</span>
+          <span class="brand-tag">Chemical Processing</span>
+          <span class="brand-tag">Power Generation</span>
+          <span class="brand-tag">Food &amp; Grain</span>
+          <span class="brand-tag">Fertiliser</span>
+          <span class="brand-tag">Waste Management</span>
           <span class="brand-tag">Building Materials</span>
-          <span class="brand-tag">Granules &amp; Powder</span>
-          <span class="brand-tag">Tobacco</span>
-          <span class="brand-tag">Welding Fumes</span>
-          <span class="brand-tag">Oil Mist</span>
-          <span class="brand-tag">Solvents</span>
-          <span class="brand-tag">Grinding Dust</span>
-          <span class="brand-tag">Low Pressure Supply</span>
-          <span class="brand-tag">And Many More</span>
+          <span class="brand-tag">Agricultural Processing</span>
+        </div>
+      </div>
+      <div>
+        <p class="section-eyebrow">Materials Conveyed</p>
+        <h2 class="section-h2" style="font-size:clamp(1.2rem,2.5vw,1.75rem);">Materials Conveyed</h2>
+        <div class="tags-wrap">
+          <span class="brand-tag">Cement</span>
+          <span class="brand-tag">Limestone</span>
+          <span class="brand-tag">Coal</span>
+          <span class="brand-tag">Sand &amp; Gravel</span>
+          <span class="brand-tag">Iron Ore</span>
+          <span class="brand-tag">Fly Ash</span>
+          <span class="brand-tag">Grain &amp; Cereals</span>
+          <span class="brand-tag">Fertiliser Granules</span>
+          <span class="brand-tag">Biomass</span>
+          <span class="brand-tag">Gypsum</span>
+          <span class="brand-tag">Salt</span>
+          <span class="brand-tag">Clinker</span>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRODUCT LINK -->
-<section class="brand-section">
+<!-- 8. IMAGE CAROUSEL -->
+<section class="brand-section brand-section-white">
   <div class="container">
-    <p class="section-eyebrow-sm">KMH Products at MPC</p>
-    <h2 class="section-h2-light">Explore KMH Pipe Systems We Supply</h2>
+    <p class="section-eyebrow">Gallery</p>
+    <h2 class="section-h2">KMH in Action</h2>
+    <div id="kmh-carousel">
+      <div class="img-carousel-wrap">
+        <div class="img-carousel-track">
+          <div class="img-carousel-slide">
+            <img src="kmh about.jpg" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="img-carousel-slide">
+            <img src="kmh about 1.webp" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="img-carousel-slide">
+            <img src="kmh about 2.jpg" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="img-carousel-slide">
+            <img src="kmh about 3.png" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="carousel-dots" id="kmh-dots">
+      <button class="carousel-dot active" aria-label="Slide 1"></button>
+      <button class="carousel-dot" aria-label="Slide 2"></button>
+      <button class="carousel-dot" aria-label="Slide 3"></button>
+      <button class="carousel-dot" aria-label="Slide 4"></button>
+    </div>
+  </div>
+</section>
+
+<!-- 9. PRODUCT LINK -->
+<section class="brand-section brand-section-grey">
+  <div class="container">
+    <p class="section-eyebrow">KMH Products at MPC</p>
+    <h2 class="section-h2">KMH Pipe Systems at MPC</h2>
     <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-top:1.5rem;">
-      <a href="kmh-conveyor-pipe.html" style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,86,164,.2);border:1.5px solid rgba(0,86,164,.45);color:#7ec8e3;padding:.85rem 1.5rem;border-radius:12px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s;">
+      <a href="kmh-conveyor-pipe.html" class="product-link-btn">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         KMH Conveyor Pipe Systems
       </a>
-      <a href="resources.html" style="display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,86,164,.2);border:1.5px solid rgba(0,86,164,.45);color:#7ec8e3;padding:.85rem 1.5rem;border-radius:12px;text-decoration:none;font-weight:600;font-size:.9rem;transition:background .2s;">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        Download KMH Catalogue
-      </a>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
+<!-- 10. CTA -->
 <section class="brand-cta">
   <div class="container">
-    <h2>Need a custom KMH pipe system?</h2>
-    <p>Our team handles specification, technical consultation, and supply of KMH products across Thailand and Southeast Asia.</p>
+    <h2>Interested in KMH pipe conveyor systems?</h2>
+    <p>Our technical team handles specification, consultation, and supply of KMH products across Thailand and Southeast Asia.</p>
     <div class="brand-cta-btns">
       <a href="contact.html" class="btn-cta-primary">Get a Quote</a>
       <a href="mailto:contact@motionpluscorp.com" class="btn-cta-outline">Email Our Engineers</a>
@@ -567,6 +595,22 @@
     if (!btn) return;
     window.addEventListener('scroll', function(){ btn.classList.toggle('btt-visible', window.scrollY > 320); }, { passive: true });
     btn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
+  })();
+</script>
+<script>
+  (function() {
+    var track = document.querySelector('#kmh-carousel .img-carousel-track');
+    var dots = document.querySelectorAll('#kmh-dots .carousel-dot');
+    var count = 4;
+    if (!track) return;
+    var current = 0;
+    function go(n) {
+      current = (n + count) % count;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dots.forEach(function(d,i){ d.classList.toggle('active', i===current); });
+    }
+    dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
+    setInterval(function(){ go(current+1); }, 5000);
   })();
 </script>
 <script defer src="animations.js"></script>
