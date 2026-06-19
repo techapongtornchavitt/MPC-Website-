@@ -606,7 +606,7 @@
     var current = 0;
     function go(n) {
       current = (n + count) % count;
-      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      track.style.transform = 'translateX(-' + (current * 25) + '%)';
       dots.forEach(function(d,i){ d.classList.toggle('active', i===current); });
     }
     dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
