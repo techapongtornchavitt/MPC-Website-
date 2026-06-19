@@ -2675,15 +2675,10 @@
 
     /* Page Plugin container — centred inside the blue panel */
     .fb-plugin-wrapper {
-      /* Fixed width matches data-width="700" so the SDK measures exactly this much.
-         max-width:100% lets it shrink on narrow viewports.
-         margin:0 auto (block centering) + parent justify-content:center (flex centering)
-         both fire, guaranteeing equal left/right space at every viewport. */
-      width: 700px;
+      width: 100%;
       max-width: 100%;
       margin: 0 auto;
       flex-shrink: 0;
-      /* No border-radius here — .fb-feed-panel clips the corners via overflow:hidden+GPU */
       border-radius: 14px;
       overflow: hidden;
       transform: translateZ(0);
@@ -2691,7 +2686,6 @@
       isolation: isolate;
       will-change: transform;
       box-shadow: 0 4px 20px rgba(0,0,0,.28);
-      /* transparent: panel's blue background shows through any gap instead of white */
       background: transparent;
     }
 
