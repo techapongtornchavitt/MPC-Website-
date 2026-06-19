@@ -330,6 +330,45 @@
       margin-right: .75rem;
     }
 
+    /* Figure / diagram blocks */
+    .article-figure {
+      margin: 2rem 0 2.25rem;
+      text-align: center;
+    }
+    .article-figure img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.10);
+      border: 1px solid rgba(0,0,0,.06);
+      background: #fff;
+      display: inline-block;
+    }
+    .article-figure figcaption {
+      margin-top: .75rem;
+      font-size: .8rem;
+      color: #7a8fa8;
+      font-style: italic;
+      letter-spacing: .01em;
+    }
+    .article-figure figcaption strong {
+      color: #4a6080;
+      font-style: normal;
+      font-weight: 700;
+    }
+    /* Side-by-side figures */
+    .article-figure-row {
+      display: flex;
+      gap: 1.5rem;
+      margin: 2rem 0 2.25rem;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    .article-figure-row .article-figure {
+      flex: 1 1 280px;
+      margin: 0;
+    }
+
     /* Responsive */
     @media (max-width: 768px) {
       .article-section { padding: 3.5rem 0 3rem; }
@@ -551,14 +590,29 @@
       <p>The inner plates are held together by steel bushes, through which pass the pins riveted to the outer links. A roller surrounds each bush and the teeth of the sprockets bear on the roller. The rollers turn freely on the bushes and the bushes turn freely on the pins. All the contact surfaces are hardened so as to resist wear and are lubricated to reduce friction.</p>
       <p>A simple roller chain consists of one strand only, but <strong>duplex</strong> and <strong>triplex</strong> chains — consisting of two or three strands — may be built up, with each pin passing right through the bushes in the two or three strands simultaneously. Multi-strand configurations increase load capacity without increasing pitch size.</p>
 
+      <figure class="article-figure">
+        <img src="Figure 11.7.png" alt="Detailed cross-section diagram of a roller chain showing inner plates, outer plates, pins, bushes and rollers — Figure 11.7" loading="lazy">
+        <figcaption><strong>Figure 11.7</strong> — Details of roller chain construction: inner plates (A), steel bushes (B), pins (C), outer links (D), and rollers (R)</figcaption>
+      </figure>
+
       <h3>The Inverted Tooth (Silent) Chain</h3>
       <p>The silent chain is built up from a series of flat plates, each of which has two projections or teeth. The outer faces of the teeth are ground to give an included angle of 60° or, in some cases, 75°, and they bear against the working faces of the sprocket teeth. The inner faces of the link teeth take no part in the drive and are shaped to clear the sprocket teeth.</p>
       <p>The required width of chain is built up from a number of these plates arranged alternately and connected together by hardened steel pins which pass through hardened steel bushes inserted in the ends of the links. The pins are riveted over the outside plates.</p>
       <p>The chain may be prevented from sliding axially across the face of the sprocket teeth by outside guide plates without teeth, or by a centre guide plate that fits into a recess turned in the sprocket.</p>
 
+      <figure class="article-figure">
+        <img src="Figure 11.8.png" alt="Diagram of inverted tooth silent chain construction showing flat plates with teeth, pins, and bushes — Figure 11.8" loading="lazy">
+        <figcaption><strong>Figure 11.8</strong> — Details of inverted tooth (silent) chain: (a) standard construction; (b) Morse silent chain hinge using a hardened steel rocker on a flat pivot to reduce friction</figcaption>
+      </figure>
+
       <h4>How the Silent Chain Engages the Sprocket</h4>
       <p>When the chain is new, each link, as it enters the sprocket, pivots about the pin on the adjacent link which is in contact with the sprocket. The working faces of the link are thus brought gradually into contact with the corresponding faces of the sprocket teeth — and a similar action takes place as each link leaves the sprocket. Therefore there is no relative sliding between the faces of the links and the faces of the sprocket teeth.</p>
       <p>As wear takes place on the pins and bushes, the smooth action of the chain is not impaired, but the chain rides higher up the sprocket teeth and the effective pitch circle diameter of the sprocket increases.</p>
+
+      <figure class="article-figure">
+        <img src="Figure 11.9.png" alt="Diagram showing sprocket and silent chain engagement — new chain position versus worn chain riding higher on sprocket teeth — Figure 11.9" loading="lazy">
+        <figcaption><strong>Figure 11.9</strong> — Sprocket and silent chain: upper portion shows new chain correctly seated; lower portion shows worn chain riding higher up the tooth flanks as the effective pitch circle diameter increases</figcaption>
+      </figure>
 
       <div class="article-infobox">
         <strong>Key Advantage of Silent Chains</strong>
@@ -582,6 +636,11 @@
 
       <p>A chain consists of two rows of inner and outer plates. The outer row of plates is known as the <strong>pin link</strong> or <strong>coupling-link</strong>, whereas the inner row of plates is called the <strong>roller link</strong>. Pins are fitted in the pin link and pass through a bush which is press-fitted into the rollers, joining the assembly together.</p>
       <p>The chain rollers are mounted on the bushings and roll over the sprocket teeth during motion. The pins are free inside the bush, allowing the chain to articulate freely at each joint without binding — this is what enables smooth engagement with the sprocket.</p>
+
+      <figure class="article-figure">
+        <img src="Contruction of chain figure .png" alt="Technical diagram showing roller chain construction — inner plates, outer plates, pin links, roller links, pins, bushes and rollers" loading="lazy">
+        <figcaption><strong>Chain Construction</strong> — Cross-section showing the two rows of inner and outer plates (pin link and roller link), with pins, bushes, and rollers assembled</figcaption>
+      </figure>
 
       <h3>Load-Transmitting Capacity</h3>
       <p>The load-transmitting capacity of a chain drive depends on the pitch size and the sprocket tooth count. Larger pitch chains and larger sprockets increase load capacity. However, to avoid excessively large sprockets in high-torque applications, chains are commonly configured in <strong>double-strand</strong> and <strong>triple-strand</strong> widths — each pin passing through the bushes of multiple parallel strands simultaneously.</p>
@@ -617,8 +676,18 @@
         Chains must be adequately lubricated and work in a clean environment. Dust and dirt will rapidly accelerate wear, causing the chain to become noisy and elongate prematurely. Sealed environments and automatic lubrication systems significantly extend service intervals in industrial settings.
       </div>
 
+      <figure class="article-figure">
+        <img src="figure 10.84.png" alt="Cross-section diagram through a typical bushed roller chain showing pins, bushes, rollers and side plates — Figure 10.84" loading="lazy">
+        <figcaption><strong>Figure 10.84</strong> — Typical section through a bushed roller chain (with acknowledgements to <em>Tribology Handbook</em>, Butterworths)</figcaption>
+      </figure>
+
       <h3>Leaf Chains</h3>
       <p>Leaf chains act as balancers between a moveable part and counterweight — or where low-speed pulling is required (tension linkage). This type of chain is also called a <strong>balance chain</strong>. Two types are commonly provided: <strong>AL type</strong> and <strong>BL type</strong>, designated by the number of plates, thickness of plates, and pitch.</p>
+
+      <figure class="article-figure">
+        <img src="figure 12.20 leaf chain.png" alt="Diagram of a leaf chain showing alternating link plate lacing pattern for AL and BL type balance chains — Figure 12.20" loading="lazy">
+        <figcaption><strong>Figure 12.20</strong> — Leaf chain construction: alternating plate lacing pattern for AL-type and BL-type balance chains</figcaption>
+      </figure>
 
       <h4>Key Properties of Leaf Chains</h4>
       <ul>
@@ -672,6 +741,11 @@
         </table>
       </div>
 
+      <figure class="article-figure">
+        <img src="figure 10.85.png" alt="Performance curves chart for roller chain drive selection to BS 228: 1984 showing power vs speed for different chain sizes — Figure 10.85" loading="lazy">
+        <figcaption><strong>Figure 10.85</strong> — Performance curves for roller chain drives to BS 228:1984 — use this chart with the selection factors above to specify the correct chain for a 15,000-hour service life (with acknowledgements to <em>Tribology Handbook</em>, Butterworths)</figcaption>
+      </figure>
+
       <div class="article-pull">
         In general, the smallest pitch should always be used — even if it means going to duplex or triplex chains. Centre distance should be kept within 30–80 times the chain pitch. For large-ratio drives, the angle of lap on the sprocket should not be less than 120°.
       </div>
@@ -706,6 +780,11 @@
       <h3>How to Measure Chain Elongation</h3>
       <p>The most accurate method is to count a known number of pitches (typically 12 or 24 links) on an unstressed, clean chain and measure the total length with a steel ruler or vernier caliper. Compare this to the theoretical new-chain length for the same number of links. The percentage difference is the elongation.</p>
       <p>For example: a 24-link section of a ½" pitch chain has a new length of 12 inches. If it now measures 12.36 inches, that is a 3% elongation — time to replace on an adjustable-centre drive.</p>
+
+      <figure class="article-figure">
+        <img src="figure 12.13.png" alt="Photograph and diagram of a worn-out roller chain showing elongated links and pin wear — Figure 12.13" loading="lazy">
+        <figcaption><strong>Figure 12.13</strong> — Worn roller chain: pin and bush wear causes the pitch spacing to increase uniformly, elongating the chain and causing it to ride up the sprocket teeth</figcaption>
+      </figure>
 
       <div class="article-infobox">
         <strong>Practical Maintenance Tip</strong>
