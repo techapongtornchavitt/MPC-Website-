@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/iwis_Und_Chains/:path*",
+      "destination": "/iwis-chains.html",
+      "permanent": true
+    }
+  ]
+}
