@@ -125,7 +125,7 @@
     .pull-quote p { font-size:1.05rem;font-style:italic;color:#012a5c;margin:0;line-height:1.6;font-weight:600; }
 
     /* ===== IMAGE CAROUSEL ===== */
-    .img-carousel-wrap {
+    .brand-carousel {
       position:relative;
       width:100%;
       height:440px;
@@ -133,18 +133,18 @@
       overflow:hidden;
       background:#e2e8f0;
     }
-    .img-carousel-track {
+    .brand-carousel-inner {
       display:flex;
-      width:500%;
       height:100%;
       transition:transform .6s cubic-bezier(.4,0,.2,1);
+      will-change:transform;
     }
-    .img-carousel-slide {
-      width:20%;
+    .brand-carousel-img {
+      flex:none;
       height:100%;
-      flex-shrink:0;
+      object-fit:cover;
+      display:block;
     }
-    .img-carousel-slide img { width:100%;height:100%;object-fit:cover;display:block; }
     .carousel-dots {
       display:flex;
       justify-content:center;
@@ -444,25 +444,13 @@
   <div class="container">
     <p class="section-eyebrow">Gallery</p>
     <h2 class="section-h2">KMH in Action</h2>
-    <div id="kmh-carousel">
-      <div class="img-carousel-wrap">
-        <div class="img-carousel-track">
-          <div class="img-carousel-slide">
-            <img src="kmh about.jpg" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="img-carousel-slide">
-            <img src="kmh about 1.webp" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="img-carousel-slide">
-            <img src="kmh about 2.jpg" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="img-carousel-slide">
-            <img src="kmh about 3.png" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-          <div class="img-carousel-slide">
-            <img src="kmh about 3.jpg" alt="KMH pipe conveyor systems" style="width:100%;height:100%;object-fit:cover;display:block;">
-          </div>
-        </div>
+    <div id="kmh-carousel" class="brand-carousel">
+      <div class="brand-carousel-inner" id="kmh-inner">
+        <img src="kmh about.jpg"    alt="KMH pipe conveyor systems" class="brand-carousel-img">
+        <img src="kmh about 1.webp" alt="KMH pipe conveyor systems" class="brand-carousel-img">
+        <img src="kmh about 2.jpg"  alt="KMH pipe conveyor systems" class="brand-carousel-img">
+        <img src="kmh about 3.png"  alt="KMH pipe conveyor systems" class="brand-carousel-img">
+        <img src="kmh about 3.jpg"  alt="KMH pipe conveyor systems" class="brand-carousel-img">
       </div>
     </div>
     <div class="carousel-dots" id="kmh-dots">
@@ -603,18 +591,25 @@
 </script>
 <script>
   (function() {
-    var track = document.querySelector('#kmh-carousel .img-carousel-track');
-    var dots = document.querySelectorAll('#kmh-dots .carousel-dot');
-    var count = 4;
-    if (!track) return;
-    var current = 0;
+    var wrap  = document.getElementById('kmh-carousel');
+    var inner = document.getElementById('kmh-inner');
+    var imgs  = inner ? inner.querySelectorAll('.brand-carousel-img') : [];
+    var dots  = document.querySelectorAll('#kmh-dots .carousel-dot');
+    if (!wrap || !inner || !imgs.length) return;
+    var count = imgs.length, current = 0;
+    function setWidths() {
+      var w = wrap.offsetWidth;
+      imgs.forEach(function(img){ img.style.width = w + 'px'; });
+    }
     function go(n) {
       current = (n + count) % count;
-      track.style.transform = 'translateX(-' + (current * 20) + '%)';
-      dots.forEach(function(d,i){ d.classList.toggle('active', i===current); });
+      inner.style.transform = 'translateX(-' + (current * wrap.offsetWidth) + 'px)';
+      dots.forEach(function(d,i){ d.classList.toggle('active', i === current); });
     }
+    setWidths();
+    window.addEventListener('resize', function(){ setWidths(); go(current); });
     dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
-    setInterval(function(){ go(current+1); }, 5000);
+    setInterval(function(){ go(current + 1); }, 5000);
   })();
 </script>
 <script defer src="animations.js"></script>

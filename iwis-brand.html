@@ -73,10 +73,9 @@
     .tags-wrap { display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.25rem; }
     .brand-tag { background:#e8f0fb;border:1px solid #c3d8f5;color:#0056a4;font-size:.8rem;font-weight:500;padding:.32rem .85rem;border-radius:100px; }
     /* Carousel */
-    .img-carousel-wrap { position:relative;overflow:hidden;border-radius:14px;border:1px solid #e2e8f0;background:#e2e8f0;height:440px; }
-    .img-carousel-track { display:flex;width:600%;height:100%;transition:transform .5s ease; }
-    .img-carousel-slide { flex-shrink:0;width:16.6667%;height:100%; }
-    .img-carousel-slide img { width:100%;height:100%;object-fit:cover;display:block; }
+    .brand-carousel { position:relative;overflow:hidden;border-radius:14px;border:1px solid #e2e8f0;background:#e2e8f0;height:440px; }
+    .brand-carousel-inner { display:flex;height:100%;transition:transform .5s ease;will-change:transform; }
+    .brand-carousel-img { flex:none;height:100%;object-fit:cover;display:block; }
     .carousel-dots { display:flex;justify-content:center;gap:.5rem;margin-top:1rem; }
     .carousel-dot { width:8px;height:8px;border-radius:50%;background:#c3d8f5;border:none;cursor:pointer;padding:0;transition:background .2s; }
     .carousel-dot.active { background:#0056a4; }
@@ -383,14 +382,14 @@
   <div class="container">
     <p class="section-eyebrow">Gallery</p>
     <h2 class="section-h2">IWIS in Action</h2>
-    <div class="img-carousel-wrap" id="iwis-carousel">
-      <div class="img-carousel-track">
-        <div class="img-carousel-slide"><img src="iwis about.jpg" alt="IWIS chain systems"></div>
-        <div class="img-carousel-slide"><img src="iwis about 1.jpg" alt="IWIS precision chains"></div>
-        <div class="img-carousel-slide"><img src="iwis about 2.jpg" alt="IWIS drive systems"></div>
-        <div class="img-carousel-slide"><img src="iwis about 3.jpg" alt="IWIS conveyor chains"></div>
-        <div class="img-carousel-slide"><img src="iwis about 4.png" alt="IWIS roller chains"></div>
-        <div class="img-carousel-slide"><img src="iwis about 5.png" alt="IWIS chain engineering"></div>
+    <div id="iwis-carousel" class="brand-carousel">
+      <div class="brand-carousel-inner" id="iwis-inner">
+        <img src="iwis about.jpg"   alt="IWIS chain systems"      class="brand-carousel-img">
+        <img src="iwis about 1.jpg" alt="IWIS precision chains"   class="brand-carousel-img">
+        <img src="iwis about 2.jpg" alt="IWIS drive systems"      class="brand-carousel-img">
+        <img src="iwis about 3.jpg" alt="IWIS conveyor chains"    class="brand-carousel-img">
+        <img src="iwis about 4.png" alt="IWIS roller chains"      class="brand-carousel-img">
+        <img src="iwis about 5.png" alt="IWIS chain engineering"  class="brand-carousel-img">
       </div>
     </div>
     <div class="carousel-dots" id="iwis-dots">
@@ -539,18 +538,25 @@
 <script defer src="lang.js"></script>
 <script>
 (function() {
-  var slides = document.querySelectorAll('#iwis-carousel .img-carousel-slide');
-  var track = document.querySelector('#iwis-carousel .img-carousel-track');
-  var dots = document.querySelectorAll('#iwis-dots .carousel-dot');
-  if (!slides.length) return;
-  var current = 0;
-  function go(n) {
-    current = (n + slides.length) % slides.length;
-    track.style.transform = 'translateX(-' + (current * (100 / slides.length)) + '%)';
-    dots.forEach(function(d,i){ d.classList.toggle('active', i===current); });
+  var wrap  = document.getElementById('iwis-carousel');
+  var inner = document.getElementById('iwis-inner');
+  var imgs  = inner ? inner.querySelectorAll('.brand-carousel-img') : [];
+  var dots  = document.querySelectorAll('#iwis-dots .carousel-dot');
+  if (!wrap || !inner || !imgs.length) return;
+  var count = imgs.length, current = 0;
+  function setWidths() {
+    var w = wrap.offsetWidth;
+    imgs.forEach(function(img){ img.style.width = w + 'px'; });
   }
+  function go(n) {
+    current = (n + count) % count;
+    inner.style.transform = 'translateX(-' + (current * wrap.offsetWidth) + 'px)';
+    dots.forEach(function(d,i){ d.classList.toggle('active', i === current); });
+  }
+  setWidths();
+  window.addEventListener('resize', function(){ setWidths(); go(current); });
   dots.forEach(function(d,i){ d.addEventListener('click', function(){ go(i); }); });
-  setInterval(function(){ go(current+1); }, 5000);
+  setInterval(function(){ go(current + 1); }, 5000);
 })();
 </script>
 </body>
