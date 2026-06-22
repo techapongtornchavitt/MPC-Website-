@@ -8615,7 +8615,7 @@
       'sug-spec-lbl2': 'Korrosions- & Abrasionsbeständigkeit',
       'sug-spec-lbl3': 'Bewährte Zuverlässigkeit unter saisonalen Spitzenlasten',
       'sug-spec-lbl4': 'Dauerbetrieb während der Erntesaison',
-    }
+    },
 
     /* ============================================================
        VIETNAMESE — vi
