@@ -227,9 +227,9 @@
     <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/uno-chains.html"/>
     <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/uno-chains.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/uno-chains.html"/>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://motionpluscorp.com/uno-forged-chain.html</loc>
@@ -239,9 +239,9 @@
     <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/uno-forged-chain.html"/>
     <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/uno-forged-chain.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/uno-forged-chain.html"/>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://motionpluscorp.com/trio-forged-chain.html</loc>
@@ -251,9 +251,9 @@
     <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/trio-forged-chain.html"/>
     <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/trio-forged-chain.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/trio-forged-chain.html"/>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
 
   <!-- โ”€โ”€ Industry-Specific Chain Pages โ”€โ”€ -->
@@ -265,9 +265,9 @@
     <xhtml:link rel="alternate" hreflang="lo"        href="https://motionpluscorp.com/forged-chains.html"/>
     <xhtml:link rel="alternate" hreflang="my"        href="https://motionpluscorp.com/forged-chains.html"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/forged-chains.html"/>
-    <lastmod>2026-06-17</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://motionpluscorp.com/cement-chains.html</loc>
@@ -393,5 +393,25 @@
     <priority>0.3</priority>
   </url>
 
+
+  <!-- Brand About Pages -->
+  <url>
+    <loc>https://motionpluscorp.com/iwis-brand.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/iwis-brand.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/iwis-brand.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/iwis-brand.html"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://motionpluscorp.com/kmh-brand.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"        href="https://motionpluscorp.com/kmh-brand.html"/>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://motionpluscorp.com/kmh-brand.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/kmh-brand.html"/>
+    <lastmod>2026-06-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
 
