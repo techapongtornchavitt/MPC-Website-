@@ -376,6 +376,11 @@
       .article-section:nth-child(even) .article-inner { padding-left: 1.25rem; }
       .article-cta-box { flex-direction: column; align-items: flex-start; }
     }
+    .bc-bar { padding:.65rem 0; border-bottom:1px solid rgba(255,255,255,.05); background:rgba(0,4,14,.9); }
+    .bc-list { display:flex;align-items:center;gap:.4rem;list-style:none;margin:0;padding:0;font-size:.73rem;flex-wrap:wrap;color:rgba(255,255,255,.32); }
+    .bc-list a { color:rgba(255,255,255,.50);text-decoration:none; }
+    .bc-list a:hover { color:#7ec8e3; }
+    .bc-list .active { color:rgba(255,255,255,.75);font-weight:600; }
   </style>
   <script src="interactions.js" defer></script>
 </head>
@@ -478,6 +483,16 @@
     <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
   </nav>
 </header>
+
+<nav class="bc-bar" aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="bc-list">
+      <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+      <li aria-hidden="true">›</li>
+      <li class="active" data-i18n="nav-articles">Articles</li>
+    </ol>
+  </div>
+</nav>
 
 <!-- Inner Hero -->
 <section class="inner-hero">
@@ -984,6 +999,18 @@
       mobSub.style.display = expanded ? 'none' : 'block';
     });
   }
+})();
+</script>
+<!-- ── Back to top button ── -->
+<button class="back-to-top" id="back-to-top" aria-label="Back to top">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('back-to-top');
+  if (!btn) return;
+  window.addEventListener('scroll', function(){ btn.classList.toggle('btt-visible', window.scrollY > 320); }, { passive: true });
+  btn.addEventListener('click', function(){ window.scrollTo({ top: 0, behavior: 'smooth' }); });
 })();
 </script>
 <script src="lang.js" defer></script>

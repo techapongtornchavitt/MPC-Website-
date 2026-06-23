@@ -296,6 +296,11 @@
     @media (max-width: 480px) {
       .prod-cards { grid-template-columns: 1fr; }
     }
+    .bc-bar { padding:.65rem 0; border-bottom:1px solid rgba(255,255,255,.05); background:rgba(0,4,14,.9); }
+    .bc-list { display:flex;align-items:center;gap:.4rem;list-style:none;margin:0;padding:0;font-size:.73rem;flex-wrap:wrap;color:rgba(255,255,255,.32); }
+    .bc-list a { color:rgba(255,255,255,.50);text-decoration:none; }
+    .bc-list a:hover { color:#7ec8e3; }
+    .bc-list .active { color:rgba(255,255,255,.75);font-weight:600; }
   </style>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
 
@@ -406,6 +411,16 @@
     <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
   </nav>
 </header>
+
+<nav class="bc-bar" aria-label="Breadcrumb">
+  <div class="container">
+    <ol class="bc-list">
+      <li><a href="index.html" data-i18n="nav-home">Home</a></li>
+      <li aria-hidden="true">›</li>
+      <li class="active" data-i18n="nav-products">Our Products</li>
+    </ol>
+  </div>
+</nav>
 
 <!-- Inner Hero -->
 <section class="inner-hero">
