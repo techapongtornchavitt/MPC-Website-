@@ -1149,6 +1149,16 @@
       }
     }
 
+    /* House Brand: third card sits centered on its own row */
+    .house-brand-section .house-brand-card.hb-center {
+      grid-column: 1 / -1;
+      justify-self: center;
+      width: calc(50% - 1rem);
+    }
+    @media (max-width: 760px) {
+      .house-brand-section .house-brand-card.hb-center { width: 100%; }
+    }
+
     /* Customers section */
     .customers-section { background: #fff !important; }
     .customers-section .section-eyebrow { color: var(--color-primary) !important; }
@@ -3584,6 +3594,18 @@
               <span data-i18n="hb-brochure-btn">Download Brochure</span>
             </a>
           </div>
+        </div>
+      </div>
+
+      <!-- Escalator Chains -->
+      <div class="house-brand-card hb-center">
+        <div class="hb-img-wrap">
+          <img src="escalator-chains-card.webp" alt="Motion Escalator — Escalator Chains" loading="lazy" decoding="async">
+        </div>
+        <div class="hb-content">
+          <span class="hb-badge" data-i18n="hb-badge">House Brand</span>
+          <h3>Escalator Chains</h3>
+          <p>Escalator Step Chain, Auto Passage Conveyor Chain, Commercial Escalator Step Chain, Public Transport Escalator Step Chain, Public Transport Escalator Chain, No Maintenance Escalator Step Chain, Handrail Driving Chain, Escalator Drive Chain.</p>
         </div>
       </div>
 
