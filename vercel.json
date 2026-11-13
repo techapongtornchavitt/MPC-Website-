@@ -4,12 +4,12 @@
       "source": "/iwis_Und_Chains/:path*",
       "destination": "/iwis-chains.html",
       "permanent": true
-    }
-  ],
-  "rewrites": [
+    },
     {
-      "source": "/((?!.*\\.).*)",
-      "destination": "/404.html"
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.motionpluscorp.com" }],
+      "destination": "https://motionpluscorp.com/$1",
+      "permanent": true
     }
   ]
 }
