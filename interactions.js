@@ -42,6 +42,9 @@
     var a = e.target.closest('a[href]');
     if (!a) return;
 
+    /* Let the browser handle ctrl/cmd/shift/middle-clicks (open in new tab etc.) */
+    if (e.defaultPrevented || e.button !== 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+
     var href = a.getAttribute('href');
 
     /* Skip: new tab, download, empty, anchor-only, mailto, tel, external */
@@ -65,6 +68,11 @@
     }, 230);
   });
 
+  /* Back/forward button: page restored from cache must not stay faded out */
+  window.addEventListener('pageshow', function (e) {
+    if (e.persisted) document.body.classList.remove('mpc-fading');
+  });
+
 })();
 
 /* ================================================================
@@ -72,7 +80,7 @@
    Shows once, stores preference in localStorage.
 ================================================================ */
 (function () {
-  if (localStorage.getItem('mpc-cookie-consent')) return;
+  try { if (localStorage.getItem('mpc-cookie-consent')) return; } catch (err) { /* storage blocked: still show banner */ }
 
   var css = document.createElement('style');
   css.textContent =
@@ -102,11 +110,11 @@
   document.body.appendChild(bar);
 
   bar.querySelector('.mpc-ck-accept').addEventListener('click', function () {
-    localStorage.setItem('mpc-cookie-consent', 'accepted');
+    try { localStorage.setItem('mpc-cookie-consent', 'accepted'); } catch (err) {}
     bar.remove();
   });
   bar.querySelector('.mpc-ck-decline').addEventListener('click', function () {
-    localStorage.setItem('mpc-cookie-consent', 'declined');
+    try { localStorage.setItem('mpc-cookie-consent', 'declined'); } catch (err) {}
     bar.remove();
   });
 })();

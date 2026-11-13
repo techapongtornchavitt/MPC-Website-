@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="th">
 <head>
   <meta charset="UTF-8">
@@ -83,7 +83,7 @@
     ],
     "sameAs": [
       "https://www.linkedin.com/company/motion-plus-corporation-co-ltd/",
-      "https://www.facebook.com/share/1ErTQWb5hF/",
+      "https://www.facebook.com/profile.php?id=1018130321389942",
       "https://www.instagram.com/motionpluscorporation"
     ],
     "areaServed": {
@@ -114,7 +114,7 @@
   <!-- ———————————————————————————————————————————————————————
        GOOGLE ANALYTICS 4 — insert your Measurement ID below
        Replace G-XXXXXXXXXX with your actual GA4 ID from:
-       Google Analytics  Admin  Data Streams  Web stream
+       Google Analytics → Admin → Data Streams → Web stream
   —————————————————————————————————————————————————————————— -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-33E84EQNEE"></script>
   <script>
@@ -126,9 +126,9 @@
 
   <!-- ———————————————————————————————————————————————————————
        GOOGLE SEARCH CONSOLE — verify ownership here
-       Go to: search.google.com/search-console  Add Property
-       Choose "URL prefix"  enter https://motionpluscorp.com
-       Select "HTML tag" verification method  paste tag below
+       Go to: search.google.com/search-console → Add Property
+       Choose "URL prefix" → enter https://motionpluscorp.com
+       Select "HTML tag" verification method → paste tag below
   —————————————————————————————————————————————————————————— -->
   <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE_HERE"> -->
 
@@ -3033,11 +3033,11 @@
 <header class="site-header">
   <div class="container">
     <div class="header-inner">
-      <a href="index.html" class="logo-link">
+      <a href="/" class="logo-link">
         <img src="mpc-logo.jpg" alt="Motion Plus Corporation" class="logo-img">
       </a>
       <nav class="site-nav" aria-label="Main navigation">
-        <a href="index.html"     class="nav-link active" data-i18n="nav-home">Home</a>
+        <a href="/"     class="nav-link active" data-i18n="nav-home">Home</a>
         <a href="about.html"     class="nav-link" data-i18n="nav-about">About</a>
         <div class="nav-dropdown-wrap">
           <button class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
@@ -3050,8 +3050,23 @@
             <a href="palm-oil-industry.html" class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-palm">Palm Oil Industry</a>
           </div>
         </div>
-        <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
-        <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
+        <div class="nav-dropdown-wrap">
+          <button class="nav-link nav-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav-products">Our Products</span>
+            <span class="chevron" aria-hidden="true"></span>
+          </button>
+          <div class="nav-dropdown" role="menu">
+            <a href="products.html" class="nav-dropdown-item" role="menuitem" data-i18n="prod-view-all">View All Products →</a>
+            <a href="iwis-chains.html" class="nav-dropdown-item" role="menuitem">IWIS Roller Chains</a>
+            <a href="iwis-conveyor-chains.html" class="nav-dropdown-item" role="menuitem">IWIS Conveyor Chains</a>
+            <a href="hs-conveyor-chains.html" class="nav-dropdown-item" role="menuitem">HS Chain</a>
+            <a href="dongbo-chains.html" class="nav-dropdown-item" role="menuitem">Dongbo Chains</a>
+            <a href="uno-chains.html" class="nav-dropdown-item" role="menuitem">UNO Chain</a>
+            <a href="forged-chains.html" class="nav-dropdown-item" role="menuitem">Forged Chains</a>
+            <a href="kmh-conveyor-pipe.html" class="nav-dropdown-item" role="menuitem">KMH Pipe Conveyor</a>
+            <a href="sprockets-pulley.html" class="nav-dropdown-item" role="menuitem">Sprockets &amp; Pulley</a>
+          </div>
+        </div>
         <a href="resources.html" class="nav-link" data-i18n="nav-resources">Resources</a>
         <a href="articles.html"  class="nav-link" data-i18n="nav-articles">Articles</a>
         <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
@@ -3106,7 +3121,7 @@
     </div>
   </div>
   <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
-    <a href="index.html"     class="nav-link active" data-i18n="nav-home">Home</a>
+    <a href="/"     class="nav-link active" data-i18n="nav-home">Home</a>
     <a href="about.html"     class="nav-link" data-i18n="nav-about">About</a>
     <div class="mobile-nav-group">
       <button class="nav-link mobile-nav-trigger" id="mob-ind-trigger" aria-expanded="false">
@@ -3119,8 +3134,23 @@
         <a href="palm-oil-industry.html" class="nav-link" data-i18n="nav-ind-palm">Palm Oil Industry</a>
       </div>
     </div>
-    <a href="portfolio.html" class="nav-link" data-i18n="nav-portfolio">Portfolio</a>
-    <a href="products.html"  class="nav-link" data-i18n="nav-products">Our Products</a>
+    <div class="mobile-nav-group">
+      <button class="nav-link mobile-nav-trigger" aria-expanded="false">
+        <span data-i18n="nav-products">Our Products</span>
+        <span class="m-chevron" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-nav-sub">
+        <a href="products.html" class="nav-link" data-i18n="prod-view-all">View All Products →</a>
+        <a href="iwis-chains.html" class="nav-link">IWIS Roller Chains</a>
+        <a href="iwis-conveyor-chains.html" class="nav-link">IWIS Conveyor Chains</a>
+        <a href="hs-conveyor-chains.html" class="nav-link">HS Chain</a>
+        <a href="dongbo-chains.html" class="nav-link">Dongbo Chains</a>
+        <a href="uno-chains.html" class="nav-link">UNO Chain</a>
+        <a href="forged-chains.html" class="nav-link">Forged Chains</a>
+        <a href="kmh-conveyor-pipe.html" class="nav-link">KMH Pipe Conveyor</a>
+        <a href="sprockets-pulley.html" class="nav-link">Sprockets &amp; Pulley</a>
+      </div>
+    </div>
     <a href="resources.html" class="nav-link" data-i18n="nav-resources">Resources</a>
     <a href="articles.html"  class="nav-link" data-i18n="nav-articles">Articles</a>
     <a href="contact.html"   class="nav-link" data-i18n="nav-contact">Contact</a>
@@ -3535,7 +3565,7 @@
           <span class="cert-badge" data-i18n="cert-as">After-Sales Service</span>
         </div>
 
-        <a href="products.html" class="btn-primary" style="margin-top:2rem; display:inline-flex;"><span data-i18n="prod-view-all">View All Products </span></a>
+        <a href="products.html" class="btn-primary" style="margin-top:2rem; display:inline-flex;"><span data-i18n="prod-view-all">View All Products →</span></a>
       </div>
 
       <!-- RIGHT: Brand portfolio image frame -->
@@ -3676,12 +3706,6 @@
     </button>
   </div>
 
-  <div class="port-strip-cta">
-    <a href="portfolio.html">
-      <span data-i18n="port-strip-cta">View full portfolio</span>
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-    </a>
-  </div>
 </section>
 
 <!-- ============ FACEBOOK / SOCIAL FEED ============ -->
@@ -3701,7 +3725,7 @@
     <div class="fb-feed-centered">
       <div class="fb-feed-topbar">
         <span class="fb-live-badge"><span class="fb-live-badge-dot" aria-hidden="true"></span><span data-i18n="soc-live-badge">Live Feed</span></span>
-        <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="fb-info-cta" aria-label="Follow Motion Plus Corporation on Facebook">
+        <a href="https://www.facebook.com/profile.php?id=1018130321389942" target="_blank" rel="noopener noreferrer" class="fb-info-cta" aria-label="Follow Motion Plus Corporation on Facebook">
           <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           <span data-i18n="soc-fb-btn">Follow on Facebook</span>
         </a>
@@ -3737,7 +3761,7 @@
 
     <div class="soc-follow-row reveal">
 
-      <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank" rel="noopener noreferrer" class="soc-plat-card" aria-label="Follow us on Facebook">
+      <a href="https://www.facebook.com/profile.php?id=1018130321389942" target="_blank" rel="noopener noreferrer" class="soc-plat-card" aria-label="Follow us on Facebook">
         <div class="soc-plat-ico soc-plat-ico-fb" aria-hidden="true">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
         </div>
@@ -3823,7 +3847,7 @@
           <a href="https://www.linkedin.com/company/motion-plus-corporation-co-ltd/" class="footer-social" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
           </a>
-          <a href="https://www.facebook.com/share/1ErTQWb5hF/" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+          <a href="https://www.facebook.com/profile.php?id=1018130321389942" class="footer-social" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
           <a href="https://www.instagram.com/motionpluscorporation?igsh=MW55d2M2MjhkaDVuMg==" class="footer-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
@@ -3860,9 +3884,11 @@
         <h4 data-i18n="footer-brands-h">Our Brands</h4>
         <ul class="footer-links">
           <li><a href="hs-conveyor-chains.html">HS Chain</a></li>
-          <li><a href="iwis-chains.html">IWIS</a></li>
-          <li><a href="kmh-conveyor-pipe.html">KMH</a></li>
+          <li><a href="iwis-brand.html">IWIS</a></li>
+          <li><a href="kmh-brand.html">KMH</a></li>
           <li><a href="dongbo-chains.html">Dongbo</a></li>
+          <li><a href="uno-chains.html">UNO</a></li>
+          <li><a href="trio-forged-chain.html">TRIO</a></li>
         </ul>
       </div>
 
@@ -3871,7 +3897,6 @@
         <h4 data-i18n="footer-company-h">Company</h4>
         <ul class="footer-links">
           <li><a href="about.html" data-i18n="footer-about-mpc">About MPC</a></li>
-          <li><a href="portfolio.html" data-i18n="footer-portfolio">Portfolio</a></li>
           <li><a href="contact.html" data-i18n="footer-contact-us">Contact Us</a></li>
           <li><a href="contact.html" data-i18n="footer-get-quote">Get a Quote</a></li>
         </ul>
@@ -3929,15 +3954,16 @@
   });
 })();
 
-/* ---- Mobile Industries Sub-menu ---- */
+/* ---- Mobile sub-menus (Industries, Our Products) ---- */
 (function() {
-  var trigger = document.getElementById('mob-ind-trigger');
-  var sub = document.getElementById('mob-ind-sub');
-  if (!trigger || !sub) return;
-  trigger.addEventListener('click', function() {
-    var open = sub.classList.toggle('open');
-    trigger.classList.toggle('open', open);
-    trigger.setAttribute('aria-expanded', String(open));
+  document.querySelectorAll('.mobile-nav-trigger').forEach(function(trigger) {
+    var sub = trigger.nextElementSibling;
+    if (!sub) return;
+    trigger.addEventListener('click', function() {
+      var open = sub.classList.toggle('open');
+      trigger.classList.toggle('open', open);
+      trigger.setAttribute('aria-expanded', String(open));
+    });
   });
 })();
 
@@ -4134,7 +4160,7 @@ window.fbAsyncInit = function () {
 var FB_CONFIG = {
   pageId  : '1018130321389942',
   token   : 'YOUR_ACCESS_TOKEN',   /* ← paste your token here */
-  pageUrl : 'https://www.facebook.com/share/1ErTQWb5hF/',
+  pageUrl : 'https://www.facebook.com/profile.php?id=1018130321389942',
   limit   : 12,
   refresh : 15 * 60 * 1000
 };

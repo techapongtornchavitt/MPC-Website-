@@ -1,8 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
 <title>Facebook Live Feed — Setup Guide | MPC Website</title>
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -132,7 +133,7 @@
     <h2><span class="step-num">1</span> Find your Facebook Page ID</h2>
     <p>Your Page ID is the numeric identifier Facebook uses for your Page (e.g. <code>123456789012345</code>).</p>
     <ol>
-      <li>Go to your Facebook Page at <a href="https://www.facebook.com/share/1ErTQWb5hF/" target="_blank">facebook.com/share/1ErTQWb5hF</a></li>
+      <li>Go to your Facebook Page at <a href="https://www.facebook.com/profile.php?id=1018130321389942" target="_blank">facebook.com/profile.php?id=1018130321389942</a></li>
       <li>Click <strong>About</strong> in the left sidebar.</li>
       <li>Scroll down to <strong>Page Transparency</strong> — you will see <em>"Page ID: XXXXXXXXXXXXXXX"</em>.</li>
       <li>Copy that number — you'll use it in Step 4.</li>
@@ -187,7 +188,7 @@
 <pre><code>var FB_CONFIG = {
   pageId  : 'YOUR_PAGE_ID',          /* &lt;- Replace this */
   token   : 'YOUR_ACCESS_TOKEN',     /* &lt;- Replace this */
-  pageUrl : 'https://www.facebook.com/share/1ErTQWb5hF/',
+  pageUrl : 'https://www.facebook.com/profile.php?id=1018130321389942',
   limit   : 10,
   refresh : 15 * 60 * 1000
 };</code></pre>
@@ -195,7 +196,7 @@
 <pre><code>var FB_CONFIG = {
   pageId  : '123456789012345',       /* Your numeric Page ID   */
   token   : 'EAAxxxxxxxxxx...',      /* Your Page Access Token */
-  pageUrl : 'https://www.facebook.com/share/1ErTQWb5hF/',
+  pageUrl : 'https://www.facebook.com/profile.php?id=1018130321389942',
   limit   : 10,
   refresh : 15 * 60 * 1000
 };</code></pre>
