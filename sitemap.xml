@@ -460,5 +460,20 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+  <!-- Escalator Chains -->
+  <url>
+    <loc>https://motionpluscorp.com/escalator-chains.html</loc>
+    <xhtml:link rel="alternate" hreflang="th"         href="https://motionpluscorp.com/escalator-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="en"         href="https://motionpluscorp.com/escalator-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="de"         href="https://motionpluscorp.com/escalator-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="vi"         href="https://motionpluscorp.com/escalator-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="km"         href="https://motionpluscorp.com/escalator-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="lo"         href="https://motionpluscorp.com/escalator-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="my"         href="https://motionpluscorp.com/escalator-chains.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://motionpluscorp.com/escalator-chains.html"/>
+    <lastmod>2026-11-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
 

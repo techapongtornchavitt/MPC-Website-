@@ -42,29 +42,34 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons@6.15.0/css/flag-icons.min.css">
   <style>
     .pf-hero { background: linear-gradient(135deg, #003d7a 0%, #0056a4 60%, #0b1a2e 100%); }
-    .pf-intro { max-width: 760px; margin: 0 auto; text-align: center; color: var(--color-grey); font-size: 1.05rem; line-height: 1.85; }
-    .pf-section .section-eyebrow { display:flex; }
-    .pf-section h2 { margin-bottom: .5rem; }
-    .pf-desc { color: var(--color-grey); max-width: 720px; margin-bottom: 1.75rem; line-height: 1.7; }
+    .pf-head { text-align: center; margin: 2.5rem 0 1.5rem; }
+    .pf-head .section-eyebrow { justify-content: center; display: flex; }
+    .pf-head h2 span { color: var(--color-primary); }
     .pf-alt { background: var(--color-grey-lt); }
-    .pf-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+    .pf-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); gap: 1.25rem; }
     .pf-tile { display: block; width: 100%; padding: 0; border: 0; background: #e8eef5; border-radius: 12px; overflow: hidden; aspect-ratio: 4/3; cursor: zoom-in; transition: transform .25s ease, box-shadow .25s ease; }
     .pf-tile:hover, .pf-tile:focus-visible { transform: translateY(-4px); box-shadow: 0 14px 36px rgba(0,86,164,.18); outline: none; }
     .pf-tile:focus-visible { box-shadow: 0 0 0 3px #0056a4; }
     .pf-tile img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .pf-dls { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; max-width: 900px; margin: 0 auto; }
+    .pf-dl { display: flex; align-items: center; gap: .9rem; padding: 1.1rem 1.25rem; background: #fff; border: 1px solid rgba(0,86,164,.15); border-radius: 12px; color: var(--color-dark); text-decoration: none; transition: transform .25s, box-shadow .25s; }
+    .pf-dl:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,86,164,.14); }
+    .pf-dl svg { flex-shrink: 0; color: var(--color-primary); }
+    .pf-dl strong { display: block; }
+    .pf-dl small { color: var(--color-grey); }
     .pf-logos { list-style: none; margin: 1.5rem 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 1.5rem 2.5rem; align-items: center; justify-content: center; }
     .pf-logos img { height: 56px; width: auto; max-width: 160px; object-fit: contain; }
     .pf-lb { position: fixed; inset: 0; z-index: 10000; background: rgba(5,12,24,.92); display: none; align-items: center; justify-content: center; padding: 1.5rem; }
     .pf-lb.open { display: flex; }
-    .pf-lb figure { margin: 0; max-width: min(1100px, 100%); max-height: 100%; text-align: center; }
-    .pf-lb img { max-width: 100%; max-height: 78vh; border-radius: 8px; }
+    .pf-lb figure { margin: 0; max-width: min(1400px, 100%); max-height: 100%; text-align: center; }
+    .pf-lb img { max-width: 100%; max-height: 88vh; border-radius: 8px; }
     .pf-lb figcaption { color: rgba(255,255,255,.8); margin-top: .75rem; font-size: .92rem; }
     .pf-lb button { position: absolute; border: 0; background: rgba(255,255,255,.12); color: #fff; width: 46px; height: 46px; border-radius: 50%; font-size: 1.5rem; cursor: pointer; }
     .pf-lb button:hover { background: rgba(255,255,255,.25); }
     .pf-lb .pf-x { top: 1rem; right: 1rem; }
     .pf-lb .pf-prev { left: 1rem; top: 50%; transform: translateY(-50%); }
     .pf-lb .pf-next { right: 1rem; top: 50%; transform: translateY(-50%); }
-    @media (max-width: 600px) { .pf-grid { grid-template-columns: repeat(2, 1fr); gap: .6rem; } .pf-logos img { height: 44px; } }
+    @media (max-width: 600px) { .pf-grid { grid-template-columns: 1fr; gap: 1rem; } .pf-logos img { height: 44px; } }
   </style>
   <script type="application/ld+json">
   {"@context": "https://schema.org", "@graph": [{"@type": "CollectionPage", "url": "https://motionpluscorp.com/portfolio.html", "name": "Motion Plus Corporation Portfolio", "description": "Photos of Motion Plus Corporation field service, chain installation, inspection and shipping for cement, palm oil and sugar plants across Thailand and Southeast Asia. 20+ years of experience.", "isPartOf": {"@id": "https://motionpluscorp.com/#website"}}, {"@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://motionpluscorp.com/"}, {"@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://motionpluscorp.com/portfolio.html"}]}]}
@@ -92,6 +97,7 @@
             <a href="cement-industry.html"   class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-cement">Cement Industry</a>
             <a href="sugar-industry.html"    class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-sugar">Sugar Industry</a>
             <a href="palm-oil-industry.html" class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-palm">Palm Oil Industry</a>
+            <a href="escalator-chains.html" class="nav-dropdown-item" role="menuitem" data-i18n="nav-ind-escalator">Escalator Industry</a>
           </div>
         </div>
         <a href="portfolio.html" class="nav-link active" data-i18n="nav-portfolio">Portfolio</a>
@@ -101,15 +107,15 @@
             <span class="chevron" aria-hidden="true"></span>
           </button>
           <div class="nav-dropdown" role="menu">
-            <a href="products.html" class="nav-dropdown-item" role="menuitem" data-i18n="prod-view-all">View All Products →</a>
-            <a href="iwis-chains.html" class="nav-dropdown-item" role="menuitem">IWIS Roller Chains</a>
-            <a href="iwis-conveyor-chains.html" class="nav-dropdown-item" role="menuitem">IWIS Conveyor Chains</a>
+            <a href="products.html" class="nav-dropdown-item" role="menuitem" data-i18n="prod-view-all">View All Products</a>
+            <a href="iwis-chains.html" class="nav-dropdown-item" role="menuitem" data-i18n="nav-p-iwis-roller">IWIS Roller Chains</a>
+            <a href="iwis-conveyor-chains.html" class="nav-dropdown-item" role="menuitem" data-i18n="nav-p-iwis-conveyor">IWIS Conveyor Chains</a>
             <a href="hs-conveyor-chains.html" class="nav-dropdown-item" role="menuitem">HS Chain</a>
             <a href="dongbo-chains.html" class="nav-dropdown-item" role="menuitem">Dongbo Chains</a>
             <a href="uno-chains.html" class="nav-dropdown-item" role="menuitem">UNO Chain</a>
-            <a href="forged-chains.html" class="nav-dropdown-item" role="menuitem">Forged Chains</a>
+            <a href="forged-chains.html" class="nav-dropdown-item" role="menuitem" data-i18n="prod-tab-forged">Forged Chains</a>
             <a href="kmh-conveyor-pipe.html" class="nav-dropdown-item" role="menuitem">KMH Pipe Conveyor</a>
-            <a href="sprockets-pulley.html" class="nav-dropdown-item" role="menuitem">Sprockets &amp; Pulley</a>
+            <a href="sprockets-pulley.html" class="nav-dropdown-item" role="menuitem" data-i18n="prod-cat5-title">Sprockets &amp; Pulley</a>
           </div>
         </div>
         <a href="resources.html" class="nav-link" data-i18n="nav-resources">Resources</a>
@@ -177,6 +183,7 @@
         <a href="cement-industry.html"   class="nav-link" data-i18n="nav-ind-cement">Cement Industry</a>
         <a href="sugar-industry.html"    class="nav-link" data-i18n="nav-ind-sugar">Sugar Industry</a>
         <a href="palm-oil-industry.html" class="nav-link" data-i18n="nav-ind-palm">Palm Oil Industry</a>
+        <a href="escalator-chains.html" class="nav-link" data-i18n="nav-ind-escalator">Escalator Industry</a>
       </div>
     </div>
     <a href="portfolio.html" class="nav-link active" data-i18n="nav-portfolio">Portfolio</a>
@@ -186,15 +193,15 @@
         <span class="m-chevron" aria-hidden="true"></span>
       </button>
       <div class="mobile-nav-sub">
-        <a href="products.html" class="nav-link" data-i18n="prod-view-all">View All Products →</a>
-        <a href="iwis-chains.html" class="nav-link">IWIS Roller Chains</a>
-        <a href="iwis-conveyor-chains.html" class="nav-link">IWIS Conveyor Chains</a>
+        <a href="products.html" class="nav-link" data-i18n="prod-view-all">View All Products</a>
+        <a href="iwis-chains.html" class="nav-link" data-i18n="nav-p-iwis-roller">IWIS Roller Chains</a>
+        <a href="iwis-conveyor-chains.html" class="nav-link" data-i18n="nav-p-iwis-conveyor">IWIS Conveyor Chains</a>
         <a href="hs-conveyor-chains.html" class="nav-link">HS Chain</a>
         <a href="dongbo-chains.html" class="nav-link">Dongbo Chains</a>
         <a href="uno-chains.html" class="nav-link">UNO Chain</a>
-        <a href="forged-chains.html" class="nav-link">Forged Chains</a>
+        <a href="forged-chains.html" class="nav-link" data-i18n="prod-tab-forged">Forged Chains</a>
         <a href="kmh-conveyor-pipe.html" class="nav-link">KMH Pipe Conveyor</a>
-        <a href="sprockets-pulley.html" class="nav-link">Sprockets &amp; Pulley</a>
+        <a href="sprockets-pulley.html" class="nav-link" data-i18n="prod-cat5-title">Sprockets &amp; Pulley</a>
       </div>
     </div>
     <a href="resources.html" class="nav-link" data-i18n="nav-resources">Resources</a>
@@ -206,60 +213,46 @@
 <!-- Inner Hero -->
 <section class="inner-hero pf-hero">
   <div class="container inner-hero-content">
-    <span class="section-eyebrow">ผลงานและประสบการณ์</span>
-    <h1>Our Portfolio</h1>
-    <p class="hero-sub-text">20+ years of chain supply, field service and installation across Thailand and Southeast Asia.</p>
+    <span class="section-eyebrow" data-i18n="port-eyebrow">Our Work</span>
+    <h1 data-i18n="port-h1">Our Projects</h1>
   </div>
 </section>
 
 <section class="section">
   <div class="container">
-    <p class="pf-intro">Motion Plus Corporation has supplied and serviced industrial chains for cement, palm oil and sugar plants since 2004. These photos show our field service team, project sites and deliveries. Tap any photo to enlarge it.</p>
+    <div class="pf-head" style="margin-top:0;">
+      <span class="section-eyebrow" data-i18n="port-strip-eyebrow">Our Work in the Field</span>
+      <h2 data-i18n="port-strip-h2">More than <span>20 years</span> of experience</h2>
+    </div>
+    <ul class="pf-grid"><li><button type="button" class="pf-tile" data-full="Portfolio%20image2.jpg.webp" data-alt="MPC field service – chain inspection"><img src="Portfolio%20image2.jpg.webp" alt="MPC field service – chain inspection" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image5.jpg.webp" data-alt="MPC field service – precision measurement"><img src="Portfolio%20image5.jpg.webp" alt="MPC field service – precision measurement" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image.webp" data-alt="MPC field service – conveyor installation"><img src="Portfolio%20image.webp" alt="MPC field service – conveyor installation" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="field-service-new.jpg" data-alt="MPC field service – industrial chain inspection"><img src="field-service-new.jpg" alt="MPC field service – industrial chain inspection" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20experience.jpg" data-alt="MPC field service at a customer plant"><img src="Portfolio%20experience.jpg" alt="MPC field service at a customer plant" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20experience%201.jpg" data-alt="MPC field service team on site"><img src="Portfolio%20experience%201.jpg" alt="MPC field service team on site" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20experience%202.jpg" data-alt="MPC field service experience"><img src="Portfolio%20experience%202.jpg" alt="MPC field service experience" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image1.webp" data-alt="MPC field service photo 1"><img src="Portfolio%20image1.webp" alt="MPC field service photo 1" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image3.jpg.webp" data-alt="MPC field service photo 3"><img src="Portfolio%20image3.jpg.webp" alt="MPC field service photo 3" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image4.jpg.webp" data-alt="MPC field service photo 4"><img src="Portfolio%20image4.jpg.webp" alt="MPC field service photo 4" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image6.jpg.webp" data-alt="MPC field service photo 6"><img src="Portfolio%20image6.jpg.webp" alt="MPC field service photo 6" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-3.jpg" data-alt="Palm oil industry chain installation"><img src="mpc-portfolio-3.jpg" alt="Palm oil industry chain installation" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-5.jpg" data-alt="Industrial chain application"><img src="mpc-portfolio-5.jpg" alt="Industrial chain application" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-8.jpg" data-alt="Cement plant chain system"><img src="mpc-portfolio-8.jpg" alt="Cement plant chain system" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="group%20photo.webp" data-alt="Motion Plus Corporation team group photo"><img src="group%20photo.webp" alt="Motion Plus Corporation team group photo" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-10.webp" data-alt="Palm oil industry chain"><img src="mpc-portfolio-10.webp" alt="Palm oil industry chain" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-11.webp" data-alt="Industrial chain solution"><img src="mpc-portfolio-11.webp" alt="Industrial chain solution" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-12.webp" data-alt="Industrial chain supply"><img src="mpc-portfolio-12.webp" alt="Industrial chain supply" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%201.jpg" data-alt="MPC shipping and delivery 1"><img src="Portfolio%20shipping%201.jpg" alt="MPC shipping and delivery 1" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%202.jpg" data-alt="MPC shipping and delivery 2"><img src="Portfolio%20shipping%202.jpg" alt="MPC shipping and delivery 2" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%203.jpg" data-alt="MPC shipping and delivery 3"><img src="Portfolio%20shipping%203.jpg" alt="MPC shipping and delivery 3" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%204.jpg" data-alt="MPC shipping and delivery 4"><img src="Portfolio%20shipping%204.jpg" alt="MPC shipping and delivery 4" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%205.jpg" data-alt="MPC shipping and delivery 5"><img src="Portfolio%20shipping%205.jpg" alt="MPC shipping and delivery 5" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%206.jpg" data-alt="MPC shipping and delivery 6"><img src="Portfolio%20shipping%206.jpg" alt="MPC shipping and delivery 6" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%207.jpg" data-alt="MPC shipping and delivery 7"><img src="Portfolio%20shipping%207.jpg" alt="MPC shipping and delivery 7" loading="lazy" decoding="async"></button></li></ul>
   </div>
 </section>
 
-<section class="section pf-section">
+<section class="section pf-alt">
   <div class="container">
-    <span class="section-eyebrow">บริการภาคสนามและการตรวจสอบโซ่</span>
-    <h2>Field Service &amp; Inspection</h2>
-    <p class="pf-desc">On-site chain inspection, precision measurement, installation support and maintenance at customer plants.</p>
-    <ul class="pf-grid"><li><button type="button" class="pf-tile" data-full="Portfolio%20image2.jpg.webp" data-alt="MPC field service – chain inspection"><img src="Portfolio%20image2.jpg.webp" alt="MPC field service – chain inspection" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image5.jpg.webp" data-alt="MPC field service – precision measurement"><img src="Portfolio%20image5.jpg.webp" alt="MPC field service – precision measurement" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image.webp" data-alt="MPC field service – conveyor installation"><img src="Portfolio%20image.webp" alt="MPC field service – conveyor installation" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="field-service-new.jpg" data-alt="MPC field service – industrial chain inspection"><img src="field-service-new.jpg" alt="MPC field service – industrial chain inspection" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20experience.jpg" data-alt="MPC field service at a customer plant"><img src="Portfolio%20experience.jpg" alt="MPC field service at a customer plant" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20experience%201.jpg" data-alt="MPC field service team on site"><img src="Portfolio%20experience%201.jpg" alt="MPC field service team on site" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20experience%202.jpg" data-alt="MPC field service experience"><img src="Portfolio%20experience%202.jpg" alt="MPC field service experience" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image1.webp" data-alt="MPC field service photo 1"><img src="Portfolio%20image1.webp" alt="MPC field service photo 1" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image3.jpg.webp" data-alt="MPC field service photo 3"><img src="Portfolio%20image3.jpg.webp" alt="MPC field service photo 3" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image4.jpg.webp" data-alt="MPC field service photo 4"><img src="Portfolio%20image4.jpg.webp" alt="MPC field service photo 4" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20image6.jpg.webp" data-alt="MPC field service photo 6"><img src="Portfolio%20image6.jpg.webp" alt="MPC field service photo 6" loading="lazy" decoding="async"></button></li></ul>
-  </div>
-</section>
-
-<section class="section pf-section pf-alt">
-  <div class="container">
-    <span class="section-eyebrow">ผลงานในอุตสาหกรรมต่าง ๆ</span>
-    <h2>Projects Across Industries</h2>
-    <p class="pf-desc">Chain supply and installation for palm oil mills, cement plants, sugar mills and heavy industry.</p>
-    <ul class="pf-grid"><li><button type="button" class="pf-tile" data-full="mpc-portfolio-3.jpg" data-alt="Palm oil industry chain installation"><img src="mpc-portfolio-3.jpg" alt="Palm oil industry chain installation" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-5.jpg" data-alt="Industrial chain application"><img src="mpc-portfolio-5.jpg" alt="Industrial chain application" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-8.jpg" data-alt="Cement plant chain system"><img src="mpc-portfolio-8.jpg" alt="Cement plant chain system" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="group%20photo.webp" data-alt="Motion Plus Corporation team group photo"><img src="group%20photo.webp" alt="Motion Plus Corporation team group photo" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-10.webp" data-alt="Palm oil industry chain"><img src="mpc-portfolio-10.webp" alt="Palm oil industry chain" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-11.webp" data-alt="Industrial chain solution"><img src="mpc-portfolio-11.webp" alt="Industrial chain solution" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="mpc-portfolio-12.webp" data-alt="Industrial chain supply"><img src="mpc-portfolio-12.webp" alt="Industrial chain supply" loading="lazy" decoding="async"></button></li></ul>
-  </div>
-</section>
-
-<section class="section pf-section">
-  <div class="container">
-    <span class="section-eyebrow">การจัดส่งสินค้า</span>
-    <h2>Shipping &amp; Delivery</h2>
-    <p class="pf-desc">Packing and delivery of industrial chains and components to customers across Thailand and Southeast Asia.</p>
-    <ul class="pf-grid"><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%201.jpg" data-alt="MPC shipping and delivery 1"><img src="Portfolio%20shipping%201.jpg" alt="MPC shipping and delivery 1" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%202.jpg" data-alt="MPC shipping and delivery 2"><img src="Portfolio%20shipping%202.jpg" alt="MPC shipping and delivery 2" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%203.jpg" data-alt="MPC shipping and delivery 3"><img src="Portfolio%20shipping%203.jpg" alt="MPC shipping and delivery 3" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%204.jpg" data-alt="MPC shipping and delivery 4"><img src="Portfolio%20shipping%204.jpg" alt="MPC shipping and delivery 4" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%205.jpg" data-alt="MPC shipping and delivery 5"><img src="Portfolio%20shipping%205.jpg" alt="MPC shipping and delivery 5" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%206.jpg" data-alt="MPC shipping and delivery 6"><img src="Portfolio%20shipping%206.jpg" alt="MPC shipping and delivery 6" loading="lazy" decoding="async"></button></li><li><button type="button" class="pf-tile" data-full="Portfolio%20shipping%207.jpg" data-alt="MPC shipping and delivery 7"><img src="Portfolio%20shipping%207.jpg" alt="MPC shipping and delivery 7" loading="lazy" decoding="async"></button></li></ul>
+    <div class="pf-head" style="margin-top:0;">
+      <span class="section-eyebrow" data-i18n="port-dl-eyebrow">Resources</span>
+      <h2 data-i18n="port-dl-h2">Download Our Resources</h2>
+    </div>
+    <div class="pf-dls"><a class="pf-dl" href="Motion%20Plus%20Brochure.pdf" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span><strong data-i18n="port-dl-brochure">Download Brochure</strong><small data-i18n="port-dl-brochure-sub">Product overview &amp; specifications</small></span></a><a class="pf-dl" href="Motion%20Plus%20Corporation_Company%20Profile%20%28THA%29%20.pdf" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span><strong data-i18n="port-dl-profile">Download Company Profile</strong><small data-i18n="port-dl-profile-sub">Company overview (Thai)</small></span></a><a class="pf-dl" href="Motion%20Plus%20Corporation_Company%20Profile%20%28Eng%29%20.pdf" target="_blank" rel="noopener"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg><span><strong data-i18n="port-dl-eng-title">View Company Profile</strong><small data-i18n="port-dl-eng-sub">Company overview (English)</small></span></a></div>
   </div>
 </section>
 
 <section class="section">
   <div class="container" style="text-align:center;">
-    <span class="section-eyebrow" style="justify-content:center;display:flex;">Our Customers</span>
-    <h2>Trusted by Leading Companies</h2>
+    <span class="section-eyebrow" style="justify-content:center;display:flex;" data-i18n="customers-eyebrow">Our Customers</span>
+    <h2 data-i18n="customers-h2">We love our customers</h2>
     <ul class="pf-logos"><li><img src="scg-logo.webp" alt="SCG — Siam Cement Group" loading="lazy" decoding="async"></li><li><img src="trr-logo.webp" alt="TRR — Thai Roong Ruang Sugar Group" loading="lazy" decoding="async"></li><li><img src="asian-palm-oil-logo.webp" alt="Asian Palm Oil Public Company Limited" loading="lazy" decoding="async"></li><li><img src="noodle-logo.webp" alt="Thai Preserved Food Factory Company Limited" loading="lazy" decoding="async"></li><li><img src="BJC%20logo.png" alt="BJC — Berli Jucker" loading="lazy" decoding="async"></li><li><img src="malee%20logo.png" alt="Malee Group" loading="lazy" decoding="async"></li><li><img src="Kubota%20Logo.png" alt="Kubota" loading="lazy" decoding="async"></li><li><img src="tpi-logo.png" alt="TPI Polene Public Company Limited" loading="lazy" decoding="async"></li></ul>
   </div>
 </section>
 
 <section class="cta-block">
   <div class="container">
-    <span class="section-eyebrow" style="color:rgba(255,255,255,.5); justify-content:center; display:flex;" data-i18n="abt-cta-eyebrow">Get Started</span>
-    <h2 data-i18n="abt-cta-h2">Ready to Work with MPC?</h2>
-    <p data-i18n="abt-cta-p">Contact our team to discuss your requirements. We'll find the right chain solution for your application.</p>
+    <span class="section-eyebrow" style="color:rgba(255,255,255,.5); justify-content:center; display:flex;" data-i18n="port-cta-eyebrow">Let's Work Together</span>
+    <h2 data-i18n="port-cta-h2">Have a Project in Mind?</h2>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-primary" data-i18n="abt-cta-btn">Get in Touch</a>
+      <a href="contact.html" class="btn-primary" data-i18n="port-cta-btn1">Start a Conversation</a>
+      <a href="about.html" class="btn-outline-white" data-i18n="port-cta-btn2">Learn About MPC</a>
     </div>
   </div>
 </section>
@@ -318,6 +311,7 @@
           <li><a href="dongbo-chains.html">Dongbo</a></li>
           <li><a href="uno-chains.html">UNO</a></li>
           <li><a href="trio-forged-chain.html">TRIO</a></li>
+          <li><a href="escalator-chains.html" data-i18n="footer-escalator">Escalator Chains</a></li>
         </ul>
       </div>
       <div class="footer-col">
