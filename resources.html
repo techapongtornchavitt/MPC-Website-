@@ -461,6 +461,40 @@
 ]}
   </script>
   <script src="interactions.js" defer></script>
+  <style id="res-spacious">
+    /* Roomier layout: more air between sections, bigger cards, bigger text */
+    .res-main { padding: 3.5rem 0 8rem; }
+    .res-jump { background: #fff; border-bottom: 1px solid rgba(0,86,164,.1); padding: 1.25rem 0; }
+    .res-jump .container { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem; }
+    .res-jump-lbl { font-weight: 700; font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: #6b7d90; }
+    .res-jump-chips { display: flex; flex-wrap: wrap; gap: .6rem; flex: 1; }
+    .res-chip { display: inline-flex; align-items: center; gap: .55rem; padding: .5rem .9rem; border-radius: 100px; border: 1.5px solid rgba(0,86,164,.22); background: #fff; color: #0056a4; font-weight: 700; font-size: .86rem; text-decoration: none; transition: background .2s, color .2s; }
+    .res-chip em { font-style: normal; font-size: .75rem; background: rgba(0,86,164,.1); border-radius: 100px; padding: .08rem .55rem; }
+    .res-chip:hover, .res-chip:focus-visible { background: #0056a4; color: #fff; outline: none; }
+    .res-chip:hover em, .res-chip:focus-visible em { background: rgba(255,255,255,.25); }
+    .res-jump-actions { display: flex; gap: .5rem; }
+    .res-jump-actions button { border: 0; background: transparent; color: #6b7d90; font: inherit; font-size: .85rem; font-weight: 700; cursor: pointer; padding: .4rem .7rem; border-radius: 8px; }
+    .res-jump-actions button:hover { background: rgba(0,86,164,.08); color: #0056a4; }
+    .ind-section { margin-bottom: 2.5rem; border-radius: 22px; scroll-margin-top: 90px; }
+    .ind-sec-hdr { padding: 2rem 2.5rem; gap: 1.4rem; }
+    .ind-sec-title { font-size: clamp(1.3rem, 2.2vw, 1.65rem); }
+    .ind-sec-body-inner { padding: 2.75rem 2.5rem 3.25rem; }
+    .brand-group { margin-bottom: 0; }
+    .brand-group + .brand-group { margin-top: 3rem; padding-top: 2.75rem; border-top: 1px solid rgba(0,86,164,.1); }
+    .brand-grp-hdr { margin-bottom: 1.4rem; gap: 1rem; }
+    .rl-grid { grid-template-columns: repeat(auto-fill, minmax(min(100%, 360px), 1fr)); gap: 1.5rem; }
+    .rl-card-top { padding: 1.1rem 1.35rem; }
+    .rl-card-body { padding: 1.35rem 1.5rem 1.6rem; gap: .5rem; }
+    .rl-title { font-size: 1.05rem; line-height: 1.45; }
+    .rl-subtitle { font-size: .9rem; line-height: 1.6; }
+    @media (max-width: 640px) {
+      .res-main { padding: 2.25rem 0 6rem; }
+      .ind-section { margin-bottom: 1.5rem; }
+      .ind-sec-hdr { padding: 1.4rem 1.25rem; }
+      .ind-sec-body-inner { padding: 1.75rem 1.25rem 2.25rem; }
+      .res-jump-actions { width: 100%; }
+    }
+  </style>
 </head>
 <body>
 
@@ -625,6 +659,25 @@
   </div>
 </section>
 
+
+<!-- ══ JUMP BAR ══ -->
+<section class="res-jump" aria-label="Resource sections">
+  <div class="container">
+    <span class="res-jump-lbl" data-i18n="res-jump">Jump to</span>
+    <div class="res-jump-chips">
+      <a href="#sec-cement" class="res-chip"><span data-i18n="nav-ind-cement">Cement Industry</span><em>5</em></a>
+      <a href="#sec-palmoil" class="res-chip"><span data-i18n="nav-ind-palm">Palm Oil Industry</span><em>3</em></a>
+      <a href="#sec-conveyor" class="res-chip"><span>KMH</span><em>1</em></a>
+      <a href="#sec-brands" class="res-chip"><span data-i18n="res-brand-cat-h2">Brand Catalogs</span><em>7</em></a>
+      <a href="#sec-company" class="res-chip"><span data-i18n="res-company-h2">Company Resources</span><em>3</em></a>
+    </div>
+    <div class="res-jump-actions">
+      <button type="button" id="res-expand" data-i18n="res-expand-all">Expand all</button>
+      <button type="button" id="res-collapse" data-i18n="res-collapse-all">Collapse all</button>
+    </div>
+  </div>
+</section>
+
 <!-- ══════════════════════════════════════════
      RESOURCE LIBRARY
 ══════════════════════════════════════════ -->
@@ -635,9 +688,9 @@
     <!-- ═══════════════════════════════════════════════
          01 &mdash; CEMENT INDUSTRY
     ════════════════════════════════════════════════ -->
-    <div class="ind-section" id="sec-cement" data-ind="cement" data-expanded="true">
+    <div class="ind-section" id="sec-cement" data-ind="cement" data-expanded="false">
 
-      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-cement" aria-expanded="true">
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-cement" aria-expanded="false">
         <div class="ind-sec-icon-wrap" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
         </div>
@@ -657,7 +710,7 @@
             <span class="ind-sec-doc-num">5</span>
             <span class="ind-sec-doc-lbl" data-i18n="res-doc-lbl-pl">Docs</span>
           </div>
-          <button class="ind-sec-toggle" aria-expanded="true">
+          <button class="ind-sec-toggle" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
         </div>
@@ -787,9 +840,9 @@
     <!-- ═══════════════════════════════════════════════
          02 &mdash; PALM OIL INDUSTRY
     ════════════════════════════════════════════════ -->
-    <div class="ind-section" id="sec-palmoil" data-ind="palmoil" data-expanded="true">
+    <div class="ind-section" id="sec-palmoil" data-ind="palmoil" data-expanded="false">
 
-      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-palmoil" aria-expanded="true">
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-palmoil" aria-expanded="false">
         <div class="ind-sec-icon-wrap" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/></svg>
         </div>
@@ -809,7 +862,7 @@
             <span class="ind-sec-doc-num">3</span>
             <span class="ind-sec-doc-lbl" data-i18n="res-doc-lbl-pl">Docs</span>
           </div>
-          <button class="ind-sec-toggle" aria-expanded="true">
+          <button class="ind-sec-toggle" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
         </div>
@@ -901,9 +954,9 @@
     <!-- ═══════════════════════════════════════════════
          03 &mdash; CONVEYOR SYSTEMS
     ════════════════════════════════════════════════ -->
-    <div class="ind-section" id="sec-conveyor" data-ind="conveyor" data-expanded="true">
+    <div class="ind-section" id="sec-conveyor" data-ind="conveyor" data-expanded="false">
 
-      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-conveyor" aria-expanded="true">
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-conveyor" aria-expanded="false">
         <div class="ind-sec-icon-wrap" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="10" x2="18" y2="10"/><line x1="6" y1="14" x2="18" y2="14"/><ellipse cx="6" cy="12" rx="2" ry="4"/><ellipse cx="18" cy="12" rx="2" ry="4"/></svg>
         </div>
@@ -924,7 +977,7 @@
             <span class="ind-sec-doc-num">1</span>
             <span class="ind-sec-doc-lbl" data-i18n="res-doc-lbl-sg">Doc</span>
           </div>
-          <button class="ind-sec-toggle" aria-expanded="true">
+          <button class="ind-sec-toggle" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
         </div>
@@ -978,9 +1031,9 @@
     <!-- ═══════════════════════════════════════════════
          04 &mdash; BRAND CATALOGS  (multi-industry reference)
     ════════════════════════════════════════════════ -->
-    <div class="ind-section" id="sec-brands" data-ind="brands" data-expanded="true">
+    <div class="ind-section" id="sec-brands" data-ind="brands" data-expanded="false">
 
-      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-brands" aria-expanded="true">
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-brands" aria-expanded="false">
         <div class="ind-sec-icon-wrap" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
         </div>
@@ -1003,7 +1056,7 @@
             <span class="ind-sec-doc-num">7</span>
             <span class="ind-sec-doc-lbl" data-i18n="res-doc-lbl-pl">Docs</span>
           </div>
-          <button class="ind-sec-toggle" aria-expanded="true">
+          <button class="ind-sec-toggle" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
         </div>
@@ -1223,9 +1276,9 @@
     <!-- ═══════════════════════════════════════════════
          05 &mdash; COMPANY RESOURCES
     ════════════════════════════════════════════════ -->
-    <div class="ind-section" id="sec-company" data-ind="company" data-expanded="true">
+    <div class="ind-section" id="sec-company" data-ind="company" data-expanded="false">
 
-      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-company" aria-expanded="true">
+      <div class="ind-sec-hdr" role="button" tabindex="0" aria-controls="body-company" aria-expanded="false">
         <div class="ind-sec-icon-wrap" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
         </div>
@@ -1245,7 +1298,7 @@
             <span class="ind-sec-doc-num">3</span>
             <span class="ind-sec-doc-lbl" data-i18n="res-doc-lbl-pl">Docs</span>
           </div>
-          <button class="ind-sec-toggle" aria-expanded="true">
+          <button class="ind-sec-toggle" aria-expanded="false">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
           </button>
         </div>
@@ -1501,6 +1554,37 @@
       trigger.setAttribute('aria-expanded', String(open));
     });
   });
+})();
+</script>
+<script>
+/* Resources: collapsed sections, jump bar, expand / collapse all */
+(function () {
+  var secs = [].slice.call(document.querySelectorAll('.ind-section'));
+  function setState(sec, open) {
+    var hdr = sec.querySelector('.ind-sec-hdr'), t = sec.querySelector('.ind-sec-toggle');
+    sec.setAttribute('data-expanded', open ? 'true' : 'false');
+    if (hdr) hdr.setAttribute('aria-expanded', String(open));
+    if (t) t.setAttribute('aria-expanded', String(open));
+  }
+  function openFromHash() {
+    var id = location.hash.slice(1), el = id && document.getElementById(id);
+    if (el && el.classList.contains('ind-section')) setState(el, true);
+  }
+  openFromHash();
+  window.addEventListener('hashchange', openFromHash);
+  [].slice.call(document.querySelectorAll('.res-chip')).forEach(function (chip) {
+    chip.addEventListener('click', function (e) {
+      var el = document.getElementById(chip.getAttribute('href').slice(1));
+      if (!el) return;
+      e.preventDefault();
+      setState(el, true);
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      try { history.replaceState(null, '', '#' + el.id); } catch (err) {}
+    });
+  });
+  var ex = document.getElementById('res-expand'), co = document.getElementById('res-collapse');
+  if (ex) ex.addEventListener('click', function () { secs.forEach(function (x) { setState(x, true); }); });
+  if (co) co.addEventListener('click', function () { secs.forEach(function (x) { setState(x, false); }); });
 })();
 </script>
 </body>
